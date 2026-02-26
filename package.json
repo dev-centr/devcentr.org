@@ -1,0 +1,23 @@
+{
+  "name": "devcntr.org",
+  "type": "module",
+  "scripts": {
+    "dev": "vinxi dev",
+    "build": "vinxi build",
+    "start": "vinxi start"
+  },
+  "dependencies": {
+    "@rive-app/canvas": "^2.35.0",
+    "@solidjs/meta": "^0.29.4",
+    "@solidjs/router": "^0.14.10",
+    "@solidjs/start": "^1.1.0",
+    "@types/three": "^0.182.0",
+    "lottie-web": "^5.13.0",
+    "solid-js": "^1.9.5",
+    "three": "^0.182.0",
+    "vinxi": "^0.5.7"
+  },
+  "engines": {
+    "node": ">=22"
+  }
+}
