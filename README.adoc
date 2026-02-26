@@ -1,0 +1,33 @@
+= devcntr.org
+
+The official organization landing page for link:https://github.com/devcntr-org[DevCntr].
+
+== 🌍 Domain
+
+* **URL:** link:https://devcntr.org[devcntr.org]
+
+== 🛠️ Stack
+
+* **Framework:** link:https://start.solidjs.com/[SolidStart] (Solid.js full-stack)
+* **Engine:** link:https://vinxi.vercel.app/[Vinxi]
+* **Language:** TypeScript
+* **Package Manager:** pnpm
+
+== 🚀 Getting Started
+
+[source,bash]
+----
+pnpm install
+pnpm dev
+----
+
+== 📂 Project Structure
+
+* `src/` — Source code (scaffolded)
+* `public/` — Static assets
+* `app.config.ts` — SolidStart/Vinxi configuration
+* `DESIGN.md` — Design philosophy and guidelines
+
+== 📝 Site Generation
+
+To iterate on the design, provide the `SITE-GENERATION-PROMPT.md` to a design-capable AI.
