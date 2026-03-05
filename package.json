@@ -1,5 +1,5 @@
 {
-  "name": "devcntr.org",
+  "name": "devcentr.org",
   "type": "module",
   "scripts": {
     "dev": "vinxi dev",

@@ -1,4 +1,4 @@
-# Design System for devcntr.app
+# Design System for devcentr.app
 
 ## Overview
 A professional, developer-focused design with a modern, high-tech aesthetic. Dark mode first.
