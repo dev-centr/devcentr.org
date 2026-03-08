@@ -1,0 +1,37 @@
+= Walkthrough: .vscode and GitHub CI/CD
+
+This document records the project-specific setup for editor configuration and continuous integration for the devcentr.org repository.
+
+== Decision: .vscode only (no code-workspace)
+
+* Chosen approach: use a committed `.vscode` folder in this repo only. No multi-root `.code-workspace` file.
+* Rationale: Single-repo project; shared settings and recommended extensions live in `.vscode` so all contributors get the same editor behavior and hints.
+
+== What was added
+
+=== .vscode (committed)
+
+* `.vscode/settings.json` — project settings: dprint as default formatter, format on save for TypeScript/TSX/JSON/JSONC.
+* `.vscode/extensions.json` — recommended extensions: `dprint.dprint`, `solidjs-community.solid-js`.
+
+`.vscode` is not in `.gitignore` in this repo, so these files are versioned.
+
+=== GitHub Actions CI
+
+* Workflow file: `.github/workflows/ci.yml`
+* Triggers: push and pull_request to `main`
+* Job: Ubuntu, Node 22, pnpm 9; `pnpm install --frozen-lockfile` then `pnpm run build`
+* A lockfile (`pnpm-lock.yaml`) is committed so CI uses a reproducible install.
+
+== Other dev-centr projects
+
+Some other repos under `dev-centr` have `.vscode/` in their `.gitignore` (e.g. `docs`, `issue-tracker`, `github-actions-editor`). This repo does not ignore `.vscode`; standardizing others would require removing that ignore and adding a shared or repo-specific `.vscode` there.
+
+== Summary
+
+| Item              | Result |
+|-------------------|--------|
+| Workspace style   | .vscode only, no .code-workspace |
+| .vscode committed | Yes (settings.json, extensions.json) |
+| CI/CD             | GitHub Actions on push/PR to main; install + build |
+| Lockfile          | pnpm-lock.yaml committed for CI |
