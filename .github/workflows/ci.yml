@@ -1,4 +1,4 @@
-# CI for devcentr.org — install, build, optional format check
+# CI for devcentr.org — build; deploy to GitHub Pages on push to main
 name: CI
 
 on:
@@ -10,6 +10,11 @@ on:
 defaults:
   run:
     shell: bash
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
 
 jobs:
   build:
@@ -33,3 +38,23 @@ jobs:
 
       - name: Build
         run: pnpm run build
+
+      - name: Add .nojekyll for GitHub Pages
+        run: touch .output/public/.nojekyll
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: .output/public
+
+  deploy:
+    if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4

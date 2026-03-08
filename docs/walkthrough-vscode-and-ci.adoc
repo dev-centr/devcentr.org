@@ -16,12 +16,16 @@ This document records the project-specific setup for editor configuration and co
 
 `.vscode` is not in `.gitignore` in this repo, so these files are versioned.
 
-=== GitHub Actions CI
+=== GitHub Actions CI and deploy
 
 * Workflow file: `.github/workflows/ci.yml`
 * Triggers: push and pull_request to `main`
-* Job: Ubuntu, Node 22, pnpm 9; `pnpm install --frozen-lockfile` then `pnpm run build`
-* A lockfile (`pnpm-lock.yaml`) is committed so CI uses a reproducible install.
+* Build job: Ubuntu, Node 22, pnpm 9; `pnpm install --frozen-lockfile` then `pnpm run build`. Static build output is in `.output/public`. A `.nojekyll` file is added there so GitHub Pages serves `_build` and `_server` correctly.
+* Deploy job (runs only on push to `main`): uploads `.output/public` as the Pages artifact and deploys via `actions/deploy-pages`. Requires GitHub Pages to be set to "Deploy from a GitHub Actions workflow" in the repo Settings → Pages. Custom domain (e.g. devcentr.org) can be set there.
+
+=== Static build (app.config.ts)
+
+* `ssr: false` and `server: { preset: "static", static: true }` so the site is built as static files for GitHub Pages (or any static host). The previous 503 at the live URL was because the app was not deployed; the workflow now deploys the static build on every push to `main`.
 
 == Other dev-centr projects
 
@@ -33,5 +37,6 @@ Some other repos under `dev-centr` have `.vscode/` in their `.gitignore` (e.g. `
 |-------------------|--------|
 | Workspace style   | .vscode only, no .code-workspace |
 | .vscode committed | Yes (settings.json, extensions.json) |
-| CI/CD             | GitHub Actions on push/PR to main; install + build |
+| CI/CD             | GitHub Actions: build on push/PR; deploy to GitHub Pages on push to main |
+| Build output      | Static (`.output/public`) for Pages |
 | Lockfile          | pnpm-lock.yaml committed for CI |
