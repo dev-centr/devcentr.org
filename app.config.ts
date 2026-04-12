@@ -1,3 +1,4 @@
+import tailwindcss from "@tailwindcss/vite";
 import { defineConfig } from "@solidjs/start/config";
 
 export default defineConfig({
@@ -5,5 +6,8 @@ export default defineConfig({
   server: {
     preset: "static",
     static: true,
+  },
+  vite: {
+    plugins: [tailwindcss()],
   },
 });
