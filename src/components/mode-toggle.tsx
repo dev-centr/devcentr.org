@@ -40,15 +40,20 @@ function MoonIcon(props: { class?: string }) {
 }
 
 export function ModeToggle() {
-  const { toggleColorMode } = useColorMode();
+  const { colorMode, setColorMode } = useColorMode();
+
+  const handleClick = () => {
+    const resolved = colorMode();
+    setColorMode(resolved === "dark" ? "light" : "dark");
+  };
 
   return (
     <Button
       variant="outline"
       size="icon"
-      class="relative shrink-0 rounded-sm border-border bg-background/80 backdrop-blur-sm"
-      onClick={toggleColorMode}
-      aria-label="Toggle color theme"
+      class="relative shrink-0 rounded-sm border-border/70 bg-background/70 backdrop-blur-sm"
+      onClick={handleClick}
+      aria-label={colorMode() === "dark" ? "Use light appearance" : "Use dark appearance"}
     >
       <SunIcon class="size-5 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0" />
       <MoonIcon class="absolute size-5 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100" />

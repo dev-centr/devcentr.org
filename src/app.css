@@ -63,47 +63,47 @@
 
 @layer base {
   :root {
-    --background: 40 20% 97%;
-    --foreground: 220 15% 12%;
-    --card: 40 15% 99%;
-    --card-foreground: 220 15% 12%;
-    --popover: 40 15% 99%;
-    --popover-foreground: 220 15% 12%;
-    --primary: 350 65% 42%;
-    --primary-foreground: 40 20% 98%;
-    --secondary: 220 8% 92%;
-    --secondary-foreground: 220 15% 18%;
-    --muted: 40 12% 93%;
-    --muted-foreground: 220 8% 38%;
-    --accent: 220 10% 91%;
-    --accent-foreground: 220 15% 12%;
-    --destructive: 0 72% 45%;
-    --destructive-foreground: 40 20% 98%;
-    --border: 220 10% 88%;
-    --input: 220 10% 88%;
-    --ring: 350 65% 42%;
+    --background: 42 14% 96%;
+    --foreground: 220 12% 22%;
+    --card: 42 12% 97.5%;
+    --card-foreground: 220 12% 24%;
+    --popover: 42 12% 97.5%;
+    --popover-foreground: 220 12% 24%;
+    --primary: 350 28% 38%;
+    --primary-foreground: 42 18% 97%;
+    --secondary: 220 6% 91%;
+    --secondary-foreground: 220 10% 28%;
+    --muted: 42 10% 92%;
+    --muted-foreground: 220 6% 46%;
+    --accent: 220 8% 90%;
+    --accent-foreground: 220 12% 26%;
+    --destructive: 0 45% 42%;
+    --destructive-foreground: 42 18% 97%;
+    --border: 220 8% 86%;
+    --input: 220 8% 86%;
+    --ring: 350 28% 38%;
   }
 
   .dark {
-    --background: 220 12% 6%;
-    --foreground: 40 12% 94%;
-    --card: 220 10% 8%;
-    --card-foreground: 40 12% 94%;
-    --popover: 220 10% 8%;
-    --popover-foreground: 40 12% 94%;
-    --primary: 350 62% 52%;
-    --primary-foreground: 220 12% 6%;
-    --secondary: 220 8% 14%;
-    --secondary-foreground: 40 12% 92%;
-    --muted: 220 8% 12%;
-    --muted-foreground: 220 6% 58%;
-    --accent: 220 8% 14%;
-    --accent-foreground: 40 12% 94%;
-    --destructive: 0 55% 48%;
-    --destructive-foreground: 40 12% 98%;
-    --border: 220 8% 16%;
-    --input: 220 8% 16%;
-    --ring: 350 62% 52%;
+    --background: 220 10% 9%;
+    --foreground: 40 8% 82%;
+    --card: 220 8% 11%;
+    --card-foreground: 40 8% 84%;
+    --popover: 220 8% 11%;
+    --popover-foreground: 40 8% 84%;
+    --primary: 350 22% 48%;
+    --primary-foreground: 220 10% 9%;
+    --secondary: 220 6% 16%;
+    --secondary-foreground: 40 8% 80%;
+    --muted: 220 6% 14%;
+    --muted-foreground: 220 5% 52%;
+    --accent: 220 6% 16%;
+    --accent-foreground: 40 8% 82%;
+    --destructive: 0 40% 44%;
+    --destructive-foreground: 40 10% 94%;
+    --border: 220 6% 18%;
+    --input: 220 6% 18%;
+    --ring: 350 22% 48%;
   }
 
   * {
@@ -126,9 +126,9 @@
   .arch-surface {
     background-color: hsl(var(--background));
     background-image:
-      linear-gradient(hsl(var(--border) / 0.45) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(var(--border) / 0.45) 1px, transparent 1px);
-    background-size: 72px 72px;
+      linear-gradient(hsl(var(--border) / 0.28) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.28) 1px, transparent 1px);
+    background-size: 96px 96px;
     background-position: -1px -1px;
   }
 
@@ -138,20 +138,20 @@
     inset: 0;
     pointer-events: none;
     z-index: 0;
-    opacity: 0.04;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    opacity: 0.055;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   }
 
   .dark .arch-surface::before {
-    opacity: 0.065;
+    opacity: 0.08;
   }
 
   .arch-rule {
-    @apply h-px w-full bg-gradient-to-r from-transparent via-border to-transparent;
+    @apply h-px w-full bg-gradient-to-r from-transparent via-border/70 to-transparent;
   }
 
   .arch-eyebrow {
     font-family: var(--font-mono);
-    @apply text-[10px] font-medium uppercase tracking-[0.35em] text-muted-foreground;
+    @apply text-[10px] font-normal uppercase tracking-[0.32em] text-muted-foreground/90;
   }
 }

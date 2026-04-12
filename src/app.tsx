@@ -3,6 +3,8 @@ import { Router } from "@solidjs/router";
 import { FileRoutes } from "@solidjs/start/router";
 import { Suspense } from "solid-js";
 
+import { ThemeSystemSync } from "~/components/theme-system-sync";
+
 import "./app.css";
 
 const storageManager = createLocalStorageManager("devcentr-theme");
@@ -13,9 +15,10 @@ export default function App() {
       <ColorModeScript
         storageType={storageManager.type}
         storageKey="devcentr-theme"
-        initialColorMode="dark"
+        initialColorMode="system"
       />
-      <ColorModeProvider storageManager={storageManager} initialColorMode="dark">
+      <ColorModeProvider storageManager={storageManager} initialColorMode="system">
+        <ThemeSystemSync />
         <Router
           root={(props) => (
             <Suspense
