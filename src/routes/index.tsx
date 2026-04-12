@@ -38,7 +38,7 @@ export default function Home() {
                 class="rounded-sm border-border/60 bg-background/35 font-mono text-xs uppercase tracking-[0.18em] backdrop-blur-sm"
                 href="https://docs.devcentr.org"
               >
-                Vision
+                Docs
               </Button>
               <Button
                 as="a"
@@ -135,6 +135,13 @@ export default function Home() {
 
           <footer class="arch-rule mt-20 md:mt-28" />
           <p class="mt-7 text-center font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground/90">
+            <a
+              href="https://docs.devcentr.org"
+              class="text-muted-foreground/90 underline decoration-border/60 underline-offset-4 transition-colors hover:text-foreground/85"
+            >
+              Documentation
+            </a>
+            {" · "}
             Dev-Centr · DOS
           </p>
         </main>
