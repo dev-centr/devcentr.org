@@ -22,22 +22,26 @@ if (!sdlSrc) {
 mkdirSync(destDir, { recursive: true });
 copyFileSync(sdlSrc, destSdl);
 
-const appDir = join(root, "..", "devcentr", "app");
-const compile = spawnSync(
-  "dub",
-  ["run", "--config=compile-catalog", "--", sdlSrc, destJson],
-  { cwd: appDir, stdio: "inherit", shell: true },
+const compileScript = join(
+  sdlSrc.includes("toolchain-advisor")
+    ? dirname(dirname(sdlSrc))
+    : join(root, "..", "toolchain-advisor"),
+  "scripts",
+  "compile-sdl.mjs",
 );
+
+const compile = spawnSync(process.execPath, [compileScript, sdlSrc, destJson], {
+  stdio: "inherit",
+});
 
 if (compile.status !== 0) {
   const committed = join(dirname(sdlSrc), "advisor.json");
   if (existsSync(committed)) {
     copyFileSync(committed, destJson);
-    console.warn("sync-advisor-catalog: dub unavailable; using committed advisor.json");
+    console.warn("sync-advisor-catalog: compile failed; using committed advisor.json");
   } else {
-    console.error("sync-advisor-catalog: dub compile-catalog failed and no advisor.json");
     process.exit(compile.status ?? 1);
   }
+} else {
+  console.log(`sync-advisor-catalog: ${sdlSrc} -> ${destJson}`);
 }
-
-console.log(`sync-advisor-catalog: ${sdlSrc} -> ${destJson}`);

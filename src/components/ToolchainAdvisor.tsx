@@ -15,6 +15,7 @@ import {
   type AdvisorCatalog,
   type AdvisorStep,
 } from "@dev-centr/toolchain-advisor-core";
+import { Button } from "~/components/ui/button";
 import "../toolchain-advisor.css";
 
 function filterOptions(step: AdvisorStep, query: string) {
@@ -187,9 +188,9 @@ export const ToolchainAdvisor: Component = () => {
       </Show>
       <Show when={error()}>
         <p class="advisor-error">{error()}</p>
-        <button type="button" class="btn btn-secondary" onClick={() => void reload()}>
+        <Button variant="outline" class="mt-2 rounded-sm" onClick={() => void reload()}>
           Retry
-        </button>
+        </Button>
       </Show>
       <Show when={catalog() && !loading() && !error()}>
         <div class="advisor-split">
