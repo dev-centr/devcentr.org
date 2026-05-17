@@ -10,7 +10,6 @@ export default function Home() {
           <span class="arch-eyebrow text-foreground/70">Dev-Centr</span>
           <ModeToggle />
         </header>
-
         <main class="mx-auto max-w-6xl px-6 pb-32 md:px-12">
           <section class="mb-24 md:mb-36">
             <p class="arch-eyebrow mb-7 md:mb-9">Laboratory · Development Orchestration Suite</p>
@@ -30,6 +29,15 @@ export default function Home() {
             <div class="mt-10 flex flex-col gap-2.5 sm:mt-12 sm:flex-row sm:flex-wrap sm:items-center">
               <Button as="a" size="lg" class="rounded-sm font-mono text-xs uppercase tracking-[0.18em]" href="https://devcentr.app">
                 Download
+              </Button>
+              <Button
+                as="a"
+                size="lg"
+                variant="outline"
+                class="rounded-sm border-border/60 bg-background/35 font-mono text-xs uppercase tracking-[0.18em] backdrop-blur-sm"
+                href="/toolchain-advisor"
+              >
+                Toolchain Advisor
               </Button>
               <Button
                 as="a"

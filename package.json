@@ -3,8 +3,11 @@
   "type": "module",
   "scripts": {
     "dev": "vinxi dev",
+    "prebuild": "node scripts/sync-advisor-catalog.mjs",
     "build": "vinxi build",
-    "start": "vinxi start"
+    "postbuild": "node scripts/spa-fallback.mjs",
+    "start": "vinxi start",
+    "sync-advisor": "node scripts/sync-advisor-catalog.mjs"
   },
   "dependencies": {
     "@kobalte/core": "^0.13.11",
@@ -19,7 +22,8 @@
     "solid-js": "^1.9.5",
     "tailwind-merge": "^3.5.0",
     "three": "^0.182.0",
-    "vinxi": "^0.5.7"
+    "vinxi": "^0.5.7",
+    "@chenglou/pretext": "^0.0.4"
   },
   "engines": {
     "node": ">=22"

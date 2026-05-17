@@ -22,6 +22,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Checkout toolchain-advisor definitions
+        uses: actions/checkout@v4
+        with:
+          repository: dev-centr/toolchain-advisor
+          path: toolchain-advisor
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
@@ -34,10 +40,16 @@ jobs:
           cache: "pnpm"
 
       - name: Install dependencies
-        run: pnpm install --frozen-lockfile
+        run: pnpm install --no-frozen-lockfile
+
+      - name: Sync advisor catalog into public/
+        run: node scripts/sync-advisor-catalog.mjs
 
       - name: Build
         run: pnpm run build
+
+      - name: Verify advisor route artifact
+        run: test -f .output/public/toolchain-advisor/index.html
 
       - name: Add .nojekyll for GitHub Pages
         run: touch .output/public/.nojekyll

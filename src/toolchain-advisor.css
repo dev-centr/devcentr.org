@@ -1,0 +1,278 @@
+.advisor-root {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.advisor-split {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 1.25rem;
+  width: 100%;
+}
+
+.advisor-flow {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  gap: 0;
+  overflow-x: auto;
+  padding: 1rem 0 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.advisor-step {
+  flex: 0 0 auto;
+  width: min(260px, 85vw);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  padding: 1rem;
+  backdrop-filter: blur(10px);
+}
+
+.advisor-step h3 {
+  margin: 0 0 0.35rem;
+  font-size: 0.95rem;
+  color: var(--accent-color);
+}
+
+.advisor-hint {
+  margin: 0 0 0.5rem;
+  font-size: 0.75rem;
+  color: #888;
+  line-height: 1.35;
+}
+
+.advisor-search {
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 0.5rem;
+  padding: 0.45rem 0.6rem;
+  border-radius: 6px;
+  border: 1px solid var(--glass-border);
+  background: #141414;
+  color: var(--text-color);
+  font-size: 0.85rem;
+}
+
+.advisor-options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.advisor-option {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 0.45rem 0.5rem;
+  margin-bottom: 2px;
+  border: none;
+  border-radius: 4px;
+  background: transparent;
+  color: #ccc;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.advisor-option:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.advisor-option.selected {
+  background: rgba(255, 51, 51, 0.15);
+  color: #fff;
+  outline: 1px solid var(--accent-color);
+}
+
+.advisor-connector {
+  flex: 0 0 24px;
+  align-self: center;
+  position: relative;
+  height: 2px;
+  min-width: 24px;
+  background: linear-gradient(90deg, transparent, #555 20%, #555 80%, transparent);
+}
+
+.advisor-connector::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 5px solid transparent;
+  border-left-color: #666;
+}
+
+.advisor-context {
+  flex: 0 0 min(380px, 40vw);
+  max-height: 70vh;
+  overflow-y: auto;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 1.25rem;
+  text-align: left;
+}
+
+.advisor-context h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.15rem;
+  color: var(--accent-color);
+}
+
+.advisor-context h3 {
+  margin: 1rem 0 0.35rem;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+.advisor-overview {
+  font-size: 0.9rem;
+  color: #ccc;
+  line-height: 1.45;
+}
+
+.advisor-era-line {
+  font-size: 0.75rem;
+  color: #8a8;
+  margin: 0 0 0.5rem;
+}
+
+.advisor-era {
+  display: block;
+  font-size: 0.65rem;
+  color: #8a8;
+  margin-top: 0.15rem;
+}
+
+.advisor-step-focused {
+  outline: 1px solid var(--accent-color);
+}
+
+.advisor-timeline {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.advisor-timeline li {
+  margin-bottom: 0.65rem;
+}
+
+.advisor-compare-card {
+  background: #141414;
+  border: 1px solid var(--glass-border);
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.advisor-compare-card h4 {
+  margin: 0 0 0.35rem;
+  font-size: 0.85rem;
+}
+
+.advisor-meta {
+  font-size: 0.78rem;
+  color: #888;
+  margin: 0.25rem 0 0;
+}
+
+.advisor-guidance {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+.advisor-guidance-title {
+  font-weight: 700;
+  color: var(--accent-color);
+}
+
+.advisor-result {
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+  text-align: left;
+}
+
+.advisor-result h2 {
+  margin-top: 0;
+  font-size: 1.1rem;
+  color: var(--accent-color);
+}
+
+.advisor-result h3 {
+  margin: 0.5rem 0;
+  font-size: 1.25rem;
+}
+
+.advisor-result h4 {
+  margin: 1rem 0 0.35rem;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+.advisor-result ul {
+  margin: 0.25rem 0 0;
+  padding-left: 1.25rem;
+  color: #aaa;
+  font-size: 0.9rem;
+}
+
+.advisor-caveats li {
+  color: #c9a070;
+}
+
+.advisor-alts {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.advisor-alts-title {
+  margin-top: 1.25rem !important;
+}
+
+.advisor-status,
+.advisor-source {
+  color: #888;
+  font-size: 0.85rem;
+}
+
+.advisor-error {
+  color: #f66;
+}
+
+.advisor-link-btn {
+  background: none;
+  border: none;
+  color: var(--accent-color);
+  cursor: pointer;
+  text-decoration: underline;
+  font: inherit;
+  padding: 0;
+}
+
+.advisor-page .page-header {
+  text-align: center;
+  max-width: 720px;
+  margin-bottom: 2rem;
+}
+
+.advisor-page .page-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.advisor-page .page-header p {
+  color: #aaa;
+}
