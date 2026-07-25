@@ -11,7 +11,7 @@ export default function IdeaPage() {
   return (
     <div class="plane-surface relative min-h-dvh">
       <div class="relative z-10">
-        <SiteHeader brandSize="sm" />
+        <SiteHeader />
         <main class="mx-auto max-w-6xl px-6 pb-20 pt-6 md:px-10 md:pb-28">
           <Show
             when={idea()}

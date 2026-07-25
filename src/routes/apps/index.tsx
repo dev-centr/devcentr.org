@@ -46,7 +46,7 @@ export default function AppsGate() {
   return (
     <div class="plane-surface relative min-h-dvh">
       <div class="relative z-10 flex min-h-dvh min-w-0 flex-col overflow-x-clip">
-        <SiteHeader brandSize="sm" />
+        <SiteHeader />
 
         <main class="flex min-w-0 flex-1 flex-col">
           <div class="mx-auto w-full max-w-6xl px-6 pt-6 md:px-10">

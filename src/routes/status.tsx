@@ -183,7 +183,7 @@ export default function StatusPage() {
       />
       <Meta name="keywords" content="DevCentr, status, uptime, health, blog, news" />
       <div class="relative z-10">
-        <SiteHeader brandSize="sm" />
+        <SiteHeader />
         <main class="mx-auto max-w-6xl px-6 pb-10 pt-6 md:px-10 md:pt-10">
           <p class="eyebrow text-primary">Status</p>
           <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight text-foreground md:text-5xl">

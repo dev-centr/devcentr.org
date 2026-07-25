@@ -8,7 +8,7 @@ export default function ToolchainAdvisorPage() {
   return (
     <div class="plane-surface relative min-h-dvh">
       <div class="relative z-10">
-        <SiteHeader brandSize="sm" />
+        <SiteHeader />
         <div class="mx-auto max-w-7xl px-6 pb-12 pt-2 md:px-10">
           <header class="mb-10 md:mb-12">
             <p class="eyebrow mb-3 text-primary">Toolchain · Decision flow</p>

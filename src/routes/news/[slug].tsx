@@ -22,7 +22,7 @@ export default function NewsPostPage() {
         )}
       </Show>
       <div class="relative z-10">
-        <SiteHeader brandSize="sm" />
+        <SiteHeader />
         <main class="mx-auto max-w-3xl px-6 pb-24 pt-6 md:px-10 md:pt-10">
           <A
             href="/news"

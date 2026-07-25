@@ -5,18 +5,12 @@ import { LogoMark } from "~/components/logo-mark";
 const linkClass =
   "hidden font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:text-foreground sm:inline";
 
-export function SiteHeader(props: { brandSize?: "sm" | "md" }) {
-  const markClass = () => (props.brandSize === "sm" ? "size-8 text-primary" : "size-9 text-primary");
-  const nameClass = () =>
-    props.brandSize === "sm"
-      ? "font-display text-base font-semibold tracking-tight"
-      : "font-display text-lg font-semibold tracking-tight";
-
+export function SiteHeader() {
   return (
     <header class="mx-auto flex w-full max-w-6xl items-center justify-between px-6 pb-4 pt-6 md:px-10 md:pt-8">
       <a href="/" class="group flex items-center gap-3 text-foreground no-underline">
-        <LogoMark class={`${markClass()} transition-transform duration-500 group-hover:rotate-12`} />
-        <span class={nameClass()}>DevCentr</span>
+        <LogoMark class="size-9 text-primary transition-transform duration-500 group-hover:rotate-12" />
+        <span class="font-display text-lg font-semibold tracking-tight">DevCentr</span>
       </a>
       <nav class="flex items-center gap-2 md:gap-3">
         <a href="/apps" class={linkClass}>
