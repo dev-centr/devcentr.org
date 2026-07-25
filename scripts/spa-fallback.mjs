@@ -1,4 +1,4 @@
-import { copyFileSync, existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -16,15 +16,21 @@ function ensureSpa(dir) {
 }
 
 ensureSpa(join(pub, "toolchain-advisor"));
+ensureSpa(join(pub, "news"));
 ensureSpa(join(pub, "blog"));
 
-const blogContent = join(root, "content", "blog");
-if (existsSync(blogContent)) {
-  for (const file of readdirSync(blogContent).filter((f) => f.endsWith(".adoc"))) {
-    const slug = file.replace(/\.adoc$/i, "");
-    ensureSpa(join(pub, "blog", slug));
+const generated = join(root, "src", "lib", "news-posts.generated.json");
+if (existsSync(generated)) {
+  try {
+    const data = JSON.parse(readFileSync(generated, "utf8"));
+    for (const post of data.posts || []) {
+      if (!post?.slug) continue;
+      ensureSpa(join(pub, "news", post.slug));
+      ensureSpa(join(pub, "blog", post.slug));
+    }
+  } catch {
+    /* ignore */
   }
 }
 
 writeFileSync(join(pub, "404.html"), html);
-void copyFileSync;

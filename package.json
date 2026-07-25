@@ -3,14 +3,15 @@
   "type": "module",
   "scripts": {
     "dev": "vinxi dev",
-    "prebuild": "node scripts/sync-advisor-catalog.mjs && node scripts/build-blog.mjs",
+    "prebuild": "node scripts/sync-advisor-catalog.mjs && node scripts/build-news.mjs",
     "build": "vinxi build",
     "postbuild": "node scripts/spa-fallback.mjs",
     "start": "vinxi start",
     "sync-advisor": "node scripts/sync-advisor-catalog.mjs",
-    "blog:build": "node scripts/build-blog.mjs",
+    "news:build": "node scripts/build-news.mjs",
+    "blog:build": "node scripts/build-news.mjs",
     "brand:raster": "node scripts/rasterize-logo.mjs",
-    "predev": "node scripts/build-blog.mjs"
+    "predev": "node scripts/build-news.mjs"
   },
   "dependencies": {
     "@chenglou/pretext": "^0.0.4",

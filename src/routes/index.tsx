@@ -36,9 +36,9 @@ const destinations = [
     detail: "Knowledge base & specs",
   },
   {
-    href: "/blog",
-    label: "Blog",
-    detail: "Chronicle of initiatives & news",
+    href: "/news",
+    label: "News",
+    detail: "Initiatives, shipping notes & blog",
   },
   {
     href: "/toolchain-advisor",

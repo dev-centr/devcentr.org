@@ -1,0 +1,15 @@
+media: public/brand
+
+content:
+  - name: news
+    label: News
+    path: content/news
+    type: collection
+    extension: adoc
+    format: code
+    create: true
+    fields:
+      - name: body
+        label: AsciiDoc body
+        type: rich-text
+        # Prefer AsciiDoc syntax; Pages CMS stores the file as .adoc

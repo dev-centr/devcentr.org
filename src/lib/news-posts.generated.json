@@ -1,0 +1,187 @@
+{
+  "posts": [
+    {
+      "slug": "changelog-general-knowledge-2026-07-24-wsl-distro-comparison-and-setup",
+      "title": "WSL distro comparison and setup (General Knowledge)",
+      "description": "Added Choosing a WSL Linux Distro: Ubuntu LTS vs Tumbleweed vs Arch vs AlmaLinux, workflows, LTS-vs-rolling clarification, and what Windows **WSL Settings** covers vs the CLI.",
+      "date": "2026-07-24",
+      "tags": [
+        "news",
+        "blog",
+        "changelog",
+        "general-knowledge"
+      ],
+      "html": "<p>From the <strong>General Knowledge</strong> Antora changelog.</p>\n<ul>\n<li><p>Added Choosing a WSL Linux Distro: Ubuntu LTS vs Tumbleweed vs Arch vs AlmaLinux, workflows, LTS-vs-rolling clarification, and what Windows **WSL Settings** covers vs the CLI.</p></li>\n<li><p>Added Set up and manage WSL how-to (install, default distro, Settings app, everyday commands).</p></li>\n<li><p>Navigation: Explanation → Infrastructure; How-to Guides.</p></li>\n<li><p>See Detailed changelog.</p></li>\n</ul>\n<p><a href=\"https://docs.devcentr.org/general-knowledge/latest/changelog.html\">Read on docs.devcentr.org</a></p>",
+      "source": "antora-changelog",
+      "sourceId": "general-knowledge"
+    },
+    {
+      "slug": "changelog-general-knowledge-2026-07-24-toolchain-management-vocabulary",
+      "title": "Toolchain Management vocabulary (General Knowledge)",
+      "description": "Canonical explanation is now Toolchain Management Pattern (pattern → protocol → control plane → TCF).",
+      "date": "2026-07-24",
+      "tags": [
+        "news",
+        "blog",
+        "changelog",
+        "general-knowledge"
+      ],
+      "html": "<p>From the <strong>General Knowledge</strong> Antora changelog.</p>\n<ul>\n<li><p>Canonical explanation is now Toolchain Management Pattern (pattern → protocol → control plane → TCF).</p></li>\n<li><p>TCF clarified (IoC adapters; not TMF; broad software ecosystems); points at `dev-centr/toolchain-framework` CI kit.</p></li>\n<li><p>Flutter how-to and nav updated to point at the Pattern page.</p></li>\n<li><p>See Detailed changelog.</p></li>\n</ul>\n<p><a href=\"https://docs.devcentr.org/general-knowledge/latest/changelog.html\">Read on docs.devcentr.org</a></p>",
+      "source": "antora-changelog",
+      "sourceId": "general-knowledge"
+    },
+    {
+      "slug": "changelog-general-knowledge-2026-07-24-toolchain-control-plane",
+      "title": "Toolchain Control Plane (General Knowledge)",
+      "description": "Added Toolchain Control Plane / Flutter setup material (superseded in part by the vocabulary lock-in above).",
+      "date": "2026-07-24",
+      "tags": [
+        "news",
+        "blog",
+        "changelog",
+        "general-knowledge"
+      ],
+      "html": "<p>From the <strong>General Knowledge</strong> Antora changelog.</p>\n<ul>\n<li><p>Added Toolchain Control Plane / Flutter setup material (superseded in part by the vocabulary lock-in above).</p></li>\n<li><p>Naming at the time: **TCP**, **TCoP**, **TCF**.</p></li>\n<li><p>See Detailed changelog.</p></li>\n</ul>\n<p><a href=\"https://docs.devcentr.org/general-knowledge/latest/changelog.html\">Read on docs.devcentr.org</a></p>",
+      "source": "antora-changelog",
+      "sourceId": "general-knowledge"
+    },
+    {
+      "slug": "changelog-general-knowledge-2026-07-24-brand-motion-svg-rive",
+      "title": "Brand motion (SVG + Rive) (General Knowledge)",
+      "description": "Expanded Brand and UI Motion Formats: full tradeoff matrix (openness, player weight, interactivity, **agentic editability**); Rive as an option not a hard default; note on animation-as-code / text IR direction; **Popkorn",
+      "date": "2026-07-24",
+      "tags": [
+        "news",
+        "blog",
+        "changelog",
+        "general-knowledge"
+      ],
+      "html": "<p>From the <strong>General Knowledge</strong> Antora changelog.</p>\n<ul>\n<li><p>Expanded Brand and UI Motion Formats: full tradeoff matrix (openness, player weight, interactivity, **agentic editability**); Rive as an option not a hard default; note on animation-as-code / text IR direction; **Popkorn** marked potential future with ayarse/popkorn#7.</p></li>\n<li><p>Softened Recommended Tools Design &amp; Brand Motion wording (no single-format advocacy).</p></li>\n<li><p>See Detailed changelog.</p></li>\n</ul>\n<p><a href=\"https://docs.devcentr.org/general-knowledge/latest/changelog.html\">Read on docs.devcentr.org</a></p>",
+      "source": "antora-changelog",
+      "sourceId": "general-knowledge"
+    },
+    {
+      "slug": "2026-07-24-welcome",
+      "title": "Welcome to DevCentr News",
+      "description": "News and updates across Dev-Centr and related projects — initiatives, shipping notes, and ecosystem changes. (Also indexed as our engineering blog.)",
+      "date": "2026-07-24",
+      "tags": [
+        "news",
+        "blog",
+        "chronicle",
+        "initiatives",
+        "DevCentr"
+      ],
+      "html": "<div id=\"preamble\">\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>We are starting a public <strong>News</strong> feed on <a href=\"https://devcentr.org/news\">devcentr.org/news</a> (legacy path: <a href=\"https://devcentr.org/blog\">/blog</a>).</p>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"_what_belongs_here\">What belongs here</h2>\n<div class=\"sectionbody\">\n<div class=\"ulist\">\n<ul>\n<li>\n<p>Initiatives and direction changes across the Dev-Centr org</p>\n</li>\n<li>\n<p>Notable shipping moments on the landing site, docs, and related tools</p>\n</li>\n<li>\n<p>Cross-project news that affects how we build (tooling, formats, sister orgs)</p>\n</li>\n<li>\n<p>Highlights mirrored from Antora changelogs (docs remain the system of record)</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>This is <strong>not</strong> a replacement for Antora changelogs or issue trackers. Those stay the system of record for specs and day-to-day work. News is the narrative layer—what we chose, why it matters, and where to dig deeper.</p>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"_feeds\">Feeds</h2>\n<div class=\"sectionbody\">\n<div class=\"ulist\">\n<ul>\n<li>\n<p><a href=\"https://devcentr.org/news/rss.xml\">RSS</a></p>\n</li>\n<li>\n<p><a href=\"https://devcentr.org/news/atom.xml\">Atom</a></p>\n</li>\n</ul>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"_where_else_to_look\">Where else to look</h2>\n<div class=\"sectionbody\">\n<div class=\"ulist\">\n<ul>\n<li>\n<p><a href=\"https://docs.devcentr.org\">docs.devcentr.org</a> — knowledge base and specs</p>\n</li>\n<li>\n<p><a href=\"https://github.com/dev-centr\">github.com/dev-centr</a> — source and issues</p>\n</li>\n<li>\n<p><a href=\"https://devcentr.app\">devcentr.app</a> — the flagship app</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>Expect irregular posts when there is something worth saying—not a content mill.</p>\n</div>\n</div>\n</div>",
+      "source": "authored"
+    },
+    {
+      "slug": "2026-07-24-brand-motion",
+      "title": "Brand mark and motion format tradeoffs",
+      "description": "Shipping the DevCentr orbital mark, why we will not hard-advocate Rive, and Popkorn as a potential text-first future. Engineering blog / news update.",
+      "date": "2026-07-24",
+      "tags": [
+        "news",
+        "blog",
+        "brand",
+        "svg",
+        "lottie",
+        "rive",
+        "popkorn",
+        "motion"
+      ],
+      "html": "<div id=\"preamble\">\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>We shipped a new org brand mark—an orbital hub meant to read as a center of gravity—and put static + motion assets in the org profile harbor and on the marketing site.</p>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"_what_shipped\">What shipped</h2>\n<div class=\"sectionbody\">\n<div class=\"ulist\">\n<ul>\n<li>\n<p>Transparent and on-dark SVG/PNG sets (including 256px rasters for the GitHub avatar)</p>\n</li>\n<li>\n<p><code>logo-motion.svg</code> — self-contained CSS motion, no JS player</p>\n</li>\n<li>\n<p>Site chrome uses the same geometry via inline SVG + CSS (<code>LogoMark</code> / <code>HeroOrbit</code>)</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>Canonical harbor: <code>.github</code> / <code>.github-private</code> <code>profile/</code> (mirrored under <code>devcentr.org/public/brand/</code>).</p>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"_why_not_just_use_rive\">Why not “just use Rive”?</h2>\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>Rive is strong for <strong>interactive</strong> UI motion (state machines, theme inputs). Its runtimes are MIT. The editor is proprietary, and <code>.riv</code> is <strong>binary</strong>—weak for git diffs and agentic authoring.</p>\n</div>\n<div class=\"paragraph\">\n<p>So Dev-Centr does <strong>not</strong> hard-advocate Rive as an open de facto standard. SVG keeps that role for portable marks.</p>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"_the_lanes_we_document\">The lanes we document</h2>\n<div class=\"sectionbody\">\n<table class=\"tableblock frame-all grid-all stretch\">\n<colgroup>\n<col width=\"33.3333%\">\n<col width=\"66.6667%\">\n</colgroup>\n<thead>\n<tr>\n<th class=\"tableblock halign-left valign-top\">Lane</th>\n<th class=\"tableblock halign-left valign-top\">Prefer when</th>\n</tr>\n</thead>\n<tbody>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">Animated SVG (+ CSS)</p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">Portable brand loops, docs, READMEs, agent-editable source</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">Lottie</p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">Complex <strong>baked</strong> timelines from an AE-shaped pipeline</p></td>\n</tr>\n<tr>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">Rive</p></td>\n<td class=\"tableblock halign-left valign-top\"><p class=\"tableblock\">Interactive / theme-driven app chrome when a player is already justified</p></td>\n</tr>\n</tbody>\n</table>\n<div class=\"paragraph\">\n<p>Full write-up: <a href=\"https://docs.devcentr.org\">docs.devcentr.org</a> → General Knowledge → <strong>Brand and UI Motion Formats</strong> (and Recommended Tools).</p>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"_potential_future_popkorn\">Potential future: Popkorn</h2>\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>We want a text-first interactive motion format that agents can edit. <a href=\"https://github.com/ayarse/popkorn\">Popkorn</a> is an early CSS-shaped candidate—not a Dev-Centr default yet.</p>\n</div>\n<div class=\"paragraph\">\n<p>Outreach / co-op interest on rich interactivity: <a href=\"https://github.com/ayarse/popkorn/issues/7\">ayarse/popkorn#7</a>.</p>\n</div>\n</div>\n</div>",
+      "source": "authored"
+    },
+    {
+      "slug": "changelog-general-knowledge-2026-07-22-nushell-recommendation",
+      "title": "Nushell recommendation (General Knowledge)",
+      "description": "Added Why We Recommend Nushell (structured pipelines vs byte-stream stdout).",
+      "date": "2026-07-22",
+      "tags": [
+        "news",
+        "blog",
+        "changelog",
+        "general-knowledge"
+      ],
+      "html": "<p>From the <strong>General Knowledge</strong> Antora changelog.</p>\n<ul>\n<li><p>Added Why We Recommend Nushell (structured pipelines vs byte-stream stdout).</p></li>\n<li><p>Added Nushell vs PowerShell, Nushell and AI agents, and NVIDIA OpenShell overview (name collision + sandbox vs structured-pipe layers).</p></li>\n<li><p>Added Dev-Centr and OpenShellOrg (aligned goals, separate orgs).</p></li>\n<li><p>Added Nushell setup how-to and how-to index.</p></li>\n<li><p>Added Nushell reference and restored Recommended Tools with Nushell as the default shell.</p></li>\n<li><p>Navigation updated under How-to, Reference → Shells, and Explanation → Infrastructure.</p></li>\n</ul>\n<p><a href=\"https://docs.devcentr.org/general-knowledge/latest/changelog.html\">Read on docs.devcentr.org</a></p>",
+      "source": "antora-changelog",
+      "sourceId": "general-knowledge"
+    },
+    {
+      "slug": "activity-docs-portal-2026-07",
+      "title": "Docs activity — July 2026",
+      "description": "Appearance / code fonts — DevCentr Appearance dialog: Cascadia Mono (default) or JetBrains Mono for terminal and code panels; recommended-tools docs updated.",
+      "date": "2026-07-01",
+      "tags": [
+        "news",
+        "blog",
+        "changelog",
+        "activity-log"
+      ],
+      "html": "<p>Highlights from the org <strong>Activity Log</strong>.</p>\n<ul>\n<li><p>Appearance / code fonts — DevCentr Appearance dialog: Cascadia Mono (default) or JetBrains Mono for terminal and code panels; recommended-tools docs updated.</p></li>\n<li><p>Nushell as recommended shell — General-knowledge advocates Nushell as the default cross-platform shell; added Nu vs PowerShell, Nu + AI agents (vs NVIDIA OpenShell), and an NVIDIA OpenShell overview (name collision called out). OpenShellOrg companions: `nu-require`, `nu-emit`, `shell-architecture`.</p></li>\n<li><p>Architecture — Subscription management platforms — New explanation page under Architecture: in-app subscription infrastructure (Adapty, RevenueCat, Qonversion, DIY), access levels vs store SKUs, Stripe Customer Portal limits, and web+mobile `customer_user_id` sync. Cross-linked from general-knowledge Explanation → Architecture.</p></li>\n</ul>\n<p><a href=\"https://docs.devcentr.org/home/activity-log.html\">Read on docs.devcentr.org</a></p>",
+      "source": "antora-activity-log",
+      "sourceId": "docs-portal"
+    },
+    {
+      "slug": "activity-docs-portal-2026-06",
+      "title": "Docs activity — June 2026",
+      "description": "Antora UI branding (docs playbook) — Dropped the local `header-content.hbs` override; valentus-theme v1.1.0+ resolves the header logo via `site.keys.header_logo` and supplemental `img/` assets. Added Antora UI branding u",
+      "date": "2026-06-01",
+      "tags": [
+        "news",
+        "blog",
+        "changelog",
+        "activity-log"
+      ],
+      "html": "<p>Highlights from the org <strong>Activity Log</strong>.</p>\n<ul>\n<li><p>Antora UI branding (docs playbook) — Dropped the local `header-content.hbs` override; valentus-theme v1.1.0+ resolves the header logo via `site.keys.header_logo` and supplemental `img/` assets. Added Antora UI branding under Software publishing.</p></li>\n</ul>\n<p><a href=\"https://docs.devcentr.org/home/activity-log.html\">Read on docs.devcentr.org</a></p>",
+      "source": "antora-activity-log",
+      "sourceId": "docs-portal"
+    },
+    {
+      "slug": "activity-docs-portal-2026-05",
+      "title": "Docs activity — May 2026",
+      "description": "Architecture — UI-heavy web applications — New explanation page in the docs playbook (`home` component): Bonsai versus Leptos versus vibe.d, client/server split for database and authentication, creative stack interop (Th",
+      "date": "2026-05-01",
+      "tags": [
+        "news",
+        "blog",
+        "changelog",
+        "activity-log"
+      ],
+      "html": "<p>Highlights from the org <strong>Activity Log</strong>.</p>\n<ul>\n<li><p>Architecture — UI-heavy web applications — New explanation page in the docs playbook (`home` component): Bonsai versus Leptos versus vibe.d, client/server split for database and authentication, creative stack interop (Three.js, smooth scroll, Pretext-style text layout), and notes on perceived performance in large integrated mail clients (illustrative case shapes, not vendor internals).</p></li>\n</ul>\n<p><a href=\"https://docs.devcentr.org/home/activity-log.html\">Read on docs.devcentr.org</a></p>",
+      "source": "antora-activity-log",
+      "sourceId": "docs-portal"
+    },
+    {
+      "slug": "activity-docs-portal-2025-03",
+      "title": "Docs activity — March 2025",
+      "description": "Central Todo & Roadmap and Activity log — Moved org-wide roadmap and activity log into the docs repository so they live in one place for the aggregated site (docs.devcentr.org). Added \"Where documentation lives\" to expla",
+      "date": "2025-03-01",
+      "tags": [
+        "news",
+        "blog",
+        "changelog",
+        "activity-log"
+      ],
+      "html": "<p>Highlights from the org <strong>Activity Log</strong>.</p>\n<ul>\n<li><p>Central Todo &amp; Roadmap and Activity log — Moved org-wide roadmap and activity log into the docs repository so they live in one place for the aggregated site (docs.devcentr.org). Added &quot;Where documentation lives&quot; to explain the doc structure. DevCentr repo keeps its own task-level Todo &amp; Roadmap for app work.</p></li>\n<li><p>Secrets Manager documentation (DevCentr) — Full module: overview, architecture, .env patterns, back-end providers (Bitwarden), SSH Manager spec, WSL and virtual environments, proxy-in-GUI guidance. Todo &amp; Roadmap and Activity log added to DevCentr docs (and now mirrored/centralized here).</p></li>\n</ul>\n<p><a href=\"https://docs.devcentr.org/home/activity-log.html\">Read on docs.devcentr.org</a></p>",
+      "source": "antora-activity-log",
+      "sourceId": "docs-portal"
+    },
+    {
+      "slug": "activity-docs-portal-2025-01",
+      "title": "Docs activity — Earlier 2025",
+      "description": "Project vision and specs (DevCentr) — UI specification and roadmap, environment navigator concept, component specs.",
+      "date": "2025-01-01",
+      "tags": [
+        "news",
+        "blog",
+        "changelog",
+        "activity-log"
+      ],
+      "html": "<p>Highlights from the org <strong>Activity Log</strong>.</p>\n<ul>\n<li><p>Project vision and specs (DevCentr) — UI specification and roadmap, environment navigator concept, component specs.</p></li>\n<li><p>Knowledge base and publishing (DevCentr) — SSH keys, Git, workspace organization, Antora deployment, upstream contributions.</p></li>\n<li><p>Portal and tools (docs repo) — Home portal linking DevCentr, Templates, MSI Generator; tool overviews for code-d, dprint, dlangui.</p></li>\n</ul>\n<p><a href=\"https://docs.devcentr.org/home/activity-log.html\">Read on docs.devcentr.org</a></p>",
+      "source": "antora-activity-log",
+      "sourceId": "docs-portal"
+    }
+  ]
+}

@@ -28,6 +28,18 @@ jobs:
           repository: dev-centr/toolchain-advisor
           path: toolchain-advisor
 
+      - name: Checkout general-knowledge (news changelog ingest)
+        uses: actions/checkout@v4
+        with:
+          repository: dev-centr/general-knowledge
+          path: general-knowledge
+
+      - name: Checkout docs portal (activity-log ingest)
+        uses: actions/checkout@v4
+        with:
+          repository: dev-centr/docs
+          path: docs
+
       - name: Setup pnpm
         uses: pnpm/action-setup@v4
         with:
@@ -45,8 +57,8 @@ jobs:
       - name: Sync advisor catalog into public/
         run: node scripts/sync-advisor-catalog.mjs
 
-      - name: Build blog posts from AsciiDoc
-        run: node scripts/build-blog.mjs
+      - name: Build news catalog, RSS, and Atom
+        run: node scripts/build-news.mjs
 
       - name: Build
         run: pnpm run build
@@ -54,11 +66,13 @@ jobs:
       - name: Verify advisor route artifact
         run: test -f .output/public/toolchain-advisor/index.html
 
-      - name: Verify blog route artifacts
+      - name: Verify news route and feed artifacts
         run: |
+          test -f .output/public/news/index.html
+          test -f .output/public/news/2026-07-24-welcome/index.html
+          test -f .output/public/news/rss.xml
+          test -f .output/public/news/atom.xml
           test -f .output/public/blog/index.html
-          test -f .output/public/blog/2026-07-24-welcome/index.html
-          test -f .output/public/blog/2026-07-24-brand-motion/index.html
 
       - name: Add .nojekyll for GitHub Pages
         run: touch .output/public/.nojekyll

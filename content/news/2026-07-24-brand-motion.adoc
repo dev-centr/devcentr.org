@@ -1,7 +1,7 @@
 = Brand mark and motion format tradeoffs
-:description: Shipping the DevCentr orbital mark, why we will not hard-advocate Rive, and Popkorn as a potential text-first future.
+:description: Shipping the DevCentr orbital mark, why we will not hard-advocate Rive, and Popkorn as a potential text-first future. Engineering blog / news update.
 :revdate: 2026-07-24
-:keywords: brand, svg, lottie, rive, popkorn, motion
+:keywords: news, blog, brand, svg, lottie, rive, popkorn, motion
 
 We shipped a new org brand mark—an orbital hub meant to read as a center of gravity—and put static + motion assets in the org profile harbor and on the marketing site.
 

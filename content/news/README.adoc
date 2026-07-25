@@ -1,0 +1,24 @@
+= Authoring DevCentr News (CMS)
+:navtitle: News CMS
+
+News posts are AsciiDoc files in `content/news/`. There is no separate hosted CMS server—**git is the CMS**.
+
+== Recommended: Pages CMS
+
+Use link:https://pagescms.org/[Pages CMS] (GitHub-connected media library / editor) against the `dev-centr/devcentr.org` repo. Repo config: link:../../.pages.yml[`.pages.yml`] at the repository root.
+
+. Open https://pagescms.org/ and sign in with GitHub
+. Select `dev-centr/devcentr.org`
+. Edit or create entries in the **News** collection
+. Commit to `main` (or open a PR if your org requires review)
+
+== Alternative: GitHub web UI / local PR
+
+. Create `content/news/YYYY-MM-DD-short-slug.adoc`
+. Set `:description:`, `:revdate: YYYY-MM-DD`, and `:keywords:` (include `news` and `blog` for SEO)
+. Run `pnpm run news:build` (or rely on `prebuild` in CI)
+. Push to `main`
+
+== Generated sources
+
+Antora changelog highlights are ingested automatically at build time into the News catalog (and feeds). Do not hand-edit those generated entries—fix the source changelog in the docs repos instead.

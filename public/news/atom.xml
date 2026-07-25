@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>DevCentr News</title>
+  <link href="https://devcentr.org/news" rel="alternate"/>
+  <link href="https://devcentr.org/news/atom.xml" rel="self"/>
+  <id>https://devcentr.org/news</id>
+  <updated>2026-07-24T12:00:00Z</updated>
+  <subtitle>News, engineering blog posts, and changelog highlights from Dev-Centr.</subtitle>
+  <entry>
+    <title>WSL distro comparison and setup (General Knowledge)</title>
+    <link href="https://devcentr.org/news/changelog-general-knowledge-2026-07-24-wsl-distro-comparison-and-setup" rel="alternate"/>
+    <id>https://devcentr.org/news/changelog-general-knowledge-2026-07-24-wsl-distro-comparison-and-setup</id>
+    <updated>2026-07-24T12:00:00Z</updated>
+    <summary>Added Choosing a WSL Linux Distro: Ubuntu LTS vs Tumbleweed vs Arch vs AlmaLinux, workflows, LTS-vs-rolling clarification, and what Windows **WSL Settings** covers vs the CLI.</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
+  <entry>
+    <title>Toolchain Management vocabulary (General Knowledge)</title>
+    <link href="https://devcentr.org/news/changelog-general-knowledge-2026-07-24-toolchain-management-vocabulary" rel="alternate"/>
+    <id>https://devcentr.org/news/changelog-general-knowledge-2026-07-24-toolchain-management-vocabulary</id>
+    <updated>2026-07-24T12:00:00Z</updated>
+    <summary>Canonical explanation is now Toolchain Management Pattern (pattern → protocol → control plane → TCF).</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
+  <entry>
+    <title>Toolchain Control Plane (General Knowledge)</title>
+    <link href="https://devcentr.org/news/changelog-general-knowledge-2026-07-24-toolchain-control-plane" rel="alternate"/>
+    <id>https://devcentr.org/news/changelog-general-knowledge-2026-07-24-toolchain-control-plane</id>
+    <updated>2026-07-24T12:00:00Z</updated>
+    <summary>Added Toolchain Control Plane / Flutter setup material (superseded in part by the vocabulary lock-in above).</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
+  <entry>
+    <title>Brand motion (SVG + Rive) (General Knowledge)</title>
+    <link href="https://devcentr.org/news/changelog-general-knowledge-2026-07-24-brand-motion-svg-rive" rel="alternate"/>
+    <id>https://devcentr.org/news/changelog-general-knowledge-2026-07-24-brand-motion-svg-rive</id>
+    <updated>2026-07-24T12:00:00Z</updated>
+    <summary>Expanded Brand and UI Motion Formats: full tradeoff matrix (openness, player weight, interactivity, **agentic editability**); Rive as an option not a hard default; note on animation-as-code / text IR direction; **Popkorn</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
+  <entry>
+    <title>Welcome to DevCentr News</title>
+    <link href="https://devcentr.org/news/2026-07-24-welcome" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-07-24-welcome</id>
+    <updated>2026-07-24T12:00:00Z</updated>
+    <summary>News and updates across Dev-Centr and related projects — initiatives, shipping notes, and ecosystem changes. (Also indexed as our engineering blog.)</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
+  <entry>
+    <title>Brand mark and motion format tradeoffs</title>
+    <link href="https://devcentr.org/news/2026-07-24-brand-motion" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-07-24-brand-motion</id>
+    <updated>2026-07-24T12:00:00Z</updated>
+    <summary>Shipping the DevCentr orbital mark, why we will not hard-advocate Rive, and Popkorn as a potential text-first future. Engineering blog / news update.</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
+  <entry>
+    <title>Nushell recommendation (General Knowledge)</title>
+    <link href="https://devcentr.org/news/changelog-general-knowledge-2026-07-22-nushell-recommendation" rel="alternate"/>
+    <id>https://devcentr.org/news/changelog-general-knowledge-2026-07-22-nushell-recommendation</id>
+    <updated>2026-07-22T12:00:00Z</updated>
+    <summary>Added Why We Recommend Nushell (structured pipelines vs byte-stream stdout).</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
+  <entry>
+    <title>Docs activity — July 2026</title>
+    <link href="https://devcentr.org/news/activity-docs-portal-2026-07" rel="alternate"/>
+    <id>https://devcentr.org/news/activity-docs-portal-2026-07</id>
+    <updated>2026-07-01T12:00:00Z</updated>
+    <summary>Appearance / code fonts — DevCentr Appearance dialog: Cascadia Mono (default) or JetBrains Mono for terminal and code panels; recommended-tools docs updated.</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
+  <entry>
+    <title>Docs activity — June 2026</title>
+    <link href="https://devcentr.org/news/activity-docs-portal-2026-06" rel="alternate"/>
+    <id>https://devcentr.org/news/activity-docs-portal-2026-06</id>
+    <updated>2026-06-01T12:00:00Z</updated>
+    <summary>Antora UI branding (docs playbook) — Dropped the local `header-content.hbs` override; valentus-theme v1.1.0+ resolves the header logo via `site.keys.header_logo` and supplemental `img/` assets. Added Antora UI branding u</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
+  <entry>
+    <title>Docs activity — May 2026</title>
+    <link href="https://devcentr.org/news/activity-docs-portal-2026-05" rel="alternate"/>
+    <id>https://devcentr.org/news/activity-docs-portal-2026-05</id>
+    <updated>2026-05-01T12:00:00Z</updated>
+    <summary>Architecture — UI-heavy web applications — New explanation page in the docs playbook (`home` component): Bonsai versus Leptos versus vibe.d, client/server split for database and authentication, creative stack interop (Th</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
+  <entry>
+    <title>Docs activity — March 2025</title>
+    <link href="https://devcentr.org/news/activity-docs-portal-2025-03" rel="alternate"/>
+    <id>https://devcentr.org/news/activity-docs-portal-2025-03</id>
+    <updated>2025-03-01T12:00:00Z</updated>
+    <summary>Central Todo &amp; Roadmap and Activity log — Moved org-wide roadmap and activity log into the docs repository so they live in one place for the aggregated site (docs.devcentr.org). Added &quot;Where documentation lives&quot; to expla</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
+  <entry>
+    <title>Docs activity — Earlier 2025</title>
+    <link href="https://devcentr.org/news/activity-docs-portal-2025-01" rel="alternate"/>
+    <id>https://devcentr.org/news/activity-docs-portal-2025-01</id>
+    <updated>2025-01-01T12:00:00Z</updated>
+    <summary>Project vision and specs (DevCentr) — UI specification and roadmap, environment navigator concept, component specs.</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
+</feed>
