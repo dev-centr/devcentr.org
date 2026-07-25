@@ -73,7 +73,9 @@ jobs:
           test -f .output/public/news/rss.xml
           test -f .output/public/news/atom.xml
           test -f .output/public/blog/index.html
-          test -f .output/public/health/index.html
+          test -f .output/public/status/index.html
+          test -f .output/public/help/index.html
+          test -f .output/public/support/index.html
 
       - name: Add .nojekyll for GitHub Pages
         run: touch .output/public/.nojekyll

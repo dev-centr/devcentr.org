@@ -1,0 +1,67 @@
+= Help and support plans
+
+Notes for the `devcentr.org` help surface and the future dedicated support stack.
+This is planning only — not a shipping commitment.
+
+== Information architecture
+
+* **Canonical URL:** `/help` — top-level *help* hub.
+* **Alias:** `/support` redirects to `/help#support`.
+* **Self-help** vs **support** are two kinds of help:
+** *Self-help* — documentation and other answers the user can use without a human.
+** *Support* — assisted help (human or AI), tickets, private contact.
+
+Do not make docs the top-level support page. Docs are one choice on `/help`.
+
+== Current state (shipped / available)
+
+* `/help` landing with docs (live) and contact-support (coming soon).
+* Interim contact: `support@devcentr.org`.
+* Public triage still via GitHub Issues and Discussions.
+* Community menu (header): Help, Status, Better Stack uptime, Slack, Discussions.
+* Live probe page at `/status`; hosted incidents/uptime at `https://status.devcentr.org` (Better Stack).
+* Slack: public invite in `src/lib/site-links.ts` (`SLACK_INVITE_URL`).
+
+== Near-term product goals
+
+. Keep `/help` as the single entry; do not deep-link a half-built desk.
+. When a dedicated support system exists, wire the "Contact support" row to it (no fake URL until then).
+. Prefer GitHub as the *public* system of record for bugs/features; keep private/security/billing off public Issues.
+
+== Planned: AI chatbot / assisted helpdesk
+
+Goal: first-line answers from docs and product knowledge, with escalation to a human.
+
+* Index `docs.devcentr.org` (and later in-app help) as the retrieval corpus.
+* Chat entry point from `/help` (and eventually the desktop app), clearly labeled as assisted/AI.
+* Escalate to a ticket or `support@` when confidence is low, the user asks for a human, or the topic is account/security/billing.
+* Guardrails: no inventing product behavior; cite doc sources; refuse secrets and credential handling in chat.
+* Fit with DevCentr local-first culture: prefer shipping diagnostics packages the user reviews before upload, rather than silent telemetry dumps.
+
+Out of scope for v1: replacing GitHub Issues as the public bug tracker.
+
+== Planned: full helpdesk SaaS
+
+When volume or paid plans justify an operator queue:
+
+* Evaluate a conventional helpdesk (e.g. Help Scout, Freshdesk, Zendesk) *or* an internal queue (e.g. Linear + private inbox) behind the same `/help` → Support path.
+* Public front door stays `/help`; SaaS is the back office.
+* Map channels: email (`support@`), web form/chat escalation, optional in-app "Report problem".
+* SLAs and private tickets for paying customers; OSS community continues on GitHub Discussions/Issues where appropriate.
+* Avoid Discord-as-primary-support (poor searchability and ownership).
+
+== Explicit non-goals (for now)
+
+* Embedding a third-party chat widget before the desk exists.
+* Making documentation URLs masquerade as "Support".
+* Committing a production URL for the dedicated system before it ships.
+
+== Related surfaces
+
+* Site: `src/routes/help.tsx`, `src/routes/support.tsx`, `src/components/community-nav.tsx`
+* Links: `src/lib/site-links.ts`
+* Docs hub: https://docs.devcentr.org
+* Status (probes): `/status`
+* Status (hosted): https://status.devcentr.org
+* Slack: public invite via `SLACK_INVITE_URL`
+* Email: `support@devcentr.org`

@@ -21,10 +21,17 @@ Site copies live in `public/brand/`. Canonical org-wide assets (including `logo.
 * **CMS:** git + link:https://pagescms.org/[Pages CMS] (see `.pages.yml` and `content/news/README.adoc`)
 * **Build:** `pnpm run news:build` (also `predev` / `prebuild`) writes `src/lib/news-posts.generated.json` and the feed files
 
-== Service health
+== Help
 
-* **URL:** link:https://devcentr.org/health[/health]
-* Client-side probes of public endpoints (landing, news, docs, app, GitHub). Linked from the site footer.
+* **URL:** link:https://devcentr.org/help[/help] (`/support` redirects to `/help#support`)
+* Hub for self-help (docs) vs assisted support (coming soon), plus status, GitHub, and `support@devcentr.org`.
+* Planning notes: `docs/help-and-support-plans.adoc`
+
+== Status
+
+* **Probes:** link:https://devcentr.org/status[/status] (`/health` redirects here) — client-side checks of public endpoints
+* **Hosted uptime:** link:https://status.devcentr.org[status.devcentr.org] (Better Stack) — linked from the probe page
+* Community surfaces (Help, Status, Slack, …) live under the header **Community** menu
 
 == Stack
 

@@ -1,4 +1,5 @@
 import { ModeToggle } from "~/components/mode-toggle";
+import { CommunityNav } from "~/components/community-nav";
 import { LogoMark } from "~/components/logo-mark";
 
 const linkClass =
@@ -24,6 +25,7 @@ export function SiteHeader(props: { brandSize?: "sm" | "md" }) {
         <a href="https://docs.devcentr.org" class={linkClass}>
           Docs
         </a>
+        <CommunityNav />
         <a href="https://github.com/dev-centr" class={linkClass}>
           GitHub
         </a>
