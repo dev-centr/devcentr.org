@@ -55,7 +55,7 @@ export const products: CatalogItem[] = [
     id: "prohelp",
     name: "Prohelp",
     summary: "Structured CLI help library and tooling.",
-    href: "https://github.com/dev-centr/prohelp",
+    href: "https://github.com/openshellorg/prohelp",
     external: true,
   },
   {
