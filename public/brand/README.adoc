@@ -1,0 +1,30 @@
+= Brand motion assets
+:navtitle: Brand motion
+
+DevCentr brand files for org profiles and the marketing site.
+
+== Static (always ship these)
+
+* `logo.svg` / `logo.png` / `logo-256.png` — transparent mark
+* `logo-on-dark.svg` / `logo-on-dark.png` / `logo-on-dark-256.png` — rounded tile; use `logo-on-dark-256.png` for the GitHub org avatar
+
+== Motion
+
+* `logo-motion.svg` — **Preferred portable motion file.** Self-contained CSS + SMIL; no player. Respects `prefers-reduced-motion`.
+* `logo.riv` — **Preferred interactive motion file** when a Rive runtime is already justified (theming, hover/state inputs). Author in the link:https://rive.app/[Rive Editor]; keep state/input names documented below when the file is added.
+
+=== Authoring `logo.riv` (checklist)
+
+Until `logo.riv` is committed, recreate the mark in Rive to match `logo.svg` / `logo-motion.svg`:
+
+. Artboard 512×512
+. Outer dashed ring + node (spin ~48s)
+. Mid dashed ring + two nodes (reverse spin ~36s)
+. Inner static ring
+. Rotated square hub with subtle pulse (~4.5s)
+. Optional inputs: `isDark` (recolor strokes/fills), `isHover` (speed or pulse amp)
+. Export `.riv` here as `logo.riv`
+
+Do **not** require the Rive player for READMEs, avatars, or docs chrome — use SVG there.
+
+Site mirror: `devcentr.org/public/brand/`. Org harbor: `.github/profile/` and `.github-private/profile/`.

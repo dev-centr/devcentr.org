@@ -24,6 +24,10 @@ Orbiting rings + rotated square hub = “center of gravity.” Assets live in `p
 
 - `logo.svg` / `logo.png` / `logo-256.png` — transparent mark
 - `logo-on-dark.svg` / `logo-on-dark.png` / `logo-on-dark-256.png` — rounded tile; upload the 256 for the GitHub org avatar
+- `logo-motion.svg` — self-contained animated SVG (no player)
+- `logo.riv` — interactive twin (Rive; author per `public/brand/README.adoc`)
+
+Site chrome may also animate via CSS on inline SVG (`LogoMark` / `HeroOrbit`). Prefer the file forms when harboring or embedding outside the app.
 
 Regenerate rasters: `pnpm run brand:raster`
 
