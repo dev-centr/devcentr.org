@@ -19,6 +19,9 @@ export function SiteHeader() {
         <a href="/news" class={linkClass}>
           News
         </a>
+        <a href="/changelog" class={linkClass}>
+          Changelog
+        </a>
         <a href="https://docs.devcentr.org" class={linkClass}>
           Docs
         </a>

@@ -1,28 +1,14 @@
-= Welcome to DevCentr News
-:description: News and updates across Dev-Centr and related projects — initiatives, shipping notes, and ecosystem changes. (Also indexed as our engineering blog.)
+= We're opening a News desk
+:description: Why DevCentr is starting a public News feed—and what you won't find here.
 :revdate: 2026-07-24
 :keywords: news, blog, chronicle, initiatives, DevCentr
 
-We are starting a public **News** feed on link:https://devcentr.org/news[devcentr.org/news] (legacy path: link:https://devcentr.org/blog[/blog]).
+Dev-Centr has been shipping in public for a while—docs, tools, the app, the whole messy orbit of related projects. What we haven't had is a place to *talk about* that work like people talk about it: the why, the bets, the “here's where we're headed” pieces.
 
-== What belongs here
+So we're starting News at link:https://devcentr.org/news[devcentr.org/news].
 
-* Initiatives and direction changes across the Dev-Centr org
-* Notable shipping moments on the landing site, docs, and related tools
-* Cross-project news that affects how we build (tooling, formats, sister orgs)
-* Highlights mirrored from Antora changelogs (docs remain the system of record)
+Think magazine column more than release notes. If something changes how we build, how we show up as an org, or what we're trying to become, it belongs here. If it's “we fixed a heading and renamed three pages,” that's the link:https://devcentr.org/changelog[Changelog].
 
-This is **not** a replacement for Antora changelogs or issue trackers. Those stay the system of record for specs and day-to-day work. News is the narrative layer—what we chose, why it matters, and where to dig deeper.
+We'll write when there's something worth saying. No weekly quota. No content mill. Subscribe to the link:https://devcentr.org/news/rss.xml[RSS] or link:https://devcentr.org/news/atom.xml[Atom] feed if you want a ping when we do.
 
-== Feeds
-
-* link:https://devcentr.org/news/rss.xml[RSS]
-* link:https://devcentr.org/news/atom.xml[Atom]
-
-== Where else to look
-
-* link:https://docs.devcentr.org[docs.devcentr.org] — knowledge base and specs
-* link:https://github.com/dev-centr[github.com/dev-centr] — source and issues
-* link:https://devcentr.app[devcentr.app] — the flagship app
-
-Expect irregular posts when there is something worth saying—not a content mill.
+Elsewhere, as always: link:https://docs.devcentr.org[the docs], link:https://github.com/dev-centr[the repos], and link:https://devcentr.app[the app].

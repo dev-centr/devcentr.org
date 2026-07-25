@@ -42,7 +42,12 @@ const destinations = [
   {
     href: "/news",
     label: "News",
-    detail: "Initiatives, shipping notes & blog",
+    detail: "Initiatives & engineering blog",
+  },
+  {
+    href: "/changelog",
+    label: "Changelog",
+    detail: "Product & docs shipping notes",
   },
   {
     href: "/toolchain-advisor",

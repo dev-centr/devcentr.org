@@ -1,0 +1,480 @@
+{
+  "entries": [
+    {
+      "id": "devcentr-2026-07-24-toolchain-control-plane-and-flutter-ecosystem-module",
+      "date": "2026-07-24",
+      "title": "Toolchain Control Plane and Flutter ecosystem module",
+      "bullets": [
+        "Documented Toolchain Control Plane / Flutter ecosystem module (vocabulary later locked under Toolchain Management — see entry above).",
+        "Spec: Ecosystem Management; definition files gain unifiedControlPlane metadata.",
+        "App: reusable AdvisoryBanner; modules.ecosystems loader/panel; Flutter home/sidebar page with advisory and community bridge tools (fvm, puro, mise).",
+        "Language SDL: languages/flutter.sdl; languages/node.sdl includes control-plane metadata.",
+        "See Detailed changelog.",
+        "Docs sibling: general-knowledge Toolchain Control Plane + Flutter setup (Changelog)."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-07-24-toolchain-management-vocabulary",
+      "date": "2026-07-24",
+      "title": "Toolchain Management vocabulary",
+      "bullets": [
+        "Product pointers: Toolchain Management + retargeted Control Plane.",
+        "Spec components: Toolchain Management (TCM) and Ecosystem Management (protocol + advisories).",
+        "Vision and definition-files xrefs point at the Pattern page; Flutter advisory Learn more → toolchain-management.html.",
+        "TCF kit repo: dev-centr/toolchain-framework (schemas, validators, CI).",
+        "Companion: general-knowledge vocabulary lock-in (Changelog).",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-07-24-wsl-manager-page",
+      "date": "2026-07-24",
+      "title": "WSL Manager page",
+      "bullets": [
+        "Added sidebar/home WSL page: list distros (wsl -l -v), set default, educational blurbs from distro-guide.sdl, and Open WSL Settings (official Microsoft GUI for .wslconfig).",
+        "Links to general-knowledge comparison + setup how-to and Microsoft Learn.",
+        "Spec: WSL Manager.",
+        "See Detailed changelog.",
+        "Docs sibling: general-knowledge 2026-07-24 WSL distro comparison (Changelog)."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-07-24-brand-motion-svg-rive",
+      "date": "2026-07-24",
+      "title": "Brand motion (SVG + Rive)",
+      "bullets": [
+        "Expanded Brand and UI Motion Formats: full tradeoff matrix (openness, player weight, interactivity, agentic editability); Rive as an option not a hard default; note on animation-as-code / text IR direction; Popkorn marked potential future with ayarse/popkorn#7.",
+        "Softened Recommended Tools Design & Brand Motion wording (no single-format advocacy).",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-07-24-toolchain-control-plane",
+      "date": "2026-07-24",
+      "title": "Toolchain Control Plane",
+      "bullets": [
+        "Added Toolchain Control Plane / Flutter setup material (superseded in part by the vocabulary lock-in above).",
+        "Naming at the time: TCP, TCoP, TCF.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-07-24-toolchain-management-vocabulary",
+      "date": "2026-07-24",
+      "title": "Toolchain Management vocabulary",
+      "bullets": [
+        "Canonical explanation is now Toolchain Management Pattern (pattern → protocol → control plane → TCF).",
+        "TCF clarified (IoC adapters; not TMF; broad software ecosystems); points at dev-centr/toolchain-framework CI kit.",
+        "Flutter how-to and nav updated to point at the Pattern page.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-07-24-wsl-distro-comparison-and-setup",
+      "date": "2026-07-24",
+      "title": "WSL distro comparison and setup",
+      "bullets": [
+        "Added Choosing a WSL Linux Distro: Ubuntu LTS vs Tumbleweed vs Arch vs AlmaLinux, workflows, LTS-vs-rolling clarification, and what Windows WSL Settings covers vs the CLI.",
+        "Added Set up and manage WSL how-to (install, default distro, Settings app, everyday commands).",
+        "Navigation: Explanation → Infrastructure; How-to Guides.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-07-22-appearance-cascadia-mono-jetbrains-mono",
+      "date": "2026-07-22",
+      "title": "Appearance: Cascadia Mono / JetBrains Mono",
+      "bullets": [
+        "Added Appearance settings (top bar): code/terminal font choice between Cascadia Mono (default) and JetBrains Mono.",
+        "Persisted in ~/.dev-center/ui-settings.json (codeFontFace). Applied to the repository browser terminal and AI Config monospace panels.",
+        "Spec: Appearance (code font); terminal spec notes the font requirement."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-07-22-nushell-as-recommended-system-shell",
+      "date": "2026-07-22",
+      "title": "Nushell as recommended system shell",
+      "bullets": [
+        "Capabilities and project vision now endorse Nushell as the default cross-platform shell, with xrefs to general-knowledge.",
+        "See general-knowledge changelog: Changelog (2026-07-22 entry)."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-07-22-nushell-recommendation",
+      "date": "2026-07-22",
+      "title": "Nushell recommendation",
+      "bullets": [
+        "Added Why We Recommend Nushell (structured pipelines vs byte-stream stdout).",
+        "Added Nushell vs PowerShell, Nushell and AI agents, and NVIDIA OpenShell overview (name collision + sandbox vs structured-pipe layers).",
+        "Added Dev-Centr and OpenShellOrg (aligned goals, separate orgs).",
+        "Added Nushell setup how-to and how-to index.",
+        "Added Nushell reference and restored Recommended Tools with Nushell as the default shell.",
+        "Navigation updated under How-to, Reference → Shells, and Explanation → Infrastructure."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "activity-docs-portal-2026-07",
+      "date": "2026-07-01",
+      "title": "July 2026",
+      "bullets": [
+        "resting-lanczos — Repo transferred to dev-centr/resting-lanczos. Live side-by-side comparison on devcentr.org/resting-lanczos (browser bilinear vs Lanczos srcset + transform). Tool overview: resting-lanczos.",
+        "Appearance / code fonts — DevCentr Appearance dialog: Cascadia Mono (default) or JetBrains Mono for terminal and code panels; recommended-tools docs updated.",
+        "Nushell as recommended shell — General-knowledge advocates Nushell as the default cross-platform shell; added Nu vs PowerShell, Nu + AI agents (vs NVIDIA OpenShell), and an NVIDIA OpenShell overview (name collision called out). OpenShellOrg companions: nu-require, nu-emit, shell-architecture.",
+        "Architecture — Subscription management platforms — New explanation page under Architecture: in-app subscription infrastructure (Adapty, RevenueCat, Qonversion, DIY), access levels vs store SKUs, Stripe Customer Portal limits, and web+mobile customer_user_id sync. Cross-linked from general-knowledge Explanation → Architecture."
+      ],
+      "sourceId": "docs-portal",
+      "sourceLabel": "Docs portal",
+      "docsUrl": "https://docs.devcentr.org/home/activity-log.html",
+      "kind": "activity-log"
+    },
+    {
+      "id": "activity-docs-portal-2026-06",
+      "date": "2026-06-01",
+      "title": "June 2026",
+      "bullets": [
+        "Antora UI branding (docs playbook) — Dropped the local header-content.hbs override; valentus-theme v1.1.0+ resolves the header logo via site.keys.header_logo and supplemental img/ assets. Added Antora UI branding under Software publishing."
+      ],
+      "sourceId": "docs-portal",
+      "sourceLabel": "Docs portal",
+      "docsUrl": "https://docs.devcentr.org/home/activity-log.html",
+      "kind": "activity-log"
+    },
+    {
+      "id": "activity-docs-portal-2026-05",
+      "date": "2026-05-01",
+      "title": "May 2026",
+      "bullets": [
+        "Architecture — UI-heavy web applications — New explanation page in the docs playbook (home component): Bonsai versus Leptos versus vibe.d, client/server split for database and authentication, creative stack interop (Three.js, smooth scroll, Pretext-style text layout), and notes on perceived performance in large integrated mail clients (illustrative case shapes, not vendor internals)."
+      ],
+      "sourceId": "docs-portal",
+      "sourceLabel": "Docs portal",
+      "docsUrl": "https://docs.devcentr.org/home/activity-log.html",
+      "kind": "activity-log"
+    },
+    {
+      "id": "devcentr-2026-03-27-dynamic-agent-preamble-specification",
+      "date": "2026-03-27",
+      "title": "Dynamic Agent Preamble specification",
+      "bullets": [
+        "Added Dynamic Agent Preamble specification.",
+        "Defines a preprocessor for RAG-based instruction injection and modular AGENTS.md support to reduce model context overhead and improve relevancy.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-03-21-automatic-ai-model-routing-specification",
+      "date": "2026-03-21",
+      "title": "Automatic AI model routing specification",
+      "bullets": [
+        "Added Automatic AI Model Routing under Specifications (features): routing profiles, task categories, and vendor-facing proposal for long-running sessions.",
+        "Fixed Specifications nav xref to Templates Repository Schema (was pages/templates-schema.adoc).",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-03-21-local-library-mods-and-specification",
+      "date": "2026-03-21",
+      "title": "Local library mods and specification",
+      "bullets": [
+        "Added Local Library Mods guide explaining how to use forked libraries (DUB, PNPM, Python, Go) without breaking CI/CD.",
+        "Drafted Local Mod Management specification for UI-based mod registration and project badges.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-03-19-ai-local-library-docs",
+      "date": "2026-03-19",
+      "title": "AI Local Library Docs",
+      "bullets": [
+        "Added a repo-local workflow for cloning library docs/source into a gitignored folder, plus an obvious local AI manifest file so agents can search exact local references instead of stale model memory.",
+        "Added setup docs and a refresh script for phobos, dlangui, and SDLang-D.",
+        "Documented the preferred layered strategy for AI dependency docs: MCP-hosted indexed docs such as Context7 first, repo-local cloned docs second, and web search last. Added a DevCentr feature spec for MCP setup and local fallback automation.",
+        "Added a Context7 client profile registry and new specs for the global AI Config interface, Context7/skills setup flows, and the integrated repository-browser terminal.",
+        "Implemented a first working AI Config dialog, a repo-browser Terminal tab, and a small std.logger file logger wrapper to make runtime debugging less blind.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-03-19-arsd-official-extern-c-deprecation-fix",
+      "date": "2026-03-19",
+      "title": "arsd-official extern(C) deprecation fix",
+      "bullets": [
+        "Forked arsd into dev-centr, fixed the in parameter deprecation in nsvg__cmpEdge for arsd-official 10.9.10 (svg.d).",
+        "Added scripts/patch-arsd-svg-deprecation.ps1 to re-apply the patch to the dub cache when needed.",
+        "See Detailed changelog.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-03-19-dub-local-vs-remote-path-management",
+      "date": "2026-03-19",
+      "title": "DUB local vs remote path management",
+      "bullets": [
+        "Added DUB Local vs Remote Paths documenting how to manage build specifications in dub.json without manually swapping between local and remote paths.",
+        "Covers dub.selections.json, dub add-local, environment variable overrides, and git submodules for persistent patches.",
+        "Forked unit-threaded to dlang-supplemental; fixed sub-package DUB warnings; wired in via dub add-local; submitted upstream issue #329 and PR #330.",
+        "See Detailed changelog.",
+        "See unit-threaded fork and upstream contrib."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-03-19-general-knowledge-extraction",
+      "date": "2026-03-19",
+      "title": "General Knowledge Extraction",
+      "bullets": [
+        "Extracted all general-reference content from devcentr into a new general-knowledge repository (dev-centr/general-knowledge).",
+        "Removed the knowledge-base module from devcentr. DevCentr docs are now product-focused: ROOT, specifications, secrets-manager, publishing, upstream-contributions.",
+        "General Knowledge holds Diátaxis-organized tutorials, how-tos, reference, and explanations (SSH keys, Git management, Windows EOL, workspace organization, package registries, etc.).",
+        "Updated all xrefs and app code to use general-knowledge component. Local playbooks use sibling path ../general-knowledge (no remote URLs); CI playbooks use the GitHub URL.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-03-18-gitignore-templates-eol-and-templates-schema",
+      "date": "2026-03-18",
+      "title": "Gitignore Templates, EOL, and Templates Schema",
+      "bullets": [
+        "Added GitHub gitignore (github/gitignore) as a template source alongside DevCentr in the Init Repo flow. Users can select source (DevCentr or GitHub) and merge templates from either.",
+        "Documented GitHub's base vs Global vs community layout in Gitignore Template Sources. Root = languages/core tech; Global = editors/tools/OS.",
+        "Added .editorconfig tab and default template to Init Repo (LF with CRLF overrides for .bat, .cmd, .reg). Repo init now writes .gitattributes, .gitignore, and .editorconfig.",
+        "Updated Git Management: clarified core.autocrlf input vs false, when each applies, and EditorConfig step.",
+        "Added Windows EOL Exceptions for batch, registry, PowerShell, Visual Studio.",
+        "Defined Templates Schema: version folders per ecosystem, _base (preference-agnostic), _preferences (team/tool-specific).",
+        "Per-repo settings: documented gitignore.suppressMissing for suppressing template comparison warnings.",
+        "Gitignore Viewer implemented: reusable minimap, technology tree, template comparison with DevCentr/GitHub/Local tabs, missing-item strikethrough (red), Suppress button storing in .devcentr.sdl, side-panel integration via hallmark toolbar.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-03-18-organization-profile-and-gitignore",
+      "date": "2026-03-18",
+      "title": "Organization Profile and Gitignore",
+      "bullets": [
+        "Organization profile feature in repository browser: when selecting an owner/org in the project tree, the side-panel shows buttons to open public/private profile pages on GitHub/GitLab/Gitea, open profile repos in the browser, and highlight local profile repos in the tree.",
+        "Provider-specific org profile config in app/src/modules/vcs/profiles.json5 (repo names, README paths, URL formats).",
+        "See Org Profile Feature and Gitignore details."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-03-17-winget-registration-documentation",
+      "date": "2026-03-17",
+      "title": "Winget Registration Documentation",
+      "bullets": [
+        "Added comprehensive guides for manual and automated Winget app registration, including wingetcreate usage, GitHub PAT requirements, and Windows-runner workarounds for Linux-based CI/CD pipelines.",
+        "Integrated in-app Winget support module in VersionControlWidget, providing direct links to documentation and local wingetcreate availability checks.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-03-14-ai-providers-changelog-generation-and-repo-hallmarks",
+      "date": "2026-03-14",
+      "title": "AI Providers, Changelog Generation, and Repo Hallmarks",
+      "bullets": [
+        "Added AI provider API key workflows, integrated a git-diff based changelog generator service, and implemented a compound-button hallmark toolbar to access standard repository roots and multiple IDE forks automatically.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-03-14-roadmap-extensions-graphrag",
+      "date": "2026-03-14",
+      "title": "Roadmap, Extensions & GraphRAG",
+      "bullets": [
+        "Outlined vision and specifications for AI-audited extension registries, local module streaming from Git guest repos, and standalone GraphRAG client support.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-03-12-repository-browser-tools-and-diff-stats",
+      "date": "2026-03-12",
+      "title": "Repository browser tools and diff stats",
+      "bullets": [
+        "Added specs and initial implementation for repository tools integration, diff-stats-as-dirty indicator, and reorganization/transfer workflows.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-03-12-vercel-deployment-and-build-asymmetry-documentation",
+      "date": "2026-03-12",
+      "title": "Vercel deployment and build asymmetry documentation",
+      "bullets": [
+        "Standardized PNPM 10 and documented the asymmetric build strategy for Vercel monorepo deployments.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-03-05-git-management-and-workspace-organization-docs",
+      "date": "2026-03-05",
+      "title": "Git management and workspace organization docs",
+      "bullets": [
+        "Documented and refined workspace organization schema and Git management guidance.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-02-15-workspace-organization-and-core-docs",
+      "date": "2026-02-15",
+      "title": "Workspace organization and core docs",
+      "bullets": [
+        "Added workspace organization schema and core project/legal docs.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-01-26-di-taxis-and-docs-refactor",
+      "date": "2026-01-26",
+      "title": "Diátaxis and docs refactor",
+      "bullets": [
+        "Reorganized docs to follow the Diátaxis model.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2025-12-09-antora-documentation-structure-and-spec-modules",
+      "date": "2025-12-09",
+      "title": "Antora documentation structure and spec modules",
+      "bullets": [
+        "Introduced Antora-based docs structure and initial specification modules.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "activity-docs-portal-2025-03",
+      "date": "2025-03-01",
+      "title": "March 2025",
+      "bullets": [
+        "Central Todo & Roadmap and Activity log — Moved org-wide roadmap and activity log into the docs repository so they live in one place for the aggregated site (docs.devcentr.org). Added \"Where documentation lives\" to explain the doc structure. DevCentr repo keeps its own task-level Todo & Roadmap for app work.",
+        "Secrets Manager documentation (DevCentr) — Full module: overview, architecture, .env patterns, back-end providers (Bitwarden), SSH Manager spec, WSL and virtual environments, proxy-in-GUI guidance. Todo & Roadmap and Activity log added to DevCentr docs (and now mirrored/centralized here)."
+      ],
+      "sourceId": "docs-portal",
+      "sourceLabel": "Docs portal",
+      "docsUrl": "https://docs.devcentr.org/home/activity-log.html",
+      "kind": "activity-log"
+    },
+    {
+      "id": "activity-docs-portal-2025-01",
+      "date": "2025-01-01",
+      "title": "Earlier 2025",
+      "bullets": [
+        "Project vision and specs (DevCentr) — UI specification and roadmap, environment navigator concept, component specs.",
+        "Knowledge base and publishing (DevCentr) — SSH keys, Git, workspace organization, Antora deployment, upstream contributions.",
+        "Portal and tools (docs repo) — Home portal linking DevCentr, Templates, MSI Generator; tool overviews for code-d, dprint, dlangui."
+      ],
+      "sourceId": "docs-portal",
+      "sourceLabel": "Docs portal",
+      "docsUrl": "https://docs.devcentr.org/home/activity-log.html",
+      "kind": "activity-log"
+    }
+  ]
+}

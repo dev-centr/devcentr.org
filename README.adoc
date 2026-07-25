@@ -17,9 +17,15 @@ Site copies live in `public/brand/`. Canonical org-wide assets (including `logo.
 
 * **URL:** link:https://devcentr.org/news[/news] (legacy alias: link:https://devcentr.org/blog[/blog] for SEO)
 * **Feeds:** link:https://devcentr.org/news/rss.xml[RSS], link:https://devcentr.org/news/atom.xml[Atom]
-* **Source:** AsciiDoc posts in `content/news/` plus Antora changelog ingest at build time
+* **Source:** AsciiDoc posts in `content/news/` (narrative only — not a micro-changelog)
 * **CMS:** git + link:https://pagescms.org/[Pages CMS] (see `.pages.yml` and `content/news/README.adoc`)
-* **Build:** `pnpm run news:build` (also `predev` / `prebuild`) writes `src/lib/news-posts.generated.json` and the feed files
+* **Build:** `pnpm run news:build` (also `predev` / `prebuild`) writes `src/lib/news-posts.generated.json`, changelog JSON, and the feed files
+
+== Changelog
+
+* **URL:** link:https://devcentr.org/changelog[/changelog]
+* **Source:** Antora `changelog.adoc` / activity-log timelines (DevCentr, General Knowledge, docs portal) ingested at build time
+* **Canonical:** Full entries remain on link:https://docs.devcentr.org[docs.devcentr.org]; the marketing page is a mirror index
 
 == Help
 
@@ -53,6 +59,7 @@ pnpm dev
 * `src/` — Source code (scaffolded)
 * `content/news/` — AsciiDoc news / blog posts
 * `public/` — Static assets (includes generated feeds under `public/news/`)
+* `src/lib/news-posts.generated.json` / `changelog-entries.generated.json` — build outputs from `pnpm news:build`
 * `app.config.ts` — SolidStart/Vinxi configuration
 * `DESIGN.md` — Design philosophy and guidelines
 

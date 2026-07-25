@@ -3,6 +3,15 @@
 
 News posts are AsciiDoc files in `content/news/`. There is no separate hosted CMS server—**git is the CMS**.
 
+== Voice
+
+News is for *humans*—op-eds and big-picture updates, not changelog bullets.
+
+* Write conversationally. First person plural (“we”) is fine.
+* Lead with why it matters; bury the file paths and route lists (or omit them).
+* One clear opinion or framing beat per post is better than a feature dump.
+* Day-to-day shipping notes belong on `/changelog`, not here.
+
 == Recommended: Pages CMS
 
 Use link:https://pagescms.org/[Pages CMS] (GitHub-connected media library / editor) against the `dev-centr/devcentr.org` repo. Repo config: link:../../.pages.yml[`.pages.yml`] at the repository root.
@@ -19,6 +28,6 @@ Use link:https://pagescms.org/[Pages CMS] (GitHub-connected media library / edit
 . Run `pnpm run news:build` (or rely on `prebuild` in CI)
 . Push to `main`
 
-== Generated sources
+== Changelog (separate)
 
-Antora changelog highlights are ingested automatically at build time into the News catalog (and feeds). Do not hand-edit those generated entries—fix the source changelog in the docs repos instead.
+Antora changelogs are ingested at build time into `/changelog`, not into News. Fix the source `changelog.adoc` / activity-log in the docs repos; do not hand-edit `src/lib/changelog-entries.generated.json`.

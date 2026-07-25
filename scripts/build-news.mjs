@@ -1,10 +1,11 @@
 /**
- * Build News catalog from:
- * - content/news/*.adoc (hand-authored)
- * - Antora changelog.adoc timelines in sibling / CI checkout repos
+ * Build News + Changelog catalogs from:
+ * - content/news/*.adoc (hand-authored narrative news)
+ * - Antora changelog.adoc / activity-log.adoc in sibling / CI checkout repos
  *
  * Emits:
- * - src/lib/news-posts.generated.json
+ * - src/lib/news-posts.generated.json          (authored news only)
+ * - src/lib/changelog-entries.generated.json   (docs changelogs)
  * - public/news/rss.xml
  * - public/news/atom.xml
  */
@@ -15,11 +16,21 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const contentDir = join(root, "content", "news");
-const outJson = join(root, "src", "lib", "news-posts.generated.json");
+const outNewsJson = join(root, "src", "lib", "news-posts.generated.json");
+const outChangelogJson = join(root, "src", "lib", "changelog-entries.generated.json");
 const feedDir = join(root, "public", "news");
 const siteUrl = "https://devcentr.org";
 
 const changelogSources = [
+  {
+    id: "devcentr",
+    label: "DevCentr",
+    paths: [
+      join(root, "devcentr", "docs", "modules", "ROOT", "pages", "changelog.adoc"),
+      join(root, "..", "devcentr", "docs", "modules", "ROOT", "pages", "changelog.adoc"),
+    ],
+    docsUrl: "https://docs.devcentr.org/devcentr/latest/changelog.html",
+  },
   {
     id: "general-knowledge",
     label: "General Knowledge",
@@ -69,8 +80,16 @@ function firstExisting(paths) {
   return paths.find((p) => existsSync(p));
 }
 
+function cleanInlineMarkup(line) {
+  return line
+    .replace(/xref:[^\[]+\[([^\]]+)\]/g, "$1")
+    .replace(/link:[^\[]+\[([^\]]+)\]/g, "$1")
+    .replace(/\*\*([^*]+)\*\*/g, "$1")
+    .replace(/`([^`]+)`/g, "$1");
+}
+
 function parseChangelogTimeline(text, source) {
-  const posts = [];
+  const entries = [];
   const re = /^==\s+(\d{4}-\d{2}-\d{2})\s+[—–-]\s+(.+)\s*$/gm;
   const matches = [...text.matchAll(re)];
   for (let i = 0; i < matches.length; i++) {
@@ -84,33 +103,24 @@ function parseChangelogTimeline(text, source) {
       .split("\n")
       .map((l) => l.trim())
       .filter((l) => l.startsWith("* "))
-      .map((l) => l.replace(/^\*\s+/, "").replace(/xref:[^\[]+\[([^\]]+)\]/g, "$1").replace(/link:[^\[]+\[([^\]]+)\]/g, "$1"));
+      .map((l) => cleanInlineMarkup(l.replace(/^\*\s+/, "")));
 
-    const htmlParts = [
-      `<p>From the <strong>${escapeXml(source.label)}</strong> Antora changelog.</p>`,
-      "<ul>",
-      ...bullets.slice(0, 12).map((b) => `<li><p>${escapeXml(b)}</p></li>`),
-      "</ul>",
-      `<p><a href="${escapeXml(source.docsUrl)}">Read on docs.devcentr.org</a></p>`,
-    ];
-
-    posts.push({
-      slug: `changelog-${source.id}-${date}-${slugify(title)}`,
-      title: `${title} (${source.label})`,
-      description: bullets[0] ? stripTags(bullets[0]).slice(0, 220) : `${source.label} changelog entry`,
+    entries.push({
+      id: `${source.id}-${date}-${slugify(title)}`,
       date,
-      tags: ["news", "blog", "changelog", source.id],
-      html: htmlParts.join("\n"),
-      source: "antora-changelog",
+      title,
+      bullets,
       sourceId: source.id,
+      sourceLabel: source.label,
+      docsUrl: source.docsUrl,
+      kind: "changelog",
     });
   }
-  return posts;
+  return entries;
 }
 
 function parseActivityLog(text, source) {
-  // Coarse monthly highlights → one post per month heading under a year
-  const posts = [];
+  const entries = [];
   const yearBlocks = text.split(/^==\s+(\d{4})\s*$/m).slice(1);
   for (let i = 0; i < yearBlocks.length; i += 2) {
     const year = yearBlocks[i];
@@ -125,7 +135,7 @@ function parseActivityLog(text, source) {
         .split("\n")
         .map((l) => l.trim())
         .filter((l) => l.startsWith("* "))
-        .map((l) => l.replace(/^\*\s+/, "").replace(/\*\*/g, "").replace(/xref:[^\[]+\[([^\]]+)\]/g, "$1"));
+        .map((l) => cleanInlineMarkup(l.replace(/^\*\s+/, "")));
       if (!bullets.length) continue;
       const monthNum =
         {
@@ -143,25 +153,19 @@ function parseActivityLog(text, source) {
           December: "12",
         }[month] || "01";
       const date = `${year}-${monthNum}-01`;
-      posts.push({
-        slug: `activity-${source.id}-${year}-${monthNum}`,
-        title: `Docs activity — ${month} ${year}`,
-        description: bullets[0].slice(0, 220),
+      entries.push({
+        id: `activity-${source.id}-${year}-${monthNum}`,
         date,
-        tags: ["news", "blog", "changelog", "activity-log"],
-        html: [
-          `<p>Highlights from the org <strong>Activity Log</strong>.</p>`,
-          "<ul>",
-          ...bullets.slice(0, 12).map((b) => `<li><p>${escapeXml(b)}</p></li>`),
-          "</ul>",
-          `<p><a href="${escapeXml(source.docsUrl)}">Read on docs.devcentr.org</a></p>`,
-        ].join("\n"),
-        source: "antora-activity-log",
+        title: `${month} ${year}`,
+        bullets,
         sourceId: source.id,
+        sourceLabel: source.label,
+        docsUrl: source.docsUrl,
+        kind: "activity-log",
       });
     }
   }
-  return posts;
+  return entries;
 }
 
 async function loadAuthoredPosts() {
@@ -183,7 +187,6 @@ async function loadAuthoredPosts() {
       .split(",")
       .map((t) => t.trim())
       .filter(Boolean);
-    // Ensure SEO blog keyword is always present for hand-authored news
     const tags = [...new Set([...keywords, "news", "blog"])];
     posts.push({
       slug,
@@ -198,8 +201,8 @@ async function loadAuthoredPosts() {
   return posts;
 }
 
-function loadChangelogPosts() {
-  const posts = [];
+function loadChangelogEntries() {
+  const entries = [];
   for (const source of changelogSources) {
     const path = firstExisting(source.paths);
     if (!path) {
@@ -210,9 +213,9 @@ function loadChangelogPosts() {
     const parsed =
       source.kind === "activity-log" ? parseActivityLog(text, source) : parseChangelogTimeline(text, source);
     console.log(`changelog ingest ${source.id}: ${parsed.length} entr(y/ies) from ${path}`);
-    posts.push(...parsed);
+    entries.push(...parsed);
   }
-  return posts;
+  return entries;
 }
 
 function writeFeeds(posts) {
@@ -239,7 +242,7 @@ function writeFeeds(posts) {
 <channel>
   <title>DevCentr News</title>
   <link>${siteUrl}/news</link>
-  <description>News, engineering blog posts, and changelog highlights from Dev-Centr.</description>
+  <description>News and engineering blog posts from Dev-Centr.</description>
   <language>en-us</language>
   <lastBuildDate>${new Date(updated + "T12:00:00Z").toUTCString()}</lastBuildDate>
 ${itemsRss}
@@ -270,7 +273,7 @@ ${itemsRss}
   <link href="${siteUrl}/news/atom.xml" rel="self"/>
   <id>${siteUrl}/news</id>
   <updated>${updated}T12:00:00Z</updated>
-  <subtitle>News, engineering blog posts, and changelog highlights from Dev-Centr.</subtitle>
+  <subtitle>News and engineering blog posts from Dev-Centr.</subtitle>
 ${entriesAtom}
 </feed>
 `;
@@ -280,17 +283,27 @@ ${entriesAtom}
 }
 
 const authored = await loadAuthoredPosts();
-const fromDocs = loadChangelogPosts();
-const bySlug = new Map();
-for (const p of [...authored, ...fromDocs]) {
-  if (!bySlug.has(p.slug)) bySlug.set(p.slug, p);
+const newsBySlug = new Map();
+for (const p of authored) {
+  if (!newsBySlug.has(p.slug)) newsBySlug.set(p.slug, p);
 }
-const posts = [...bySlug.values()].sort(
+const posts = [...newsBySlug.values()].sort(
   (a, b) => String(b.date).localeCompare(String(a.date)) || String(b.slug).localeCompare(String(a.slug)),
 );
 
-mkdirSync(dirname(outJson), { recursive: true });
-writeFileSync(outJson, `${JSON.stringify({ posts }, null, 2)}\n`, "utf8");
+const changelogRaw = loadChangelogEntries();
+const changelogById = new Map();
+for (const e of changelogRaw) {
+  if (!changelogById.has(e.id)) changelogById.set(e.id, e);
+}
+const changelogEntries = [...changelogById.values()].sort(
+  (a, b) => String(b.date).localeCompare(String(a.date)) || String(a.sourceLabel).localeCompare(String(b.sourceLabel)) || String(a.title).localeCompare(String(b.title)),
+);
+
+mkdirSync(dirname(outNewsJson), { recursive: true });
+writeFileSync(outNewsJson, `${JSON.stringify({ posts }, null, 2)}\n`, "utf8");
+writeFileSync(outChangelogJson, `${JSON.stringify({ entries: changelogEntries }, null, 2)}\n`, "utf8");
 writeFeeds(posts);
-console.log(`Wrote ${posts.length} news post(s) → ${outJson}`);
+console.log(`Wrote ${posts.length} news post(s) → ${outNewsJson}`);
+console.log(`Wrote ${changelogEntries.length} changelog entr(y/ies) → ${outChangelogJson}`);
 console.log(`Wrote feeds → ${feedDir}/rss.xml , atom.xml`);

@@ -14,6 +14,7 @@ export type NewsPost = {
 /** @deprecated Use NewsPost — kept for SEO/code grep friendliness */
 export type BlogPost = NewsPost;
 
+/** Authored narrative news only (changelog lives at /changelog). */
 export function getPosts(): NewsPost[] {
   return catalog.posts as NewsPost[];
 }
@@ -26,6 +27,7 @@ export function getPostSlugs(): string[] {
   return getPosts().map((p) => p.slug);
 }
 
+/** @deprecated Prefer getPosts() — news catalog is authored-only now. */
 export function getAuthoredPosts(): NewsPost[] {
   return getPosts().filter((p) => !p.source || p.source === "authored");
 }

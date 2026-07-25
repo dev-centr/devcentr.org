@@ -3,123 +3,33 @@
 <channel>
   <title>DevCentr News</title>
   <link>https://devcentr.org/news</link>
-  <description>News, engineering blog posts, and changelog highlights from Dev-Centr.</description>
+  <description>News and engineering blog posts from Dev-Centr.</description>
   <language>en-us</language>
   <lastBuildDate>Fri, 24 Jul 2026 12:00:00 GMT</lastBuildDate>
   <item>
-    <title>WSL distro comparison and setup (General Knowledge)</title>
-    <link>https://devcentr.org/news/changelog-general-knowledge-2026-07-24-wsl-distro-comparison-and-setup</link>
-    <guid isPermaLink="true">https://devcentr.org/news/changelog-general-knowledge-2026-07-24-wsl-distro-comparison-and-setup</guid>
-    <pubDate>Fri, 24 Jul 2026 12:00:00 GMT</pubDate>
-    <description>Added Choosing a WSL Linux Distro: Ubuntu LTS vs Tumbleweed vs Arch vs AlmaLinux, workflows, LTS-vs-rolling clarification, and what Windows **WSL Settings** covers vs the CLI.</description>
-    <category>blog</category>
-    <category>news</category>
-  </item>
-  <item>
-    <title>Toolchain Management vocabulary (General Knowledge)</title>
-    <link>https://devcentr.org/news/changelog-general-knowledge-2026-07-24-toolchain-management-vocabulary</link>
-    <guid isPermaLink="true">https://devcentr.org/news/changelog-general-knowledge-2026-07-24-toolchain-management-vocabulary</guid>
-    <pubDate>Fri, 24 Jul 2026 12:00:00 GMT</pubDate>
-    <description>Canonical explanation is now Toolchain Management Pattern (pattern → protocol → control plane → TCF).</description>
-    <category>blog</category>
-    <category>news</category>
-  </item>
-  <item>
-    <title>Toolchain Control Plane (General Knowledge)</title>
-    <link>https://devcentr.org/news/changelog-general-knowledge-2026-07-24-toolchain-control-plane</link>
-    <guid isPermaLink="true">https://devcentr.org/news/changelog-general-knowledge-2026-07-24-toolchain-control-plane</guid>
-    <pubDate>Fri, 24 Jul 2026 12:00:00 GMT</pubDate>
-    <description>Added Toolchain Control Plane / Flutter setup material (superseded in part by the vocabulary lock-in above).</description>
-    <category>blog</category>
-    <category>news</category>
-  </item>
-  <item>
-    <title>Brand motion (SVG + Rive) (General Knowledge)</title>
-    <link>https://devcentr.org/news/changelog-general-knowledge-2026-07-24-brand-motion-svg-rive</link>
-    <guid isPermaLink="true">https://devcentr.org/news/changelog-general-knowledge-2026-07-24-brand-motion-svg-rive</guid>
-    <pubDate>Fri, 24 Jul 2026 12:00:00 GMT</pubDate>
-    <description>Expanded Brand and UI Motion Formats: full tradeoff matrix (openness, player weight, interactivity, **agentic editability**); Rive as an option not a hard default; note on animation-as-code / text IR direction; **Popkorn</description>
-    <category>blog</category>
-    <category>news</category>
-  </item>
-  <item>
-    <title>Welcome to DevCentr News</title>
+    <title>We&amp;#8217;re opening a News desk</title>
     <link>https://devcentr.org/news/2026-07-24-welcome</link>
     <guid isPermaLink="true">https://devcentr.org/news/2026-07-24-welcome</guid>
     <pubDate>Fri, 24 Jul 2026 12:00:00 GMT</pubDate>
-    <description>News and updates across Dev-Centr and related projects — initiatives, shipping notes, and ecosystem changes. (Also indexed as our engineering blog.)</description>
+    <description>Why DevCentr is starting a public News feed—and what you won&apos;t find here.</description>
     <category>blog</category>
     <category>news</category>
   </item>
   <item>
-    <title>Help hub on devcentr.org</title>
+    <title>Stop dumping people into the docs</title>
     <link>https://devcentr.org/news/2026-07-24-help-hub</link>
     <guid isPermaLink="true">https://devcentr.org/news/2026-07-24-help-hub</guid>
     <pubDate>Fri, 24 Jul 2026 12:00:00 GMT</pubDate>
-    <description>A new /help landing for self-serve docs vs assisted support, plus /status probes and community links. Engineering blog / news update.</description>
+    <description>We built a Help hub so “I need assistance” doesn&apos;t mean “go read the manual.”</description>
     <category>blog</category>
     <category>news</category>
   </item>
   <item>
-    <title>Brand mark and motion format tradeoffs</title>
+    <title>Our logo shouldn&amp;#8217;t need a proprietary player</title>
     <link>https://devcentr.org/news/2026-07-24-brand-motion</link>
     <guid isPermaLink="true">https://devcentr.org/news/2026-07-24-brand-motion</guid>
     <pubDate>Fri, 24 Jul 2026 12:00:00 GMT</pubDate>
-    <description>Shipping the DevCentr orbital mark, why we will not hard-advocate Rive, and Popkorn as a potential text-first future. Engineering blog / news update.</description>
-    <category>blog</category>
-    <category>news</category>
-  </item>
-  <item>
-    <title>Nushell recommendation (General Knowledge)</title>
-    <link>https://devcentr.org/news/changelog-general-knowledge-2026-07-22-nushell-recommendation</link>
-    <guid isPermaLink="true">https://devcentr.org/news/changelog-general-knowledge-2026-07-22-nushell-recommendation</guid>
-    <pubDate>Wed, 22 Jul 2026 12:00:00 GMT</pubDate>
-    <description>Added Why We Recommend Nushell (structured pipelines vs byte-stream stdout).</description>
-    <category>blog</category>
-    <category>news</category>
-  </item>
-  <item>
-    <title>Docs activity — July 2026</title>
-    <link>https://devcentr.org/news/activity-docs-portal-2026-07</link>
-    <guid isPermaLink="true">https://devcentr.org/news/activity-docs-portal-2026-07</guid>
-    <pubDate>Wed, 01 Jul 2026 12:00:00 GMT</pubDate>
-    <description>Appearance / code fonts — DevCentr Appearance dialog: Cascadia Mono (default) or JetBrains Mono for terminal and code panels; recommended-tools docs updated.</description>
-    <category>blog</category>
-    <category>news</category>
-  </item>
-  <item>
-    <title>Docs activity — June 2026</title>
-    <link>https://devcentr.org/news/activity-docs-portal-2026-06</link>
-    <guid isPermaLink="true">https://devcentr.org/news/activity-docs-portal-2026-06</guid>
-    <pubDate>Mon, 01 Jun 2026 12:00:00 GMT</pubDate>
-    <description>Antora UI branding (docs playbook) — Dropped the local `header-content.hbs` override; valentus-theme v1.1.0+ resolves the header logo via `site.keys.header_logo` and supplemental `img/` assets. Added Antora UI branding u</description>
-    <category>blog</category>
-    <category>news</category>
-  </item>
-  <item>
-    <title>Docs activity — May 2026</title>
-    <link>https://devcentr.org/news/activity-docs-portal-2026-05</link>
-    <guid isPermaLink="true">https://devcentr.org/news/activity-docs-portal-2026-05</guid>
-    <pubDate>Fri, 01 May 2026 12:00:00 GMT</pubDate>
-    <description>Architecture — UI-heavy web applications — New explanation page in the docs playbook (`home` component): Bonsai versus Leptos versus vibe.d, client/server split for database and authentication, creative stack interop (Th</description>
-    <category>blog</category>
-    <category>news</category>
-  </item>
-  <item>
-    <title>Docs activity — March 2025</title>
-    <link>https://devcentr.org/news/activity-docs-portal-2025-03</link>
-    <guid isPermaLink="true">https://devcentr.org/news/activity-docs-portal-2025-03</guid>
-    <pubDate>Sat, 01 Mar 2025 12:00:00 GMT</pubDate>
-    <description>Central Todo &amp; Roadmap and Activity log — Moved org-wide roadmap and activity log into the docs repository so they live in one place for the aggregated site (docs.devcentr.org). Added &quot;Where documentation lives&quot; to expla</description>
-    <category>blog</category>
-    <category>news</category>
-  </item>
-  <item>
-    <title>Docs activity — Earlier 2025</title>
-    <link>https://devcentr.org/news/activity-docs-portal-2025-01</link>
-    <guid isPermaLink="true">https://devcentr.org/news/activity-docs-portal-2025-01</guid>
-    <pubDate>Wed, 01 Jan 2025 12:00:00 GMT</pubDate>
-    <description>Project vision and specs (DevCentr) — UI specification and roadmap, environment navigator concept, component specs.</description>
+    <description>Why DevCentr&apos;s new mark stays in SVG—and why we&apos;re cautious about Rive as a default for open brands.</description>
     <category>blog</category>
     <category>news</category>
   </item>

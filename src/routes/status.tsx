@@ -28,6 +28,12 @@ const SERVICES: Omit<ProbeResult, "state" | "statusText" | "ms">[] = [
     detail: "Chronicle / engineering blog",
   },
   {
+    id: "changelog",
+    name: "Changelog",
+    url: "https://devcentr.org/changelog/",
+    detail: "Product & docs shipping notes",
+  },
+  {
     id: "advisor",
     name: "Toolchain Advisor",
     url: "https://devcentr.org/toolchain-advisor/",

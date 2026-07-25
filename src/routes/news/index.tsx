@@ -13,14 +13,19 @@ export default function NewsIndex() {
       <Title>News · DevCentr</Title>
       <Meta
         name="description"
-        content="DevCentr news and engineering blog — initiatives, shipping notes, and docs changelog highlights."
+        content="DevCentr news and engineering blog — initiatives, direction, and notable shipping moments."
       />
-      <Meta name="keywords" content="DevCentr, news, blog, chronicle, changelog, DOS, developer tooling" />
+      <Meta name="keywords" content="DevCentr, news, blog, chronicle, DOS, developer tooling" />
       <main class="mx-auto max-w-6xl px-6 pb-24 pt-6 md:px-10 md:pt-10">
         <p class="eyebrow text-primary">Updates</p>
         <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight text-foreground md:text-5xl">News</h1>
         <p class="mt-4 max-w-2xl text-muted-foreground">
-          Initiatives, shipping notes, and related-project news. Also our engineering blog — subscribe via{" "}
+          Initiatives, direction changes, and notable moments across Dev-Centr — not a dump of every docs edit.
+          Day-to-day shipping notes live on the{" "}
+          <a class="text-primary underline-offset-4 hover:underline" href="/changelog">
+            Changelog
+          </a>
+          . Subscribe via{" "}
           <a class="text-primary underline-offset-4 hover:underline" href="/news/rss.xml">
             RSS
           </a>{" "}

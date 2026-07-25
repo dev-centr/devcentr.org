@@ -28,11 +28,17 @@ jobs:
           repository: dev-centr/toolchain-advisor
           path: toolchain-advisor
 
-      - name: Checkout general-knowledge (news changelog ingest)
+      - name: Checkout general-knowledge (changelog ingest)
         uses: actions/checkout@v4
         with:
           repository: dev-centr/general-knowledge
           path: general-knowledge
+
+      - name: Checkout DevCentr app docs (changelog ingest)
+        uses: actions/checkout@v4
+        with:
+          repository: dev-centr/devcentr
+          path: devcentr
 
       - name: Checkout docs portal (activity-log ingest)
         uses: actions/checkout@v4
@@ -57,7 +63,7 @@ jobs:
       - name: Sync advisor catalog into public/
         run: node scripts/sync-advisor-catalog.mjs
 
-      - name: Build news catalog, RSS, and Atom
+      - name: Build news + changelog catalogs, RSS, and Atom
         run: node scripts/build-news.mjs
 
       - name: Build
@@ -74,12 +80,13 @@ jobs:
           test -f .output/public/apps/standards/index.html
           test -f .output/public/ideas/equivalence-engine/index.html
 
-      - name: Verify news route and feed artifacts
+      - name: Verify news, changelog, and feed artifacts
         run: |
           test -f .output/public/news/index.html
           test -f .output/public/news/2026-07-24-welcome/index.html
           test -f .output/public/news/rss.xml
           test -f .output/public/news/atom.xml
+          test -f .output/public/changelog/index.html
           test -f .output/public/blog/index.html
           test -f .output/public/status/index.html
           test -f .output/public/help/index.html

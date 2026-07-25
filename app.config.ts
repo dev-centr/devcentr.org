@@ -46,6 +46,7 @@ export default defineConfig({
         "/toolchain-advisor",
         "/news",
         "/blog",
+        "/changelog",
         "/help",
         "/support",
         "/status",

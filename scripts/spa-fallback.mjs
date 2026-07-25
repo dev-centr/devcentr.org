@@ -18,6 +18,7 @@ function ensureSpa(dir) {
 ensureSpa(join(pub, "toolchain-advisor"));
 ensureSpa(join(pub, "news"));
 ensureSpa(join(pub, "blog"));
+ensureSpa(join(pub, "changelog"));
 ensureSpa(join(pub, "health"));
 ensureSpa(join(pub, "help"));
 ensureSpa(join(pub, "support"));
