@@ -3,12 +3,14 @@
   "type": "module",
   "scripts": {
     "dev": "vinxi dev",
-    "prebuild": "node scripts/sync-advisor-catalog.mjs",
+    "prebuild": "node scripts/sync-advisor-catalog.mjs && node scripts/build-blog.mjs",
     "build": "vinxi build",
     "postbuild": "node scripts/spa-fallback.mjs",
     "start": "vinxi start",
     "sync-advisor": "node scripts/sync-advisor-catalog.mjs",
-    "brand:raster": "node scripts/rasterize-logo.mjs"
+    "blog:build": "node scripts/build-blog.mjs",
+    "brand:raster": "node scripts/rasterize-logo.mjs",
+    "predev": "node scripts/build-blog.mjs"
   },
   "dependencies": {
     "@chenglou/pretext": "^0.0.4",
@@ -30,6 +32,7 @@
     "node": ">=22"
   },
   "devDependencies": {
+    "@asciidoctor/core": "^4.0.5",
     "@tailwindcss/vite": "^4.0.0",
     "sharp": "^0.35.3",
     "tailwindcss": "^4.0.0"

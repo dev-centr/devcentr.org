@@ -1,6 +1,6 @@
 import { HeroOrbit } from "~/components/hero-orbit";
 import { LogoMark } from "~/components/logo-mark";
-import { ModeToggle } from "~/components/mode-toggle";
+import { SiteHeader } from "~/components/site-header";
 import { Button } from "~/components/ui/button";
 
 const pillars = [
@@ -36,6 +36,11 @@ const destinations = [
     detail: "Knowledge base & specs",
   },
   {
+    href: "/blog",
+    label: "Blog",
+    detail: "Chronicle of initiatives & news",
+  },
+  {
     href: "/toolchain-advisor",
     label: "Toolchain Advisor",
     detail: "Pick host, target, language",
@@ -51,30 +56,9 @@ export default function Home() {
   return (
     <div class="plane-surface relative min-h-dvh">
       <div class="relative z-10">
-        <header class="mx-auto flex max-w-6xl items-center justify-between px-6 pb-4 pt-6 md:px-10 md:pt-8">
-          <a href="/" class="group flex items-center gap-3 text-foreground no-underline">
-            <LogoMark class="size-9 text-primary transition-transform duration-500 group-hover:rotate-12" />
-            <span class="font-display text-lg font-semibold tracking-tight">DevCentr</span>
-          </a>
-          <nav class="flex items-center gap-2 md:gap-3">
-            <a
-              href="https://docs.devcentr.org"
-              class="hidden font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:text-foreground sm:inline"
-            >
-              Docs
-            </a>
-            <a
-              href="https://github.com/dev-centr"
-              class="hidden font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:text-foreground sm:inline"
-            >
-              GitHub
-            </a>
-            <ModeToggle />
-          </nav>
-        </header>
+        <SiteHeader />
 
         <main>
-          {/* Hero: one composition — brand, headline, sentence, CTAs, full-bleed orbit */}
           <section class="relative isolate min-h-[calc(100dvh-5.5rem)] overflow-hidden">
             <HeroOrbit />
             <div class="relative z-10 mx-auto flex max-w-6xl flex-col justify-center px-6 pb-20 pt-10 md:min-h-[calc(100dvh-5.5rem)] md:px-10 md:pb-28 md:pt-6">
@@ -115,7 +99,6 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Manifesto — typography rows, not cards */}
           <section class="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
             <div class="max-w-2xl">
               <p class="eyebrow">The DOS manifesto</p>
@@ -145,7 +128,6 @@ export default function Home() {
             </ol>
           </section>
 
-          {/* Category pivot — one job */}
           <section class="border-y border-border/60 bg-foreground/[0.03] dark:bg-foreground/[0.04]">
             <div class="mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-24">
               <p class="eyebrow">The category pivot</p>
@@ -156,7 +138,6 @@ export default function Home() {
             </div>
           </section>
 
-          {/* Destinations — interactive list */}
           <section class="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
             <p class="eyebrow">Go further</p>
             <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl">Destinations</h2>

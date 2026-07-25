@@ -1,19 +1,15 @@
 import { A } from "@solidjs/router";
-import { LogoMark } from "~/components/logo-mark";
-import { ModeToggle } from "~/components/mode-toggle";
+import { SiteHeader } from "~/components/site-header";
 import { ToolchainAdvisor } from "~/components/ToolchainAdvisor";
 import { Button } from "~/components/ui/button";
 
 export default function ToolchainAdvisorPage() {
   return (
     <div class="plane-surface relative min-h-dvh">
-      <div class="relative z-10 mx-auto max-w-7xl px-6 py-8 md:px-10 md:py-12">
-        <header class="mb-10 flex flex-wrap items-start justify-between gap-4 md:mb-12">
-          <div>
-            <a href="/" class="mb-6 inline-flex items-center gap-2.5 text-foreground no-underline">
-              <LogoMark class="size-8 text-primary" />
-              <span class="font-display text-base font-semibold tracking-tight">DevCentr</span>
-            </a>
+      <div class="relative z-10">
+        <SiteHeader brandSize="sm" />
+        <div class="mx-auto max-w-7xl px-6 pb-12 pt-2 md:px-10">
+          <header class="mb-10 md:mb-12">
             <p class="eyebrow mb-3 text-primary">Toolchain · Decision flow</p>
             <h1 class="font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
               Toolchain Advisor
@@ -41,10 +37,9 @@ export default function ToolchainAdvisorPage() {
                 Definitions repo
               </Button>
             </div>
-          </div>
-          <ModeToggle />
-        </header>
-        <ToolchainAdvisor />
+          </header>
+          <ToolchainAdvisor />
+        </div>
       </div>
     </div>
   );

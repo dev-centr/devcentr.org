@@ -1,0 +1,44 @@
+= Brand mark and motion format tradeoffs
+:description: Shipping the DevCentr orbital mark, why we will not hard-advocate Rive, and Popkorn as a potential text-first future.
+:revdate: 2026-07-24
+:keywords: brand, svg, lottie, rive, popkorn, motion
+
+We shipped a new org brand mark—an orbital hub meant to read as a center of gravity—and put static + motion assets in the org profile harbor and on the marketing site.
+
+== What shipped
+
+* Transparent and on-dark SVG/PNG sets (including 256px rasters for the GitHub avatar)
+* `logo-motion.svg` — self-contained CSS motion, no JS player
+* Site chrome uses the same geometry via inline SVG + CSS (`LogoMark` / `HeroOrbit`)
+
+Canonical harbor: `.github` / `.github-private` `profile/` (mirrored under `devcentr.org/public/brand/`).
+
+== Why not “just use Rive”?
+
+Rive is strong for *interactive* UI motion (state machines, theme inputs). Its runtimes are MIT. The editor is proprietary, and `.riv` is **binary**—weak for git diffs and agentic authoring.
+
+So Dev-Centr does **not** hard-advocate Rive as an open de facto standard. SVG keeps that role for portable marks.
+
+== The lanes we document
+
+[cols="1,2", options="header"]
+|===
+| Lane | Prefer when
+
+| Animated SVG (+ CSS)
+| Portable brand loops, docs, READMEs, agent-editable source
+
+| Lottie
+| Complex *baked* timelines from an AE-shaped pipeline
+
+| Rive
+| Interactive / theme-driven app chrome when a player is already justified
+|===
+
+Full write-up: link:https://docs.devcentr.org[docs.devcentr.org] → General Knowledge → *Brand and UI Motion Formats* (and Recommended Tools).
+
+== Potential future: Popkorn
+
+We want a text-first interactive motion format that agents can edit. link:https://github.com/ayarse/popkorn[Popkorn] is an early CSS-shaped candidate—not a Dev-Centr default yet.
+
+Outreach / co-op interest on rich interactivity: link:https://github.com/ayarse/popkorn/issues/7[ayarse/popkorn#7].

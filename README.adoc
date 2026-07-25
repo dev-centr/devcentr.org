@@ -13,6 +13,12 @@ The official organization landing page for link:https://github.com/dev-centr[Dev
 
 Site copies live in `public/brand/`. Canonical org-wide assets (including `logo.svg`) are harbored in the `.github` / `.github-private` profile folders. Upload `logo-on-dark-256.png` as the GitHub organization avatar under org Settings → Profile.
 
+== Blog
+
+* **URL:** link:https://devcentr.org/blog[/blog]
+* **Source:** AsciiDoc posts in `content/blog/`
+* **Build:** `pnpm run blog:build` (also runs on `predev` / `prebuild`) writes `src/lib/blog-posts.generated.json`
+
 == Stack
 
 * **Framework:** link:https://start.solidjs.com/[SolidStart] (Solid.js full-stack)
@@ -31,6 +37,7 @@ pnpm dev
 == Project Structure
 
 * `src/` — Source code (scaffolded)
+* `content/blog/` — AsciiDoc chronicle posts
 * `public/` — Static assets
 * `app.config.ts` — SolidStart/Vinxi configuration
 * `DESIGN.md` — Design philosophy and guidelines

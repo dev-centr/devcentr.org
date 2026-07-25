@@ -229,3 +229,58 @@
     transform-origin: center;
   }
 }
+
+/* AsciiDoc → HTML article body */
+@layer components {
+  .blog-prose {
+    @apply text-[1.05rem] leading-[1.75] text-foreground/90;
+  }
+
+  .blog-prose :where(h2) {
+    @apply mt-10 mb-3 font-display text-2xl font-semibold tracking-tight text-foreground;
+  }
+
+  .blog-prose :where(h3) {
+    @apply mt-8 mb-2 font-display text-xl font-semibold tracking-tight text-foreground;
+  }
+
+  .blog-prose :where(p) {
+    @apply my-4 text-muted-foreground;
+  }
+
+  .blog-prose :where(strong) {
+    @apply font-semibold text-foreground;
+  }
+
+  .blog-prose :where(a) {
+    @apply text-primary underline decoration-primary/35 underline-offset-4 transition-colors hover:decoration-primary;
+  }
+
+  .blog-prose :where(ul, ol) {
+    @apply my-4 list-disc space-y-2 pl-5 text-muted-foreground;
+  }
+
+  .blog-prose :where(ol) {
+    @apply list-decimal;
+  }
+
+  .blog-prose :where(table) {
+    @apply my-8 w-full border-collapse text-left text-sm;
+  }
+
+  .blog-prose :where(th, td) {
+    @apply border-b border-border/70 px-0 py-3 align-top;
+  }
+
+  .blog-prose :where(th) {
+    @apply font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground;
+  }
+
+  .blog-prose :where(td) {
+    @apply text-muted-foreground;
+  }
+
+  .blog-prose :where(.paragraph + .paragraph) {
+    @apply mt-0;
+  }
+}

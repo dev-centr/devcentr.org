@@ -45,11 +45,20 @@ jobs:
       - name: Sync advisor catalog into public/
         run: node scripts/sync-advisor-catalog.mjs
 
+      - name: Build blog posts from AsciiDoc
+        run: node scripts/build-blog.mjs
+
       - name: Build
         run: pnpm run build
 
       - name: Verify advisor route artifact
         run: test -f .output/public/toolchain-advisor/index.html
+
+      - name: Verify blog route artifacts
+        run: |
+          test -f .output/public/blog/index.html
+          test -f .output/public/blog/2026-07-24-welcome/index.html
+          test -f .output/public/blog/2026-07-24-brand-motion/index.html
 
       - name: Add .nojekyll for GitHub Pages
         run: touch .output/public/.nojekyll
