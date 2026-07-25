@@ -294,23 +294,63 @@
 
 /*
  * Asymmetric polar-wave theme reveal (View Transition API).
- * Origin + radii are set as CSS vars from the mode-toggle click point.
- * Steel/teal brand: soft primary edge glow, no flashy blend modes.
+ * Origin + end radii are set as CSS vars from the mode-toggle click point.
+ * Current radii (--theme-wave-crx/cry) expand in sync so the reveal front can
+ * carry a steel-cool desaturate + darken vignette while the inner region stays
+ * fully saturated / fully revealed.
  */
-@keyframes theme-polar-wave {
-  from {
-    clip-path: ellipse(0px 0px at var(--theme-wave-x) var(--theme-wave-y));
-    filter: drop-shadow(0 0 0 transparent);
+@property --theme-wave-crx {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+@property --theme-wave-cry {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+/* Current radii (--theme-wave-crx/cry) are driven by WAAPI in theme-wave.ts. */
+
+/* Clear edge veils once the wave has mostly covered the viewport. */
+@keyframes theme-wave-edge-fade-sat {
+  0%,
+  62% {
+    opacity: 1;
   }
-  40% {
-    filter: drop-shadow(0 0 18px hsl(var(--primary) / 0.22));
+  100% {
+    opacity: 0;
   }
-  to {
-    clip-path: ellipse(
-      var(--theme-wave-rx) var(--theme-wave-ry) at var(--theme-wave-x) var(--theme-wave-y)
-    );
-    filter: drop-shadow(0 0 0 transparent);
+}
+
+@keyframes theme-wave-edge-fade-dim {
+  0%,
+  62% {
+    opacity: 0.7;
   }
+  100% {
+    opacity: 0;
+  }
+}
+
+.theme-wave-veil {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2147483646;
+}
+
+.theme-wave-veil--sat {
+  view-transition-name: theme-wave-veil-sat;
+  /* Mid steel gray — saturation blend mode pulls sat toward 0 at the rim. */
+  background: hsl(210 6% 52%);
+}
+
+.theme-wave-veil--dim {
+  view-transition-name: theme-wave-veil-dim;
+  /* Cool steel dusk — multiply darkens without a purple cast. */
+  background: hsl(205 12% 18%);
 }
 
 @supports (view-transition-name: root) {
@@ -326,12 +366,66 @@
 
   html[data-theme-wave="active"]::view-transition-new(root) {
     z-index: 2;
-    animation: theme-polar-wave 0.58s cubic-bezier(0.22, 1, 0.36, 1) both;
+    clip-path: ellipse(
+      var(--theme-wave-crx) var(--theme-wave-cry) at var(--theme-wave-x) var(--theme-wave-y)
+    );
+  }
+
+  html[data-theme-wave="active"]::view-transition-group(theme-wave-veil-sat),
+  html[data-theme-wave="active"]::view-transition-group(theme-wave-veil-dim) {
+    animation: none;
+  }
+
+  html[data-theme-wave="active"]::view-transition-old(theme-wave-veil-sat),
+  html[data-theme-wave="active"]::view-transition-old(theme-wave-veil-dim) {
+    display: none;
+  }
+
+  html[data-theme-wave="active"]::view-transition-group(theme-wave-veil-sat) {
+    z-index: 3;
+  }
+
+  html[data-theme-wave="active"]::view-transition-group(theme-wave-veil-dim) {
+    z-index: 4;
+  }
+
+  /*
+   * Ring mask tracks the expanding ellipse: transparent toward the origin
+   * (true theme), opaque near the wave front (desat / dim veils).
+   */
+  html[data-theme-wave="active"]::view-transition-new(theme-wave-veil-sat),
+  html[data-theme-wave="active"]::view-transition-new(theme-wave-veil-dim) {
+    clip-path: ellipse(
+      var(--theme-wave-crx) var(--theme-wave-cry) at var(--theme-wave-x) var(--theme-wave-y)
+    );
+    mask-image: radial-gradient(
+      ellipse var(--theme-wave-crx) var(--theme-wave-cry) at var(--theme-wave-x) var(--theme-wave-y),
+      transparent 0%,
+      transparent 46%,
+      #000 74%,
+      #000 100%
+    );
+  }
+
+  html[data-theme-wave="active"]::view-transition-new(theme-wave-veil-sat) {
+    mix-blend-mode: saturation;
+    animation: theme-wave-edge-fade-sat 0.58s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  html[data-theme-wave="active"]::view-transition-new(theme-wave-veil-dim) {
+    mix-blend-mode: multiply;
+    animation: theme-wave-edge-fade-dim 0.58s cubic-bezier(0.22, 1, 0.36, 1) both;
   }
 
   @media (prefers-reduced-motion: reduce) {
-    html[data-theme-wave="active"]::view-transition-new(root) {
+    html[data-theme-wave="active"]::view-transition-new(root),
+    html[data-theme-wave="active"]::view-transition-new(theme-wave-veil-sat),
+    html[data-theme-wave="active"]::view-transition-new(theme-wave-veil-dim) {
       animation: none;
+      clip-path: none;
+      mask-image: none;
+      mix-blend-mode: normal;
+      opacity: 1;
     }
   }
 }
