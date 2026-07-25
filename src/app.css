@@ -247,6 +247,34 @@
       clip-path: polygon(1.25rem 0, calc(100% - 1.25rem) 0, 100% 100%, 0 100%);
     }
   }
+
+  /*
+   * Category copy: instant enter, eased leave.
+   * Base transition runs when .is-open is removed; .is-open itself has no transition.
+   */
+  .apps-gate-reveal {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition:
+      grid-template-rows 0.45s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.4s ease-out;
+  }
+
+  .apps-gate-reveal > .apps-gate-reveal-inner {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .apps-gate-reveal.is-open {
+    grid-template-rows: 1fr;
+    opacity: 0.7;
+    transition: none;
+  }
+
+  .apps-gate-reveal.is-open.is-emphasis {
+    opacity: 1;
+  }
 }
 
 /* AsciiDoc → HTML article body (news / engineering blog posts) */
