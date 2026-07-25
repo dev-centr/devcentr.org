@@ -45,10 +45,10 @@ export default function AppsGate() {
 
   return (
     <div class="plane-surface relative min-h-dvh">
-      <div class="relative z-10 flex min-h-dvh flex-col">
+      <div class="relative z-10 flex min-h-dvh min-w-0 flex-col overflow-x-clip">
         <SiteHeader brandSize="sm" />
 
-        <main class="flex flex-1 flex-col">
+        <main class="flex min-w-0 flex-1 flex-col">
           <div class="mx-auto w-full max-w-6xl px-6 pt-6 md:px-10">
             <p class="eyebrow">Catalog</p>
             <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight md:text-5xl">Apps</h1>
@@ -58,7 +58,7 @@ export default function AppsGate() {
           </div>
 
           <div
-            class="apps-gate mt-10 flex min-h-[min(70vh,40rem)] flex-1 flex-col md:mt-14 md:flex-row"
+            class="apps-gate mt-10 flex min-h-[min(70vh,40rem)] min-w-0 flex-1 flex-col md:mt-14 md:flex-row"
             onMouseLeave={() => setActive(null)}
           >
             <For each={panes}>

@@ -231,6 +231,20 @@
 }
 
 @layer components {
+  /*
+   * Full-bleed /apps gate: keep skew overlap inside this box so negative
+   * margins / min-content flex widths cannot widen the page and shift the header.
+   */
+  .apps-gate {
+    overflow-x: clip;
+    width: 100%;
+    min-width: 0;
+  }
+
+  .apps-gate-pane {
+    min-width: 0;
+  }
+
   /* Slightly angled vertical seams between /apps category panes */
   @media (min-width: 768px) {
     .apps-gate-pane--skew {
@@ -249,16 +263,15 @@
   }
 
   /*
-   * Category copy: instant enter, eased leave.
-   * Base transition runs when .is-open is removed; .is-open itself has no transition.
+   * Category copy: fast, eased enter/leave (open a touch quicker than close).
    */
   .apps-gate-reveal {
     display: grid;
     grid-template-rows: 0fr;
     opacity: 0;
     transition:
-      grid-template-rows 0.45s cubic-bezier(0.22, 1, 0.36, 1),
-      opacity 0.4s ease-out;
+      grid-template-rows 0.32s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.28s ease-out;
   }
 
   .apps-gate-reveal > .apps-gate-reveal-inner {
@@ -269,7 +282,9 @@
   .apps-gate-reveal.is-open {
     grid-template-rows: 1fr;
     opacity: 0.7;
-    transition: none;
+    transition:
+      grid-template-rows 0.22s cubic-bezier(0.22, 1, 0.36, 1),
+      opacity 0.2s ease-out;
   }
 
   .apps-gate-reveal.is-open.is-emphasis {
