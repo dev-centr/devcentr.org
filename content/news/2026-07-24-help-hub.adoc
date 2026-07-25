@@ -1,0 +1,29 @@
+= Help hub on devcentr.org
+:description: A new /help landing for self-serve docs vs assisted support, plus /status probes and community links. Engineering blog / news update.
+:revdate: 2026-07-24
+:keywords: news, blog, help, support, status, community, DevCentr
+
+We added a public **Help** surface at link:https://devcentr.org/help[devcentr.org/help] so visitors are not dumped straight into docs when they want assistance.
+
+== What shipped
+
+* **`/help`** — choose *self-help* (documentation) or *support* (assisted help; desk coming soon)
+* **`/support`** — alias that lands on the support section of Help
+* **`/status`** — client-side probes of public endpoints (`/health` still redirects here)
+* Header **Community** menu and footer Community column (Help, Status, Slack, Discussions, uptime monitor)
+* Interim contact: `support@devcentr.org`
+
+A dedicated ticket / AI-assisted desk is planned; we are not linking a half-built system yet. Planning notes live in the site repo under `docs/help-and-support-plans.adoc`.
+
+== How to think about it
+
+*Help* is the top-level concept. Documentation is self-help; contacting us is support. Status and community channels sit alongside both.
+
+Hosted uptime history (Better Stack) remains at link:https://status.devcentr.org[status.devcentr.org], linked from the probe page and Help.
+
+== Where to go
+
+* link:https://devcentr.org/help[Help]
+* link:https://docs.devcentr.org[Docs]
+* link:https://devcentr.org/status[Status probes]
+* link:mailto:support@devcentr.org[support@devcentr.org]
