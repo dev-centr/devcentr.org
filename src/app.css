@@ -292,6 +292,50 @@
   }
 }
 
+/*
+ * Asymmetric polar-wave theme reveal (View Transition API).
+ * Origin + radii are set as CSS vars from the mode-toggle click point.
+ * Steel/teal brand: soft primary edge glow, no flashy blend modes.
+ */
+@keyframes theme-polar-wave {
+  from {
+    clip-path: ellipse(0px 0px at var(--theme-wave-x) var(--theme-wave-y));
+    filter: drop-shadow(0 0 0 transparent);
+  }
+  40% {
+    filter: drop-shadow(0 0 18px hsl(var(--primary) / 0.22));
+  }
+  to {
+    clip-path: ellipse(
+      var(--theme-wave-rx) var(--theme-wave-ry) at var(--theme-wave-x) var(--theme-wave-y)
+    );
+    filter: drop-shadow(0 0 0 transparent);
+  }
+}
+
+@supports (view-transition-name: root) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+
+  html[data-theme-wave="active"]::view-transition-old(root) {
+    z-index: 1;
+  }
+
+  html[data-theme-wave="active"]::view-transition-new(root) {
+    z-index: 2;
+    animation: theme-polar-wave 0.58s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html[data-theme-wave="active"]::view-transition-new(root) {
+      animation: none;
+    }
+  }
+}
+
 /* AsciiDoc → HTML article body (news / engineering blog posts) */
 @layer components {
   .news-prose,

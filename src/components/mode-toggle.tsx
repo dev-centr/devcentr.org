@@ -1,6 +1,7 @@
 import { useColorMode } from "@kobalte/core";
 
 import { Button } from "~/components/ui/button";
+import { applyThemeWithWave, elementCenter } from "~/lib/theme-wave";
 
 /** Day mark — compact disc + short rays */
 function SunIcon(props: { class?: string }) {
@@ -41,9 +42,15 @@ function MoonIcon(props: { class?: string }) {
 export function ModeToggle() {
   const { colorMode, setColorMode } = useColorMode();
 
-  const handleClick = () => {
+  const handleClick = (event: MouseEvent) => {
     const resolved = colorMode();
-    setColorMode(resolved === "dark" ? "light" : "dark");
+    const next = resolved === "dark" ? "light" : "dark";
+    const target = event.currentTarget;
+    if (!(target instanceof Element)) {
+      setColorMode(next);
+      return;
+    }
+    applyThemeWithWave(elementCenter(target), () => setColorMode(next));
   };
 
   const isDark = () => colorMode() === "dark";
