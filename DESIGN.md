@@ -20,12 +20,10 @@
 
 ## Brand mark
 
-Orbiting rings + rotated square hub = “center of gravity.” Assets live in `public/brand/`:
+Orbiting rings + rotated square hub = “center of gravity.” Assets live in `public/brand/` (mirrored in `.github` / `.github-private` `profile/`):
 
-- `logo.svg` — transparent mark
-- `logo-on-dark.svg` — rounded tile for dark UI / org avatar source
-- `logo.png` — 1024×1024 raster
-- `logo-256.png` — GitHub org avatar (upload in org Settings → Profile)
+- `logo.svg` / `logo.png` / `logo-256.png` — transparent mark
+- `logo-on-dark.svg` / `logo-on-dark.png` / `logo-on-dark-256.png` — rounded tile; upload the 256 for the GitHub org avatar
 
 Regenerate rasters: `pnpm run brand:raster`
 

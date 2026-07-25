@@ -1,6 +1,6 @@
 /**
- * Rasterize brand SVGs to PNG (full + 256px GitHub avatar).
- * Uses sharp when available; falls back to pure SVG→PNG via resvg-js.
+ * Rasterize brand SVGs to PNG (1024 + 256 for each mark).
+ * Uses sharp when available; falls back to @resvg/resvg-js.
  */
 import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -49,7 +49,9 @@ async function loadRasterizer() {
 const raster = await loadRasterizer();
 const targets = [
   { source: "logo.svg", file: "logo.png", size: 1024 },
-  { source: "logo-on-dark.svg", file: "logo-256.png", size: 256 },
+  { source: "logo.svg", file: "logo-256.png", size: 256 },
+  { source: "logo-on-dark.svg", file: "logo-on-dark.png", size: 1024 },
+  { source: "logo-on-dark.svg", file: "logo-on-dark-256.png", size: 256 },
 ];
 
 for (const t of targets) {
