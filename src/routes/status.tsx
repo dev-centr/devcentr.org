@@ -2,7 +2,6 @@ import { For, createSignal, onMount, Show } from "solid-js";
 import { Meta, Title } from "@solidjs/meta";
 
 import { SiteFooter } from "~/components/site-footer";
-import { SiteHeader } from "~/components/site-header";
 import { STATUS_MONITOR_URL } from "~/lib/site-links";
 
 type ProbeResult = {
@@ -175,16 +174,14 @@ export default function StatusPage() {
   };
 
   return (
-    <div class="plane-surface relative min-h-dvh">
+    <>
       <Title>Status · DevCentr</Title>
       <Meta
         name="description"
         content="Live status of DevCentr public services — landing site, docs, app, news feeds, and GitHub."
       />
       <Meta name="keywords" content="DevCentr, status, uptime, health, blog, news" />
-      <div class="relative z-10">
-        <SiteHeader />
-        <main class="mx-auto max-w-6xl px-6 pb-10 pt-6 md:px-10 md:pt-10">
+      <main class="mx-auto max-w-6xl px-6 pb-10 pt-6 md:px-10 md:pt-10">
           <p class="eyebrow text-primary">Status</p>
           <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
             Status
@@ -255,9 +252,8 @@ export default function StatusPage() {
               )}
             </For>
           </ul>
-        </main>
-        <SiteFooter />
-      </div>
-    </div>
+      </main>
+      <SiteFooter />
+    </>
   );
 }

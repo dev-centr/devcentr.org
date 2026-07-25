@@ -1,5 +1,11 @@
 /** Inline brand mark used in nav / hero. */
 export function LogoMark(props: { class?: string; title?: string }) {
+  // Wall-clock phase so hard reloads land near the same orbit angle.
+  const now = Date.now();
+  const orbitDelay = `-${now % 48_000}ms`;
+  const orbitRevDelay = `-${now % 36_000}ms`;
+  const hubDelay = `-${now % 4_500}ms`;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -9,7 +15,14 @@ export function LogoMark(props: { class?: string; title?: string }) {
       aria-label={props.title ?? "DevCentr"}
     >
       <title>{props.title ?? "DevCentr"}</title>
-      <g class="orbit-spin" style={{ "transform-box": "fill-box", "transform-origin": "center" }}>
+      <g
+        class="orbit-spin"
+        style={{
+          "transform-box": "fill-box",
+          "transform-origin": "center",
+          "animation-delay": orbitDelay,
+        }}
+      >
         <circle
           cx="256"
           cy="256"
@@ -22,7 +35,14 @@ export function LogoMark(props: { class?: string; title?: string }) {
         />
         <circle cx="256" cy="58" r="16" fill="currentColor" />
       </g>
-      <g class="orbit-spin-rev" style={{ "transform-box": "fill-box", "transform-origin": "center" }}>
+      <g
+        class="orbit-spin-rev"
+        style={{
+          "transform-box": "fill-box",
+          "transform-origin": "center",
+          "animation-delay": orbitRevDelay,
+        }}
+      >
         <circle
           cx="256"
           cy="256"
@@ -47,7 +67,14 @@ export function LogoMark(props: { class?: string; title?: string }) {
         opacity="0.45"
       />
       <g transform="translate(256 256) rotate(45)">
-        <g class="hub-pulse" style={{ "transform-box": "fill-box", "transform-origin": "center" }}>
+        <g
+          class="hub-pulse"
+          style={{
+            "transform-box": "fill-box",
+            "transform-origin": "center",
+            "animation-delay": hubDelay,
+          }}
+        >
           <rect x="-36" y="-36" width="72" height="72" rx="10" fill="currentColor" />
         </g>
       </g>
