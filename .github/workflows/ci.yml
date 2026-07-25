@@ -66,6 +66,14 @@ jobs:
       - name: Verify advisor route artifact
         run: test -f .output/public/toolchain-advisor/index.html
 
+      - name: Verify apps catalogue artifacts
+        run: |
+          test -f .output/public/apps/index.html
+          test -f .output/public/apps/products/index.html
+          test -f .output/public/apps/services/index.html
+          test -f .output/public/apps/standards/index.html
+          test -f .output/public/ideas/equivalence-engine/index.html
+
       - name: Verify news route and feed artifacts
         run: |
           test -f .output/public/news/index.html

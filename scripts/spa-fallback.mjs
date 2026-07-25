@@ -19,6 +19,11 @@ ensureSpa(join(pub, "toolchain-advisor"));
 ensureSpa(join(pub, "news"));
 ensureSpa(join(pub, "blog"));
 ensureSpa(join(pub, "health"));
+ensureSpa(join(pub, "apps"));
+ensureSpa(join(pub, "apps", "products"));
+ensureSpa(join(pub, "apps", "services"));
+ensureSpa(join(pub, "apps", "standards"));
+ensureSpa(join(pub, "ideas", "equivalence-engine"));
 
 const generated = join(root, "src", "lib", "news-posts.generated.json");
 if (existsSync(generated)) {

@@ -31,6 +31,11 @@ const destinations = [
     detail: "Flagship orchestration engine",
   },
   {
+    href: "/apps",
+    label: "Apps",
+    detail: "Products, services & standards",
+  },
+  {
     href: "https://docs.devcentr.org",
     label: "docs.devcentr.org",
     detail: "Knowledge base & specs",

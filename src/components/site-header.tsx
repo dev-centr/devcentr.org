@@ -19,6 +19,9 @@ export function SiteHeader(props: { brandSize?: "sm" | "md" }) {
         <span class={nameClass()}>DevCentr</span>
       </a>
       <nav class="flex items-center gap-2 md:gap-3">
+        <a href="/apps" class={linkClass}>
+          Apps
+        </a>
         <a href="/news" class={linkClass}>
           News
         </a>

@@ -230,6 +230,25 @@
   }
 }
 
+@layer components {
+  /* Slightly angled vertical seams between /apps category panes */
+  @media (min-width: 768px) {
+    .apps-gate-pane--skew {
+      clip-path: polygon(0 0, calc(100% - 1.25rem) 0, 100% 100%, 0 100%);
+      margin-right: -1.25rem;
+      padding-right: 1.25rem;
+    }
+
+    .apps-gate-pane--skew + .apps-gate-pane {
+      clip-path: polygon(1.25rem 0, 100% 0, 100% 100%, 0 100%);
+    }
+
+    .apps-gate-pane--skew + .apps-gate-pane.apps-gate-pane--skew {
+      clip-path: polygon(1.25rem 0, calc(100% - 1.25rem) 0, 100% 100%, 0 100%);
+    }
+  }
+}
+
 /* AsciiDoc → HTML article body (news / engineering blog posts) */
 @layer components {
   .news-prose,

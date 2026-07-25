@@ -52,6 +52,15 @@
     <category term="news"/>
   </entry>
   <entry>
+    <title>Help hub on devcentr.org</title>
+    <link href="https://devcentr.org/news/2026-07-24-help-hub" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-07-24-help-hub</id>
+    <updated>2026-07-24T12:00:00Z</updated>
+    <summary>A new /help landing for self-serve docs vs assisted support, plus /status probes and community links. Engineering blog / news update.</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
+  <entry>
     <title>Brand mark and motion format tradeoffs</title>
     <link href="https://devcentr.org/news/2026-07-24-brand-motion" rel="alternate"/>
     <id>https://devcentr.org/news/2026-07-24-brand-motion</id>

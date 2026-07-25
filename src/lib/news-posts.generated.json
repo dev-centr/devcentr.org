@@ -76,6 +76,23 @@
       "source": "authored"
     },
     {
+      "slug": "2026-07-24-help-hub",
+      "title": "Help hub on devcentr.org",
+      "description": "A new /help landing for self-serve docs vs assisted support, plus /status probes and community links. Engineering blog / news update.",
+      "date": "2026-07-24",
+      "tags": [
+        "news",
+        "blog",
+        "help",
+        "support",
+        "status",
+        "community",
+        "DevCentr"
+      ],
+      "html": "<div id=\"preamble\">\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>We added a public <strong>Help</strong> surface at <a href=\"https://devcentr.org/help\">devcentr.org/help</a> so visitors are not dumped straight into docs when they want assistance.</p>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"_what_shipped\">What shipped</h2>\n<div class=\"sectionbody\">\n<div class=\"ulist\">\n<ul>\n<li>\n<p><strong><code>/help</code></strong> — choose <strong>self-help</strong> (documentation) or <strong>support</strong> (assisted help; desk coming soon)</p>\n</li>\n<li>\n<p><strong><code>/support</code></strong> — alias that lands on the support section of Help</p>\n</li>\n<li>\n<p><strong><code>/status</code></strong> — client-side probes of public endpoints (<code>/health</code> still redirects here)</p>\n</li>\n<li>\n<p>Header <strong>Community</strong> menu and footer Community column (Help, Status, Slack, Discussions, uptime monitor)</p>\n</li>\n<li>\n<p>Interim contact: <code>support@devcentr.org</code></p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>A dedicated ticket / AI-assisted desk is planned; we are not linking a half-built system yet. Planning notes live in the site repo under <code>docs/help-and-support-plans.adoc</code>.</p>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"_how_to_think_about_it\">How to think about it</h2>\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p><strong>Help</strong> is the top-level concept. Documentation is self-help; contacting us is support. Status and community channels sit alongside both.</p>\n</div>\n<div class=\"paragraph\">\n<p>Hosted uptime history (Better Stack) remains at <a href=\"https://status.devcentr.org\">status.devcentr.org</a>, linked from the probe page and Help.</p>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"_where_to_go\">Where to go</h2>\n<div class=\"sectionbody\">\n<div class=\"ulist\">\n<ul>\n<li>\n<p><a href=\"https://devcentr.org/help\">Help</a></p>\n</li>\n<li>\n<p><a href=\"https://docs.devcentr.org\">Docs</a></p>\n</li>\n<li>\n<p><a href=\"https://devcentr.org/status\">Status probes</a></p>\n</li>\n<li>\n<p><a href=\"mailto:support@devcentr.org\">support@devcentr.org</a></p>\n</li>\n</ul>\n</div>\n</div>\n</div>",
+      "source": "authored"
+    },
+    {
       "slug": "2026-07-24-brand-motion",
       "title": "Brand mark and motion format tradeoffs",
       "description": "Shipping the DevCentr orbital mark, why we will not hard-advocate Rive, and Popkorn as a potential text-first future. Engineering blog / news update.",
