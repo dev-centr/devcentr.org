@@ -58,6 +58,12 @@ export const products: CatalogItem[] = [
     href: "https://github.com/dev-centr/prohelp",
     external: true,
   },
+  {
+    id: "resting-lanczos",
+    name: "resting-lanczos",
+    summary: "Crisp responsive images: Lanczos tiers + srcset + transform (comparison demo).",
+    href: "/resting-lanczos",
+  },
 ];
 
 export const services: CatalogItem[] = [
