@@ -11,28 +11,20 @@ export function SiteFooter() {
           <LogoMark class="size-7 text-primary" />
           <span class="font-display text-sm font-semibold tracking-tight">DevCentr</span>
         </div>
-        <div class="flex flex-col gap-2 sm:items-end">
-          <nav class="flex flex-wrap gap-x-4 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em]">
-            <a href="/news" class={footLink}>
-              News
-            </a>
-            <a href="/health" class={footLink}>
-              Service health
-            </a>
-            <a href="https://docs.devcentr.org" class={footLink}>
-              Docs
-            </a>
-            <a href="https://github.com/dev-centr" class={footLink}>
-              GitHub
-            </a>
-          </nav>
-          <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-            Hosted on GitHub Pages ·{" "}
-            <a href="https://devcentr.org" class={footLink}>
-              devcentr.org
-            </a>
-          </p>
-        </div>
+        <nav class="flex flex-wrap gap-x-4 gap-y-2 font-mono text-[10px] uppercase tracking-[0.22em]">
+          <a href="/news" class={footLink}>
+            News
+          </a>
+          <a href="/health" class={footLink}>
+            Service health
+          </a>
+          <a href="https://docs.devcentr.org" class={footLink}>
+            Docs
+          </a>
+          <a href="https://github.com/dev-centr" class={footLink}>
+            GitHub
+          </a>
+        </nav>
       </div>
     </footer>
   );
