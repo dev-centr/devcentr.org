@@ -18,6 +18,7 @@ function ensureSpa(dir) {
 ensureSpa(join(pub, "toolchain-advisor"));
 ensureSpa(join(pub, "news"));
 ensureSpa(join(pub, "blog"));
+ensureSpa(join(pub, "health"));
 
 const generated = join(root, "src", "lib", "news-posts.generated.json");
 if (existsSync(generated)) {

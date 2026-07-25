@@ -2,6 +2,7 @@ import { A, useParams } from "@solidjs/router";
 import { createMemo, Show } from "solid-js";
 import { Meta, Title } from "@solidjs/meta";
 
+import { SiteFooter } from "~/components/site-footer";
 import { SiteHeader } from "~/components/site-header";
 import { getPost } from "~/lib/news";
 
@@ -54,6 +55,7 @@ export default function NewsPostPage() {
             )}
           </Show>
         </main>
+        <SiteFooter />
       </div>
     </div>
   );

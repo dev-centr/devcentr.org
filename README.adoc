@@ -21,6 +21,11 @@ Site copies live in `public/brand/`. Canonical org-wide assets (including `logo.
 * **CMS:** git + link:https://pagescms.org/[Pages CMS] (see `.pages.yml` and `content/news/README.adoc`)
 * **Build:** `pnpm run news:build` (also `predev` / `prebuild`) writes `src/lib/news-posts.generated.json` and the feed files
 
+== Service health
+
+* **URL:** link:https://devcentr.org/health[/health]
+* Client-side probes of public endpoints (landing, news, docs, app, GitHub). Linked from the site footer.
+
 == Stack
 
 * **Framework:** link:https://start.solidjs.com/[SolidStart] (Solid.js full-stack)

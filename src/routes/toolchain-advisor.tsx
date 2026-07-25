@@ -1,4 +1,5 @@
 import { A } from "@solidjs/router";
+import { SiteFooter } from "~/components/site-footer";
 import { SiteHeader } from "~/components/site-header";
 import { ToolchainAdvisor } from "~/components/ToolchainAdvisor";
 import { Button } from "~/components/ui/button";
@@ -40,6 +41,7 @@ export default function ToolchainAdvisorPage() {
           </header>
           <ToolchainAdvisor />
         </div>
+        <SiteFooter />
       </div>
     </div>
   );

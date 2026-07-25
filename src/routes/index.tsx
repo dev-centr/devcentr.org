@@ -1,5 +1,5 @@
 import { HeroOrbit } from "~/components/hero-orbit";
-import { LogoMark } from "~/components/logo-mark";
+import { SiteFooter } from "~/components/site-footer";
 import { SiteHeader } from "~/components/site-header";
 import { Button } from "~/components/ui/button";
 
@@ -160,20 +160,7 @@ export default function Home() {
             </ul>
           </section>
 
-          <footer class="mx-auto max-w-6xl px-6 pb-14 md:px-10">
-            <div class="flex flex-col items-start justify-between gap-6 border-t border-border/70 pt-8 sm:flex-row sm:items-center">
-              <div class="flex items-center gap-3">
-                <LogoMark class="size-7 text-primary" />
-                <span class="font-display text-sm font-semibold tracking-tight">DevCentr</span>
-              </div>
-              <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
-                Hosted on GitHub Pages · Custom domain{" "}
-                <a href="https://devcentr.org" class="text-muted-foreground underline-offset-4 hover:text-foreground hover:underline">
-                  devcentr.org
-                </a>
-              </p>
-            </div>
-          </footer>
+          <SiteFooter />
         </main>
       </div>
     </div>

@@ -41,7 +41,7 @@ export default defineConfig({
   },
   router: {
     prerender: {
-      routes: ["/", "/toolchain-advisor", "/news", "/blog", ...newsRoutes],
+      routes: ["/", "/toolchain-advisor", "/news", "/blog", "/health", ...newsRoutes],
     },
   },
   vite: {

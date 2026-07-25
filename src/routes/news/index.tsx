@@ -2,6 +2,7 @@ import { For } from "solid-js";
 import { A } from "@solidjs/router";
 import { Meta, Title } from "@solidjs/meta";
 
+import { SiteFooter } from "~/components/site-footer";
 import { SiteHeader } from "~/components/site-header";
 import { getPosts } from "~/lib/news";
 
@@ -59,6 +60,7 @@ export default function NewsIndex() {
             </For>
           </ul>
         </main>
+        <SiteFooter />
       </div>
     </div>
   );
