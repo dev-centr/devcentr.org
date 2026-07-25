@@ -51,7 +51,7 @@ export function ModeToggle() {
     <Button
       variant="outline"
       size="icon"
-      class="relative shrink-0 rounded-sm border-border/70 bg-background/70 backdrop-blur-sm"
+      class="relative shrink-0 rounded-md border-border/70 bg-background/70 backdrop-blur-sm"
       onClick={handleClick}
       aria-label={colorMode() === "dark" ? "Use light appearance" : "Use dark appearance"}
     >

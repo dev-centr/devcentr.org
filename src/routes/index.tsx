@@ -1,157 +1,198 @@
+import { HeroOrbit } from "~/components/hero-orbit";
+import { LogoMark } from "~/components/logo-mark";
 import { ModeToggle } from "~/components/mode-toggle";
 import { Button } from "~/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "~/components/ui/card";
+
+const pillars = [
+  {
+    n: "01",
+    title: "Ecosystem Management",
+    kicker: "Environment as code",
+    body: "Author and version shells, toolchains, and infrastructure as first-class citizens—not a pile of side-car text files.",
+  },
+  {
+    n: "02",
+    title: "Visual DevEx",
+    kicker: "Systems made visible",
+    body: "Move from opaque file trees to high-fidelity structure. See the gravity of your software, not just its folders.",
+  },
+  {
+    n: "03",
+    title: "AI Synergy",
+    kicker: "Context that compounds",
+    body: "Give human-in-the-loop AI the deep environmental metadata it needs so flow-state coding can actually stick.",
+  },
+] as const;
+
+const destinations = [
+  {
+    href: "https://devcentr.app",
+    label: "devcentr.app",
+    detail: "Flagship orchestration engine",
+  },
+  {
+    href: "https://docs.devcentr.org",
+    label: "docs.devcentr.org",
+    detail: "Knowledge base & specs",
+  },
+  {
+    href: "/toolchain-advisor",
+    label: "Toolchain Advisor",
+    detail: "Pick host, target, language",
+  },
+  {
+    href: "https://github.com/dev-centr",
+    label: "GitHub",
+    detail: "Source-available ecosystem",
+  },
+] as const;
 
 export default function Home() {
   return (
-    <div class="arch-surface relative min-h-dvh">
+    <div class="plane-surface relative min-h-dvh">
       <div class="relative z-10">
-        <header class="mx-auto flex max-w-6xl items-center justify-between px-6 pb-5 pt-7 md:px-12 md:pb-8 md:pt-10">
-          <span class="arch-eyebrow text-foreground/70">Dev-Centr</span>
-          <ModeToggle />
+        <header class="mx-auto flex max-w-6xl items-center justify-between px-6 pb-4 pt-6 md:px-10 md:pt-8">
+          <a href="/" class="group flex items-center gap-3 text-foreground no-underline">
+            <LogoMark class="size-9 text-primary transition-transform duration-500 group-hover:rotate-12" />
+            <span class="font-display text-lg font-semibold tracking-tight">DevCentr</span>
+          </a>
+          <nav class="flex items-center gap-2 md:gap-3">
+            <a
+              href="https://docs.devcentr.org"
+              class="hidden font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:text-foreground sm:inline"
+            >
+              Docs
+            </a>
+            <a
+              href="https://github.com/dev-centr"
+              class="hidden font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:text-foreground sm:inline"
+            >
+              GitHub
+            </a>
+            <ModeToggle />
+          </nav>
         </header>
-        <main class="mx-auto max-w-6xl px-6 pb-32 md:px-12">
-          <section class="mb-24 md:mb-36">
-            <p class="arch-eyebrow mb-7 md:mb-9">Laboratory · Development Orchestration Suite</p>
-            <div class="arch-rule mb-9 md:mb-12" />
 
-            <h1 class="max-w-4xl font-display text-4xl font-medium leading-[1.06] tracking-tight text-foreground/92 md:text-6xl lg:text-[4.1rem]">
-              Orchestrating
-              <span class="block text-muted-foreground">the Future</span>
-            </h1>
+        <main>
+          {/* Hero: one composition — brand, headline, sentence, CTAs, full-bleed orbit */}
+          <section class="relative isolate min-h-[calc(100dvh-5.5rem)] overflow-hidden">
+            <HeroOrbit />
+            <div class="relative z-10 mx-auto flex max-w-6xl flex-col justify-center px-6 pb-20 pt-10 md:min-h-[calc(100dvh-5.5rem)] md:px-10 md:pb-28 md:pt-6">
+              <p class="eyebrow rise text-primary">Development Orchestration Suite</p>
 
-            <p class="mt-9 max-w-2xl text-base leading-[1.8] text-muted-foreground md:mt-12 md:text-lg md:leading-[1.75]">
-              Dev-Centr is the laboratory for the{" "}
-              <strong class="font-medium text-foreground/95">Development Orchestration Suite (DOS)</strong> movement. We
-              shape the gravity of the modern developer&apos;s world—structure before syntax, systems before snippets.
-            </p>
+              <h1 class="rise rise-delay-1 mt-5 max-w-3xl font-display text-[clamp(3rem,12vw,6.5rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-foreground">
+                DevCentr
+              </h1>
 
-            <div class="mt-10 flex flex-col gap-2.5 sm:mt-12 sm:flex-row sm:flex-wrap sm:items-center">
-              <Button as="a" size="lg" class="rounded-sm font-mono text-xs uppercase tracking-[0.18em]" href="https://devcentr.app">
-                Download
-              </Button>
-              <Button
-                as="a"
-                size="lg"
-                variant="outline"
-                class="rounded-sm border-border/60 bg-background/35 font-mono text-xs uppercase tracking-[0.18em] backdrop-blur-sm"
-                href="/toolchain-advisor"
-              >
-                Toolchain Advisor
-              </Button>
-              <Button
-                as="a"
-                size="lg"
-                variant="outline"
-                class="rounded-sm border-border/60 bg-background/35 font-mono text-xs uppercase tracking-[0.18em] backdrop-blur-sm"
-                href="https://docs.devcentr.org"
-              >
-                Docs
-              </Button>
-              <Button
-                as="a"
-                size="lg"
-                variant="ghost"
-                class="rounded-sm font-mono text-xs uppercase tracking-[0.18em] text-muted-foreground hover:text-foreground/85"
-                href="https://github.com/dev-centr"
-              >
-                GitHub
-              </Button>
+              <p class="rise rise-delay-2 mt-6 max-w-xl font-display text-xl font-medium leading-snug tracking-tight text-foreground/90 md:text-2xl">
+                Structure before syntax. Systems before snippets.
+              </p>
+
+              <p class="rise rise-delay-2 mt-4 max-w-lg text-base leading-relaxed text-muted-foreground md:text-[1.05rem]">
+                The laboratory for the DOS movement—orchestrating environments, toolchains, and context around the
+                developer, not just the editor.
+              </p>
+
+              <div class="rise rise-delay-3 mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+                <Button
+                  as="a"
+                  size="lg"
+                  class="rounded-md font-mono text-xs uppercase tracking-[0.16em]"
+                  href="https://devcentr.app"
+                >
+                  Get the app
+                </Button>
+                <Button
+                  as="a"
+                  size="lg"
+                  variant="outline"
+                  class="rounded-md border-border/80 bg-background/40 font-mono text-xs uppercase tracking-[0.16em] backdrop-blur-sm"
+                  href="/toolchain-advisor"
+                >
+                  Toolchain Advisor
+                </Button>
+              </div>
             </div>
           </section>
 
-          <section class="mb-24 md:mb-36">
-            <div class="mb-10 flex flex-col gap-4 md:mb-14 md:flex-row md:items-end md:justify-between">
-              <div>
-                <p class="arch-eyebrow mb-2.5">01</p>
-                <h2 class="font-display text-2xl font-medium tracking-tight text-foreground/92 md:text-3xl">The DOS Manifesto</h2>
-              </div>
-              <p class="max-w-md text-sm leading-relaxed text-muted-foreground md:text-right">
-                Three load-bearing ideas for how teams author, see, and evolve their developer environments.
+          {/* Manifesto — typography rows, not cards */}
+          <section class="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
+            <div class="max-w-2xl">
+              <p class="eyebrow">The DOS manifesto</p>
+              <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+                Three load-bearing ideas
+              </h2>
+              <p class="mt-4 text-muted-foreground">
+                How teams author, see, and evolve the environments they actually ship in.
               </p>
             </div>
 
-            <div class="grid gap-6 md:grid-cols-3 md:gap-8">
-              <Card class="rounded-sm border-border/55 bg-card/50 shadow-none backdrop-blur-sm transition-colors hover:border-border/80 dark:bg-card/35">
-                <CardHeader class="space-y-3 pb-2">
-                  <CardTitle class="font-display text-lg font-medium tracking-tight text-foreground/92">
-                    Ecosystem Management
-                  </CardTitle>
-                  <CardDescription class="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                    Environment as code
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p class="text-sm leading-[1.75] text-muted-foreground">
-                    Move beyond text files. Author and version your entire environment—shells, toolchains, and
-                    infrastructure—as first-class citizens.
-                  </p>
-                </CardContent>
-              </Card>
+            <ol class="mt-14 space-y-0 border-t border-border/70">
+              {pillars.map((p) => (
+                <li class="grid gap-4 border-b border-border/70 py-10 md:grid-cols-[5rem_1fr_1.1fr] md:gap-10 md:py-12">
+                  <span class="font-mono text-sm text-primary">{p.n}</span>
+                  <div>
+                    <h3 class="font-display text-xl font-semibold tracking-tight text-foreground md:text-2xl">
+                      {p.title}
+                    </h3>
+                    <p class="mt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                      {p.kicker}
+                    </p>
+                  </div>
+                  <p class="text-[0.95rem] leading-relaxed text-muted-foreground md:pt-1">{p.body}</p>
+                </li>
+              ))}
+            </ol>
+          </section>
 
-              <Card class="rounded-sm border-border/55 bg-card/50 shadow-none backdrop-blur-sm transition-colors hover:border-border/80 dark:bg-card/35">
-                <CardHeader class="space-y-3 pb-2">
-                  <CardTitle class="font-display text-lg font-medium tracking-tight text-foreground/92">Visual DevEx</CardTitle>
-                  <CardDescription class="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                    Systems made visible
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p class="text-sm leading-[1.75] text-muted-foreground">
-                    Transition from opaque file trees to high-fidelity design artifacts. Visualize the invisible structure
-                    of your software.
-                  </p>
-                </CardContent>
-              </Card>
-
-              <Card class="rounded-sm border-border/55 bg-card/50 shadow-none backdrop-blur-sm transition-colors hover:border-border/80 dark:bg-card/35">
-                <CardHeader class="space-y-3 pb-2">
-                  <CardTitle class="font-display text-lg font-medium tracking-tight text-foreground/92">AI Synergy</CardTitle>
-                  <CardDescription class="font-mono text-[10px] uppercase tracking-[0.25em] text-muted-foreground">
-                    Context that compounds
-                  </CardDescription>
-                </CardHeader>
-                <CardContent>
-                  <p class="text-sm leading-[1.75] text-muted-foreground">
-                    Provide the deep contextual metadata necessary for human-in-the-loop AI and flow-state coding to reach
-                    their full potential.
-                  </p>
-                </CardContent>
-              </Card>
+          {/* Category pivot — one job */}
+          <section class="border-y border-border/60 bg-foreground/[0.03] dark:bg-foreground/[0.04]">
+            <div class="mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-24">
+              <p class="eyebrow">The category pivot</p>
+              <blockquote class="mt-6 max-w-3xl font-display text-2xl font-medium leading-snug tracking-tight text-foreground md:text-3xl md:leading-snug">
+                Traditional IDEs focus on the editor. DevCentr focuses on the{" "}
+                <span class="text-primary">orchestration</span> of the entire developer lifecycle.
+              </blockquote>
             </div>
           </section>
 
-          <section>
-            <p class="arch-eyebrow mb-2.5">02</p>
-            <h2 class="mb-9 font-display text-2xl font-medium tracking-tight text-foreground/92 md:mb-12 md:text-3xl">The Category Pivot</h2>
-
-            <Card class="rounded-sm border-border/55 bg-card/45 shadow-none backdrop-blur-md dark:bg-card/28">
-              <CardContent class="p-0">
-                <div class="grid gap-0 md:grid-cols-[3px_1fr]">
-                  <div class="hidden bg-primary/55 md:block" aria-hidden="true" />
-                  <blockquote class="px-8 py-11 md:px-12 md:py-14">
-                    <p class="text-base font-light leading-[1.85] text-muted-foreground md:text-lg md:leading-[1.82]">
-                      Traditional IDEs focus on the editor. Dev-Centr focuses on the{" "}
-                      <strong class="font-medium text-foreground/95">orchestration</strong> of the entire developer
-                      lifecycle.
-                    </p>
-                  </blockquote>
-                </div>
-              </CardContent>
-            </Card>
+          {/* Destinations — interactive list */}
+          <section class="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
+            <p class="eyebrow">Go further</p>
+            <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl">Destinations</h2>
+            <ul class="mt-12 divide-y divide-border/70 border-y border-border/70">
+              {destinations.map((d) => (
+                <li>
+                  <a
+                    href={d.href}
+                    class="group flex flex-col gap-1 py-6 no-underline transition-colors sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
+                  >
+                    <span class="font-display text-xl font-semibold tracking-tight text-foreground group-hover:text-primary md:text-2xl">
+                      {d.label}
+                    </span>
+                    <span class="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
+                      {d.detail}
+                    </span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </section>
 
-          <footer class="arch-rule mt-20 md:mt-28" />
-          <p class="mt-7 text-center font-mono text-[10px] uppercase tracking-[0.28em] text-muted-foreground/90">
-            <a
-              href="https://docs.devcentr.org"
-              class="text-muted-foreground/90 underline decoration-border/60 underline-offset-4 transition-colors hover:text-foreground/85"
-            >
-              Documentation
-            </a>
-            {" · "}
-            Dev-Centr · DOS
-          </p>
+          <footer class="mx-auto max-w-6xl px-6 pb-14 md:px-10">
+            <div class="flex flex-col items-start justify-between gap-6 border-t border-border/70 pt-8 sm:flex-row sm:items-center">
+              <div class="flex items-center gap-3">
+                <LogoMark class="size-7 text-primary" />
+                <span class="font-display text-sm font-semibold tracking-tight">DevCentr</span>
+              </div>
+              <p class="font-mono text-[10px] uppercase tracking-[0.22em] text-muted-foreground">
+                Hosted on GitHub Pages · Custom domain{" "}
+                <a href="https://devcentr.org" class="text-muted-foreground underline-offset-4 hover:text-foreground hover:underline">
+                  devcentr.org
+                </a>
+              </p>
+            </div>
+          </footer>
         </main>
       </div>
     </div>
