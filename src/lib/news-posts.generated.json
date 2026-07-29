@@ -1,6 +1,23 @@
 {
   "posts": [
     {
+      "slug": "2026-07-28-partnering-with-openshellorg",
+      "title": "We&#8217;re partnering with OpenShellOrg (on purpose)",
+      "description": "DevCentr and OpenShellOrg are locking in the sibling story—toolchain ownership on our side, shell entrypoint honesty on theirs.",
+      "date": "2026-07-28",
+      "tags": [
+        "news",
+        "OpenShellOrg",
+        "partnership",
+        "toolchain",
+        "shells",
+        "DevCentr",
+        "blog"
+      ],
+      "html": "<div class=\"paragraph\">\n<p>Quick confession: for a minute we almost convinced ourselves the whole “wrong Node / wrong Flutter / wrong host” rant lived under OpenShellOrg, because that&#8217;s where the <strong>pain</strong> hits—you type a command and the wrong process runs. Then we remembered why we put <strong>Toolchain Management</strong> in DevCentr in the first place: the full lifecycle (pin, health, repair, upgrade) is an ecosystem-orchestration problem. The shell just happens to be the crime scene.</p>\n</div>\n<div class=\"paragraph\">\n<p>So we&#8217;re doing the grown-up thing.</p>\n</div>\n<div class=\"paragraph\">\n<p><strong>DevCentr</strong> keeps the canonical Toolchain Management Pattern → Protocol → Control Plane → TCF kit. That&#8217;s the “official entrypoint owns the lifecycle” philosophy, the advisories in Ecosystem Management, the “stop telling newcomers to go shop for nvm/FVM first” stance.</p>\n</div>\n<div class=\"paragraph\">\n<p><strong>OpenShellOrg</strong> keeps the shell-boundary essay: Entrypoint Dispatch — auto-install and re-exec the right host/version when the pin says so — plus <code>nu-require</code>, SOS, structured-shell thesis, env-refresh / shell-host plans. Complementary. Not a duplicate manifesto with a different logo.</p>\n</div>\n<div class=\"paragraph\">\n<p>Aligned, not merged. Cross-linked like we mean it. Footers and org profiles now show the sibling cluster so people stop spelunking.</p>\n</div>\n<div class=\"paragraph\">\n<p>If you want the vibe in one line: we orchestrate the workshop; they refuse to let the hammer lie about which nail it&#8217;s hitting.</p>\n</div>\n<div class=\"paragraph\">\n<p>Links worth bookmarking: <a href=\"https://openshellorg.github.io/\">OpenShellOrg</a>, <a href=\"https://openshellorg.github.io/open-shell-org/\">their docs</a>, <a href=\"https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/toolchain-management.html\">Toolchain Management Pattern</a>, and the alignment page in general-knowledge (Dev-Centr and OpenShellOrg).</p>\n</div>",
+      "source": "authored"
+    },
+    {
       "slug": "2026-07-24-welcome",
       "title": "We&#8217;re opening a News desk",
       "description": "Why DevCentr is starting a public News feed—and what you won't find here.",

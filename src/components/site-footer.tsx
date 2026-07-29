@@ -40,6 +40,24 @@ export function SiteFooter() {
               Slack
             </a>
           </nav>
+          <nav class="flex flex-col gap-2" aria-label="Related projects">
+            <span class="text-muted-foreground/70">Related</span>
+            <a href="https://openshellorg.github.io/" class={footLink}>
+              OpenShellOrg
+            </a>
+            <a
+              href="https://openshellorg.github.io/open-shell-org/"
+              class={footLink}
+            >
+              OSO Docs
+            </a>
+            <a href="https://github.com/openshellorg" class={footLink}>
+              OSO GitHub
+            </a>
+            <a href="https://github.com/dlang-supplemental" class={footLink}>
+              dlang-supplemental
+            </a>
+          </nav>
         </div>
       </div>
     </footer>

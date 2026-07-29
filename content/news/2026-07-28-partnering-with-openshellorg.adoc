@@ -1,0 +1,18 @@
+= We're partnering with OpenShellOrg (on purpose)
+:description: DevCentr and OpenShellOrg are locking in the sibling story—toolchain ownership on our side, shell entrypoint honesty on theirs.
+:revdate: 2026-07-28
+:keywords: news, OpenShellOrg, partnership, toolchain, shells, DevCentr
+
+Quick confession: for a minute we almost convinced ourselves the whole “wrong Node / wrong Flutter / wrong host” rant lived under OpenShellOrg, because that's where the *pain* hits—you type a command and the wrong process runs. Then we remembered why we put **Toolchain Management** in DevCentr in the first place: the full lifecycle (pin, health, repair, upgrade) is an ecosystem-orchestration problem. The shell just happens to be the crime scene.
+
+So we're doing the grown-up thing.
+
+**DevCentr** keeps the canonical Toolchain Management Pattern → Protocol → Control Plane → TCF kit. That's the “official entrypoint owns the lifecycle” philosophy, the advisories in Ecosystem Management, the “stop telling newcomers to go shop for nvm/FVM first” stance.
+
+**OpenShellOrg** keeps the shell-boundary essay: Entrypoint Dispatch — auto-install and re-exec the right host/version when the pin says so — plus `nu-require`, SOS, structured-shell thesis, env-refresh / shell-host plans. Complementary. Not a duplicate manifesto with a different logo.
+
+Aligned, not merged. Cross-linked like we mean it. Footers and org profiles now show the sibling cluster so people stop spelunking.
+
+If you want the vibe in one line: we orchestrate the workshop; they refuse to let the hammer lie about which nail it's hitting.
+
+Links worth bookmarking: link:https://openshellorg.github.io/[OpenShellOrg], link:https://openshellorg.github.io/open-shell-org/[their docs], link:https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/toolchain-management.html[Toolchain Management Pattern], and the alignment page in general-knowledge (Dev-Centr and OpenShellOrg).

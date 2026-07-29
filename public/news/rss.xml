@@ -5,7 +5,16 @@
   <link>https://devcentr.org/news</link>
   <description>News and engineering blog posts from Dev-Centr.</description>
   <language>en-us</language>
-  <lastBuildDate>Fri, 24 Jul 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 28 Jul 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>We&amp;#8217;re partnering with OpenShellOrg (on purpose)</title>
+    <link>https://devcentr.org/news/2026-07-28-partnering-with-openshellorg</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-07-28-partnering-with-openshellorg</guid>
+    <pubDate>Tue, 28 Jul 2026 12:00:00 GMT</pubDate>
+    <description>DevCentr and OpenShellOrg are locking in the sibling story—toolchain ownership on our side, shell entrypoint honesty on theirs.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
   <item>
     <title>We&amp;#8217;re opening a News desk</title>
     <link>https://devcentr.org/news/2026-07-24-welcome</link>
