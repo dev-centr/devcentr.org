@@ -15,4 +15,10 @@ Aligned, not merged. Cross-linked like we mean it. Footers and org profiles now 
 
 If you want the vibe in one line: we orchestrate the workshop; they refuse to let the hammer lie about which nail it's hitting.
 
-Links worth bookmarking: link:https://openshellorg.github.io/[OpenShellOrg], link:https://openshellorg.github.io/open-shell-org/[their docs], link:https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/toolchain-management.html[Toolchain Management Pattern], and the alignment page in general-knowledge (Dev-Centr and OpenShellOrg).
+.Official toolchain architecture
+image::https://openshellorg.github.io/assets/diagrams/toolchain-architecture.svg["Official entrypoint owns pin resolve, install, re-exec, and lifecycle"]
+
+.Sibling ownership
+image::https://openshellorg.github.io/assets/diagrams/sibling-ownership.svg["DevCentr lifecycle vs OpenShellOrg entrypoint dispatch"]
+
+Links worth bookmarking: link:https://openshellorg.github.io/[OpenShellOrg], link:https://openshellorg.github.io/open-shell-org/[their docs], link:https://docs.devcentr.org/general-knowledge/explanation/infrastructure/toolchain-management.html[Toolchain Management Pattern], and the alignment page in general-knowledge (Dev-Centr and OpenShellOrg).

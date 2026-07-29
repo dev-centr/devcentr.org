@@ -2,12 +2,17 @@ import { A, useParams } from "@solidjs/router";
 import { createMemo, Show } from "solid-js";
 import { Meta, Title } from "@solidjs/meta";
 
+import { SiblingOwnershipDiagram } from "~/components/sibling-ownership-diagram";
 import { SiteFooter } from "~/components/site-footer";
+import { ToolchainArchitectureDiagram } from "~/components/toolchain-architecture-diagram";
 import { getPost } from "~/lib/news";
 
 export default function NewsPostPage() {
   const params = useParams();
   const post = createMemo(() => getPost(params.slug));
+  const showToolchainDiagrams = createMemo(
+    () => params.slug === "2026-07-28-partnering-with-openshellorg",
+  );
 
   return (
     <>
@@ -48,6 +53,12 @@ export default function NewsPostPage() {
                 <p class="mt-4 text-lg leading-relaxed text-muted-foreground">{p.description}</p>
               </Show>
               <div class="news-prose mt-10" innerHTML={p.html} />
+              <Show when={showToolchainDiagrams()}>
+                <div class="mt-12 space-y-10">
+                  <ToolchainArchitectureDiagram />
+                  <SiblingOwnershipDiagram />
+                </div>
+              </Show>
             </article>
           )}
         </Show>

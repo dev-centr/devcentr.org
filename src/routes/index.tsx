@@ -1,5 +1,7 @@
 import { HeroOrbit } from "~/components/hero-orbit";
+import { SiblingOwnershipDiagram } from "~/components/sibling-ownership-diagram";
 import { SiteFooter } from "~/components/site-footer";
+import { ToolchainArchitectureDiagram } from "~/components/toolchain-architecture-diagram";
 import { Button } from "~/components/ui/button";
 
 const pillars = [
@@ -131,6 +133,42 @@ export default function Home() {
             </li>
           ))}
         </ol>
+      </section>
+
+      <section class="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
+        <div class="max-w-2xl">
+          <p class="eyebrow">Toolchain architecture</p>
+          <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+            Official entrypoint owns the lifecycle
+          </h2>
+          <p class="mt-4 text-muted-foreground">
+            Language and SDK ecosystems should resolve the project pin, install if needed, and re-exec under
+            the correct version for this process tree — without rewriting the machine default or sending
+            newcomers to tribal version managers after an ABI crash.
+          </p>
+        </div>
+        <div class="mt-12">
+          <ToolchainArchitectureDiagram />
+        </div>
+        <div class="mt-10">
+          <SiblingOwnershipDiagram />
+        </div>
+        <p class="mt-8 text-sm text-muted-foreground">
+          Deep dive:{" "}
+          <a
+            class="text-primary underline decoration-primary/35 underline-offset-4 hover:decoration-primary"
+            href="https://docs.devcentr.org/general-knowledge/explanation/infrastructure/toolchain-management.html"
+          >
+            Toolchain Management Pattern
+          </a>
+          {" · "}
+          <a
+            class="text-primary underline decoration-primary/35 underline-offset-4 hover:decoration-primary"
+            href="https://opensh.org/open-shell-org/shell-architecture/entrypoint-dispatch.html"
+          >
+            Entrypoint Dispatch
+          </a>
+        </p>
       </section>
 
       <section class="border-y border-border/60 bg-foreground/[0.03] dark:bg-foreground/[0.04]">

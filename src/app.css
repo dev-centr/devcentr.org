@@ -124,6 +124,19 @@
     --ring: 173 72% 32%;
     --signal: 173 72% 36%;
     --plane: 210 40% 18%;
+
+    /* Architecture diagrams (inline SVG) */
+    --diagram-ink: hsl(210 40% 8%);
+    --diagram-muted: hsl(210 12% 38%);
+    --diagram-surface: hsl(210 24% 98%);
+    --diagram-card: hsl(210 28% 96%);
+    --diagram-border: hsl(210 16% 84%);
+    --diagram-edge: hsl(210 12% 48%);
+    --diagram-accent: hsl(173 72% 32%);
+    --diagram-accent-soft: hsl(173 40% 90%);
+    --diagram-ok: hsl(168 55% 32%);
+    --diagram-ok-soft: hsl(168 35% 90%);
+    --diagram-font: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
   }
 
   .dark,
@@ -149,6 +162,17 @@
     --ring: 168 76% 48%;
     --signal: 168 76% 48%;
     --plane: 210 40% 92%;
+
+    --diagram-ink: hsl(180 12% 92%);
+    --diagram-muted: hsl(210 10% 58%);
+    --diagram-surface: hsl(210 24% 8%);
+    --diagram-card: hsl(210 20% 11%);
+    --diagram-border: hsl(210 14% 20%);
+    --diagram-edge: hsl(210 10% 55%);
+    --diagram-accent: hsl(168 76% 48%);
+    --diagram-accent-soft: hsl(168 40% 14%);
+    --diagram-ok: hsl(168 70% 55%);
+    --diagram-ok-soft: hsl(168 35% 14%);
   }
 
   * {
@@ -495,5 +519,17 @@
   .news-prose :where(.paragraph + .paragraph),
   .blog-prose :where(.paragraph + .paragraph) {
     @apply mt-0;
+  }
+
+  .diagram-figure {
+    @apply my-10;
+  }
+
+  .diagram-svg {
+    @apply h-auto w-full max-w-full;
+  }
+
+  .diagram-caption {
+    @apply mt-3 text-center font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground;
   }
 }
