@@ -1,19 +1,44 @@
-link:https://devcentr.org[image:https://img.shields.io/badge/site-devcentr.org-2ea043?style=flat[devcentr.org]]
+ifndef::env-github[:icons: font]
+:toc: preamble
+:toclevels: 2
+:sectanchors:
+
+ifndef::env-github[]
+image:https://img.shields.io/github/contributors/dev-centr/devcentr.org.svg?style=for-the-badge[Contributors,link=https://github.com/dev-centr/devcentr.org/graphs/contributors]
+image:https://img.shields.io/github/forks/dev-centr/devcentr.org.svg?style=for-the-badge[Forks,link=https://github.com/dev-centr/devcentr.org/network/members]
+image:https://img.shields.io/github/stars/dev-centr/devcentr.org.svg?style=for-the-badge[Stars,link=https://github.com/dev-centr/devcentr.org/stargazers]
+image:https://img.shields.io/github/issues/dev-centr/devcentr.org.svg?style=for-the-badge[Issues,link=https://github.com/dev-centr/devcentr.org/issues]
+endif::[]
+
+ifdef::env-github[]
+image:https://img.shields.io/github/contributors/dev-centr/devcentr.org.svg?style=for-the-badge[Contributors]
+image:https://img.shields.io/github/forks/dev-centr/devcentr.org.svg?style=for-the-badge[Forks]
+image:https://img.shields.io/github/stars/dev-centr/devcentr.org.svg?style=for-the-badge[Stars]
+image:https://img.shields.io/github/issues/dev-centr/devcentr.org.svg?style=for-the-badge[Issues]
+endif::[]
 
 = devcentr.org
 
+Organization landing page for Dev-Centr.
+
+link:https://devcentr.org[Explore the site] ·
+link:https://github.com/dev-centr/devcentr.org/issues[Report Bug] ·
+link:https://github.com/dev-centr/devcentr.org/issues[Request Feature]
+
+== About The Project
+
 The official organization landing page for link:https://github.com/dev-centr[Dev-Centr].
 
-== Domain
+=== Domain
 
 * **URL:** link:https://devcentr.org[devcentr.org]
 * **Hosting:** GitHub Pages (static build from this repo). CI deploys `.output/public` on every push to `main` via `.github/workflows/ci.yml`. Custom domain is configured on the repo's Pages settings.
 
-== Brand
+=== Brand
 
 Site copies live in `public/brand/`. Canonical org-wide assets (including `logo.svg`) are harbored in the `.github` / `.github-private` profile folders. Upload `logo-on-dark-256.png` as the GitHub organization avatar under org Settings → Profile.
 
-== News (engineering blog)
+=== News (engineering blog)
 
 * **URL:** link:https://devcentr.org/news[/news] (legacy alias: link:https://devcentr.org/blog[/blog] for SEO)
 * **Feeds:** link:https://devcentr.org/news/rss.xml[RSS], link:https://devcentr.org/news/atom.xml[Atom]
@@ -21,30 +46,30 @@ Site copies live in `public/brand/`. Canonical org-wide assets (including `logo.
 * **CMS:** git + link:https://pagescms.org/[Pages CMS] (see `.pages.yml` and `content/news/README.adoc`)
 * **Build:** `pnpm run news:build` (also `predev` / `prebuild`) writes `src/lib/news-posts.generated.json`, changelog JSON, and the feed files
 
-== Changelog
+=== Changelog
 
 * **URL:** link:https://devcentr.org/changelog[/changelog]
 * **Source:** Antora `changelog.adoc` / activity-log timelines (DevCentr, General Knowledge, docs portal) ingested at build time
 * **Canonical:** Full entries remain on link:https://docs.devcentr.org[docs.devcentr.org]; the marketing page is a mirror index
 
-== Help
+=== Help
 
 * **URL:** link:https://devcentr.org/help[/help] (`/support` redirects to `/help#support`)
 * Hub for self-help (docs) vs assisted support (coming soon), plus status, GitHub, and `support@devcentr.org`.
 * Planning notes: `docs/help-and-support-plans.adoc`
 
-== Status
+=== Status
 
 * **Probes:** link:https://devcentr.org/status[/status] (`/health` redirects here) — client-side checks of public endpoints
 * **Hosted uptime:** link:https://status.devcentr.org[status.devcentr.org] (Better Stack) — linked from the probe page
 * Community surfaces (Help, Status, Slack, …) live under the header **Community** menu
 
-== Stack
+== Built With
 
-* **Framework:** link:https://start.solidjs.com/[SolidStart] (Solid.js full-stack)
-* **Engine:** link:https://vinxi.vercel.app/[Vinxi]
-* **Language:** TypeScript
-* **Package Manager:** pnpm
+* link:https://start.solidjs.com/[SolidStart] (Solid.js full-stack)
+* link:https://vinxi.vercel.app/[Vinxi]
+* TypeScript
+* link:https://pnpm.io/[pnpm]
 
 == Getting Started
 
@@ -66,3 +91,10 @@ pnpm dev
 == Site Generation
 
 To iterate on the design, provide the `SITE-GENERATION-PROMPT.md` to a design-capable AI.
+
+== Contact
+
+DevCentr.org — support@devcentr.org
+
+* Project: https://github.com/dev-centr/devcentr.org
+* Site: https://devcentr.org
