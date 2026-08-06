@@ -9,19 +9,19 @@ const pillars = [
     n: "01",
     title: "Ecosystem Management",
     kicker: "Environment as code",
-    body: "Author and version shells, toolchains, and infrastructure as first-class citizens—not a pile of side-car text files.",
+    body: "Treat shells, toolchains, and machine setup like real project assets—author them, version them, and share them instead of chasing config files.",
   },
   {
     n: "02",
     title: "Visual DevEx",
     kicker: "Systems made visible",
-    body: "Move from opaque file trees to high-fidelity structure. See the gravity of your software, not just its folders.",
+    body: "See how your software fits together—dependencies, environments, and structure—without digging through opaque folders.",
   },
   {
     n: "03",
     title: "AI Synergy",
     kicker: "Context that compounds",
-    body: "Give human-in-the-loop AI the deep environmental metadata it needs so flow-state coding can actually stick.",
+    body: "Give humans and AI the same grounded project context so assistance stays accurate and useful where you actually work.",
   },
 ] as const;
 
@@ -76,12 +76,12 @@ export default function Home() {
           </h1>
 
           <p class="rise rise-delay-2 mt-6 max-w-xl font-display text-xl font-medium leading-snug tracking-tight text-foreground/90 md:text-2xl">
-            Structure before syntax. Systems before snippets.
+            System management and DevOps for your machine.
           </p>
 
           <p class="rise rise-delay-2 mt-4 max-w-lg text-base leading-relaxed text-muted-foreground md:text-[1.05rem]">
-            The laboratory for the DOS movement—orchestrating environments, toolchains, and context around the
-            developer, not just the editor.
+            The laboratory for the Development Orchestration Suite (DOS)—the missing link above the editor: shells,
+            toolchains, and project environments. Our flagship product is DevCentr.
           </p>
 
           <div class="rise rise-delay-3 mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
@@ -110,10 +110,10 @@ export default function Home() {
         <div class="max-w-2xl">
           <p class="eyebrow">The DOS manifesto</p>
           <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-            Three load-bearing ideas
+            Three practical ideas
           </h2>
           <p class="mt-4 text-muted-foreground">
-            How teams author, see, and evolve the environments they actually ship in.
+            How you manage, see, and improve the environment around your code.
           </p>
         </div>
 
@@ -175,8 +175,9 @@ export default function Home() {
         <div class="mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-24">
           <p class="eyebrow">The category pivot</p>
           <blockquote class="mt-6 max-w-3xl font-display text-2xl font-medium leading-snug tracking-tight text-foreground md:text-3xl md:leading-snug">
-            Traditional IDEs focus on the editor. DevCentr focuses on the{" "}
-            <span class="text-primary">orchestration</span> of the entire developer lifecycle.
+            Traditional IDEs focus on the editor. DevCentr focuses on{" "}
+            <span class="text-primary">orchestrating</span> everything around it—the Development Orchestration Suite
+            for your machine.
           </blockquote>
         </div>
       </section>
