@@ -1,0 +1,12 @@
+= MSI tables land in the generator
+:description: msi-generator v0.2 writes real OLE2 compound files, cabinets, and core Windows Installer tables — still unsigned, no longer an empty stub.
+:revdate: 2026-08-06
+:keywords: news, blog, msi-generator, MSI, MSIX, packaging, DevCentr
+
+**msi-generator** crossed the line from “skeleton that prints a message” to “file you can open in an OLE/MSI viewer.”
+
+v0.2 writes a version-3 compound file, an uncompressed cabinet payload, and the core table set (`Directory`, `Component`, `File`, `Feature`, `FeatureComponents`, `Property`, `Media`, plus `_Tables` / `_Columns` and the string pool). MSIX gained multi-file payloads and placeholder assets so manifests stop lying about missing logos.
+
+This is the engine Easy Installer’s `msi` / `msix` plugins call. It is not WiX, and we are not pretending a unsigned sample MSI is Store-ready — but the binary formats are finally real enough to iterate on.
+
+Release: link:https://github.com/dev-centr/msi-generator/releases/tag/v0.2.0[v0.2.0] · docs: link:https://docs.devcentr.org/msi-generator/latest/index.html[component].

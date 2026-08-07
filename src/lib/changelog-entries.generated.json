@@ -1,6 +1,423 @@
 {
   "entries": [
     {
+      "id": "devcentr-2026-08-06-content-create-sdl-classifications-lineage",
+      "date": "2026-08-06",
+      "title": "Content Create (SDL classifications + lineage)",
+      "bullets": [
+        "Spec: Content Create — repo right-click Create…, dual nav (job tree + evolution lineage), stub create.",
+        "SDL catalog: app/src/modules/content_create/content-types.sdl; loader/UI under modules.content_create.",
+        "Repository browser context menu + definition-files updated; sdl.adoc notes KDL relation.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-08-06-content-create-lineage-leds-and-richer-type-facts",
+      "date": "2026-08-06",
+      "title": "Content Create lineage LEDs and richer type facts",
+      "bullets": [
+        "Lineage rows: invented year + vitality LED (current/mature/legacy/outdated/reference).",
+        "Detail pane: homepage, repository, specification links; invented / last-updated fields.",
+        "Catalog expanded (schema, data, more docs/config/code); AsciiDoc spec points at Asciidoctor language docs (Eclipse formal spec still drafting).",
+        "See Content Create."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-08-06-easy-installer-install-in-place-path",
+      "date": "2026-08-06",
+      "title": "Easy installer + Install in-place PATH",
+      "bullets": [
+        "New File catalog: Packaging → Installer Project (installer.kdl).",
+        "Toolbar: Install in-place PATH and New Installer (calls easy-installer).",
+        "Explorer/CLI modes: --mode=new-installer, --mode=inplace-path.",
+        "Spec: Explorer Shell Integration."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-08-06-ecosystem-filters-explorer-devcentr-shell",
+      "date": "2026-08-06",
+      "title": "Ecosystem filters + Explorer DevCentr shell",
+      "bullets": [
+        "Content Create: ecosystem tag chips (inferred from project / CLI --tags); filter job tree + lineage.",
+        "CLI modes: --mode=new-file|new-project|open --path=….",
+        "Lightweight New Project dialog; HKCU cascading Explorer menu (Appearance → Install).",
+        "Specs: Content Create filters; Explorer Shell Integration."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-08-06-file-manager-menus-win11-first-linux",
+      "date": "2026-08-06",
+      "title": "File-manager menus: Win11-first + Linux",
+      "bullets": [
+        "Explorer: prefer Windows 11 IExplorerCommand sparse package; classic HKCU cascade only when modern unavailable.",
+        "Linux: DES-EMA under file-manager/actions plus Dolphin / Nemo / Thunar / Nautilus adapters from one action list.",
+        "Appearance → Install file-manager menu; status shows active backend.",
+        "Spec: Explorer Shell Integration."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-08-06-node-package-managers-bun-orogene",
+      "date": "2026-08-06",
+      "title": "Node package managers: Bun + Orogene",
+      "bullets": [
+        "languages/node.sdl: package managers now include pnpm (preferred), Bun, Yarn, npm, and Orogene (closed-aspirational); optional status / notes / homepage fields.",
+        "Ecosystem loader/UI surfaces package-manager notes; definition-files + project-vision updated.",
+        "Companion: general-knowledge npm package managers."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-08-06-sdlang-kept-kdl-greenfield-reject-xdl",
+      "date": "2026-08-06",
+      "title": "SDLang kept; KDL greenfield; reject XDL",
+      "bullets": [
+        "Spec decision table: SDL Preference.",
+        "Content Create: tighter SDLang/KDL roles; xdl reference-only (not creatable); lineage edge SDLang → XDL marked avoid.",
+        "Companion GK page updated; agent-rules config line aligned."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-06-documentation-markup-and-structured-data-formats",
+      "date": "2026-08-06",
+      "title": "Documentation markup and structured data formats",
+      "bullets": [
+        "Added Documentation markup (Markdown / AsciiDoc / MDX / CentrMark).",
+        "Added Structured data formats (SDLang/KDL + JSON-alternative paradigms).",
+        "Mirrors DevCentr Content Create classifications and lineage.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-06-npm-package-managers-bun-orogene",
+      "date": "2026-08-06",
+      "title": "npm package managers (Bun + Orogene)",
+      "bullets": [
+        "Added npm package managers: pnpm preferred, Bun as practical OSS alternative, Orogene as once-and-future closed-aspirational inspiration.",
+        "Restored pnpm Mechanics (was missing from nav); points at the comparison page.",
+        "Recommended tools + package registries updated."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-06-sdlang-kdl-xdl-dual-track-decision",
+      "date": "2026-08-06",
+      "title": "SDLang / KDL / XDL dual-track decision",
+      "bullets": [
+        "Structured data formats: keep SDLang in-stack, prefer KDL greenfield, reject Extended SDL/XDL.",
+        "Mirrors DevCentr sdl.adoc decision table and Content Create catalog (xdl reference-only).",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-05-cleartype-windows-docs-map",
+      "date": "2026-08-05",
+      "title": "ClearType + Windows docs map",
+      "bullets": [
+        "Added ClearType: top-down subpixel smoothing explanation; GDI vs Avalon/DirectWrite planes; multi-monitor mixed RGB/BGR as a corollary.",
+        "Added Finding Windows internals documentation: Learn/MicrosoftDocs structure and search playbook.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-05-windows-color-management-pipeline",
+      "date": "2026-08-05",
+      "title": "Windows color management pipeline",
+      "bullets": [
+        "Added Windows color management pipeline: ICM/WCS, VCGT vs MHC2, ACM/Advanced Color, GUI surfaces, systemic flaws, and how calibration vendors (X-Rite-class) work with/around the stack.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-04-git-concurrency-and-fs-editions",
+      "date": "2026-08-04",
+      "title": "Git concurrency and FS editions",
+      "bullets": [
+        "Added Git concurrency enshittification (worktrees vs virtual branches vs Phase A four-tier bridge → connectome-fs editions).",
+        "Stubs: VCS over FS editions, Concurrent agent workspaces.",
+        "Cross-links to connectome-fs, HCI Nerdz, and OpenShellOrg.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-04-winget-registration-how-to-expanded",
+      "date": "2026-08-04",
+      "title": "Winget registration how-to expanded",
+      "bullets": [
+        "Expanded Winget registration: PAT/WINGET_TOKEN, first submission vs CI updates, portable zips, winget-releaser example.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-08-03-centr-source-license-family-csl-anl",
+      "date": "2026-08-03",
+      "title": "Centr Source License family (CSL) + ANL",
+      "bullets": [
+        "Relicensed project to *CSL-1.0-BCI* (substance of prior custom source-available license, named family).",
+        "Added canonical texts under licenses/ (CSL-B, BC, BCI; experimental ANL-0.1).",
+        "Docs: Licensing, Strategy templates."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-03-software-product-essentials",
+      "date": "2026-08-03",
+      "title": "Software Product Essentials",
+      "bullets": [
+        "Added Software Product Essentials: shared shipping framework (About/build info, updates, packaging, pipeline, diagnostics) and type-specific guides (libs, GUI, CLI, TUI, games, services).",
+        "How-tos for About/debug dump, Windows auto-updates, installer packaging; restored git-release, automated-releases, winget, and package-registries pages.",
+        "Reference checklist: App essentials checklist.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "activity-docs-portal-2026-08",
+      "date": "2026-08-01",
+      "title": "August 2026",
+      "bullets": [
+        "Easy Installer — New dev-centr/easy-installer host: in-place PATH, installer.kdl projects, plugin backends (zip/NSIS/Inno/MSI/MSIX/AppImage), and file-manager menus. Antora component wired into the docs hub. Easy Installer docs · portal.",
+        "msi-generator v0.2 — Real OLE2 CFB, uncompressed CAB, and core MSI tables; multi-file MSIX with placeholder assets. MSI Generator docs."
+      ],
+      "sourceId": "docs-portal",
+      "sourceLabel": "Docs portal",
+      "docsUrl": "https://docs.devcentr.org/home/activity-log.html",
+      "kind": "activity-log"
+    },
+    {
+      "id": "general-knowledge-2026-07-31-github-pages-custom-domain-cloudflare-https",
+      "date": "2026-07-31",
+      "title": "GitHub Pages custom domain + Cloudflare HTTPS",
+      "bullets": [
+        "Added GitHub Pages custom domain with Cloudflare HTTPS: orange-cloud vs GitHub Let's Encrypt, silent cert wait via Pages API, worked example docs.opensh.org.",
+        "Companion checker: scripts/check-gh-pages-https.nu.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-07-31-iac-explanation-restored-business-bootstrap-links",
+      "date": "2026-07-31",
+      "title": "IaC explanation restored + Business Bootstrap links",
+      "bullets": [
+        "Restored Infrastructure as Code (IaC) (was missing after knowledge-base extraction; nav already pointed here).",
+        "Documented OpenTofu as app default and Pulumi org infra repos via Business Bootstrap cross-links."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-07-28-openshellorg-partnership-entrypoint-cross-links",
+      "date": "2026-07-28",
+      "title": "OpenShellOrg partnership + entrypoint cross-links",
+      "bullets": [
+        "Toolchain Management Pattern now points at OpenShellOrg Entrypoint Dispatch / nu-require.",
+        "Dev-Centr and OpenShellOrg gains toolchain vs entrypoint ownership row.",
+        "News: partnering-with-openshellorg on devcentr.org; related-projects footer cluster on the marketing site and docs."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-07-27-agent-shell-registry",
+      "date": "2026-07-27",
+      "title": "Agent shell registry",
+      "bullets": [
+        "SDL catalog: app/src/modules/services/agent_shell_registry.sdl — standalone shells (incl. LM Studio Bionic), fleet UIs, runtimes, inference hosts, interconnects, hardware postures.",
+        "Spec: Agent Shell Registry; definition-files updated.",
+        "Companion: general-knowledge agent control planes explanation.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-07-27-ai-stack-canvas-guided-add-implemented",
+      "date": "2026-07-27",
+      "title": "AI stack canvas + guided add (implemented)",
+      "bullets": [
+        "App: Arrangement tab on AI Config — topology canvas, layout recipes, Add an AI tool… guided add, persist ~/.dev-center/ai-stack-topology.json.",
+        "Modules: ai_stack_model.d, ai_stack_loader.d, ai_stack_state.d, topology_canvas_widget.d, ai_arrangement_widget.d.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-07-27-ai-workflow-arrangement-topologies",
+      "date": "2026-07-27",
+      "title": "AI Workflow Arrangement + topologies",
+      "bullets": [
+        "Spec: Role Topology Composer — generic canvas + guided-add over a layer spine (cognitive bins for hierarchical aspects only; orthogonal concerns attach later).",
+        "Spec: AI Workflow Arrangement — ai-stack pack: blank map landing, Add an AI tool…, vacancies open role-scoped guided add; arrangements as layout recipes.",
+        "SDL: agent_shell_registry.sdl v0.2; ai_stack_domain_pack.sdl (concrete spine + layout-recipe refs).",
+        "Repository browser terminal: always-on human ops shell; attach to env host under remote arrangements.",
+        "Capabilities + todo-roadmap updated; companion docs in general-knowledge (Mermaid topologies).",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-07-27-agent-control-planes-catalog",
+      "date": "2026-07-27",
+      "title": "Agent control planes catalog",
+      "bullets": [
+        "Added Agent control planes and compute topologies: inference vs runtime vs execution shell; UI tax; arrangements A–F with Mermaid (all-local, inference-remote-session-local, remote-env / Theo-style, three-tier travel, …); DevCentr always-on env-aware shell vs IDE agent PTYs.",
+        "Navigation: Explanation → Infrastructure.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-07-26-align-arsd-official-with-dlangui-11-5-3",
+      "date": "2026-07-26",
+      "title": "Align arsd-official with dlangui (~>11.5.3)",
+      "bullets": [
+        "Bumped app/dub.json / selections from arsd-official 10.9.10 to 11.5.3 to match dlangui’s ~>11.5.3 requirement (ends the “Selected package does not match” DUB warning).",
+        "Removed machine-local dub add-local for .forks/arsd (10.9.10 patch fork); upstream 11+ already has the extern(C) in fix.",
+        "Deleted stale %LOCALAPPDATA%\\dub\\packages\\local-overrides.json (repo-get → missing path), which triggered the deprecated-overrides warning.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-07-26-repo-get-via-dub-registry",
+      "date": "2026-07-26",
+      "title": "repo-get via DUB registry",
+      "bullets": [
+        "Confirmed https://code.dlang.org/packages/repo-get[repo-get 0.2.1] on the DUB registry (GitHub update webhook).",
+        "equivalence-engine now depends on ~>0.2.1 instead of a git commit pin; docs table in DUB Local vs Remote Paths updated."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-07-26-shell-environment-refresh-terminal-implementation",
+      "date": "2026-07-26",
+      "title": "Shell environment refresh (terminal implementation)",
+      "bullets": [
+        "App: modules/repo_tools/env_refresh.d — shell detection (auto prefers Nushell), built-in recipes, prefer env-refresh / shell-host on PATH, OS PATH fingerprint.",
+        "App: repository terminal env chrome (health light, notice, command preview, Auto-run checkbox), toolbar Refresh, session commands run via detected shell.",
+        "Settings: ui-settings.json keys envRefreshAutoRun, terminalShell (Appearance dialog); merge-safe save.",
+        "Spec + capabilities remain the product contract; companion docs in general-knowledge / OpenShellOrg shell-architecture.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-07-26-shell-environment-refresh-terminal-spec",
+      "date": "2026-07-26",
+      "title": "Shell environment refresh (terminal spec)",
+      "bullets": [
+        "Expanded Repository Browser Terminal: env chrome outside the shell canvas (health light, notice, command preview), monitor drift, preview vs inject-and-run (envRefresh.autoRun), shell-aware recipes (Nushell first), prefer OpenShellOrg env-refresh / shell-host when present.",
+        "Capabilities note under Environment Orchestration.",
+        "Companion: general-knowledge Shell Environment Refresh; OpenShellOrg shell-architecture plan for env-refresh + shell-host.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-07-26-shell-environment-refresh",
+      "date": "2026-07-26",
+      "title": "Shell environment refresh",
+      "bullets": [
+        "Added Shell Environment Refresh: stale PATH/env in shells and IDE hosts, VS Code history (including #299940 / PR #299941), why Chocolatey refreshenv fails, desired monitor/notice/auto-run UX, Nushell-first recipes, DevCentr vs OpenShellOrg ownership.",
+        "Navigation: Explanation → Infrastructure.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
       "id": "devcentr-2026-07-24-toolchain-control-plane-and-flutter-ecosystem-module",
       "date": "2026-07-24",
       "title": "Toolchain Control Plane and Flutter ecosystem module",
@@ -157,6 +574,8 @@
       "date": "2026-07-01",
       "title": "July 2026",
       "bullets": [
+        "fixnow-dev — Repo transferred to dev-centr/fixnow-dev. Antora component added (Introduction, Getting Started, AI Evaluation, API, Security) and registered on the hub. FixNow docs.",
+        "valentus-theme 2.0.3 — Playbooks pin rolling v2 UI bundle (tool-band search, read-width, condensed font-size switcher, Plus Jakarta Sans visual redesign). Dropped the local header-content.hbs override; brand CSS is now accent-token-only. See Antora UI branding.",
         "resting-lanczos — Repo transferred to dev-centr/resting-lanczos. Live side-by-side comparison on devcentr.org/resting-lanczos (browser bilinear vs Lanczos srcset + transform). Tool overview: resting-lanczos.",
         "Appearance / code fonts — DevCentr Appearance dialog: Cascadia Mono (default) or JetBrains Mono for terminal and code panels; recommended-tools docs updated.",
         "Nushell as recommended shell — General-knowledge advocates Nushell as the default cross-platform shell; added Nu vs PowerShell, Nu + AI agents (vs NVIDIA OpenShell), and an NVIDIA OpenShell overview (name collision called out). OpenShellOrg companions: nu-require, nu-emit, shell-architecture.",

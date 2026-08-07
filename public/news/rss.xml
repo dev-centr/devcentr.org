@@ -5,7 +5,25 @@
   <link>https://devcentr.org/news</link>
   <description>News and engineering blog posts from Dev-Centr.</description>
   <language>en-us</language>
-  <lastBuildDate>Tue, 28 Jul 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 06 Aug 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>MSI tables land in the generator</title>
+    <link>https://devcentr.org/news/2026-08-06-msi-tables-land</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-08-06-msi-tables-land</guid>
+    <pubDate>Thu, 06 Aug 2026 12:00:00 GMT</pubDate>
+    <description>msi-generator v0.2 writes real OLE2 compound files, cabinets, and core Windows Installer tables — still unsigned, no longer an empty stub.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
+  <item>
+    <title>Easy Installer ships</title>
+    <link>https://devcentr.org/news/2026-08-06-easy-installer-ships</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-08-06-easy-installer-ships</guid>
+    <pubDate>Thu, 06 Aug 2026 12:00:00 GMT</pubDate>
+    <description>A CLI and Explorer menu for installer projects and Install in-place PATH — without waiting on a full MSI every time you want a tool on PATH.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
   <item>
     <title>We&amp;#8217;re partnering with OpenShellOrg (on purpose)</title>
     <link>https://devcentr.org/news/2026-07-28-partnering-with-openshellorg</link>

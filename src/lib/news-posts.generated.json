@@ -1,6 +1,40 @@
 {
   "posts": [
     {
+      "slug": "2026-08-06-msi-tables-land",
+      "title": "MSI tables land in the generator",
+      "description": "msi-generator v0.2 writes real OLE2 compound files, cabinets, and core Windows Installer tables — still unsigned, no longer an empty stub.",
+      "date": "2026-08-06",
+      "tags": [
+        "news",
+        "blog",
+        "msi-generator",
+        "MSI",
+        "MSIX",
+        "packaging",
+        "DevCentr"
+      ],
+      "html": "<div class=\"paragraph\">\n<p><strong>msi-generator</strong> crossed the line from “skeleton that prints a message” to “file you can open in an OLE/MSI viewer.”</p>\n</div>\n<div class=\"paragraph\">\n<p>v0.2 writes a version-3 compound file, an uncompressed cabinet payload, and the core table set (<code>Directory</code>, <code>Component</code>, <code>File</code>, <code>Feature</code>, <code>FeatureComponents</code>, <code>Property</code>, <code>Media</code>, plus <code>_Tables</code> / <code>_Columns</code> and the string pool). MSIX gained multi-file payloads and placeholder assets so manifests stop lying about missing logos.</p>\n</div>\n<div class=\"paragraph\">\n<p>This is the engine Easy Installer’s <code>msi</code> / <code>msix</code> plugins call. It is not WiX, and we are not pretending a unsigned sample MSI is Store-ready — but the binary formats are finally real enough to iterate on.</p>\n</div>\n<div class=\"paragraph\">\n<p>Release: <a href=\"https://github.com/dev-centr/msi-generator/releases/tag/v0.2.0\">v0.2.0</a> · docs: <a href=\"https://docs.devcentr.org/msi-generator/latest/index.html\">component</a>.</p>\n</div>",
+      "source": "authored"
+    },
+    {
+      "slug": "2026-08-06-easy-installer-ships",
+      "title": "Easy Installer ships",
+      "description": "A CLI and Explorer menu for installer projects and Install in-place PATH — without waiting on a full MSI every time you want a tool on PATH.",
+      "date": "2026-08-06",
+      "tags": [
+        "news",
+        "blog",
+        "Easy Installer",
+        "PATH",
+        "installers",
+        "plugins",
+        "DevCentr"
+      ],
+      "html": "<div class=\"paragraph\">\n<p>We shipped <strong>Easy Installer</strong>: the host that turns “put this folder on PATH” and “build an installer from this tree” into something you can right-click or script.</p>\n</div>\n<div class=\"paragraph\">\n<p>The first beat is deliberately small. <strong>Install in-place (add to PATH)</strong> means what it says — append the folder to the user PATH, keep a ledger so you can undo, and skip the copy-into-Program-Files ritual when you are iterating on a CLI. File Explorer gets a menu for it (Win11 modern when the sparse package builds; classic cascade otherwise). Linux and macOS get file-manager actions too.</p>\n</div>\n<div class=\"paragraph\">\n<p>The second beat is the project file. <code>installer.kdl</code> plus plugins: portable zip always works; NSIS and Inno emit scripts and call their compilers when present; MSI/MSIX call <a href=\"https://github.com/dev-centr/msi-generator\">msi-generator</a>; AppImage gets a stub path on Linux. Optional designer GUIs are discoverable (<code>plugins install-gui</code>) instead of reinvented inside our IDE.</p>\n</div>\n<div class=\"paragraph\">\n<p>DevCentr picks up the same verbs — New → Installer Project, toolbar <strong>Install in-place PATH</strong>, and CLI modes — so the OS menu and the app are not two products pretending to be one.</p>\n</div>\n<div class=\"paragraph\">\n<p>Docs: <a href=\"https://docs.devcentr.org/easy-installer/latest/index.html\">Easy Installer</a> (once the hub rebuilds) · <a href=\"https://github.com/dev-centr/easy-installer/releases\">releases</a>.</p>\n</div>",
+      "source": "authored"
+    },
+    {
       "slug": "2026-07-28-partnering-with-openshellorg",
       "title": "We&#8217;re partnering with OpenShellOrg (on purpose)",
       "description": "DevCentr and OpenShellOrg are locking in the sibling story—toolchain ownership on our side, shell entrypoint honesty on theirs.",
