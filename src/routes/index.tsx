@@ -75,7 +75,7 @@ export default function Home() {
       <section class="relative isolate min-h-[calc(100dvh-5.5rem)] overflow-hidden">
         <HeroOrbit />
         <div class="relative z-10 mx-auto flex max-w-6xl flex-col justify-center px-6 pb-20 pt-10 md:min-h-[calc(100dvh-5.5rem)] md:px-10 md:pb-28 md:pt-6">
-          <p class="eyebrow rise text-primary">For developers</p>
+          <p class="eyebrow rise text-primary">Developer Ecosystem</p>
 
           <h1 class="rise rise-delay-1 mt-5 max-w-3xl font-display text-[clamp(3rem,12vw,6.5rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-foreground">
             DevCentr
@@ -87,7 +87,7 @@ export default function Home() {
 
           <p class="rise rise-delay-2 mt-4 max-w-lg text-base leading-relaxed text-muted-foreground md:text-[1.05rem]">
             Become a better developer: go from 0 to pro. A cultural resource—and a flagship Development Orchestration
-            Suite that improves how developers live and work. DevOps is one facet of that suite.
+            Suite that improves how developers live and work.
           </p>
 
           <div class="rise rise-delay-3 mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
