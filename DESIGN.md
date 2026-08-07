@@ -2,7 +2,7 @@
 
 ## Direction
 
-**Control plane.** Cool steel neutrals, teal signal color, geometric type. Reads as orchestration / gravity / ops — not a newspaper, not cream-and-serif, not purple glass.
+**Place for developers / development path.** Cool steel neutrals, teal signal color, geometric type. Reads as home base for craft—not a newspaper, not cream-and-serif, not purple glass. Product category (DOS) lives on `devcentr.app`; lab identity lives elsewhere.
 
 ## Color
 

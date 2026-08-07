@@ -4,12 +4,19 @@ Vision and content for the official **DevCentr** organization landing page.
 
 ## Context
 
-- **Domain:** https://devcentr.org (org/lab hub; not “DevCentr Labs” as a public title)
+- **Domain:** https://devcentr.org (org home for developers—not a lab public identity)
 - **Hosting:** GitHub Pages (static SolidStart build; custom domain)
 - **Organization:** DevCentr / Dev-Centr
-- **Product:** DevCentr at https://devcentr.app — flagship Development Orchestration Suite (DOS)
-- **Mission:** System management and DevOps for the developer machine—the missing link above the editor
-- **Category:** Laboratory for the **Development Orchestration Suite (DOS)** movement
+- **Identity:** Cultural resource for developers—with a flagship Development Orchestration Suite (not “just a tool”)
+- **Product:** DevCentr at https://devcentr.app — DOS
+- **Mission:** A development path—become a better developer, from 0 to pro
+- **Lab identity:** Lives elsewhere (separate surface), Google-Labs style—not this site’s public title or hero
+
+## Naming stance
+
+- **Umbrella (product):** Development Orchestration Suite (DOS) on `devcentr.app`
+- **DevOps:** One **facet** of the flagship suite—list it in body pillars; allude in literature; do not brand the org hero as “DevOps GUI”
+- **“Dev OS”:** Optional light mention in body copy for mental association only—never the hero headline
 
 ## Design (do not regress)
 
@@ -23,17 +30,17 @@ Vision and content for the official **DevCentr** organization landing page.
 
 ## Messaging funnel
 
-1. **org hero (brand + category):** H1 **DevCentr**; supporting line “System management and DevOps for your machine.”
-2. **org body:** Laboratory for DOS—shells, toolchains, and project environments; flagship is DevCentr
-3. **app hero (action):** “Stop managing tools. Orchestrate ecosystems.”
-4. **app under-copy:** Flagship DOS for Windows, macOS, and Linux; environments, toolchains, and project context in one control plane; professional tooling with beginner-friendly onramps
-5. **Quiet first-claim:** Footer / details only—not the hero
+1. **org hero (path + outcome):** H1 **DevCentr**; headline “More than just a tool, a development path.”; under-copy “Become a better developer: go from 0 to pro.” + cultural resource / flagship DOS (DevOps as one facet)
+2. **org body:** Four practical ideas including DevOps; light Dev OS association in section lead if useful
+3. **app hero (category + mechanism):** Owned by https://devcentr.app — “Stop managing tools. Orchestrate ecosystems.”
+4. **Quiet claims:** Footer / details only when needed—not competing with the path/outcome hero
 
 ## Content pillars
 
-1. Ecosystem Management — treat shells, toolchains, and machine setup as versioned project assets
+1. Ecosystem Management — treat shells, toolchains, and environments as versioned project assets
 2. Visual DevEx — see dependencies, environments, and structure without opaque folder archaeology
 3. AI Synergy — shared grounded project context for humans and AI where the work happens
+4. DevOps — one facet of the suite (CI/CD, infra, traditional ops)
 
 ## Links
 

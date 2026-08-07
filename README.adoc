@@ -19,7 +19,7 @@ endif::[]
 
 = devcentr.org
 
-Organization landing page for Dev-Centr.
+Organization landing page for Dev-Centr — a cultural resource and development path (become a better developer: go from 0 to pro). The flagship Development Orchestration Suite lives on link:https://devcentr.app[devcentr.app].
 
 link:https://devcentr.org[Explore the site] ·
 link:https://github.com/dev-centr/devcentr.org/issues[Report Bug] ·

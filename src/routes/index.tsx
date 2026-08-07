@@ -9,7 +9,7 @@ const pillars = [
     n: "01",
     title: "Ecosystem Management",
     kicker: "Environment as code",
-    body: "Treat shells, toolchains, and machine setup like real project assets—author them, version them, and share them instead of chasing config files.",
+    body: "Treat shells, toolchains, and environments like real project assets—author them, version them, and share them instead of chasing config files.",
   },
   {
     n: "02",
@@ -23,13 +23,19 @@ const pillars = [
     kicker: "Context that compounds",
     body: "Give humans and AI the same grounded project context so assistance stays accurate and useful where you actually work.",
   },
+  {
+    n: "04",
+    title: "DevOps",
+    kicker: "One facet of the suite",
+    body: "CI/CD, infrastructure, and traditional ops where they belong on the path—without reducing DevCentr to a DevOps product.",
+  },
 ] as const;
 
 const destinations = [
   {
     href: "https://devcentr.app",
     label: "devcentr.app",
-    detail: "Flagship orchestration engine",
+    detail: "Flagship DOS",
   },
   {
     href: "/apps",
@@ -69,19 +75,19 @@ export default function Home() {
       <section class="relative isolate min-h-[calc(100dvh-5.5rem)] overflow-hidden">
         <HeroOrbit />
         <div class="relative z-10 mx-auto flex max-w-6xl flex-col justify-center px-6 pb-20 pt-10 md:min-h-[calc(100dvh-5.5rem)] md:px-10 md:pb-28 md:pt-6">
-          <p class="eyebrow rise text-primary">Development Orchestration Suite</p>
+          <p class="eyebrow rise text-primary">For developers</p>
 
           <h1 class="rise rise-delay-1 mt-5 max-w-3xl font-display text-[clamp(3rem,12vw,6.5rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-foreground">
             DevCentr
           </h1>
 
           <p class="rise rise-delay-2 mt-6 max-w-xl font-display text-xl font-medium leading-snug tracking-tight text-foreground/90 md:text-2xl">
-            System management and DevOps for your machine.
+            More than just a tool, a development path.
           </p>
 
           <p class="rise rise-delay-2 mt-4 max-w-lg text-base leading-relaxed text-muted-foreground md:text-[1.05rem]">
-            The laboratory for the Development Orchestration Suite (DOS)—the missing link above the editor: shells,
-            toolchains, and project environments. Our flagship product is DevCentr.
+            Become a better developer: go from 0 to pro. A cultural resource—and a flagship Development Orchestration
+            Suite that improves how developers live and work. DevOps is one facet of that suite.
           </p>
 
           <div class="rise rise-delay-3 mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
@@ -108,12 +114,13 @@ export default function Home() {
 
       <section class="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
         <div class="max-w-2xl">
-          <p class="eyebrow">The DOS manifesto</p>
+          <p class="eyebrow">From 0 to pro</p>
           <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-            Three practical ideas
+            Four practical ideas
           </h2>
           <p class="mt-4 text-muted-foreground">
-            How you manage, see, and improve the environment around your code.
+            How you manage, see, improve, and operate the path around your code—whether you are starting out or
+            leveling up. (A DOS is what some might casually call a Dev OS; we keep the public name precise.)
           </p>
         </div>
 
@@ -173,11 +180,11 @@ export default function Home() {
 
       <section class="border-y border-border/60 bg-foreground/[0.03] dark:bg-foreground/[0.04]">
         <div class="mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-24">
-          <p class="eyebrow">The category pivot</p>
+          <p class="eyebrow">Why we exist</p>
           <blockquote class="mt-6 max-w-3xl font-display text-2xl font-medium leading-snug tracking-tight text-foreground md:text-3xl md:leading-snug">
-            Traditional IDEs focus on the editor. DevCentr focuses on{" "}
-            <span class="text-primary">orchestrating</span> everything around it—the Development Orchestration Suite
-            for your machine.
+            DevCentr is the place for developers—a cultural resource and a{" "}
+            <span class="text-primary">development path</span>, with a suite that orchestrates the work around the
+            code.
           </blockquote>
         </div>
       </section>
