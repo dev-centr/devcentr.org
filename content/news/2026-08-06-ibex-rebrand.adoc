@@ -1,0 +1,12 @@
+= Easy Installer becomes Ibex
+:description: Install Builder EXtension — new name, logo, and OS package registries for the installer-authoring CLI.
+:revdate: 2026-08-06
+:keywords: news, Ibex, Easy Installer, winget, Homebrew, DevCentr
+
+**Easy Installer** is now **Ibex** (*Install Builder EXtension*): same job — author installer packages, emit CI, and put tools on PATH — clearer name, animal mark, and first-class installs via winget / Homebrew / Scoop.
+
+* CLI: `ibex` (v0.2 dual-ships transitional `easy-installer-*` release assets)
+* Install: `winget install DevCentr.Ibex` · `brew tap dev-centr/tap && brew install ibex`
+* Docs: link:https://docs.devcentr.org/ibex/latest/index.html[Ibex] · repo still link:https://github.com/dev-centr/easy-installer[dev-centr/easy-installer] for now
+
+Not a software catalog installer — it extends file managers and DevCentr; it does not replace winget for installing third-party apps.

@@ -76,6 +76,20 @@
       "kind": "changelog"
     },
     {
+      "id": "devcentr-2026-08-06-ibex-easy-installer-rename",
+      "date": "2026-08-06",
+      "title": "Ibex (Easy Installer rename)",
+      "bullets": [
+        "Resolve ibex on PATH (fallback easy-installer).",
+        "New Installer dialog branded for Ibex; content-types text updated.",
+        "winget / brew / scoop: DevCentr.Ibex / dev-centr/tap/ibex."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
       "id": "devcentr-2026-08-06-installer-ci-pipeline-emit",
       "date": "2026-08-06",
       "title": "Installer CI pipeline emit",
@@ -249,8 +263,9 @@
       "date": "2026-08-01",
       "title": "August 2026",
       "bullets": [
+        "Ibex — Rebrand of Easy Installer (ibex CLI): Install Builder EXtension. winget DevCentr.Ibex, Homebrew tap, Scoop. Ibex docs · portal.",
         "Easy Installer CI emit — emit-ci / ci-runner.sdl writes GitHub Actions, GitLab, Azure, Jenkins, CircleCI, and Bitbucket workflows plus CI-INSTALLER.adoc without a local package build. DevCentr: --mode=emit-ci and New Installer CI pipeline menu. How-to: emit CI.",
-        "Easy Installer — New dev-centr/easy-installer host: in-place PATH, installer.kdl projects, plugin backends (zip/NSIS/Inno/MSI/MSIX/AppImage), and file-manager menus. Antora component wired into the docs hub. Easy Installer docs · portal.",
+        "Easy Installer — Host for in-place PATH, installer.kdl projects, plugin backends (zip/NSIS/Inno/MSI/MSIX/AppImage), and file-manager menus (now Ibex). Ibex docs · portal.",
         "msi-generator v0.2 — Real OLE2 CFB, uncompressed CAB, and core MSI tables; multi-file MSIX with placeholder assets. MSI Generator docs."
       ],
       "sourceId": "docs-portal",

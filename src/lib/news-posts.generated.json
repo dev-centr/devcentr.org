@@ -18,6 +18,23 @@
       "source": "authored"
     },
     {
+      "slug": "2026-08-06-ibex-rebrand",
+      "title": "Easy Installer becomes Ibex",
+      "description": "Install Builder EXtension — new name, logo, and OS package registries for the installer-authoring CLI.",
+      "date": "2026-08-06",
+      "tags": [
+        "news",
+        "Ibex",
+        "Easy Installer",
+        "winget",
+        "Homebrew",
+        "DevCentr",
+        "blog"
+      ],
+      "html": "<div class=\"paragraph\">\n<p><strong>Easy Installer</strong> is now <strong>Ibex</strong> (<strong>Install Builder EXtension</strong>): same job — author installer packages, emit CI, and put tools on PATH — clearer name, animal mark, and first-class installs via winget / Homebrew / Scoop.</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p>CLI: <code>ibex</code> (v0.2 dual-ships transitional <code>easy-installer-*</code> release assets)</p>\n</li>\n<li>\n<p>Install: <code>winget install DevCentr.Ibex</code> · <code>brew tap dev-centr/tap &amp;&amp; brew install ibex</code></p>\n</li>\n<li>\n<p>Docs: <a href=\"https://docs.devcentr.org/ibex/latest/index.html\">Ibex</a> · repo still <a href=\"https://github.com/dev-centr/easy-installer\">dev-centr/easy-installer</a> for now</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>Not a software catalog installer — it extends file managers and DevCentr; it does not replace winget for installing third-party apps.</p>\n</div>",
+      "source": "authored"
+    },
+    {
       "slug": "2026-08-06-easy-installer-ships",
       "title": "Easy Installer ships",
       "description": "A CLI and Explorer menu for installer projects and Install in-place PATH — without waiting on a full MSI every time you want a tool on PATH.",

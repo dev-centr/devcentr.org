@@ -16,6 +16,15 @@
     <category>news</category>
   </item>
   <item>
+    <title>Easy Installer becomes Ibex</title>
+    <link>https://devcentr.org/news/2026-08-06-ibex-rebrand</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-08-06-ibex-rebrand</guid>
+    <pubDate>Thu, 06 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Install Builder EXtension — new name, logo, and OS package registries for the installer-authoring CLI.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
+  <item>
     <title>Easy Installer ships</title>
     <link>https://devcentr.org/news/2026-08-06-easy-installer-ships</link>
     <guid isPermaLink="true">https://devcentr.org/news/2026-08-06-easy-installer-ships</guid>
