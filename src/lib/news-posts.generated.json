@@ -35,6 +35,23 @@
       "source": "authored"
     },
     {
+      "slug": "2026-08-06-easy-installer-ci-emit",
+      "title": "Easy Installer emits CI pipelines",
+      "description": "Scaffold GitHub Actions, GitLab CI, Azure Pipelines, Jenkins, CircleCI, or Bitbucket workflows for installer builds — without packaging on your laptop.",
+      "date": "2026-08-06",
+      "tags": [
+        "news",
+        "Easy Installer",
+        "CI",
+        "GitHub Actions",
+        "GitLab",
+        "DevCentr",
+        "blog"
+      ],
+      "html": "<div class=\"paragraph\">\n<p><strong>Easy Installer</strong> now has a first-class <strong>CI pipeline</strong> intent: edit <code>ci-runner.sdl</code>, run <code>emit-ci</code>, and get runner YAML plus <code>CI-INSTALLER.adoc</code> (how to enable pipelines, secrets, tags, and artifact downloads). Local <code>build</code> stays optional for smoke tests.</p>\n</div>\n<div class=\"paragraph\">\n<p>Supported emitters in this cut: GitHub Actions, GitLab CI, Azure Pipelines, Jenkins (Declarative), CircleCI, and Bitbucket Pipelines. DevCentr’s New Installer dialog can choose <strong>CI pipeline only</strong>; Explorer gets <strong>New Installer CI pipeline…</strong> (<code>--mode=emit-ci</code>).</p>\n</div>\n<div class=\"paragraph\">\n<p>Docs: <a href=\"https://docs.devcentr.org/easy-installer/latest/howto-emit-ci.html\">emit CI how-to</a> · <a href=\"https://github.com/dev-centr/easy-installer\">repo</a>.</p>\n</div>",
+      "source": "authored"
+    },
+    {
       "slug": "2026-07-28-partnering-with-openshellorg",
       "title": "We&#8217;re partnering with OpenShellOrg (on purpose)",
       "description": "DevCentr and OpenShellOrg are locking in the sibling story—toolchain ownership on our side, shell entrypoint honesty on theirs.",

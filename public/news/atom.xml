@@ -25,6 +25,15 @@
     <category term="news"/>
   </entry>
   <entry>
+    <title>Easy Installer emits CI pipelines</title>
+    <link href="https://devcentr.org/news/2026-08-06-easy-installer-ci-emit" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-08-06-easy-installer-ci-emit</id>
+    <updated>2026-08-06T12:00:00Z</updated>
+    <summary>Scaffold GitHub Actions, GitLab CI, Azure Pipelines, Jenkins, CircleCI, or Bitbucket workflows for installer builds — without packaging on your laptop.</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
+  <entry>
     <title>We&amp;#8217;re partnering with OpenShellOrg (on purpose)</title>
     <link href="https://devcentr.org/news/2026-07-28-partnering-with-openshellorg" rel="alternate"/>
     <id>https://devcentr.org/news/2026-07-28-partnering-with-openshellorg</id>

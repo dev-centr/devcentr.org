@@ -1,0 +1,10 @@
+= Easy Installer emits CI pipelines
+:description: Scaffold GitHub Actions, GitLab CI, Azure Pipelines, Jenkins, CircleCI, or Bitbucket workflows for installer builds — without packaging on your laptop.
+:revdate: 2026-08-06
+:keywords: news, Easy Installer, CI, GitHub Actions, GitLab, DevCentr
+
+**Easy Installer** now has a first-class **CI pipeline** intent: edit `ci-runner.sdl`, run `emit-ci`, and get runner YAML plus `CI-INSTALLER.adoc` (how to enable pipelines, secrets, tags, and artifact downloads). Local `build` stays optional for smoke tests.
+
+Supported emitters in this cut: GitHub Actions, GitLab CI, Azure Pipelines, Jenkins (Declarative), CircleCI, and Bitbucket Pipelines. DevCentr’s New Installer dialog can choose **CI pipeline only**; Explorer gets **New Installer CI pipeline…** (`--mode=emit-ci`).
+
+Docs: link:https://docs.devcentr.org/easy-installer/latest/howto-emit-ci.html[emit CI how-to] · link:https://github.com/dev-centr/easy-installer[repo].

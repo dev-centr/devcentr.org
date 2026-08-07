@@ -76,6 +76,20 @@
       "kind": "changelog"
     },
     {
+      "id": "devcentr-2026-08-06-installer-ci-pipeline-emit",
+      "date": "2026-08-06",
+      "title": "Installer CI pipeline emit",
+      "bullets": [
+        "New Installer dialog: Package vs CI pipeline only + runner dropdown.",
+        "Explorer/CLI: --mode=emit-ci; file-manager New Installer CI pipeline….",
+        "Calls easy-installer new-project --intent=ci-pipeline (workflows + CI-INSTALLER.adoc, no local package)."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
       "id": "devcentr-2026-08-06-node-package-managers-bun-orogene",
       "date": "2026-08-06",
       "title": "Node package managers: Bun + Orogene",
@@ -235,6 +249,7 @@
       "date": "2026-08-01",
       "title": "August 2026",
       "bullets": [
+        "Easy Installer CI emit — emit-ci / ci-runner.sdl writes GitHub Actions, GitLab, Azure, Jenkins, CircleCI, and Bitbucket workflows plus CI-INSTALLER.adoc without a local package build. DevCentr: --mode=emit-ci and New Installer CI pipeline menu. How-to: emit CI.",
         "Easy Installer — New dev-centr/easy-installer host: in-place PATH, installer.kdl projects, plugin backends (zip/NSIS/Inno/MSI/MSIX/AppImage), and file-manager menus. Antora component wired into the docs hub. Easy Installer docs · portal.",
         "msi-generator v0.2 — Real OLE2 CFB, uncompressed CAB, and core MSI tables; multi-file MSIX with placeholder assets. MSI Generator docs."
       ],
