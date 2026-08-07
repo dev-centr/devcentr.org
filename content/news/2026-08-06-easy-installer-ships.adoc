@@ -12,3 +12,9 @@ The second beat is the project file. `installer.kdl` plus plugins: portable zip 
 DevCentr picks up the same verbs — New → Installer Project, toolbar **Install in-place PATH**, and CLI modes — so the OS menu and the app are not two products pretending to be one.
 
 Docs: link:https://docs.devcentr.org/easy-installer/latest/index.html[Easy Installer] (once the hub rebuilds) · link:https://github.com/dev-centr/easy-installer/releases[releases].
+
+.Idealized Easy Installer project UI
+image::https://devcentr.org/news/media/easy-installer-standalone.webp[Easy Installer frosted-glass project UI with plugin chips and Build]
+
+.DevCentr extension surface
+image::https://devcentr.org/news/media/easy-installer-devcentr.webp[DevCentr toolbar and context menu for Easy Installer]
