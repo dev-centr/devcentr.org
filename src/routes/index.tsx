@@ -82,11 +82,11 @@ export default function Home() {
           </h1>
 
           <p class="rise rise-delay-2 mt-6 max-w-xl font-display text-xl font-medium leading-snug tracking-tight text-foreground/90 md:text-2xl">
-            More than just a tool, a development path.
+            More than just a tool, a path to mastery.
           </p>
 
           <p class="rise rise-delay-2 mt-4 max-w-lg text-base leading-relaxed text-muted-foreground md:text-[1.05rem]">
-            Become a better developer: go from 0 to pro. A cultural resource—and a flagship Development Orchestration
+            An ecosystem of tools and resources for developers. Go from 0 to pro. Learn and manage development workflows with our flagship Development Orchestration
             Suite that improves how developers live and work.
           </p>
 
