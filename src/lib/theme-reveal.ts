@@ -15,6 +15,7 @@ const RADIUS_PAD = 1.25;
  * A→B expands from the toggle center; B→A contracts into the toggle center.
  */
 let stateA: ResolvedTheme | null = null;
+let revealSequence = 0;
 
 function prefersReducedMotion(): boolean {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -86,6 +87,7 @@ function mountRevealStyles(
   document.getElementById(STYLE_ID)?.remove();
   const style = document.createElement("style");
   style.id = STYLE_ID;
+  const animationName = `theme-reveal-${direction}-${++revealSequence}`;
 
   // Round so keyframe strings stay stable for interpolation.
   const x = Math.round(xPx * 100) / 100;
@@ -94,7 +96,7 @@ function mountRevealStyles(
 
   if (direction === "contract") {
     style.textContent = `
-@keyframes theme-reveal-contract {
+@keyframes ${animationName} {
   from { clip-path: circle(${r}px at ${x}px ${y}px); }
   to { clip-path: circle(0px at ${x}px ${y}px); }
 }
@@ -108,12 +110,12 @@ html[data-theme-reveal="active"]::view-transition-new(root) {
 }
 html[data-theme-reveal="active"]::view-transition-old(root) {
   z-index: 2;
-  animation: theme-reveal-contract ${DURATION_MS}ms ${EASING} both;
+  animation: ${animationName} ${DURATION_MS}ms ${EASING} both;
 }
 `;
   } else {
     style.textContent = `
-@keyframes theme-reveal-expand {
+@keyframes ${animationName} {
   from { clip-path: circle(0px at ${x}px ${y}px); }
   to { clip-path: circle(${r}px at ${x}px ${y}px); }
 }
@@ -127,7 +129,7 @@ html[data-theme-reveal="active"]::view-transition-old(root) {
 }
 html[data-theme-reveal="active"]::view-transition-new(root) {
   z-index: 2;
-  animation: theme-reveal-expand ${DURATION_MS}ms ${EASING} both;
+  animation: ${animationName} ${DURATION_MS}ms ${EASING} both;
 }
 `;
   }
