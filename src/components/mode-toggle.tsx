@@ -1,7 +1,6 @@
 import { useColorMode } from "@kobalte/core";
 
 import { Button } from "~/components/ui/button";
-import { applyThemeWithWave, elementCenter } from "~/lib/theme-wave";
 
 /** Day mark — compact disc + short rays */
 function SunIcon(props: { class?: string }) {
@@ -42,15 +41,8 @@ function MoonIcon(props: { class?: string }) {
 export function ModeToggle() {
   const { colorMode, setColorMode } = useColorMode();
 
-  const handleClick = (event: MouseEvent) => {
-    const resolved = colorMode();
-    const next = resolved === "dark" ? "light" : "dark";
-    const target = event.currentTarget;
-    if (!(target instanceof Element)) {
-      setColorMode(next);
-      return;
-    }
-    applyThemeWithWave(elementCenter(target), () => setColorMode(next));
+  const handleClick = () => {
+    setColorMode(colorMode() === "dark" ? "light" : "dark");
   };
 
   const isDark = () => colorMode() === "dark";
@@ -64,8 +56,8 @@ export function ModeToggle() {
       aria-label={isDark() ? "Use light appearance" : "Use dark appearance"}
     >
       <span class="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_30%_25%,hsl(var(--primary)/0.16),transparent_55%)] opacity-70 transition-opacity group-hover:opacity-100" />
-      <SunIcon class="relative size-[1.15rem] scale-100 rotate-0 opacity-100 transition-all duration-300 ease-out dark:scale-50 dark:-rotate-45 dark:opacity-0" />
-      <MoonIcon class="absolute size-[1.15rem] scale-50 rotate-45 opacity-0 transition-all duration-300 ease-out dark:scale-100 dark:rotate-0 dark:opacity-100" />
+      <SunIcon class="relative size-[1.15rem] scale-100 rotate-0 opacity-100 transition-all duration-200 ease-out dark:scale-50 dark:-rotate-45 dark:opacity-0" />
+      <MoonIcon class="absolute size-[1.15rem] scale-50 rotate-45 opacity-0 transition-all duration-200 ease-out dark:scale-100 dark:rotate-0 dark:opacity-100" />
     </Button>
   );
 }

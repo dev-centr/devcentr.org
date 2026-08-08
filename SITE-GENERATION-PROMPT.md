@@ -25,7 +25,7 @@ Vision and content for the official **DevCentr** organization landing page.
 - No cards in the hero; cards only for real interactions
 - Fonts: Space Grotesk + IBM Plex Mono
 - Motion: orbit / reverse orbit / hub pulse
-- Theme: light/dark with system sync; polar-wave reveal on toggle (`theme-wave`)
+- Theme: light/dark with system sync; instant flip on toggle (no view-transition / overlay reveal)
 - Brand marks: web `LogoMark` uses `currentColor`; print/designer canonical colors in `public/brand/logo.svg` / `logo-canonical.svg`
 
 ## Messaging funnel
