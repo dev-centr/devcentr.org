@@ -44,8 +44,10 @@ export function ModeToggle() {
 
   const handleClick = (event: MouseEvent) => {
     const next = colorMode() === "dark" ? "light" : "dark";
-    applyThemeWithCircleReveal(revealOriginFromEvent(event, event.currentTarget), () =>
-      setColorMode(next),
+    applyThemeWithCircleReveal(
+      revealOriginFromEvent(event, event.currentTarget),
+      () => setColorMode(next),
+      { next },
     );
   };
 
