@@ -1,7 +1,7 @@
 import { useColorMode } from "@kobalte/core";
 
 import { Button } from "~/components/ui/button";
-import { applyThemeWithCircleReveal, elementCenter } from "~/lib/theme-reveal";
+import { applyThemeWithCircleReveal, revealOriginFromEvent } from "~/lib/theme-reveal";
 
 /** Day mark — compact disc + short rays */
 function SunIcon(props: { class?: string }) {
@@ -44,12 +44,9 @@ export function ModeToggle() {
 
   const handleClick = (event: MouseEvent) => {
     const next = colorMode() === "dark" ? "light" : "dark";
-    const target = event.currentTarget;
-    if (!(target instanceof Element)) {
-      setColorMode(next);
-      return;
-    }
-    applyThemeWithCircleReveal(elementCenter(target), () => setColorMode(next));
+    applyThemeWithCircleReveal(revealOriginFromEvent(event, event.currentTarget), () =>
+      setColorMode(next),
+    );
   };
 
   const isDark = () => colorMode() === "dark";

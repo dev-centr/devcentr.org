@@ -1,7 +1,7 @@
 type Point = { x: number; y: number };
 
 const DURATION_MS = 450;
-const EASING = "ease-in-out";
+const STYLE_ID = "theme-reveal-keyframes";
 
 function prefersReducedMotion(): boolean {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -19,9 +19,39 @@ function coverRadius(x: number, y: number): number {
 }
 
 /**
+ * Bake origin/radius into @keyframes as literal px.
+ * CSS custom props and WAAPI-on-pseudo are flaky on mobile WebKit for VT.
+ */
+function mountRevealStyles(x: number, y: number, r: number): HTMLStyleElement {
+  document.getElementById(STYLE_ID)?.remove();
+  const style = document.createElement("style");
+  style.id = STYLE_ID;
+  style.textContent = `
+@keyframes theme-reveal-clip {
+  from { clip-path: circle(0px at ${x}px ${y}px); }
+  to { clip-path: circle(${r}px at ${x}px ${y}px); }
+}
+html[data-theme-reveal="active"]::view-transition-old(root),
+html[data-theme-reveal="active"]::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+html[data-theme-reveal="active"]::view-transition-old(root) {
+  z-index: 1;
+}
+html[data-theme-reveal="active"]::view-transition-new(root) {
+  z-index: 2;
+  animation: theme-reveal-clip ${DURATION_MS}ms ease-in-out both;
+}
+`;
+  document.head.appendChild(style);
+  return style;
+}
+
+/**
  * Apply a theme change with a single circular clip reveal from `origin`
- * (mode-toggle center). Concrete clip-path keyframes via WAAPI so the circle
- * is anchored to the button — CSS vars do not reliably reach VT pseudos.
+ * (tap point / mode-toggle). Styles are mounted before startViewTransition
+ * so the engine always has the clip animation when the snapshots are taken.
  */
 export function applyThemeWithCircleReveal(origin: Point, apply: () => void): void {
   if (prefersReducedMotion() || !supportsViewTransitions()) {
@@ -29,30 +59,29 @@ export function applyThemeWithCircleReveal(origin: Point, apply: () => void): vo
     return;
   }
 
-  const { x, y } = origin;
-  const r = coverRadius(x, y);
   const root = document.documentElement;
+  // Ignore overlapping toggles — mid-transition re-entry races VT on mobile.
+  if (root.dataset.themeReveal === "active") return;
+
+  const { x, y } = origin;
+  const style = mountRevealStyles(x, y, coverRadius(x, y));
   root.dataset.themeReveal = "active";
 
   const transition = document.startViewTransition(apply);
 
-  void transition.ready.then(() => {
-    root.animate(
-      {
-        clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${r}px at ${x}px ${y}px)`],
-      },
-      {
-        duration: DURATION_MS,
-        easing: EASING,
-        fill: "both",
-        pseudoElement: "::view-transition-new(root)",
-      },
-    );
-  });
-
   void transition.finished.finally(() => {
     delete root.dataset.themeReveal;
+    style.remove();
   });
+}
+
+/** Prefer the tap/click point so the circle emerges from the control. */
+export function revealOriginFromEvent(event: MouseEvent, fallbackEl?: EventTarget | null): Point {
+  if (Number.isFinite(event.clientX) && Number.isFinite(event.clientY)) {
+    return { x: event.clientX, y: event.clientY };
+  }
+  if (fallbackEl instanceof Element) return elementCenter(fallbackEl);
+  return { x: window.innerWidth / 2, y: window.innerHeight / 2 };
 }
 
 export function elementCenter(el: Element): Point {

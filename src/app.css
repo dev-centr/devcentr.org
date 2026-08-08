@@ -316,25 +316,7 @@
   }
 }
 
-/*
- * Single circular theme reveal (View Transition API).
- * Clip-path expand is driven by WAAPI in theme-reveal.ts (button-anchored).
- */
-@supports (view-transition-name: root) {
-  ::view-transition-old(root),
-  ::view-transition-new(root) {
-    animation: none;
-    mix-blend-mode: normal;
-  }
-
-  html[data-theme-reveal="active"]::view-transition-old(root) {
-    z-index: 1;
-  }
-
-  html[data-theme-reveal="active"]::view-transition-new(root) {
-    z-index: 2;
-  }
-}
+/* Theme reveal styles are injected per-toggle by theme-reveal.ts (literal clip coords). */
 
 /* AsciiDoc → HTML article body (news / engineering blog posts) */
 @layer components {
