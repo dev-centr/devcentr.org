@@ -7,6 +7,8 @@ const DURATION_MS = 450;
 const EASING = "cubic-bezier(0.39, 0.575, 0.565, 1)";
 const STYLE_ID = "theme-reveal-keyframes";
 const TOGGLE_SELECTOR = "[data-theme-toggle]";
+/** Inflate past the viewport corner so mobile SCB / subpixels don't end-snap. */
+const RADIUS_PAD = 1.25;
 
 /**
  * State A: theme applied on page load, or after an OS color-scheme change.
@@ -22,12 +24,11 @@ function supportsViewTransitions(): boolean {
   return typeof document.startViewTransition === "function";
 }
 
-/** Radius from origin to the farthest corner of a w×h box (plus subpixel fudge). */
-function coverRadius(x: number, y: number, w: number, h: number): number {
-  const maxX = Math.max(x, w - x);
-  const maxY = Math.max(y, h - y);
-  // Ceil + 1px so the circle actually clears the far corner (avoids end snap).
-  return Math.ceil(Math.hypot(maxX, maxY)) + 1;
+/** Radius from toggle to farthest layout-viewport corner, padded for full cover. */
+function coverRadius(x: number, y: number): number {
+  const maxX = Math.max(x, window.innerWidth - x);
+  const maxY = Math.max(y, window.innerHeight - y);
+  return Math.ceil(Math.hypot(maxX, maxY) * RADIUS_PAD) + 1;
 }
 
 export function readDocumentResolvedTheme(): ResolvedTheme {
@@ -44,11 +45,10 @@ export function syncThemeRevealBaseline(theme: ResolvedTheme = readDocumentResol
 
 function revealDirection(next: ResolvedTheme): RevealDirection {
   if (stateA == null) syncThemeRevealBaseline();
-  // Leaving A → expand; returning to A → contract.
   return next === stateA ? "contract" : "expand";
 }
 
-/** Toggle center in layout-viewport CSS pixels (not clientX/clientY). */
+/** Toggle center in layout-viewport CSS pixels (never clientX/Y — 0 is valid). */
 function toggleCenterPx(fromEl?: EventTarget | null): Point {
   const el =
     (fromEl instanceof Element ? fromEl : null) ??
@@ -69,109 +69,36 @@ function toggleCenterPx(fromEl?: EventTarget | null): Point {
 }
 
 /**
- * Snapshot Containing Block is often closer to the *large* viewport on mobile
- * (URL bar included above the layout viewport). Measuring 100lvh/lvw before the
- * transition lets us shift the clip origin and size the radius so it covers.
- *
- * Clip `at` must be px, not %: on mobile the VT root's used height can be
- * indefinite, so Y% collapses to 0 (circle pinned to the top edge) while X%
- * still tracks the button — matching the desktop-ok / mobile-broken report.
+ * Kill the default VT crossfade and stack the clipped layer on top.
+ * Clip animation itself is WAAPI on the pseudo after `transition.ready`
+ * (Chrome’s documented circular-reveal pattern — avoids speculative SCB/lvh
+ * origin shifts that broke desktop Chrome).
  */
-function snapshotFrame(): {
-  width: number;
-  height: number;
-  offsetX: number;
-  offsetY: number;
-} {
-  const vw = Math.max(window.innerWidth, 1);
-  const vh = Math.max(window.innerHeight, 1);
-  let width = vw;
-  let height = vh;
-
-  try {
-    const probe = document.createElement("div");
-    probe.setAttribute("aria-hidden", "true");
-    probe.style.cssText =
-      "position:fixed;inset:0;width:100lvw;height:100lvh;visibility:hidden;pointer-events:none;contain:strict";
-    document.documentElement.appendChild(probe);
-    width = Math.max(vw, probe.offsetWidth || vw);
-    height = Math.max(vh, probe.offsetHeight || vh);
-    probe.remove();
-  } catch {
-    /* lvh/lvw unsupported — fall back to layout viewport */
-  }
-
-  return {
-    width,
-    height,
-    offsetX: Math.max(0, width - vw),
-    // Extra SCB/large-viewport height sits above the layout viewport (URL bar).
-    offsetY: Math.max(0, height - vh),
-  };
-}
-
-/**
- * A→B: new theme expands from button center (0 → edge).
- * B→A: old theme contracts from page edge into button center (edge → 0).
- */
-function mountRevealStyles(
-  xPx: number,
-  yPx: number,
-  rPx: number,
-  direction: RevealDirection,
-): HTMLStyleElement {
+function mountRevealChrome(direction: RevealDirection): HTMLStyleElement {
   document.getElementById(STYLE_ID)?.remove();
   const style = document.createElement("style");
   style.id = STYLE_ID;
-
-  if (direction === "contract") {
-    style.textContent = `
-@keyframes theme-reveal-contract {
-  from { clip-path: circle(${rPx}px at ${xPx}px ${yPx}px); }
-  to { clip-path: circle(0px at ${xPx}px ${yPx}px); }
-}
+  const top = direction === "expand" ? "new" : "old";
+  const bottom = direction === "expand" ? "old" : "new";
+  style.textContent = `
 html[data-theme-reveal="active"]::view-transition-old(root),
 html[data-theme-reveal="active"]::view-transition-new(root) {
   animation: none;
   mix-blend-mode: normal;
 }
-html[data-theme-reveal="active"]::view-transition-new(root) {
+html[data-theme-reveal="active"]::view-transition-${bottom}(root) {
   z-index: 1;
 }
-html[data-theme-reveal="active"]::view-transition-old(root) {
+html[data-theme-reveal="active"]::view-transition-${top}(root) {
   z-index: 2;
-  animation: theme-reveal-contract ${DURATION_MS}ms ${EASING} both;
 }
 `;
-  } else {
-    style.textContent = `
-@keyframes theme-reveal-expand {
-  from { clip-path: circle(0px at ${xPx}px ${yPx}px); }
-  to { clip-path: circle(${rPx}px at ${xPx}px ${yPx}px); }
-}
-html[data-theme-reveal="active"]::view-transition-old(root),
-html[data-theme-reveal="active"]::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-html[data-theme-reveal="active"]::view-transition-old(root) {
-  z-index: 1;
-}
-html[data-theme-reveal="active"]::view-transition-new(root) {
-  z-index: 2;
-  animation: theme-reveal-expand ${DURATION_MS}ms ${EASING} both;
-}
-`;
-  }
-
   document.head.appendChild(style);
   return style;
 }
 
 export type CircleRevealOptions = {
-  /** Resolved theme being applied (B when leaving A, A when returning). */
   next: ResolvedTheme;
-  /** Mode-toggle element — origin is its exact center. */
   toggle?: EventTarget | null;
 };
 
@@ -185,16 +112,40 @@ export function applyThemeWithCircleReveal(apply: () => void, options: CircleRev
   if (root.dataset.themeReveal === "active") return;
 
   const direction = revealDirection(options.next);
-  const origin = toggleCenterPx(options.toggle);
-  const snap = snapshotFrame();
-  const x = origin.x + snap.offsetX;
-  const y = origin.y + snap.offsetY;
-  const r = coverRadius(x, y, snap.width, snap.height);
+  // Capture before VT — rect is stable; do not add lvh/SCB offsets (Chrome desktop drift).
+  const { x, y } = toggleCenterPx(options.toggle);
+  const r = coverRadius(x, y);
 
   root.dataset.themeReveal = "active";
-  const style = mountRevealStyles(x, y, r, direction);
+  const style = mountRevealChrome(direction);
 
   const transition = document.startViewTransition(apply);
+
+  void transition.ready
+    .then(() => {
+      const pseudo =
+        direction === "expand" ? "::view-transition-new(root)" : "::view-transition-old(root)";
+      const keyframes =
+        direction === "expand"
+          ? [
+              { clipPath: `circle(0px at ${x}px ${y}px)` },
+              { clipPath: `circle(${r}px at ${x}px ${y}px)` },
+            ]
+          : [
+              { clipPath: `circle(${r}px at ${x}px ${y}px)` },
+              { clipPath: `circle(0px at ${x}px ${y}px)` },
+            ];
+
+      root.animate(keyframes, {
+        duration: DURATION_MS,
+        easing: EASING,
+        fill: "both",
+        pseudoElement: pseudo,
+      });
+    })
+    .catch(() => {
+      /* Transition skipped/aborted — finished handler cleans up. */
+    });
 
   void transition.finished.finally(() => {
     delete root.dataset.themeReveal;
