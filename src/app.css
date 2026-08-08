@@ -318,22 +318,12 @@
 
 /*
  * Single circular theme reveal (View Transition API).
- * One clip-path on the new root snapshot — no blend modes, masks, or veil layers.
+ * Clip-path expand is driven by WAAPI in theme-reveal.ts (button-anchored).
  */
-@keyframes theme-reveal-clip {
-  from {
-    clip-path: circle(0px at var(--theme-reveal-x) var(--theme-reveal-y));
-  }
-  to {
-    clip-path: circle(var(--theme-reveal-r) at var(--theme-reveal-x) var(--theme-reveal-y));
-  }
-}
-
 @supports (view-transition-name: root) {
   ::view-transition-old(root),
   ::view-transition-new(root) {
     animation: none;
-    /* Keep normal compositing — do not cross-fade / blend the two snapshots. */
     mix-blend-mode: normal;
   }
 
@@ -343,14 +333,6 @@
 
   html[data-theme-reveal="active"]::view-transition-new(root) {
     z-index: 2;
-    animation: theme-reveal-clip 0.45s cubic-bezier(0.22, 1, 0.36, 1) both;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    html[data-theme-reveal="active"]::view-transition-new(root) {
-      animation: none;
-      clip-path: none;
-    }
   }
 }
 

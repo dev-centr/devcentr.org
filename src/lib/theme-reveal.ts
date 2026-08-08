@@ -1,6 +1,7 @@
 type Point = { x: number; y: number };
 
-const VARS = ["--theme-reveal-x", "--theme-reveal-y", "--theme-reveal-r"] as const;
+const DURATION_MS = 450;
+const EASING = "ease-in-out";
 
 function prefersReducedMotion(): boolean {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -17,23 +18,10 @@ function coverRadius(x: number, y: number): number {
   return Math.hypot(maxX, maxY);
 }
 
-function setRevealOrigin(origin: Point): void {
-  const root = document.documentElement;
-  root.style.setProperty("--theme-reveal-x", `${origin.x}px`);
-  root.style.setProperty("--theme-reveal-y", `${origin.y}px`);
-  root.style.setProperty("--theme-reveal-r", `${coverRadius(origin.x, origin.y)}px`);
-  root.dataset.themeReveal = "active";
-}
-
-function clearRevealOrigin(): void {
-  const root = document.documentElement;
-  delete root.dataset.themeReveal;
-  for (const prop of VARS) root.style.removeProperty(prop);
-}
-
 /**
- * Apply a theme change with a single circular clip reveal from `origin`.
- * No blend modes, masks, or overlay layers — just View Transition + clip-path.
+ * Apply a theme change with a single circular clip reveal from `origin`
+ * (mode-toggle center). Concrete clip-path keyframes via WAAPI so the circle
+ * is anchored to the button — CSS vars do not reliably reach VT pseudos.
  */
 export function applyThemeWithCircleReveal(origin: Point, apply: () => void): void {
   if (prefersReducedMotion() || !supportsViewTransitions()) {
@@ -41,9 +29,30 @@ export function applyThemeWithCircleReveal(origin: Point, apply: () => void): vo
     return;
   }
 
-  setRevealOrigin(origin);
+  const { x, y } = origin;
+  const r = coverRadius(x, y);
+  const root = document.documentElement;
+  root.dataset.themeReveal = "active";
+
   const transition = document.startViewTransition(apply);
-  void transition.finished.finally(clearRevealOrigin);
+
+  void transition.ready.then(() => {
+    root.animate(
+      {
+        clipPath: [`circle(0px at ${x}px ${y}px)`, `circle(${r}px at ${x}px ${y}px)`],
+      },
+      {
+        duration: DURATION_MS,
+        easing: EASING,
+        fill: "both",
+        pseudoElement: "::view-transition-new(root)",
+      },
+    );
+  });
+
+  void transition.finished.finally(() => {
+    delete root.dataset.themeReveal;
+  });
 }
 
 export function elementCenter(el: Element): Point {
