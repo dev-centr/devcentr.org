@@ -1,7 +1,7 @@
 import { useColorMode } from "@kobalte/core";
 import { onCleanup, onMount } from "solid-js";
 
-import { syncThemeRevealBaseline, warmThemeRevealEngine } from "~/lib/theme-reveal";
+import { syncThemeRevealBaseline } from "~/lib/theme-reveal";
 
 const THEME_STORAGE_KEY = "devcentr-theme";
 
@@ -20,16 +20,6 @@ export function ThemeSystemSync() {
   onMount(() => {
     syncThemeRevealBaseline();
 
-    let cancelled = false;
-    const scheduleWarm = () => {
-      if (cancelled) return;
-      warmThemeRevealEngine();
-    };
-    const warmHandle =
-      typeof window.requestIdleCallback === "function"
-        ? window.requestIdleCallback(scheduleWarm, { timeout: 2500 })
-        : window.setTimeout(scheduleWarm, 800);
-
     const mql = window.matchMedia("(prefers-color-scheme: dark)");
     const onSchemeChange = () => {
       try {
@@ -44,15 +34,7 @@ export function ThemeSystemSync() {
       syncThemeRevealBaseline(systemResolved());
     };
     mql.addEventListener("change", onSchemeChange);
-    onCleanup(() => {
-      cancelled = true;
-      mql.removeEventListener("change", onSchemeChange);
-      if (typeof window.cancelIdleCallback === "function") {
-        window.cancelIdleCallback(warmHandle as number);
-      } else {
-        window.clearTimeout(warmHandle as number);
-      }
-    });
+    onCleanup(() => mql.removeEventListener("change", onSchemeChange));
   });
 
   return null;
