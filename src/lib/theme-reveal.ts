@@ -6,7 +6,7 @@ const DURATION_MS = 450;
 const STYLE_ID = "theme-reveal-keyframes";
 const TOGGLE_SELECTOR = "[data-theme-toggle]";
 
-/** Theme present at load (or last OS scheme change). Returning to it flips origin. */
+/** Theme present at load (or last OS scheme change). Returning to it contracts. */
 let baselineTheme: ResolvedTheme | null = null;
 
 function prefersReducedMotion(): boolean {
@@ -41,15 +41,8 @@ function revealDirection(next: ResolvedTheme): RevealDirection {
   return next === baselineTheme ? "reverse" : "forward";
 }
 
-/**
- * Toggle center in viewport space. For "reverse" direction, use the antipode so
- * the new theme still expands with the same ease-in-out curve, just from the
- * opposite corner — not a played-backward shrink.
- */
-function revealOrigin(
-  fromEl: EventTarget | null | undefined,
-  direction: RevealDirection,
-): { xPct: number; yPct: number; rPx: number } {
+/** Toggle center as %-of-viewport for clip-path `at`, plus cover radius in px. */
+function toggleOrigin(fromEl?: EventTarget | null): { xPct: number; yPct: number; rPx: number } {
   const el =
     (fromEl instanceof Element ? fromEl : null) ??
     document.querySelector(TOGGLE_SELECTOR);
@@ -57,34 +50,61 @@ function revealOrigin(
   const vw = Math.max(window.innerWidth, 1);
   const vh = Math.max(window.innerHeight, 1);
 
-  let xPx = vw / 2;
-  let yPx = vh / 2;
-
   if (el instanceof Element) {
     const rect = el.getBoundingClientRect();
-    xPx = rect.left + rect.width / 2;
-    yPx = rect.top + rect.height / 2;
-  }
-
-  if (direction === "reverse") {
-    xPx = vw - xPx;
-    yPx = vh - yPx;
+    const xPx = rect.left + rect.width / 2;
+    const yPx = rect.top + rect.height / 2;
+    return {
+      xPct: (xPx / vw) * 100,
+      yPct: (yPx / vh) * 100,
+      rPx: coverRadius(xPx, yPx),
+    };
   }
 
   return {
-    xPct: (xPx / vw) * 100,
-    yPct: (yPx / vh) * 100,
-    rPx: coverRadius(xPx, yPx),
+    xPct: 50,
+    yPct: 50,
+    rPx: coverRadius(vw / 2, vh / 2),
   };
 }
 
-/** Same expand clip both ways — only the origin point changes for reverse. */
-function mountRevealStyles(xPct: number, yPct: number, rPx: number): HTMLStyleElement {
+/**
+ * forward: new theme expands from the toggle (0 → r).
+ * reverse: old theme contracts into the toggle (r → 0).
+ * Both use ease-in-out on forward-played keyframes — not animation-direction: reverse.
+ */
+function mountRevealStyles(
+  xPct: number,
+  yPct: number,
+  rPx: number,
+  direction: RevealDirection,
+): HTMLStyleElement {
   document.getElementById(STYLE_ID)?.remove();
   const style = document.createElement("style");
   style.id = STYLE_ID;
-  style.textContent = `
-@keyframes theme-reveal-clip {
+
+  if (direction === "reverse") {
+    style.textContent = `
+@keyframes theme-reveal-contract {
+  from { clip-path: circle(${rPx}px at ${xPct}% ${yPct}%); }
+  to { clip-path: circle(0px at ${xPct}% ${yPct}%); }
+}
+html[data-theme-reveal="active"]::view-transition-old(root),
+html[data-theme-reveal="active"]::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+html[data-theme-reveal="active"]::view-transition-new(root) {
+  z-index: 1;
+}
+html[data-theme-reveal="active"]::view-transition-old(root) {
+  z-index: 2;
+  animation: theme-reveal-contract ${DURATION_MS}ms ease-in-out both;
+}
+`;
+  } else {
+    style.textContent = `
+@keyframes theme-reveal-expand {
   from { clip-path: circle(0px at ${xPct}% ${yPct}%); }
   to { clip-path: circle(${rPx}px at ${xPct}% ${yPct}%); }
 }
@@ -98,9 +118,11 @@ html[data-theme-reveal="active"]::view-transition-old(root) {
 }
 html[data-theme-reveal="active"]::view-transition-new(root) {
   z-index: 2;
-  animation: theme-reveal-clip ${DURATION_MS}ms ease-in-out both;
+  animation: theme-reveal-expand ${DURATION_MS}ms ease-in-out both;
 }
 `;
+  }
+
   document.head.appendChild(style);
   return style;
 }
@@ -113,8 +135,8 @@ export type CircleRevealOptions = {
 };
 
 /**
- * Circular expand of the new theme. Leaving baseline: from the toggle.
- * Returning to baseline: same curve from the opposite corner of the viewport.
+ * Leave baseline: expand new theme from the toggle.
+ * Return to baseline: contract old theme into the toggle (same ease-in-out, not reversed).
  */
 export function applyThemeWithCircleReveal(apply: () => void, options: CircleRevealOptions): void {
   if (prefersReducedMotion() || !supportsViewTransitions()) {
@@ -127,8 +149,8 @@ export function applyThemeWithCircleReveal(apply: () => void, options: CircleRev
   if (root.dataset.themeReveal === "active") return;
 
   const direction = revealDirection(options.next);
-  const { xPct, yPct, rPx } = revealOrigin(options.toggle, direction);
-  const style = mountRevealStyles(xPct, yPct, rPx);
+  const { xPct, yPct, rPx } = toggleOrigin(options.toggle);
+  const style = mountRevealStyles(xPct, yPct, rPx, direction);
   root.dataset.themeReveal = "active";
 
   const transition = document.startViewTransition(apply);
