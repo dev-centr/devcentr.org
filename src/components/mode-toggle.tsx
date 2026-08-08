@@ -1,7 +1,7 @@
 import { useColorMode } from "@kobalte/core";
 
 import { Button } from "~/components/ui/button";
-import { applyThemeWithCircleReveal } from "~/lib/theme-reveal";
+import { applyThemeWithCircleReveal, warmThemeRevealEngine } from "~/lib/theme-reveal";
 
 /** Day mark — compact disc + short rays */
 function SunIcon(props: { class?: string }) {
@@ -58,6 +58,8 @@ export function ModeToggle() {
       size="icon"
       data-theme-toggle
       class="group relative size-10 shrink-0 overflow-hidden rounded-full border-border/60 bg-background/55 text-muted-foreground shadow-[inset_0_0_0_1px_hsl(var(--primary)/0.08)] backdrop-blur-sm transition-colors hover:border-primary/35 hover:bg-primary/8 hover:text-primary"
+      onPointerEnter={warmThemeRevealEngine}
+      onFocus={warmThemeRevealEngine}
       onClick={handleClick}
       aria-label={isDark() ? "Use light appearance" : "Use dark appearance"}
     >
