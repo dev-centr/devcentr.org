@@ -1,13 +1,18 @@
 type Point = { x: number; y: number };
 export type ResolvedTheme = "light" | "dark";
-type RevealDirection = "forward" | "reverse";
+type RevealDirection = "expand" | "contract";
 
 const DURATION_MS = 450;
+/** easings.net easeOutSine — used forward on both expand and contract keyframes. */
+const EASING = "cubic-bezier(0.39, 0.575, 0.565, 1)";
 const STYLE_ID = "theme-reveal-keyframes";
 const TOGGLE_SELECTOR = "[data-theme-toggle]";
 
-/** Theme present at load (or last OS scheme change). Returning to it contracts. */
-let baselineTheme: ResolvedTheme | null = null;
+/**
+ * State A: theme applied on page load, or after an OS color-scheme change.
+ * A→B expands from the toggle center; B→A contracts into the toggle center.
+ */
+let stateA: ResolvedTheme | null = null;
 
 function prefersReducedMotion(): boolean {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -31,18 +36,19 @@ export function readDocumentResolvedTheme(): ResolvedTheme {
   return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
 }
 
-/** Call on load and whenever the OS color-scheme baseline changes. */
+/** Record State A (load or OS scheme change). */
 export function syncThemeRevealBaseline(theme: ResolvedTheme = readDocumentResolvedTheme()): void {
-  baselineTheme = theme;
+  stateA = theme;
 }
 
 function revealDirection(next: ResolvedTheme): RevealDirection {
-  if (baselineTheme == null) syncThemeRevealBaseline();
-  return next === baselineTheme ? "reverse" : "forward";
+  if (stateA == null) syncThemeRevealBaseline();
+  // Leaving A → expand; returning to A → contract.
+  return next === stateA ? "contract" : "expand";
 }
 
-/** Toggle center as %-of-viewport for clip-path `at`, plus cover radius in px. */
-function toggleOrigin(fromEl?: EventTarget | null): { xPct: number; yPct: number; rPx: number } {
+/** Exact center of the mode-toggle control. */
+function toggleCenter(fromEl?: EventTarget | null): { xPct: number; yPct: number; rPx: number } {
   const el =
     (fromEl instanceof Element ? fromEl : null) ??
     document.querySelector(TOGGLE_SELECTOR);
@@ -69,9 +75,9 @@ function toggleOrigin(fromEl?: EventTarget | null): { xPct: number; yPct: number
 }
 
 /**
- * forward: new theme expands from the toggle (0 → r).
- * reverse: old theme contracts into the toggle (r → 0).
- * Both use ease-in-out on forward-played keyframes — not animation-direction: reverse.
+ * A→B: new theme expands from button center (0 → edge).
+ * B→A: old theme contracts from page edge into button center (edge → 0).
+ * Both keyframes play forward with easeOutSine (not animation-direction: reverse).
  */
 function mountRevealStyles(
   xPct: number,
@@ -83,7 +89,7 @@ function mountRevealStyles(
   const style = document.createElement("style");
   style.id = STYLE_ID;
 
-  if (direction === "reverse") {
+  if (direction === "contract") {
     style.textContent = `
 @keyframes theme-reveal-contract {
   from { clip-path: circle(${rPx}px at ${xPct}% ${yPct}%); }
@@ -99,7 +105,7 @@ html[data-theme-reveal="active"]::view-transition-new(root) {
 }
 html[data-theme-reveal="active"]::view-transition-old(root) {
   z-index: 2;
-  animation: theme-reveal-contract ${DURATION_MS}ms ease-in-out both;
+  animation: theme-reveal-contract ${DURATION_MS}ms ${EASING} both;
 }
 `;
   } else {
@@ -118,7 +124,7 @@ html[data-theme-reveal="active"]::view-transition-old(root) {
 }
 html[data-theme-reveal="active"]::view-transition-new(root) {
   z-index: 2;
-  animation: theme-reveal-expand ${DURATION_MS}ms ease-in-out both;
+  animation: theme-reveal-expand ${DURATION_MS}ms ${EASING} both;
 }
 `;
   }
@@ -128,16 +134,12 @@ html[data-theme-reveal="active"]::view-transition-new(root) {
 }
 
 export type CircleRevealOptions = {
-  /** Resolved theme being applied; compared to load/system baseline for direction. */
+  /** Resolved theme being applied (B when leaving A, A when returning). */
   next: ResolvedTheme;
-  /** Mode-toggle element (preferred). */
+  /** Mode-toggle element — origin is its exact center. */
   toggle?: EventTarget | null;
 };
 
-/**
- * Leave baseline: expand new theme from the toggle.
- * Return to baseline: contract old theme into the toggle (same ease-in-out, not reversed).
- */
 export function applyThemeWithCircleReveal(apply: () => void, options: CircleRevealOptions): void {
   if (prefersReducedMotion() || !supportsViewTransitions()) {
     apply();
@@ -145,11 +147,10 @@ export function applyThemeWithCircleReveal(apply: () => void, options: CircleRev
   }
 
   const root = document.documentElement;
-  // Ignore overlapping toggles — mid-transition re-entry races VT on mobile.
   if (root.dataset.themeReveal === "active") return;
 
   const direction = revealDirection(options.next);
-  const { xPct, yPct, rPx } = toggleOrigin(options.toggle);
+  const { xPct, yPct, rPx } = toggleCenter(options.toggle);
   const style = mountRevealStyles(xPct, yPct, rPx, direction);
   root.dataset.themeReveal = "active";
 

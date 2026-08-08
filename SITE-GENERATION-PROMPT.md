@@ -25,7 +25,7 @@ Vision and content for the official **DevCentr** organization landing page.
 - No cards in the hero; cards only for real interactions
 - Fonts: Space Grotesk + IBM Plex Mono
 - Motion: orbit / reverse orbit / hub pulse
-- Theme: light/dark with system sync; single circular clip reveal on toggle (`theme-reveal`) — expand from toggle when leaving load/OS baseline, contract into toggle when returning; both use ease-in-out on forward keyframes (not animation-direction: reverse); no blend modes, masks, or dual overlays
+- Theme: light/dark with system sync; circular clip from exact center of the mode toggle (`theme-reveal`). State A = load / OS scheme change. A→B: easeOutSine expand; B→A: easeOutSine contract edge→button (forward keyframes, not animation-direction: reverse). No blend modes, masks, or dual overlays.
 - Brand marks: web `LogoMark` uses `currentColor`; print/designer canonical colors in `public/brand/logo.svg` / `logo-canonical.svg`
 
 ## Messaging funnel
