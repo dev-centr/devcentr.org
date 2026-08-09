@@ -5,7 +5,16 @@
   <link>https://devcentr.org/news</link>
   <description>News and engineering blog posts from Dev-Centr.</description>
   <language>en-us</language>
-  <lastBuildDate>Thu, 06 Aug 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 08 Aug 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Business Bootstrap becomes a support-systems hub</title>
+    <link>https://devcentr.org/news/2026-08-08-support-systems-hub</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-08-08-support-systems-hub</guid>
+    <pubDate>Sat, 08 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Founder ops docs grow past email—scheduling, design, and vaults get their own capability areas on docs.devcentr.org.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
   <item>
     <title>MSI tables land in the generator</title>
     <link>https://devcentr.org/news/2026-08-06-msi-tables-land</link>

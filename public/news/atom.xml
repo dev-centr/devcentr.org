@@ -4,8 +4,17 @@
   <link href="https://devcentr.org/news" rel="alternate"/>
   <link href="https://devcentr.org/news/atom.xml" rel="self"/>
   <id>https://devcentr.org/news</id>
-  <updated>2026-08-06T12:00:00Z</updated>
+  <updated>2026-08-08T12:00:00Z</updated>
   <subtitle>News and engineering blog posts from Dev-Centr.</subtitle>
+  <entry>
+    <title>Business Bootstrap becomes a support-systems hub</title>
+    <link href="https://devcentr.org/news/2026-08-08-support-systems-hub" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-08-08-support-systems-hub</id>
+    <updated>2026-08-08T12:00:00Z</updated>
+    <summary>Founder ops docs grow past email—scheduling, design, and vaults get their own capability areas on docs.devcentr.org.</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
   <entry>
     <title>MSI tables land in the generator</title>
     <link href="https://devcentr.org/news/2026-08-06-msi-tables-land" rel="alternate"/>

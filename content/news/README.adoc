@@ -5,8 +5,9 @@ News posts are AsciiDoc files in `content/news/`. There is no separate hosted CM
 
 == Voice
 
-News is for *humans*—op-eds and big-picture updates, not changelog bullets.
+News faces **outward**: what entered the shared record. Op-eds and big-picture updates are fine; changelog bullets are not.
 
+* **News vs blog:** news = external thoughts (we shipped / opened / partnered); blog = inner thoughts (ideas, ideals, philosophy, craft tutorials). DevCentr’s narrative channel is `/news` (SEO alias `/blog`). Personal essays live on ryanjohnson.dev; HCI keeps a true news/essay split. Stance: link:https://ryanjohnson.dev/blog/posts/blog-as-inner-thought/[Blog as inner thought].
 * Write conversationally. First person plural (“we”) is fine.
 * Lead with why it matters; bury the file paths and route lists (or omit them).
 * One clear opinion or framing beat per post is better than a feature dump.

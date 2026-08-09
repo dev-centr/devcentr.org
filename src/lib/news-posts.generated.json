@@ -1,6 +1,24 @@
 {
   "posts": [
     {
+      "slug": "2026-08-08-support-systems-hub",
+      "title": "Business Bootstrap becomes a support-systems hub",
+      "description": "Founder ops docs grow past email—scheduling, design, and vaults get their own capability areas on docs.devcentr.org.",
+      "date": "2026-08-08",
+      "tags": [
+        "news",
+        "blog",
+        "Business Bootstrap",
+        "Cal.com",
+        "Penpot",
+        "Bitwarden",
+        "Vaultwarden",
+        "docs"
+      ],
+      "html": "<div class=\"paragraph\">\n<p><strong>Business Bootstrap</strong> on <a href=\"https://docs.devcentr.org/business-bootstrap/\">docs.devcentr.org</a> is no longer just the email matrix and org <code>infra</code> pattern. It is a <strong>support-systems hub</strong>: Email, Scheduling, Design, Vault, and Org infra—each with room for explanation, how-tos, and interconnect notes.</p>\n</div>\n<div class=\"paragraph\">\n<p>What landed first under the new shape:</p>\n</div>\n<div class=\"ulist\">\n<ul>\n<li>\n<p><strong>Scheduling</strong> — Cal.com (hosted) vs Cal.diy (MIT self-host)</p>\n</li>\n<li>\n<p><strong>Design</strong> — Penpot as the open canvas default; Figma when partners already live there</p>\n</li>\n<li>\n<p><strong>Vault</strong> — Bitwarden cloud vs official self-host vs Vaultwarden</p>\n</li>\n</ul>\n</div>\n<div class=\"paragraph\">\n<p>The stack map and stage defaults stitch the areas together. Product partner marketplaces stay elsewhere; this hub is for the IT skeleton every tech company ends up building anyway.</p>\n</div>\n<div class=\"paragraph\">\n<p>Start at the <a href=\"https://docs.devcentr.org/business-bootstrap/\">hub index</a> or the <a href=\"https://docs.devcentr.org/business-bootstrap/reference/business-resources.html\">stack map</a>.</p>\n</div>",
+      "source": "authored"
+    },
+    {
       "slug": "2026-08-06-msi-tables-land",
       "title": "MSI tables land in the generator",
       "description": "msi-generator v0.2 writes real OLE2 compound files, cabinets, and core Windows Installer tables — still unsigned, no longer an empty stub.",

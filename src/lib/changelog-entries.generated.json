@@ -1,6 +1,106 @@
 {
   "entries": [
     {
+      "id": "devcentr-2026-08-08-studio-mcp-install-strategies-docs",
+      "date": "2026-08-08",
+      "title": "Studio MCP install strategies (docs)",
+      "bullets": [
+        "AI Workflow Arrangement + AI Config MCP tab point at general-knowledge",
+        "Guided add: recommend connector packages via that ladder; do not invent a DevCentr-owned OAuth broker."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-08-auxiliary-features-and-delivery-classes",
+      "date": "2026-08-08",
+      "title": "Auxiliary features and delivery classes",
+      "bullets": [
+        "Added Auxiliary features catalog and delivery-class templates for desktop, web, and mobile (Help, About, updates, diagnostics, connectivity, privacy, …).",
+        "Expanded Automatic updates with apply-safety (quit/replace, ETXTBSY, scheduled pkg upgrades); new how-to Unix/macOS auto-updates.",
+        "Printable Auxiliary features checklist; hub and GUI type pages redressed to point at class templates.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-08-business-bootstrap-cross-links-cal-penpot-vaults",
+      "date": "2026-08-08",
+      "title": "Business Bootstrap cross-links (Cal · Penpot · vaults)",
+      "bullets": [
+        "Recommended tools and secrets hub point at Business Bootstrap capability areas (Scheduling / Design / Vault) for Cal.com/Cal.diy, Penpot, and Bitwarden/Vaultwarden hosting choices (strategy stays in BB; developer distribution mechanics stay here)."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-08-composio-mcp-connectors",
+      "date": "2026-08-08",
+      "title": "Composio MCP connectors",
+      "bullets": [
+        "How-to Composio MCP setup (Cursor plugin / mcp.json, CLI agents, CI-mail smoke test).",
+        "Explanation Composio and MCP connectors (stack placement vs AEI / Context7 / raw APIs).",
+        "Recommended-tools entry; hub portal stub Composio.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-08-product-essentials-centrmark-checklists",
+      "date": "2026-08-08",
+      "title": "Product Essentials CentrMark checklists",
+      "bullets": [
+        "CentrMark templates under examples/product-essentials/; attach/checkoff/status scripts.",
+        "Progress sidecars <file>.cmk.checks/state.json5 (JSON5; document markers are not rewritten); schema Checklist sidecar.",
+        "How-to Attach Product Essentials Checklists.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-08-secrets-distribution-cli-mcp-hub",
+      "date": "2026-08-08",
+      "title": "Secrets distribution (CLI · MCP · hub)",
+      "bullets": [
+        "Explanation Secrets distribution hub — create in vendors, store in vault/ESC, distribute to local and hosting matrices.",
+        "How-to Distribute API keys with vault CLI, hosting CLI, and MCP.",
+        "Tutorial From vendor dashboard to deploy matrix.",
+        "Illustrated with redacted CLI session and hub flow images; agent-rules suggestion under suggestions/.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-08-studio-mcp-install-strategies",
+      "date": "2026-08-08",
+      "title": "Studio MCP install strategies",
+      "bullets": [
+        "Explanation Studio MCP install strategies — Composio’s Cursor ladder (marketplace plugin, deeplink, mcp.json, skills, thin/fat split) as an option for AI-studio tooling.",
+        "Reference AI studio tooling catalog master list; wired from agent control planes, Composio pages, recommended tools, and explanation index.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
       "id": "devcentr-2026-08-06-content-create-sdl-classifications-lineage",
       "date": "2026-08-06",
       "title": "Content Create (SDL classifications + lineage)",
@@ -24,6 +124,20 @@
         "Detail pane: homepage, repository, specification links; invented / last-updated fields.",
         "Catalog expanded (schema, data, more docs/config/code); AsciiDoc spec points at Asciidoctor language docs (Eclipse formal spec still drafting).",
         "See Content Create."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-08-06-dos-category-devops-as-one-facet",
+      "date": "2026-08-06",
+      "title": "DOS category: DevOps as one facet",
+      "bullets": [
+        "Public category stays Development Orchestration Suite (DOS); *Dev OS* is a quiet mental model only.",
+        "DevOps documented as one facet (CI/CD / infra / traditional ops)—not the whole product.",
+        "Vision, capabilities, and docs index updated accordingly."
       ],
       "sourceId": "devcentr",
       "sourceLabel": "DevCentr",
@@ -263,6 +377,21 @@
       "date": "2026-08-01",
       "title": "August 2026",
       "bullets": [
+        "Business Bootstrap hub — Restructured into capability areas (Email · Scheduling · Design · Vault · Org infra) with stack map and articles for Cal.com / Cal.diy, Penpot, Bitwarden / Vaultwarden. Hub stubs under Tools; FoodTruckNerdz links the same stack.",
+        "Studio MCP install strategies — Documented Composio’s Cursor install ladder (marketplace plugin, deeplink, mcp.json, skills, thin/fat MCP) as a reusable option for AI-studio tooling; master list AI studio tooling catalog. Wired into DevCentr AI Config / AI Workflow Arrangement specs. Explanation.",
+        "Composio MCP — Connector plane for Cursor/CLI agents (Gmail, GitHub, Vercel, …). How-to + stack explanation in general-knowledge; hub stub under Tools. Setup · Stack placement · portal.",
+        "Software Product Essentials — auxiliary templates — general-knowledge gained desktop/web/mobile auxiliary feature matrices (Help, About, updates, diagnostics, connectivity, privacy) plus macOS/Linux update apply guidance (quit/replace, package timers, AppImage). Auxiliary features · Delivery classes · Unix/macOS auto-updates.",
+        "Rules Manager — Compose/watch daemon + tray for agent-rules (dev-centr/rules-manager); Antora component on the hub. Rules Manager docs · portal · https://docs.devcentr.org/rules-manager/",
+        "Admonition TIP Antora green — DevCentr no longer remaps tip to brand teal; TIP pill + card stay on --tip-color / --adt-admonition-tip (Antora #41af46). Tip inline code keeps charcoal/coral with a rounded gray border.",
+        "Admonition TIP one green — TIP pill and card tint both follow --adt-admonition-tip (no second emerald on the body). Brand overlay clears stale cell washes; Valentus / antora-dark-mode ship the token wiring.",
+        "Admonition TIP card — TIP/NOTE label now sits *inside* the bordered card (table chrome). Prior overlay/fix only cleared the green wash and left the border on the body.",
+        "Theme toggle timing — Light↔dark animation was uneven: View Transitions (0.28s) raced Valentus --adt-transition paint rules (0.2s). Fixed upstream in antora-dark-mode (html.adt-theme-vt + :active-view-transition); docs brand overlay uses the CSS-only suppress until rolling v2 updates.",
+        "Admonition dark TIP wash — Earlier fix cleared type-tint wash on the TIP label cell (antora-dark-mode 1.4.1 / valentus-theme 2.0.6); superseded by the card-wrap fix above.",
+        "RepoDrive — Standalone forge virtual drive (dev-centr/repo-drive): GUI + tray, sparse mount, Ibex installers; wired into Antora hub. RepoDrive docs · portal · https://docs.devcentr.org/repo-drive/",
+        "Switchyard — New Windows file-association switchyard (dev-centr/switchyard): snapshot open/icon tracks, planned icon lock; Antora component on the hub. Switchyard docs · portal.",
+        "valentus-theme head-meta sync — Restored font-size FOUC + site-font-size.css in the supplemental head-meta.hbs overlay (was missing after brand fork). Condensed A/A/A control hides on desktop again and scales doc text on mobile. Playbooks already use rolling v2.",
+        "valentus-theme product topic — This repo (and other Valentus playbooks) tagged with GitHub topic valentus-theme for dependency rediscovery; convention documented upstream.",
+        "DOS naming — Public category stays Development Orchestration Suite; DevOps framed as one facet of the suite; *Dev OS* as quiet mental model only. Sites + DevCentr vision/capabilities docs updated.",
         "Ibex — Rebrand of Easy Installer (ibex CLI): Install Builder EXtension. winget DevCentr.Ibex, Homebrew tap, Scoop. Ibex docs · portal.",
         "Easy Installer CI emit — emit-ci / ci-runner.sdl writes GitHub Actions, GitLab, Azure, Jenkins, CircleCI, and Bitbucket workflows plus CI-INSTALLER.adoc without a local package build. DevCentr: --mode=emit-ci and New Installer CI pipeline menu. How-to: emit CI.",
         "Easy Installer — Host for in-place PATH, installer.kdl projects, plugin backends (zip/NSIS/Inno/MSI/MSIX/AppImage), and file-manager menus (now Ibex). Ibex docs · portal.",
