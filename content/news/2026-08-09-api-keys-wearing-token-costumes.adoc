@@ -1,0 +1,86 @@
+= When API keys wear token costumes
+:description: Vendors keep labeling long-lived dashboard secrets as tokens. Here is the architectural split Dev-Centr is forcing into docs and Secrets Manager—and why the wrong word keeps breaking security reviews.
+:revdate: 2026-08-09
+:keywords: news, blog, api-key, access-token, oauth, pat, secrets, vocabulary, security
+
+Open almost any developer console and you will find the same soft lie waiting under a friendly button: *Generate your API access token*.
+You click it.
+You get a long string that never expires unless you delete it, that identifies your project or account, and that you will paste into a `.env` file and forget until something leaks.
+That string is not an access token in the OAuth sense.
+It is an **API key** wearing a costume stitched from marketing and Bearer-header habits.
+
+We are done pretending the costume is the thing.
+Dev-Centr's docs and Secrets Manager now name credentials by what they *do*, not by what the vendor's UI whispered while you were trying to ship.
+
+Practitioner lock (use this in reviews and agent prompts): link:https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/api-key-vs-token.html[API key vs token].
+Product enforcement: link:https://docs.devcentr.org/devcentr/latest/secrets-manager/explanation/api-key-vs-token.html[Secrets Manager vocabulary].
+
+== A scene from every onboarding
+
+Picture a Monday standup where someone says the integration is "using a token."
+Half the room hears *short-lived OAuth bearer from a login flow*.
+The other half hears *the string we copied from Settings → Developers last quarter*.
+Nobody notices the mismatch until a rotation runbook says "revoke the key" and an agent helpfully tries to refresh it like a session.
+
+That is not pedantry.
+Wrong nouns pick the wrong playbook: dashboard rotate versus protocol refresh; project metering versus user consent; forever-secret versus fifteen-minute claim set.
+
+== What the words actually mean
+
+An **API key** identifies the *application or project* making the request.
+It is how a platform bills you, rates you, and attributes traffic to "the Stripe integration" or "the mobile backend."
+It does not prove which human is pressing the buttons inside that app.
+
+An **access token**—OAuth access token, JWT bearer, session token—identifies an *authorized subject* for a limited time.
+It answers what this holder may do *now*, often with scopes and an expiry baked into the credential (or into the introspection service behind it).
+
+Hold the analogies for a second and you can feel the difference in your hands:
+
+* The API key is the project's **driver's license**. The meter knows which fleet car pulled up.
+* The access token is a **hotel keycard**. It opens these floors for this stay. Morning checkout is a feature, not a bug.
+
+== How "token" ate the dashboard
+
+OAuth taught a generation of engineers that scoped access arrives as an *access token*.
+Cloud consoles borrowed the word for a different product: long-lived secrets you mint yourself, optionally with checkbox scopes, optionally revoked one-by-one without nuking the whole account.
+
+So the industry grew a middle creature—**scoped API keys**, often sold as personal access tokens (PATs)—and dressed it in token language because:
+
+* scopes made it *feel* like OAuth,
+* Bearer headers made it *travel* like OAuth,
+* and "token" sounded newer and safer than the grim old "API key" that once meant a single immortal string for the entire account.
+
+Useful product evolution.
+Terrible vocabulary.
+
+Under the hood you still have two architectures:
+
+* **Scoped key / PAT** — long-lived, dashboard-born, manually revoked, project- or account-bound with capability limits.
+* **True access token** — handshake-born, short TTL, subject-bound, refreshed by protocol rather than by a human with a clipboard.
+
+== The rule we are enforcing
+
+Ignore the button.
+Ask three questions:
+
+1. Was this pasted from a settings page, or minted by a login / client-credentials handshake?
+2. Does it expire in minutes or hours by design, or only when someone deletes it?
+3. Does it authorize a user or session, or only identify a project for metering?
+
+Dashboard paste + manual revoke → **API key** (scoped or not).
+Handshake + TTL → **access token** (and keep **refresh token** for the minting secret, not for ordinary API calls).
+
+In Secrets Manager kinds we write that as `api_key`, `scoped_api_key`, `access_token`, and `refresh_token`.
+Vendor aliases can live in notes for search.
+They do not get to own the type field.
+
+== Why Dev-Centr is picking this fight
+
+We distribute secrets for a living—vendor → vault → local env → hosting matrix—and agents already hallucinate env names when the nouns wobble.
+If the UI says "token" and the architecture says "key," the agent will under-rotate forever-strings or over-store live session material.
+Security reviews then argue about words instead of blast radius.
+
+So the docs tell the truth, the product forces the kinds, and this post is the public notice: **stop calling keys tokens just because a dashboard did.**
+
+The costume can stay on the marketing site.
+It does not get into our registry.

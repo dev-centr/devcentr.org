@@ -10,6 +10,7 @@ News faces **outward**: what entered the shared record. Op-eds and big-picture u
 * **News vs blog:** news = external thoughts (we shipped / opened / partnered); blog = inner thoughts (ideas, ideals, philosophy, craft tutorials). DevCentr’s narrative channel is `/news` (SEO alias `/blog`). Personal essays live on ryanjohnson.dev; HCI keeps a true news/essay split. Stance: link:https://ryanjohnson.dev/blog/posts/blog-as-inner-thought/[Blog as inner thought].
 * Write conversationally. First person plural (“we”) is fine.
 * Lead with why it matters; bury the file paths and route lists (or omit them).
+* Develop scenes and claims—do not ship telegraphic bullet-essays. Agent checklist: Laurie Hertzel, link:https://niemanstoryboard.org/2005/03/24/six-tips-for-crafting-scenes/[Six Writing Tips for Crafting Scenes] (Nieman Storyboard).
 * One clear opinion or framing beat per post is better than a feature dump.
 * Day-to-day shipping notes belong on `/changelog`, not here.
 
