@@ -316,7 +316,61 @@
   }
 }
 
-/* Theme reveal styles are injected per-toggle by theme-reveal.ts (literal clip coords). */
+/*
+ * Elliptical theme reveal (View Transition API).
+ * Origin + radii live on <html> as CSS vars (same path as the dual-veil wave
+ * that tracked the toggle on mobile Chrome). Radii are WAAPI-driven from
+ * theme-reveal.ts — asymmetric 1.28×1.05 cover bias, no veil layers.
+ */
+@property --theme-reveal-rx {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+@property --theme-reveal-ry {
+  syntax: "<length>";
+  inherits: true;
+  initial-value: 0px;
+}
+
+@supports (view-transition-name: root) {
+  html[data-theme-reveal]::view-transition-old(root),
+  html[data-theme-reveal]::view-transition-new(root) {
+    animation: none;
+    mix-blend-mode: normal;
+  }
+
+  html[data-theme-reveal="expand"]::view-transition-old(root) {
+    z-index: 1;
+  }
+
+  html[data-theme-reveal="expand"]::view-transition-new(root) {
+    z-index: 2;
+    clip-path: ellipse(
+      var(--theme-reveal-rx) var(--theme-reveal-ry) at var(--theme-reveal-x) var(--theme-reveal-y)
+    );
+  }
+
+  html[data-theme-reveal="contract"]::view-transition-new(root) {
+    z-index: 1;
+  }
+
+  html[data-theme-reveal="contract"]::view-transition-old(root) {
+    z-index: 2;
+    clip-path: ellipse(
+      var(--theme-reveal-rx) var(--theme-reveal-ry) at var(--theme-reveal-x) var(--theme-reveal-y)
+    );
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html[data-theme-reveal]::view-transition-old(root),
+    html[data-theme-reveal]::view-transition-new(root) {
+      animation: none;
+      clip-path: none;
+    }
+  }
+}
 
 /* AsciiDoc → HTML article body (news / engineering blog posts) */
 @layer components {

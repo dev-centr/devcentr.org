@@ -3,19 +3,22 @@ export type ResolvedTheme = "light" | "dark";
 type RevealDirection = "expand" | "contract";
 
 const DURATION_MS = 450;
-/** easings.net easeOutSine — used forward on both expand and contract keyframes. */
+/** easings.net easeOutSine — same curve forward for expand and contract. */
 const EASING = "cubic-bezier(0.39, 0.575, 0.565, 1)";
-const STYLE_ID = "theme-reveal-keyframes";
 const TOGGLE_SELECTOR = "[data-theme-toggle]";
-/** Inflate past the viewport corner so mobile SCB / subpixels don't end-snap. */
-const RADIUS_PAD = 1.25;
+
+const REVEAL_VARS = [
+  "--theme-reveal-x",
+  "--theme-reveal-y",
+  "--theme-reveal-rx",
+  "--theme-reveal-ry",
+] as const;
 
 /**
  * State A: theme applied on page load, or after an OS color-scheme change.
  * A→B expands from the toggle center; B→A contracts into the toggle center.
  */
 let stateA: ResolvedTheme | null = null;
-let revealSequence = 0;
 
 function prefersReducedMotion(): boolean {
   return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
@@ -25,11 +28,19 @@ function supportsViewTransitions(): boolean {
   return typeof document.startViewTransition === "function";
 }
 
-/** Radius from toggle to farthest layout-viewport corner, padded for full cover. */
-function coverRadius(x: number, y: number): number {
+/**
+ * End radii for an ellipse that covers the viewport from (x, y).
+ * Same asymmetric polar bias as the dual-veil wave (wider than tall) — shape
+ * only; no veil layers.
+ */
+function ellipticalCoverRadii(x: number, y: number): { rx: number; ry: number } {
   const maxX = Math.max(x, window.innerWidth - x);
   const maxY = Math.max(y, window.innerHeight - y);
-  return Math.ceil(Math.hypot(maxX, maxY) * RADIUS_PAD) + 1;
+  const corner = Math.hypot(maxX, maxY);
+  return {
+    rx: Math.ceil(corner * 1.28) + 1,
+    ry: Math.ceil(corner * 1.05) + 1,
+  };
 }
 
 export function readDocumentResolvedTheme(): ResolvedTheme {
@@ -49,19 +60,17 @@ function revealDirection(next: ResolvedTheme): RevealDirection {
   return next === stateA ? "contract" : "expand";
 }
 
-/** Toggle center in layout-viewport CSS pixels (never clientX/Y — 0 is valid). */
+/**
+ * Toggle center in layout-viewport CSS pixels.
+ * Prefer a concrete Element (mode-toggle); never clientX/Y — 0 is valid on
+ * the left/top edge and used to look like a missing coordinate.
+ */
 function toggleCenterPx(fromEl?: EventTarget | null): Point {
   const el =
     (fromEl instanceof Element ? fromEl : null) ??
     document.querySelector(TOGGLE_SELECTOR);
 
-  if (el instanceof Element) {
-    const rect = el.getBoundingClientRect();
-    return {
-      x: rect.left + rect.width / 2,
-      y: rect.top + rect.height / 2,
-    };
-  }
+  if (el instanceof Element) return elementCenter(el);
 
   return {
     x: window.innerWidth / 2,
@@ -70,76 +79,65 @@ function toggleCenterPx(fromEl?: EventTarget | null): Point {
 }
 
 /**
- * A→B: new theme expands from button center.
- * B→A: old theme contracts into button center.
- *
- * Baked CSS px→px keyframes mounted before startViewTransition.
- * Avoid: lvh/SCB origin shifts (broke Chrome desktop), WAAPI-on-pseudo
- * (cold origin ×2), % radius (Chrome often skips the clip animation entirely),
- * and no-op warm VTs (left animation:none / skipped transitions).
+ * Same origin path as the dual-veil wave that tracked the button on mobile
+ * Chrome: bake x/y onto <html> as CSS vars, keep clip-path as a *live* style
+ * on the VT pseudo (not keyframed coords), and WAAPI-animate only the radii
+ * on documentElement after transition.ready.
  */
-function mountRevealStyles(
-  xPx: number,
-  yPx: number,
-  rPx: number,
+function setRevealOrigin(
+  origin: Point,
   direction: RevealDirection,
-): HTMLStyleElement {
-  document.getElementById(STYLE_ID)?.remove();
-  const style = document.createElement("style");
-  style.id = STYLE_ID;
-  const animationName = `theme-reveal-${direction}-${++revealSequence}`;
+  rx: number,
+  ry: number,
+): void {
+  const root = document.documentElement;
+  root.style.setProperty("--theme-reveal-x", `${origin.x}px`);
+  root.style.setProperty("--theme-reveal-y", `${origin.y}px`);
+  const startRx = direction === "expand" ? "0px" : `${rx}px`;
+  const startRy = direction === "expand" ? "0px" : `${ry}px`;
+  root.style.setProperty("--theme-reveal-rx", startRx);
+  root.style.setProperty("--theme-reveal-ry", startRy);
+  root.dataset.themeReveal = direction;
+}
 
-  // Round so keyframe strings stay stable for interpolation.
-  const x = Math.round(xPx * 100) / 100;
-  const y = Math.round(yPx * 100) / 100;
-  const r = Math.round(rPx);
-
-  if (direction === "contract") {
-    style.textContent = `
-@keyframes ${animationName} {
-  from { clip-path: circle(${r}px at ${x}px ${y}px); }
-  to { clip-path: circle(0px at ${x}px ${y}px); }
-}
-html[data-theme-reveal="active"]::view-transition-old(root),
-html[data-theme-reveal="active"]::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-html[data-theme-reveal="active"]::view-transition-new(root) {
-  z-index: 1;
-}
-html[data-theme-reveal="active"]::view-transition-old(root) {
-  z-index: 2;
-  animation: ${animationName} ${DURATION_MS}ms ${EASING} both;
-}
-`;
-  } else {
-    style.textContent = `
-@keyframes ${animationName} {
-  from { clip-path: circle(0px at ${x}px ${y}px); }
-  to { clip-path: circle(${r}px at ${x}px ${y}px); }
-}
-html[data-theme-reveal="active"]::view-transition-old(root),
-html[data-theme-reveal="active"]::view-transition-new(root) {
-  animation: none;
-  mix-blend-mode: normal;
-}
-html[data-theme-reveal="active"]::view-transition-old(root) {
-  z-index: 1;
-}
-html[data-theme-reveal="active"]::view-transition-new(root) {
-  z-index: 2;
-  animation: ${animationName} ${DURATION_MS}ms ${EASING} both;
-}
-`;
+function clearRevealOrigin(): void {
+  const root = document.documentElement;
+  delete root.dataset.themeReveal;
+  for (const prop of REVEAL_VARS) {
+    root.style.removeProperty(prop);
   }
+}
 
-  document.head.appendChild(style);
-  return style;
+function animateRevealRadii(
+  fromRx: number,
+  fromRy: number,
+  toRx: number,
+  toRy: number,
+): Animation {
+  return document.documentElement.animate(
+    [
+      {
+        ["--theme-reveal-rx" as string]: `${fromRx}px`,
+        ["--theme-reveal-ry" as string]: `${fromRy}px`,
+      },
+      {
+        ["--theme-reveal-rx" as string]: `${toRx}px`,
+        ["--theme-reveal-ry" as string]: `${toRy}px`,
+      },
+    ],
+    {
+      duration: DURATION_MS,
+      easing: EASING,
+      fill: "forwards",
+    },
+  );
 }
 
 export type CircleRevealOptions = {
   next: ResolvedTheme;
+  /** Prefer a precomputed button center (captured synchronously on click). */
+  origin?: Point;
+  /** Fallback when `origin` is omitted — Element or event.currentTarget. */
   toggle?: EventTarget | null;
 };
 
@@ -150,20 +148,31 @@ export function applyThemeWithCircleReveal(apply: () => void, options: CircleRev
   }
 
   const root = document.documentElement;
-  if (root.dataset.themeReveal === "active") return;
+  if (root.dataset.themeReveal) return;
 
   const direction = revealDirection(options.next);
-  const { x, y } = toggleCenterPx(options.toggle);
-  const r = coverRadius(x, y);
+  const origin = options.origin ?? toggleCenterPx(options.toggle);
+  const { rx, ry } = ellipticalCoverRadii(origin.x, origin.y);
 
-  root.dataset.themeReveal = "active";
-  const style = mountRevealStyles(x, y, r, direction);
+  setRevealOrigin(origin, direction, rx, ry);
 
+  let radiusAnimation: Animation | undefined;
   const transition = document.startViewTransition(apply);
 
+  void transition.ready
+    .then(() => {
+      radiusAnimation =
+        direction === "expand"
+          ? animateRevealRadii(0, 0, rx, ry)
+          : animateRevealRadii(rx, ry, 0, 0);
+    })
+    .catch(() => {
+      /* Transition skipped/aborted — finished handler cleans up. */
+    });
+
   void transition.finished.finally(() => {
-    delete root.dataset.themeReveal;
-    style.remove();
+    radiusAnimation?.cancel();
+    clearRevealOrigin();
   });
 }
 

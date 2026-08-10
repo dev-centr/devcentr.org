@@ -1,7 +1,7 @@
 import { useColorMode } from "@kobalte/core";
 
 import { Button } from "~/components/ui/button";
-import { applyThemeWithCircleReveal } from "~/lib/theme-reveal";
+import { applyThemeWithCircleReveal, elementCenter } from "~/lib/theme-reveal";
 
 /** Day mark — compact disc + short rays */
 function SunIcon(props: { class?: string }) {
@@ -44,9 +44,16 @@ export function ModeToggle() {
 
   const handleClick = (event: MouseEvent) => {
     const next = colorMode() === "dark" ? "light" : "dark";
+    const target = event.currentTarget;
+    if (!(target instanceof Element)) {
+      setColorMode(next);
+      return;
+    }
+    // Capture center synchronously — same as the dual-veil wave that tracked
+    // the button on mobile Chrome.
     applyThemeWithCircleReveal(() => setColorMode(next), {
       next,
-      toggle: event.currentTarget,
+      origin: elementCenter(target),
     });
   };
 
