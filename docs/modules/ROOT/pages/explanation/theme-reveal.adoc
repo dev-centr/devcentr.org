@@ -1,0 +1,36 @@
+= Theme reveal
+:navtitle: Theme reveal
+:description: Light/dark toggle animation using View Transitions, CSS variables, and WAAPI on devcentr.org.
+
+The header **mode toggle** (`src/components/mode-toggle.tsx`) applies light/dark theme changes with an elliptical reveal anchored to the toggle button center.
+
+Implementation lives in `src/lib/theme-reveal.ts` with styles in `src/app.css`.
+
+== Behavior
+
+* **Expand** — when the user picks a theme different from the load/OS baseline (State A), an ellipse grows from the toggle to cover the viewport.
+* **Contract** — when returning to the load/OS baseline, the ellipse shrinks back into the toggle.
+* **Reduced motion** — if `prefers-reduced-motion: reduce`, the theme applies instantly with no animation.
+* **No View Transitions** — browsers without `document.startViewTransition` also apply instantly.
+
+== Mechanics
+
+. On click, `mode-toggle.tsx` captures the toggle center synchronously via `elementCenter()` (never `clientX`/`clientY` — zero is a valid coordinate on mobile edges).
+. `applyThemeWithCircleReveal()` sets CSS custom properties on `<html>`:
+** `--theme-reveal-x`, `--theme-reveal-y` — origin in layout-viewport pixels
+** `--theme-reveal-rx`, `--theme-reveal-ry` — elliptical radii (wider than tall to cover corners)
+. `document.startViewTransition()` runs the Kobalte `setColorMode` callback.
+. After `transition.ready`, the Web Animations API animates only the radii (`easeOutSine`, 450ms).
+. `transition.finished` clears the reveal dataset and CSS variables.
+
+`src/components/theme-system-sync.tsx` calls `syncThemeRevealBaseline()` on load and when the OS color scheme changes so expand/contract direction stays correct.
+
+== Constraints
+
+* Only one reveal at a time — if `data-theme-reveal` is already set on `<html>`, subsequent toggles are ignored until cleanup.
+* The toggle must expose `data-theme-toggle` (or pass an explicit `origin`) so the anchor is stable on mobile WebKit and Chrome.
+
+== Related
+
+* Brand motion assets: `public/brand/README.adoc`
+* Design notes: `DESIGN.md` at the repository root

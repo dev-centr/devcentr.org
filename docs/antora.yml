@@ -1,0 +1,6 @@
+name: devcentr-org
+title: devcentr.org
+version: master
+start_page: ROOT:index.adoc
+nav:
+  - modules/ROOT/nav.adoc

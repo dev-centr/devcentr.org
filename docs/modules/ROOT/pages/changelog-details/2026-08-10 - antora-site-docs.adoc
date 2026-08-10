@@ -1,0 +1,44 @@
+= 2026-08-10 — Antora component and site docs
+:navtitle: 2026-08-10 Antora site docs
+
+== Summary
+
+First-class Antora documentation for the devcentr.org marketing site, covering architecture, build pipelines, and recently changed subsystems that previously lived only in README fragments or inline code comments.
+
+== Added
+
+=== Antora component
+
+* `docs/antora.yml` — component `devcentr-org`, published on the org docs hub.
+* Navigation and pages under `docs/modules/ROOT/`.
+
+=== Explanation pages
+
+* xref:explanation/site-architecture.adoc[Site architecture] — routes, static SolidStart build, CI sibling checkouts, Pages deploy.
+* xref:explanation/news-and-changelog.adoc[News & changelog pipeline] — `build-news.mjs`, feeds, mirror sources, troubleshooting.
+* xref:explanation/theme-reveal.adoc[Theme reveal] — View Transitions + WAAPI elliptical reveal from the mode toggle.
+* xref:explanation/toolchain-advisor.adoc[Toolchain Advisor] — SDL sync from `dev-centr/toolchain-advisor`.
+
+=== How-to
+
+* xref:how-to/local-development.adoc[Local development] — prerequisites, sibling clones, common scripts.
+
+=== Moved into Antora
+
+* xref:help-and-support-plans.adoc[Help & support plans] (planning notes for `/help`).
+* xref:walkthrough-vscode-and-ci.adoc[VS Code & CI walkthrough].
+
+=== README
+
+* Docs badge → `https://docs.devcentr.org/devcentr-org/`
+* CI badge → GitHub Actions workflow status.
+
+== Cross-repo
+
+* `dev-centr/docs` playbook registers this component; activity log and xref:home::where-docs-live.adoc[Where documentation lives] updated.
+
+== Knowledge gaps addressed
+
+* How `/changelog` ingests sibling Antora files (previously only mentioned briefly in README).
+* Theme reveal state machine and mobile constraints (previously only in code comments).
+* Toolchain advisor data path from SDL to `public/catalog/advisor.json`.
