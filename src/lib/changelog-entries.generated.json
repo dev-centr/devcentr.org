@@ -1,16 +1,87 @@
 {
   "entries": [
     {
-      "id": "devcentr-2026-08-08-studio-mcp-install-strategies-docs",
-      "date": "2026-08-08",
-      "title": "Studio MCP install strategies (docs)",
+      "id": "general-knowledge-2026-08-12-google-cloud-project-mental-model-oauth",
+      "date": "2026-08-12",
+      "title": "Google Cloud project mental model (OAuth)",
       "bullets": [
-        "AI Workflow Arrangement + AI Config MCP tab point at general-knowledge",
-        "Guided add: recommend connector packages via that ladder; do not invent a DevCentr-owned OAuth broker."
+        "Explanation Google Cloud projects as OAuth boundaries — ideal app-shaped model vs Project-coupled consent/quotas; SVG + Mermaid maps.",
+        "How-to Set up Google Cloud OAuth for personal tools — trust-boundary first, Drive vs Workbench trap, Composio callback, grow scopes on one Client ID.",
+        "Reference Google Cloud OAuth concept map.",
+        "Cross-links from Composio how-to / explanation and infrastructure reference.",
+        "News essay on devcentr.org: When a Cloud project pretends to be an app.",
+        "See Detailed changelog."
       ],
-      "sourceId": "devcentr",
-      "sourceLabel": "DevCentr",
-      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-10-context7-setup-ai-docs-writing-nav-prune",
+      "date": "2026-08-10",
+      "title": "Context7 setup, AI docs writing, nav prune",
+      "bullets": [
+        "How-to Context7 MCP and Skills setup; explanation Writing clear docs with AI.",
+        "Pruned nav entries that pointed at pages never authored (git how-tos, sync essays, etc.) so the hub nav matches the tree.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-10-vibe-coding-bootstrap-cursor-skills",
+      "date": "2026-08-10",
+      "title": "Vibe coding bootstrap (Cursor skills)",
+      "bullets": [
+        "Explanation Vibe coding bootstrap — AI-studio setup under Vibe coding → Bootstrap (not Business Bootstrap); operator vs drop-into-permissive-agent on-ramps.",
+        "How-to Bootstrap Cursor skills — personal skills layout, thin rule pointers, worked example writing-news-vs-blog.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-09-api-key-vs-token",
+      "date": "2026-08-09",
+      "title": "API key vs token",
+      "bullets": [
+        "Explanation API key vs token — architectural split (API key / scoped key·PAT / access token); forced Dev-Centr naming; cross-links Secrets Manager and News.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-09-git-s-file-shaped-change-model",
+      "date": "2026-08-09",
+      "title": "Git's file-shaped change model",
+      "bullets": [
+        "Explanation Git's file-shaped change model — features vs file blobs, missing dependency edges, stash/pull collisions, Unison, syntax-aware auto-forward; cross-links connectome-fs (now dev-centr/connectome-fs).",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-09-os-install-concurrency",
+      "date": "2026-08-09",
+      "title": "OS install concurrency",
+      "bullets": [
+        "Explanation OS install concurrency — host-wide install mutex for agent workflows; Windows MSI 1618 vs Linux package locks; links the News diptych for deep OS essays.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
       "kind": "changelog"
     },
     {
@@ -98,151 +169,6 @@
       "sourceId": "general-knowledge",
       "sourceLabel": "General Knowledge",
       "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
-      "kind": "changelog"
-    },
-    {
-      "id": "devcentr-2026-08-06-content-create-sdl-classifications-lineage",
-      "date": "2026-08-06",
-      "title": "Content Create (SDL classifications + lineage)",
-      "bullets": [
-        "Spec: Content Create — repo right-click Create…, dual nav (job tree + evolution lineage), stub create.",
-        "SDL catalog: app/src/modules/content_create/content-types.sdl; loader/UI under modules.content_create.",
-        "Repository browser context menu + definition-files updated; sdl.adoc notes KDL relation.",
-        "See Detailed changelog."
-      ],
-      "sourceId": "devcentr",
-      "sourceLabel": "DevCentr",
-      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
-      "kind": "changelog"
-    },
-    {
-      "id": "devcentr-2026-08-06-content-create-lineage-leds-and-richer-type-facts",
-      "date": "2026-08-06",
-      "title": "Content Create lineage LEDs and richer type facts",
-      "bullets": [
-        "Lineage rows: invented year + vitality LED (current/mature/legacy/outdated/reference).",
-        "Detail pane: homepage, repository, specification links; invented / last-updated fields.",
-        "Catalog expanded (schema, data, more docs/config/code); AsciiDoc spec points at Asciidoctor language docs (Eclipse formal spec still drafting).",
-        "See Content Create."
-      ],
-      "sourceId": "devcentr",
-      "sourceLabel": "DevCentr",
-      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
-      "kind": "changelog"
-    },
-    {
-      "id": "devcentr-2026-08-06-dos-category-devops-as-one-facet",
-      "date": "2026-08-06",
-      "title": "DOS category: DevOps as one facet",
-      "bullets": [
-        "Public category stays Development Orchestration Suite (DOS); *Dev OS* is a quiet mental model only.",
-        "DevOps documented as one facet (CI/CD / infra / traditional ops)—not the whole product.",
-        "Vision, capabilities, and docs index updated accordingly."
-      ],
-      "sourceId": "devcentr",
-      "sourceLabel": "DevCentr",
-      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
-      "kind": "changelog"
-    },
-    {
-      "id": "devcentr-2026-08-06-easy-installer-install-in-place-path",
-      "date": "2026-08-06",
-      "title": "Easy installer + Install in-place PATH",
-      "bullets": [
-        "New File catalog: Packaging → Installer Project (installer.kdl).",
-        "Toolbar: Install in-place PATH and New Installer (calls easy-installer).",
-        "Explorer/CLI modes: --mode=new-installer, --mode=inplace-path.",
-        "Spec: Explorer Shell Integration."
-      ],
-      "sourceId": "devcentr",
-      "sourceLabel": "DevCentr",
-      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
-      "kind": "changelog"
-    },
-    {
-      "id": "devcentr-2026-08-06-ecosystem-filters-explorer-devcentr-shell",
-      "date": "2026-08-06",
-      "title": "Ecosystem filters + Explorer DevCentr shell",
-      "bullets": [
-        "Content Create: ecosystem tag chips (inferred from project / CLI --tags); filter job tree + lineage.",
-        "CLI modes: --mode=new-file|new-project|open --path=….",
-        "Lightweight New Project dialog; HKCU cascading Explorer menu (Appearance → Install).",
-        "Specs: Content Create filters; Explorer Shell Integration."
-      ],
-      "sourceId": "devcentr",
-      "sourceLabel": "DevCentr",
-      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
-      "kind": "changelog"
-    },
-    {
-      "id": "devcentr-2026-08-06-file-manager-menus-win11-first-linux",
-      "date": "2026-08-06",
-      "title": "File-manager menus: Win11-first + Linux",
-      "bullets": [
-        "Explorer: prefer Windows 11 IExplorerCommand sparse package; classic HKCU cascade only when modern unavailable.",
-        "Linux: DES-EMA under file-manager/actions plus Dolphin / Nemo / Thunar / Nautilus adapters from one action list.",
-        "Appearance → Install file-manager menu; status shows active backend.",
-        "Spec: Explorer Shell Integration."
-      ],
-      "sourceId": "devcentr",
-      "sourceLabel": "DevCentr",
-      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
-      "kind": "changelog"
-    },
-    {
-      "id": "devcentr-2026-08-06-ibex-easy-installer-rename",
-      "date": "2026-08-06",
-      "title": "Ibex (Easy Installer rename)",
-      "bullets": [
-        "Resolve ibex on PATH (fallback easy-installer).",
-        "New Installer dialog branded for Ibex; content-types text updated.",
-        "winget / brew / scoop: DevCentr.Ibex / dev-centr/tap/ibex."
-      ],
-      "sourceId": "devcentr",
-      "sourceLabel": "DevCentr",
-      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
-      "kind": "changelog"
-    },
-    {
-      "id": "devcentr-2026-08-06-installer-ci-pipeline-emit",
-      "date": "2026-08-06",
-      "title": "Installer CI pipeline emit",
-      "bullets": [
-        "New Installer dialog: Package vs CI pipeline only + runner dropdown.",
-        "Explorer/CLI: --mode=emit-ci; file-manager New Installer CI pipeline….",
-        "Calls easy-installer new-project --intent=ci-pipeline (workflows + CI-INSTALLER.adoc, no local package)."
-      ],
-      "sourceId": "devcentr",
-      "sourceLabel": "DevCentr",
-      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
-      "kind": "changelog"
-    },
-    {
-      "id": "devcentr-2026-08-06-node-package-managers-bun-orogene",
-      "date": "2026-08-06",
-      "title": "Node package managers: Bun + Orogene",
-      "bullets": [
-        "languages/node.sdl: package managers now include pnpm (preferred), Bun, Yarn, npm, and Orogene (closed-aspirational); optional status / notes / homepage fields.",
-        "Ecosystem loader/UI surfaces package-manager notes; definition-files + project-vision updated.",
-        "Companion: general-knowledge npm package managers."
-      ],
-      "sourceId": "devcentr",
-      "sourceLabel": "DevCentr",
-      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
-      "kind": "changelog"
-    },
-    {
-      "id": "devcentr-2026-08-06-sdlang-kept-kdl-greenfield-reject-xdl",
-      "date": "2026-08-06",
-      "title": "SDLang kept; KDL greenfield; reject XDL",
-      "bullets": [
-        "Spec decision table: SDL Preference.",
-        "Content Create: tighter SDLang/KDL roles; xdl reference-only (not creatable); lineage edge SDLang → XDL marked avoid.",
-        "Companion GK page updated; agent-rules config line aligned."
-      ],
-      "sourceId": "devcentr",
-      "sourceLabel": "DevCentr",
-      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
       "kind": "changelog"
     },
     {
@@ -371,36 +297,6 @@
       "sourceLabel": "General Knowledge",
       "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
       "kind": "changelog"
-    },
-    {
-      "id": "activity-docs-portal-2026-08",
-      "date": "2026-08-01",
-      "title": "August 2026",
-      "bullets": [
-        "Business Bootstrap hub — Restructured into capability areas (Email · Scheduling · Design · Vault · Org infra) with stack map and articles for Cal.com / Cal.diy, Penpot, Bitwarden / Vaultwarden. Hub stubs under Tools; FoodTruckNerdz links the same stack.",
-        "Studio MCP install strategies — Documented Composio’s Cursor install ladder (marketplace plugin, deeplink, mcp.json, skills, thin/fat MCP) as a reusable option for AI-studio tooling; master list AI studio tooling catalog. Wired into DevCentr AI Config / AI Workflow Arrangement specs. Explanation.",
-        "Composio MCP — Connector plane for Cursor/CLI agents (Gmail, GitHub, Vercel, …). How-to + stack explanation in general-knowledge; hub stub under Tools. Setup · Stack placement · portal.",
-        "Software Product Essentials — auxiliary templates — general-knowledge gained desktop/web/mobile auxiliary feature matrices (Help, About, updates, diagnostics, connectivity, privacy) plus macOS/Linux update apply guidance (quit/replace, package timers, AppImage). Auxiliary features · Delivery classes · Unix/macOS auto-updates.",
-        "Rules Manager — Compose/watch daemon + tray for agent-rules (dev-centr/rules-manager); Antora component on the hub. Rules Manager docs · portal · https://docs.devcentr.org/rules-manager/",
-        "Admonition TIP Antora green — DevCentr no longer remaps tip to brand teal; TIP pill + card stay on --tip-color / --adt-admonition-tip (Antora #41af46). Tip inline code keeps charcoal/coral with a rounded gray border.",
-        "Admonition TIP one green — TIP pill and card tint both follow --adt-admonition-tip (no second emerald on the body). Brand overlay clears stale cell washes; Valentus / antora-dark-mode ship the token wiring.",
-        "Admonition TIP card — TIP/NOTE label now sits *inside* the bordered card (table chrome). Prior overlay/fix only cleared the green wash and left the border on the body.",
-        "Theme toggle timing — Light↔dark animation was uneven: View Transitions (0.28s) raced Valentus --adt-transition paint rules (0.2s). Fixed upstream in antora-dark-mode (html.adt-theme-vt + :active-view-transition); docs brand overlay uses the CSS-only suppress until rolling v2 updates.",
-        "Admonition dark TIP wash — Earlier fix cleared type-tint wash on the TIP label cell (antora-dark-mode 1.4.1 / valentus-theme 2.0.6); superseded by the card-wrap fix above.",
-        "RepoDrive — Standalone forge virtual drive (dev-centr/repo-drive): GUI + tray, sparse mount, Ibex installers; wired into Antora hub. RepoDrive docs · portal · https://docs.devcentr.org/repo-drive/",
-        "Switchyard — New Windows file-association switchyard (dev-centr/switchyard): snapshot open/icon tracks, planned icon lock; Antora component on the hub. Switchyard docs · portal.",
-        "valentus-theme head-meta sync — Restored font-size FOUC + site-font-size.css in the supplemental head-meta.hbs overlay (was missing after brand fork). Condensed A/A/A control hides on desktop again and scales doc text on mobile. Playbooks already use rolling v2.",
-        "valentus-theme product topic — This repo (and other Valentus playbooks) tagged with GitHub topic valentus-theme for dependency rediscovery; convention documented upstream.",
-        "DOS naming — Public category stays Development Orchestration Suite; DevOps framed as one facet of the suite; *Dev OS* as quiet mental model only. Sites + DevCentr vision/capabilities docs updated.",
-        "Ibex — Rebrand of Easy Installer (ibex CLI): Install Builder EXtension. winget DevCentr.Ibex, Homebrew tap, Scoop. Ibex docs · portal.",
-        "Easy Installer CI emit — emit-ci / ci-runner.sdl writes GitHub Actions, GitLab, Azure, Jenkins, CircleCI, and Bitbucket workflows plus CI-INSTALLER.adoc without a local package build. DevCentr: --mode=emit-ci and New Installer CI pipeline menu. How-to: emit CI.",
-        "Easy Installer — Host for in-place PATH, installer.kdl projects, plugin backends (zip/NSIS/Inno/MSI/MSIX/AppImage), and file-manager menus (now Ibex). Ibex docs · portal.",
-        "msi-generator v0.2 — Real OLE2 CFB, uncompressed CAB, and core MSI tables; multi-file MSIX with placeholder assets. MSI Generator docs."
-      ],
-      "sourceId": "docs-portal",
-      "sourceLabel": "Docs portal",
-      "docsUrl": "https://docs.devcentr.org/home/activity-log.html",
-      "kind": "activity-log"
     },
     {
       "id": "general-knowledge-2026-07-31-github-pages-custom-domain-cloudflare-https",

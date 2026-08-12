@@ -1,0 +1,24 @@
+= When a Cloud project pretends to be an app
+:description: Google Cloud forces personal OAuth into Project-shaped boxes—consent, quotas, and API enablement included. Here is the mental model we document instead.
+:revdate: 2026-08-12
+:keywords: news, blog, google cloud, oauth, composio, mental model, diataxis, infrastructure
+
+You do not think in Google Cloud Projects.
+
+You think: *this is my account*, *these are the apps I trust*, *this one may read Drive*, *that one may sync files*. Composio asks for a Client ID and Client Secret. rclone already has one. The Console shrugs and hands you another Project wizard—same enterprise path you would use for a billing account and a fleet of VMs.
+
+That is not a small UX annoyance. It is a **noun collision**. Consent screens, enabled APIs, and quotas hang off the Project. OAuth Client IDs are children of it. Two Client IDs in one Project do not give you two apps; they give you two credential strings sharing one consent name, one scope union, and one rate-limit bucket. Revoke the “app” and you may have revoked more than you meant.
+
+We wrote the Dev-Centr docs the way people actually learn this:
+
+* A **how-to** that stays task-shaped—pick a trust boundary, create the Project as a stand-in for that boundary, enable the real API (Drive, not Enterprise Notebooks), leave JavaScript origins empty when you only need a redirect URI, reuse one Client ID when you *want* one Composio trust platform, re-authorize after scope growth.
+* An **explanation** that shows the ideal model, the actual coupling, and the map between them—with diagrams, not a lecture stuffed into the how-to.
+* A **reference** concept map for when you are mid-Console and need the noun table.
+
+The opinion underneath: keep calling them *apps* in your head. Label Projects as **trust platforms**, not “Personal 2.0” folders. Lump when you want one revoke story (all Google toolkits inside Composio). Split when the products are different (Composio vs rclone). Do not pretend a second Client ID is isolation.
+
+Longer treatment lives in General Knowledge—start at the explanation if you want the pictures, or the how-to if you are already holding the Client Secret dialog.
+
+* link:https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/google-cloud-project-mental-model.html[Google Cloud projects as OAuth boundaries]
+* link:https://docs.devcentr.org/general-knowledge/latest/how-to/google-cloud-oauth-for-personal-tools.html[Set up Google Cloud OAuth for personal tools]
+* link:https://docs.devcentr.org/general-knowledge/latest/reference/google-cloud-oauth-concept-map.html[Concept map]

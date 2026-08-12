@@ -5,7 +5,25 @@
   <link>https://devcentr.org/news</link>
   <description>News and engineering blog posts from Dev-Centr.</description>
   <language>en-us</language>
-  <lastBuildDate>Sat, 08 Aug 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 12 Aug 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>When a Cloud project pretends to be an app</title>
+    <link>https://devcentr.org/news/2026-08-12-when-a-cloud-project-pretends-to-be-an-app</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-08-12-when-a-cloud-project-pretends-to-be-an-app</guid>
+    <pubDate>Wed, 12 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Google Cloud forces personal OAuth into Project-shaped boxes—consent, quotas, and API enablement included. Here is the mental model we document instead.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
+  <item>
+    <title>When API keys wear token costumes</title>
+    <link>https://devcentr.org/news/2026-08-09-api-keys-wearing-token-costumes</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-08-09-api-keys-wearing-token-costumes</guid>
+    <pubDate>Sun, 09 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Vendors keep labeling long-lived dashboard secrets as tokens. Here is the architectural split Dev-Centr is forcing into docs and Secrets Manager—and why the wrong word keeps breaking security reviews.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
   <item>
     <title>Business Bootstrap becomes a support-systems hub</title>
     <link>https://devcentr.org/news/2026-08-08-support-systems-hub</link>

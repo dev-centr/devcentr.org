@@ -4,8 +4,26 @@
   <link href="https://devcentr.org/news" rel="alternate"/>
   <link href="https://devcentr.org/news/atom.xml" rel="self"/>
   <id>https://devcentr.org/news</id>
-  <updated>2026-08-08T12:00:00Z</updated>
+  <updated>2026-08-12T12:00:00Z</updated>
   <subtitle>News and engineering blog posts from Dev-Centr.</subtitle>
+  <entry>
+    <title>When a Cloud project pretends to be an app</title>
+    <link href="https://devcentr.org/news/2026-08-12-when-a-cloud-project-pretends-to-be-an-app" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-08-12-when-a-cloud-project-pretends-to-be-an-app</id>
+    <updated>2026-08-12T12:00:00Z</updated>
+    <summary>Google Cloud forces personal OAuth into Project-shaped boxes—consent, quotas, and API enablement included. Here is the mental model we document instead.</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
+  <entry>
+    <title>When API keys wear token costumes</title>
+    <link href="https://devcentr.org/news/2026-08-09-api-keys-wearing-token-costumes" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-08-09-api-keys-wearing-token-costumes</id>
+    <updated>2026-08-09T12:00:00Z</updated>
+    <summary>Vendors keep labeling long-lived dashboard secrets as tokens. Here is the architectural split Dev-Centr is forcing into docs and Secrets Manager—and why the wrong word keeps breaking security reviews.</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
   <entry>
     <title>Business Bootstrap becomes a support-systems hub</title>
     <link href="https://devcentr.org/news/2026-08-08-support-systems-hub" rel="alternate"/>
