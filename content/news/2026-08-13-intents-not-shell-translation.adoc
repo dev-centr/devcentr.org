@@ -1,0 +1,110 @@
+= Intents, not shell translation
+:description: One playbook should name what you want. PlayTime binds how on this computer. Equivalence Engine is a catalog -- not a blender that turns bash into PowerShell.
+:revdate: 2026-08-13
+:keywords: news, blog, scriptbook, playtime, equivalence engine, intents, host awareness, openshellorg
+
+You have a setup document that works on your laptop.
+
+Your teammate opens it on Windows. You start swapping `apt` for `winget`. Quotes explode. Paths lie. `&&` becomes a ghost. You now own two documents that pretend to be the same procedure.
+
+That urge is honest. The overall process usually *is* the same: detect, acquire, configure, verify. The trap is treating "the same procedure" as "hot-replace inside a bash file."
+
+We are not building a shell compiler. We do not have one. We should not pretend Equivalence Engine is one.
+
+**Write what you want.** At play time, the machine binds *how* for this computer.
+
+.Cookbook, kitchen, waiter
+image::https://devcentr.org/news/media/playtime-layers.svg[alt="Three layers: CentrMark the book, PlayTime the stage, Scriptbook the app"]
+
+Call the file format **CentrMark** (`.cmk`). It is only writing. A playbook directive means nothing until a profile gives it a job.
+
+Call the engine **PlayTime**. That name fell out of the phrase "at play time" and then earned a layer. PlayTime reads the book, learns the host, asks Equivalence Engine for a command, runs it, and writes a sidecar next to the file. It never rewrites the recipe.
+
+Call the app **Scriptbook**. Today that is a CLI. Later it is also a DevCentr screen. It opens the book and talks to you. It must not become a second resolver.
+
+The book is not the kitchen. The kitchen is not the waiter. Mixing those three is how Equivalence Engine grows a document runner, and how Scriptbook grows a package catalog. We already have both of those, elsewhere.
+
+== The blender we refused
+
+Equivalence Engine already has two machines. People mash them together because they share a logo.
+
+`code` is a path: library 5.15 → 6.0, apply rewrites. That is the "equivalence" story people remember.
+
+`cli` and `filesystem` are already **lookups**. `cli.install gh` plus a host key returns a row in a catalog. There is no migration path from winget to apt. There is a table.
+
+If we stuffed `format` and `shell` into that path -- `windows/winget/pwsh/msi` -- we would tensor two independent facts into nodes. The lattice would eat the engine. That is the hairy version. We did not take it.
+
+.Do not put a bash script through a blender
+image::https://devcentr.org/news/media/playtime-wrong-translator.svg[alt="A Linux apt script enters a hot-replace grinder and comes out as broken Windows commands"]
+
+`winget install GitHub.cli` is not a bash program. It is not a pwsh program. It is **argv**: a program name and some arguments. Spawn it with no shell, the way a GUI button would. Then you do not need three "equivalent" rows for three coats.
+
+.One suitcase, no costumes
+image::https://devcentr.org/news/media/playtime-argv.svg[alt="argv box for winget install; dashed bash, pwsh, and nu coats are not needed"]
+
+Shell still exists. Scriptbook's `shell=` is for glue cells -- `echo`, a Nushell helper, the verify step that is already portable. Catalog rows stay `runtime argv` unless the method really is `curl | bash`. That is a constraint ("this host must have bash"), not a dimension we multiply by format.
+
+The student asked: MSI or bash?
+
+.Two doors is not a questionnaire
+image::https://devcentr.org/news/media/playtime-two-doors.svg[alt="Two doors labeled MSI and bash; that is not a choice"]
+
+The teacher did not open either door. That is not a choice.
+
+== Same spine, different satellites
+
+Install a CLI. Put config in the user config dir. Open port 443. Enable a background service. The graph is the same. The command bound to each node is not.
+
+Sometimes the *method* grows extra steps that hang off the acquire node. AppImage wants a desktop file. MSI wants elevation. Flatpak does not want PATH surgery. That is a choice node that expands a small subgraph -- not a second playbook.
+
+Ask only the overlap: this tool's methods on this host. If the overlap is one method, do not ask.
+
+.Ask only the overlap
+image::https://devcentr.org/news/media/playtime-venn.svg[alt="Two circles: catalog methods and host capabilities; ask only in the overlap"]
+
+GPU drivers and "tray app vs Windows service" are the exceptions. Do not force one graph there. Do not make the exception the engine.
+
+== The cycle that looked real
+
+We wanted to register abstract instructions in Equivalence Engine so PlayTime could dereference them later. That is right. `cli.install` already is one. `os.version` would be another.
+
+Then: if "find the OS version" is an intent, how does the engine pick the method for "find the OS version" without knowing the OS?
+
+It doesn't. That loop is real, and we do not walk it.
+
+PlayTime is a compiled program. It already knows NT vs not. It probes PATH without shelling out to `where` versus `which` (those commands *assume* an OS). It freezes a **Host Identity Record**. Nested expansions reuse that snapshot. They do not re-detect and disagree.
+
+`os.version` as a *later* playbook step is an ordinary dereference: print the version string, filtered by the snapshot you already have. PowerShell-on-Linux does not save the first step. `$IsLinux` only works if you are already inside pwsh. PlayTime is not.
+
+.Snapshot, then dereference
+image::https://devcentr.org/news/media/playtime-bootstrap.svg[alt="Deadlock cycle crossed out; snapshot then bind"]
+
+Call the bootstrap contract **Host Awareness**. There is no vendor `get_os()`. There are cousins: `uname`, `/etc/os-release`, `RtlGetVersion`, `sw_vers`. We sit on those. A hobby kernel can fill the record. Microsoft will not file a PR; we still bake a Windows probe.
+
+WSL is not a new planet. It is Linux with a sticker.
+
+== The loop we actually wanted
+
+CI already compiles `tools.sdl` to `tools.json`. Aim that trick at stage zero.
+
+Humans register probe rows and intents in shared rules. CI runs Equivalence Engine as a **compiler** -- it does not detect the GitHub runner -- and writes an ordered cascade into PlayTime. The shipped binary wakes up offline. After the record exists, runtime PlayTime may call the engine for `cli.install`. New row → next bake → next release.
+
+That is a **ratchet**, not a deadlock. Catalogs get richer. PlayTime wakes up on more machines. People write more playbooks. They register more intents. The next bake is richer.
+
+.Ratchet at build time
+image::https://devcentr.org/news/media/playtime-growth-ratchet.svg[alt="Rules to CI bake to shipped PlayTime to more playbooks back to new catalog rows"]
+
+You live in the attic. You write `install gh`. The basement is argv. When winget flags change, you rewrite the basement. The book does not move. Because that is cheap, you write more abstract scripts instead of more shell. Vocabulary grows up. Realizations stay down.
+
+.Attic intents, basement argv
+image::https://devcentr.org/news/media/playtime-attic-basement.svg[alt="House: intents in the attic, PlayTime stairs, catalog in the basement"]
+
+PlayTime *sounds* like an OpenShellOrg concern: argv honesty, host identity, not lying about which process you spawned. It might belong there someday. It is being built in `scriptbook` right now. We are not relocating the kitchen mid-service.
+
+.Aligned, not moved
+image::https://devcentr.org/news/media/playtime-sibling-home.svg[alt="PlayTime in the Dev-Centr workshop; dotted maybe-later path to OpenShellOrg"]
+
+The details -- directives, sidecar fields, probe kinds, `--to` must stay a host alias -- live in the docs. This page is the orientation: **intents, not shell translation**. Same book. This computer fills in the verbs.
+
+* link:https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/abstract-playbooks.html[Abstract playbooks] (encyclopedia)
+* link:https://github.com/dev-centr/scriptbook[scriptbook] · link:https://docs.opensh.org/shell-architecture/playtime-at-the-shell-boundary.html[PlayTime at the shell boundary]

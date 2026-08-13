@@ -4,8 +4,17 @@
   <link href="https://devcentr.org/news" rel="alternate"/>
   <link href="https://devcentr.org/news/atom.xml" rel="self"/>
   <id>https://devcentr.org/news</id>
-  <updated>2026-08-12T12:00:00Z</updated>
+  <updated>2026-08-13T12:00:00Z</updated>
   <subtitle>News and engineering blog posts from Dev-Centr.</subtitle>
+  <entry>
+    <title>Intents, not shell translation</title>
+    <link href="https://devcentr.org/news/2026-08-13-intents-not-shell-translation" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-08-13-intents-not-shell-translation</id>
+    <updated>2026-08-13T12:00:00Z</updated>
+    <summary>One playbook should name what you want. PlayTime binds how on this computer. Equivalence Engine is a catalog -- not a blender that turns bash into PowerShell.</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
   <entry>
     <title>When a Cloud project pretends to be an app</title>
     <link href="https://devcentr.org/news/2026-08-12-when-a-cloud-project-pretends-to-be-an-app" rel="alternate"/>

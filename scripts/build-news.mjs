@@ -90,7 +90,7 @@ function cleanInlineMarkup(line) {
 
 function parseChangelogTimeline(text, source) {
   const entries = [];
-  const re = /^==\s+(\d{4}-\d{2}-\d{2})\s+[—–-]\s+(.+)\s*$/gm;
+  const re = /^==\s+(\d{4}-\d{2}-\d{2})\s+(?:--|—|–|-)\s+(.+)\s*$/gm;
   const matches = [...text.matchAll(re)];
   for (let i = 0; i < matches.length; i++) {
     const m = matches[i];
