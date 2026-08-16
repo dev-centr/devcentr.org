@@ -7,6 +7,7 @@ DevCentr brand files for org profiles and the marketing site.
 
 * `logo.svg` / `logo.png` / `logo-256.png` — transparent mark
 * `logo-on-dark.svg` / `logo-on-dark.png` / `logo-on-dark-256.png` — rounded tile; use `logo-on-dark-256.png` for the GitHub org avatar
+* `favicon.svg` / `favicon.png` — orbital mark packed tight on the dark tile for tab icons (`pnpm brand:raster` on the site)
 
 == Motion
 
