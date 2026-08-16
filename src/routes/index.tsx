@@ -58,6 +58,11 @@ const destinations = [
     detail: "Product & docs shipping notes",
   },
   {
+    href: "/templates",
+    label: "Templates",
+    detail: "Copy a bootstrap profile name",
+  },
+  {
     href: "/toolchain-advisor",
     label: "Toolchain Advisor",
     detail: "Pick host, target, language",

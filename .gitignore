@@ -22,3 +22,6 @@ Thumbs.db
 
 app.config.timestamp_*.js
 
+# Generated from the agent-rules SDL catalog at build (not a second authored list)
+public/catalog/bootstrap-profiles.json
+

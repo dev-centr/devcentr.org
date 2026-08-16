@@ -34,6 +34,12 @@ const SERVICES: Omit<ProbeResult, "state" | "statusText" | "ms">[] = [
     detail: "Product & docs shipping notes",
   },
   {
+    id: "templates",
+    name: "Bootstrap templates",
+    url: "https://devcentr.org/templates/",
+    detail: "Named SDL profiles · copy into Cursor",
+  },
+  {
     id: "advisor",
     name: "Toolchain Advisor",
     url: "https://devcentr.org/toolchain-advisor/",

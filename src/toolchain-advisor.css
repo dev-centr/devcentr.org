@@ -276,3 +276,55 @@
 .advisor-page .page-header p {
   color: #aaa;
 }
+
+.tpl-flow {
+  flex-direction: column;
+  overflow-x: visible;
+}
+
+.tpl-list {
+  width: min(320px, 100%);
+}
+
+.tpl-options {
+  max-height: min(420px, 55vh);
+}
+
+.tpl-id {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.82rem;
+}
+
+.tpl-name {
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+.tpl-copy-row {
+  margin: 0.75rem 0 0.25rem;
+}
+
+.tpl-chips {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.tpl-chips li {
+  font-size: 0.75rem;
+  color: #bbb;
+  border: 1px solid var(--glass-border);
+  border-radius: 999px;
+  padding: 0.15rem 0.55rem;
+}
+
+.tpl-prompt {
+  margin-top: 1.25rem;
+}
+
+.tpl-prompt code {
+  font-size: 0.78rem;
+}

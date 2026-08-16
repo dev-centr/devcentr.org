@@ -16,6 +16,9 @@ export function SiteHeader() {
         <a href="/apps" class={linkClass}>
           Apps
         </a>
+        <a href="/templates" class={linkClass}>
+          Templates
+        </a>
         <a href="/news" class={linkClass}>
           News
         </a>

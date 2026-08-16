@@ -28,6 +28,12 @@ jobs:
           repository: dev-centr/toolchain-advisor
           path: toolchain-advisor
 
+      - name: Checkout agent-rules (bootstrap profile SDL)
+        uses: actions/checkout@v4
+        with:
+          repository: dev-centr/agent-rules
+          path: agent-rules
+
       - name: Checkout general-knowledge (changelog ingest)
         uses: actions/checkout@v4
         with:
@@ -63,6 +69,9 @@ jobs:
       - name: Sync advisor catalog into public/
         run: node scripts/sync-advisor-catalog.mjs
 
+      - name: Sync bootstrap profiles into public/
+        run: node scripts/sync-bootstrap-profiles.mjs
+
       - name: Build news + changelog catalogs, RSS, and Atom
         run: node scripts/build-news.mjs
 
@@ -71,6 +80,11 @@ jobs:
 
       - name: Verify advisor route artifact
         run: test -f .output/public/toolchain-advisor/index.html
+
+      - name: Verify bootstrap templates artifact
+        run: |
+          test -f .output/public/templates/index.html
+          test -f .output/public/catalog/bootstrap-profiles.json
 
       - name: Verify apps catalogue artifacts
         run: |

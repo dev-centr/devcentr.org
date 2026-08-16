@@ -21,6 +21,12 @@ export function SiteFooter() {
             <a href="/changelog" class={footLink}>
               Changelog
             </a>
+            <a href="/templates" class={footLink}>
+              Templates
+            </a>
+            <a href="/toolchain-advisor" class={footLink}>
+              Toolchain Advisor
+            </a>
             <a href="https://docs.devcentr.org" class={footLink}>
               Docs
             </a>
