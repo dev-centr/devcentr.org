@@ -65,7 +65,7 @@ export default function AppsGate() {
             return (
               <a
                 href={pane.href}
-                class="apps-gate-pane group relative flex flex-col justify-end overflow-hidden border-border/70 no-underline transition-[flex] duration-500 ease-out md:border-y md:first:border-l md:last:border-r"
+                class="apps-gate-pane group relative flex flex-col justify-start overflow-hidden border-border/70 no-underline transition-[flex] duration-500 ease-out md:border-y md:first:border-l md:last:border-r"
                 classList={{
                   "border-t": true,
                   "border-b md:border-b": true,

@@ -1,3 +1,5 @@
+export type CatalogCategory = "products" | "services" | "standards";
+
 export type CatalogItem = {
   id: string;
   name: string;
@@ -5,14 +7,24 @@ export type CatalogItem = {
   href: string;
   external?: boolean;
   ideaSlug?: string;
+  /** Public URL of an existing product mark; omit when none exists. */
+  logo?: string;
+  /** Topic tags (not a breadcrumb). Example: "Tooling · Image pipeline". */
+  tags?: string;
 };
 
 export type IdeaPage = {
   slug: string;
   title: string;
-  category: "products" | "services" | "standards";
+  category: CatalogCategory;
   overview: string;
   repos: { name: string; summary: string; href: string }[];
+};
+
+export const categoryLabel: Record<CatalogCategory, string> = {
+  products: "Products",
+  services: "Services",
+  standards: "Standards",
 };
 
 export const products: CatalogItem[] = [
@@ -22,6 +34,7 @@ export const products: CatalogItem[] = [
     summary: "Flagship Development Orchestration Suite (DOS).",
     href: "https://devcentr.app",
     external: true,
+    logo: "/brand/logo-on-dark.svg",
   },
   {
     id: "equivalence-engine",
@@ -29,6 +42,7 @@ export const products: CatalogItem[] = [
     summary: "DAG-based adaptation across code, paths, and CLI installs.",
     href: "/ideas/equivalence-engine",
     ideaSlug: "equivalence-engine",
+    logo: "/apps/logos/equivalence-engine.svg",
   },
   {
     id: "pathman",
@@ -63,6 +77,7 @@ export const products: CatalogItem[] = [
     name: "resting-lanczos",
     summary: "Crisp responsive images: Lanczos tiers + srcset + transform (comparison demo).",
     href: "/resting-lanczos",
+    tags: "Tooling · Image pipeline",
   },
 ];
 
@@ -137,4 +152,12 @@ export const ideas: IdeaPage[] = [
 
 export function getIdea(slug: string) {
   return ideas.find((i) => i.slug === slug);
+}
+
+export function getCatalogItem(id: string) {
+  return [...products, ...services, ...standards].find((item) => item.id === id);
+}
+
+export function catalogItemForIdea(slug: string) {
+  return products.find((item) => item.ideaSlug === slug);
 }

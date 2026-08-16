@@ -1,0 +1,20 @@
+= 2026-08-16 — Apps catalog trail, product marks, and Lanczos status
+:navtitle: 2026-08-16 Apps catalog
+
+== Summary
+
+The Apps gate puts category copy at the top of each pane.
+Products, services, and standards lists show a mark when the product already has one.
+Nested pages use the same Apps / Category / Current trail as the catalog lists; topic tags sit *below* that trail so they are not mistaken for hierarchy.
+The resting-lanczos demo shows matching source-width status chips above each card.
+
+== Changed
+
+* `/apps` panes — `justify-start` so numbered labels, titles, and blurbs read from the top.
+* Catalog lists — DevCentr and Equivalence Engine logos; other entries stay text-only until they have a mark.
+* Shared `PageTrail` — Apps catalogue pages, idea pages, news posts, and `/resting-lanczos`.
+* resting-lanczos — trail matches the access path; “Tooling · Image pipeline” remains a tag; the Products catalog button is gone (that hop is the trail). Master chip is 2400w; Lanczos chips highlight the srcset candidate currently served (400w or 800w).
+
+== Documented
+
+* xref:explanation/site-architecture.adoc[Site architecture] — trail versus tags.

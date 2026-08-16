@@ -1,11 +1,14 @@
-import { useParams } from "@solidjs/router";
 import { For, Show } from "solid-js";
+import { useParams } from "@solidjs/router";
+
 import { SiteFooter } from "~/components/site-footer";
-import { getIdea } from "~/lib/apps-catalog";
+import { PageTrail } from "~/components/page-trail";
+import { catalogItemForIdea, categoryLabel, getIdea } from "~/lib/apps-catalog";
 
 export default function IdeaPage() {
   const params = useParams();
   const idea = () => getIdea(params.slug ?? "");
+  const catalogItem = () => catalogItemForIdea(params.slug ?? "");
 
   return (
     <>
@@ -14,7 +17,8 @@ export default function IdeaPage() {
           when={idea()}
           fallback={
             <div>
-              <h1 class="font-display text-3xl font-semibold">Idea not found</h1>
+              <PageTrail crumbs={[{ label: "Apps", href: "/apps" }, { label: "Not found" }]} />
+              <h1 class="mt-4 font-display text-3xl font-semibold">Idea not found</h1>
               <p class="mt-4 text-muted-foreground">
                 <a href="/apps" class="text-primary underline-offset-4 hover:underline">
                   Back to Apps
@@ -25,18 +29,31 @@ export default function IdeaPage() {
         >
           {(i) => (
             <>
-              <p class="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-                <a href="/apps" class="hover:text-foreground">
-                  Apps
-                </a>
-                <span class="mx-2 opacity-40">/</span>
-                <a href={`/apps/${i().category}`} class="hover:text-foreground">
-                  {i().category}
-                </a>
-                <span class="mx-2 opacity-40">/</span>
-                Idea
-              </p>
-              <h1 class="mt-4 font-display text-4xl font-semibold tracking-tight md:text-5xl">{i().title}</h1>
+              <PageTrail
+                crumbs={[
+                  { label: "Apps", href: "/apps" },
+                  {
+                    label: categoryLabel[i().category],
+                    href: `/apps/${i().category}`,
+                  },
+                  { label: i().title },
+                ]}
+              />
+              <Show when={catalogItem()?.tags}>
+                <p class="eyebrow mt-3 text-primary">{catalogItem()?.tags}</p>
+              </Show>
+              <div class="mt-4 flex items-center gap-4">
+                <Show when={catalogItem()?.logo}>
+                  <img
+                    src={catalogItem()?.logo}
+                    alt=""
+                    width={48}
+                    height={48}
+                    class="size-12 shrink-0 rounded-md object-contain"
+                  />
+                </Show>
+                <h1 class="font-display text-4xl font-semibold tracking-tight md:text-5xl">{i().title}</h1>
+              </div>
               <p class="mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground md:text-lg">
                 {i().overview}
               </p>

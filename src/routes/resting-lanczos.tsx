@@ -1,13 +1,43 @@
 import { Meta, Title } from "@solidjs/meta";
-import { A } from "@solidjs/router";
+import { For, createSignal, onCleanup, onMount } from "solid-js";
 
-import { SiteFooter } from "~/components/site-footer";
 import { Button } from "~/components/ui/button";
+import { PageTrail } from "~/components/page-trail";
+import { SiteFooter } from "~/components/site-footer";
+import { categoryLabel, getCatalogItem } from "~/lib/apps-catalog";
 
 const REPO = "https://github.com/dev-centr/resting-lanczos";
 const CARD_SIZES = "min(24rem, 90vw)";
+const MASTER_W = 2400;
+const LANCZOS_TIERS = [400, 800] as const;
+
+type LanczosTier = (typeof LANCZOS_TIERS)[number];
 
 export default function RestingLanczosDemoPage() {
+  const item = getCatalogItem("resting-lanczos");
+  const [lanczosW, setLanczosW] = createSignal<LanczosTier | null>(800);
+  let demoImg: HTMLImageElement | undefined;
+
+  const readLanczosTier = () => {
+    const src = demoImg?.currentSrc || demoImg?.src || "";
+    if (src.includes("demo-400")) setLanczosW(400);
+    else if (src.includes("demo-800")) setLanczosW(800);
+  };
+
+  onMount(() => {
+    const el = demoImg;
+    if (el?.complete) readLanczosTier();
+    el?.addEventListener("load", readLanczosTier);
+    window.addEventListener("resize", readLanczosTier);
+    const ro = new ResizeObserver(readLanczosTier);
+    if (el) ro.observe(el);
+    onCleanup(() => {
+      el?.removeEventListener("load", readLanczosTier);
+      window.removeEventListener("resize", readLanczosTier);
+      ro.disconnect();
+    });
+  });
+
   return (
     <>
       <Title>resting-lanczos · DevCentr</Title>
@@ -21,7 +51,14 @@ export default function RestingLanczosDemoPage() {
       />
 
       <main class="mx-auto max-w-6xl px-6 pb-16 pt-6 md:px-10 md:pb-24 md:pt-10">
-        <p class="eyebrow text-primary">Tooling · Image pipeline</p>
+        <PageTrail
+          crumbs={[
+            { label: "Apps", href: "/apps" },
+            { label: categoryLabel.products, href: "/apps/products" },
+            { label: "resting-lanczos" },
+          ]}
+        />
+        <p class="eyebrow mt-3 text-primary">{item?.tags ?? "Tooling · Image pipeline"}</p>
         <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight text-foreground md:text-5xl">
           resting-lanczos
         </h1>
@@ -43,14 +80,6 @@ export default function RestingLanczosDemoPage() {
             GitHub repo
           </Button>
           <Button
-            as={A}
-            href="/apps/products"
-            variant="outline"
-            class="rounded-md border-border/70 font-mono text-xs uppercase tracking-[0.16em]"
-          >
-            Products catalog
-          </Button>
-          <Button
             as="a"
             href="https://docs.devcentr.org/home/tools/resting-lanczos.html"
             target="_blank"
@@ -63,19 +92,28 @@ export default function RestingLanczosDemoPage() {
         </div>
 
         <section
-          class="mt-14 grid gap-10 md:grid-cols-2 md:gap-8"
+          class="rl-compare mt-14"
           aria-label="Side-by-side image quality comparison"
         >
-          <article class="min-w-0">
-            <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">01 · Naive</p>
-            <h2 class="mt-2 font-display text-xl font-semibold tracking-tight md:text-2xl">
-              Browser downscale
-            </h2>
-            <p class="mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              One 2400×1800 master forced into a ~24rem card. Layout size shrinks the bitmap every paint —
-              soft text and rings.
-            </p>
-            <div class="rl-card group mt-6 max-w-sm">
+          <article class="rl-col min-w-0">
+            <div class="rl-col-intro">
+              <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">01 · Naive</p>
+              <h2 class="mt-2 font-display text-xl font-semibold tracking-tight md:text-2xl">
+                Browser downscale
+              </h2>
+              <p class="mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">
+                One 2400×1800 master forced into a ~24rem card. Layout size shrinks the bitmap every paint —
+                soft text and rings.
+              </p>
+            </div>
+            <div
+              class="rl-col-status flex max-w-sm gap-2"
+              role="status"
+              aria-label="Master source width 2400w"
+            >
+              <span class="rl-tier is-on flex-1">{MASTER_W}w</span>
+            </div>
+            <div class="rl-col-card rl-card group max-w-sm">
               <div class="rl-frame">
                 <img
                   src="/resting-lanczos/master-2400.webp"
@@ -87,23 +125,42 @@ export default function RestingLanczosDemoPage() {
                 />
               </div>
             </div>
-            <p class="mt-3 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+            <p class="rl-col-cap font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
               src = master-2400.webp · no srcset
             </p>
           </article>
 
-          <article class="min-w-0">
-            <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-primary">02 · Resting</p>
-            <h2 class="mt-2 font-display text-xl font-semibold tracking-tight md:text-2xl">
-              Lanczos tiers + srcset
-            </h2>
-            <p class="mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Prebaked 400w / 800w Lanczos3 candidates. Browser picks the resting bitmap; hover only scales
-              with CSS transform.
-            </p>
-            <div class="rl-card group mt-6 max-w-sm">
+          <article class="rl-col min-w-0">
+            <div class="rl-col-intro">
+              <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-primary">02 · Resting</p>
+              <h2 class="mt-2 font-display text-xl font-semibold tracking-tight md:text-2xl">
+                Lanczos tiers + srcset
+              </h2>
+              <p class="mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">
+                Prebaked 400w / 800w Lanczos3 candidates. Browser picks the resting bitmap; hover only scales
+                with CSS transform.
+              </p>
+            </div>
+            <div
+              class="rl-col-status flex max-w-sm gap-2"
+              role="status"
+              aria-live="polite"
+              aria-label="Lanczos source width currently served"
+            >
+              <For each={LANCZOS_TIERS}>
+                {(w) => (
+                  <span class="rl-tier flex-1" classList={{ "is-on": lanczosW() === w }}>
+                    {w}w
+                  </span>
+                )}
+              </For>
+            </div>
+            <div class="rl-col-card rl-card group max-w-sm">
               <div class="rl-frame">
                 <img
+                  ref={(el) => {
+                    demoImg = el;
+                  }}
                   src="/resting-lanczos/demo-800.webp"
                   srcset="/resting-lanczos/demo-400.webp 400w, /resting-lanczos/demo-800.webp 800w"
                   sizes={CARD_SIZES}
@@ -115,7 +172,7 @@ export default function RestingLanczosDemoPage() {
                 />
               </div>
             </div>
-            <p class="mt-3 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+            <p class="rl-col-cap font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
               srcset 400w, 800w · hover = scale(1.03)
             </p>
           </article>
@@ -141,6 +198,31 @@ export default function RestingLanczosDemoPage() {
       <SiteFooter />
 
       <style>{`
+        .rl-compare {
+          display: grid;
+          gap: 2.5rem;
+        }
+        .rl-col {
+          display: flex;
+          min-width: 0;
+          flex-direction: column;
+          gap: 0.75rem;
+        }
+        @media (min-width: 768px) {
+          .rl-compare {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto auto auto auto;
+            column-gap: 2rem;
+            row-gap: 0.75rem;
+          }
+          .rl-col {
+            display: contents;
+          }
+          .rl-col-intro { grid-row: 1; }
+          .rl-col-status { grid-row: 2; }
+          .rl-col-card { grid-row: 3; }
+          .rl-col-cap { grid-row: 4; }
+        }
         .rl-card {
           background: hsl(var(--card));
           border: 1px solid hsl(var(--border) / 0.7);
@@ -166,6 +248,27 @@ export default function RestingLanczosDemoPage() {
         }
         .rl-card:hover .rl-img--zoom {
           transform: scale(1.03);
+        }
+        .rl-tier {
+          display: inline-flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 2.25rem;
+          padding: 0 0.75rem;
+          border: 1px solid hsl(var(--border) / 0.7);
+          border-radius: 0.375rem;
+          background: hsl(var(--background));
+          color: hsl(var(--muted-foreground));
+          font-family: var(--font-mono);
+          font-size: 11px;
+          font-weight: 500;
+          letter-spacing: 0.16em;
+          text-transform: uppercase;
+        }
+        .rl-tier.is-on {
+          background: hsl(var(--primary));
+          border-color: transparent;
+          color: hsl(var(--primary-foreground));
         }
         @media (prefers-reduced-motion: reduce) {
           .rl-img--zoom {

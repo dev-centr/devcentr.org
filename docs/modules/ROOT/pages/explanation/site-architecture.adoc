@@ -46,8 +46,10 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 | Agent skills catalog (bootstrap-org SDL plus shipped skill inventory). `/templates` redirects here.
 
 | `/resting-lanczos`
-| Image resampling comparison demo
+| Image resampling comparison demo. Access trail is Apps / Products / resting-lanczos; “Tooling · Image pipeline” is a topic tag, not a crumb.
 |===
+
+Catalogue and nested article pages (`PageTrail`) show the access path as `Section / Child / Current`. Topic tags stay *below* that trail, in the eyebrow style. Outbound links (repo, docs) sit after the intro, not in the trail.
 
 == Build pipeline
 

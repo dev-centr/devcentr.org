@@ -2,6 +2,12 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-08-16 — Apps catalog trail, product marks, and Lanczos status
+
+* Catalog panes put copy at the top. Product lists show existing logos. Nested pages trail as Apps / Category / Current; tags stay below that.
+* resting-lanczos shows 2400w on the master and live 400w/800w status on the Lanczos side.
+* See xref:changelog-details/2026-08-16 - apps-catalog-nav-and-demo.adoc[Detailed changelog].
+
 == 2026-08-16 — Agent skills page and advisor contrast
 
 * Advisor/skills light mode uses site tokens; search fields are no longer a black box.
