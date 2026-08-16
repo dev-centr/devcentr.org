@@ -1,10 +1,10 @@
-= Bootstrap templates
-:navtitle: Bootstrap templates
-:description: Public org-bootstrap profile selector on devcentr.org, compiled from agent-rules bootstrap-org SDL.
+= Agent skills
+:navtitle: Agent skills
+:description: Public Cursor-skill selector on devcentr.org, compiled from agent-rules (bootstrap-org SDL plus a skill inventory).
 
-`/templates` is a list-and-detail picker for the named SDL profiles in `dev-centr/agent-rules` (`skills/bootstrap-org/profiles/`).
-It uses the same interaction pattern as xref:explanation/toolchain-advisor.adoc[Toolchain Advisor]: click a profile on the left, read the description on the right, copy the profile name for a skill prompt.
+`/skills` is the public catalog of org Cursor skills. Categories are All, Bootstrap skills, Writing, Docs, Publishing, plus Review and Studio placeholders. `/templates` redirects to `/skills?cat=bootstrap`.
 
+Bootstrap skills reuse the list-and-detail picker for named SDL profiles in `dev-centr/agent-rules` (`skills/bootstrap-org/profiles/`).
 JSON is compiled at site build time. The SDL files in agent-rules stay the source of truth; the site does not hand-maintain a duplicate table.
 
 == Data flow
@@ -12,20 +12,21 @@ JSON is compiled at site build time. The SDL files in agent-rules stay the sourc
 . `scripts/sync-bootstrap-profiles.mjs` locates `skills/bootstrap-org/profiles/` in an `agent-rules` checkout.
 . It runs `agent-rules/skills/bootstrap-org/scripts/compile-profiles.mjs`.
 . Output is `public/catalog/bootstrap-profiles.json` (gitignored; produced on `predev` / `prebuild`).
-. `src/components/BootstrapProfiles.tsx` loads that JSON at runtime.
+. `src/components/BootstrapProfiles.tsx` loads that JSON when the Bootstrap skills category is selected.
 
 CI checks out `dev-centr/agent-rules` into `agent-rules/` before build.
 Locally, place a sibling clone at `../agent-rules` and run `pnpm sync-bootstrap-profiles`.
 
 == SPA fallback
 
-Vinxi's static preset does not write `.output/public/templates/index.html` for this client-only route.
-`scripts/spa-fallback.mjs` copies the SPA shell there (same as `/toolchain-advisor`) so GitHub Pages and the CI artifact check succeed.
+Vinxi's static preset does not write `.output/public/skills/index.html` for this client-only route.
+`scripts/spa-fallback.mjs` copies the SPA shell there (same as `/toolchain-advisor`) so GitHub Pages and the CI artifact check succeed. `/templates` is kept as a redirect page.
 
 == Route
 
-* Page: `src/routes/templates.tsx`
-* Widget: `src/components/BootstrapProfiles.tsx`
+* Canonical: `src/routes/skills.tsx` (`/skills`)
+* Redirect: `src/routes/templates.tsx` → `/skills?cat=bootstrap`
+* Widget: `src/components/AgentSkills.tsx`
 * Skill: https://github.com/dev-centr/agent-rules/tree/main/skills/bootstrap-org
 
 == Related docs

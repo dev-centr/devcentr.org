@@ -27,23 +27,22 @@
 .advisor-step {
   flex: 0 0 auto;
   width: min(260px, 85vw);
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
   border-radius: 10px;
   padding: 1rem;
-  backdrop-filter: blur(10px);
 }
 
 .advisor-step h3 {
   margin: 0 0 0.35rem;
   font-size: 0.95rem;
-  color: var(--accent-color);
+  color: hsl(var(--primary));
 }
 
 .advisor-hint {
   margin: 0 0 0.5rem;
   font-size: 0.75rem;
-  color: #888;
+  color: hsl(var(--muted-foreground));
   line-height: 1.35;
 }
 
@@ -53,10 +52,21 @@
   margin-bottom: 0.5rem;
   padding: 0.45rem 0.6rem;
   border-radius: 6px;
-  border: 1px solid var(--glass-border);
-  background: #141414;
-  color: var(--text-color);
+  border: 1px solid hsl(var(--input));
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
   font-size: 0.85rem;
+  color-scheme: inherit;
+}
+
+.advisor-search::placeholder {
+  color: hsl(var(--muted-foreground));
+  opacity: 1;
+}
+
+.advisor-search:focus {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 1px;
 }
 
 .advisor-options {
@@ -76,19 +86,19 @@
   border: none;
   border-radius: 4px;
   background: transparent;
-  color: #ccc;
+  color: hsl(var(--foreground));
   font-size: 0.8rem;
   cursor: pointer;
 }
 
 .advisor-option:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background: hsl(var(--muted));
 }
 
 .advisor-option.selected {
-  background: rgba(255, 51, 51, 0.15);
-  color: #fff;
-  outline: 1px solid var(--accent-color);
+  background: hsl(var(--primary) / 0.16);
+  color: hsl(var(--foreground));
+  outline: 1px solid hsl(var(--primary));
 }
 
 .advisor-connector {
@@ -97,7 +107,13 @@
   position: relative;
   height: 2px;
   min-width: 24px;
-  background: linear-gradient(90deg, transparent, #555 20%, #555 80%, transparent);
+  background: linear-gradient(
+    90deg,
+    transparent,
+    hsl(var(--border)) 20%,
+    hsl(var(--border)) 80%,
+    transparent
+  );
 }
 
 .advisor-connector::after {
@@ -107,15 +123,15 @@
   top: 50%;
   transform: translateY(-50%);
   border: 5px solid transparent;
-  border-left-color: #666;
+  border-left-color: hsl(var(--muted-foreground));
 }
 
 .advisor-context {
   flex: 0 0 min(380px, 40vw);
   max-height: 70vh;
   overflow-y: auto;
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
   border-radius: 12px;
   padding: 1.25rem;
   text-align: left;
@@ -124,43 +140,43 @@
 .advisor-context h2 {
   margin: 0 0 0.5rem;
   font-size: 1.15rem;
-  color: var(--accent-color);
+  color: hsl(var(--primary));
 }
 
 .advisor-context h3 {
   margin: 1rem 0 0.35rem;
   font-size: 0.9rem;
-  color: #bbb;
+  color: hsl(var(--muted-foreground));
 }
 
 .advisor-overview {
   font-size: 0.9rem;
-  color: #ccc;
+  color: hsl(var(--foreground) / 0.88);
   line-height: 1.45;
 }
 
 .advisor-era-line {
   font-size: 0.75rem;
-  color: #8a8;
+  color: hsl(var(--primary));
   margin: 0 0 0.5rem;
 }
 
 .advisor-era {
   display: block;
   font-size: 0.65rem;
-  color: #8a8;
+  color: hsl(var(--muted-foreground));
   margin-top: 0.15rem;
 }
 
 .advisor-step-focused {
-  outline: 1px solid var(--accent-color);
+  outline: 1px solid hsl(var(--primary));
 }
 
 .advisor-timeline {
   margin: 0;
   padding-left: 1.1rem;
   font-size: 0.85rem;
-  color: #aaa;
+  color: hsl(var(--muted-foreground));
 }
 
 .advisor-timeline li {
@@ -168,8 +184,8 @@
 }
 
 .advisor-compare-card {
-  background: #141414;
-  border: 1px solid var(--glass-border);
+  background: hsl(var(--muted));
+  border: 1px solid hsl(var(--border));
   border-radius: 8px;
   padding: 0.75rem;
   margin-bottom: 0.5rem;
@@ -182,24 +198,24 @@
 
 .advisor-meta {
   font-size: 0.78rem;
-  color: #888;
+  color: hsl(var(--muted-foreground));
   margin: 0.25rem 0 0;
 }
 
 .advisor-guidance {
   margin-top: 1.25rem;
   padding-top: 1rem;
-  border-top: 1px solid var(--glass-border);
+  border-top: 1px solid hsl(var(--border));
 }
 
 .advisor-guidance-title {
   font-weight: 700;
-  color: var(--accent-color);
+  color: hsl(var(--primary));
 }
 
 .advisor-result {
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
   border-radius: 12px;
   padding: 1.25rem 1.5rem;
   text-align: left;
@@ -208,7 +224,7 @@
 .advisor-result h2 {
   margin-top: 0;
   font-size: 1.1rem;
-  color: var(--accent-color);
+  color: hsl(var(--primary));
 }
 
 .advisor-result h3 {
@@ -219,23 +235,23 @@
 .advisor-result h4 {
   margin: 1rem 0 0.35rem;
   font-size: 0.9rem;
-  color: #bbb;
+  color: hsl(var(--muted-foreground));
 }
 
 .advisor-result ul {
   margin: 0.25rem 0 0;
   padding-left: 1.25rem;
-  color: #aaa;
+  color: hsl(var(--muted-foreground));
   font-size: 0.9rem;
 }
 
 .advisor-caveats li {
-  color: #c9a070;
+  color: hsl(var(--destructive));
 }
 
 .advisor-alts {
   font-size: 0.85rem;
-  color: #777;
+  color: hsl(var(--muted-foreground));
 }
 
 .advisor-alts-title {
@@ -244,18 +260,18 @@
 
 .advisor-status,
 .advisor-source {
-  color: #888;
+  color: hsl(var(--muted-foreground));
   font-size: 0.85rem;
 }
 
 .advisor-error {
-  color: #f66;
+  color: hsl(var(--destructive));
 }
 
 .advisor-link-btn {
   background: none;
   border: none;
-  color: var(--accent-color);
+  color: hsl(var(--primary));
   cursor: pointer;
   text-decoration: underline;
   font: inherit;
@@ -274,7 +290,7 @@
 }
 
 .advisor-page .page-header p {
-  color: #aaa;
+  color: hsl(var(--muted-foreground));
 }
 
 .tpl-flow {
@@ -315,8 +331,8 @@
 
 .tpl-chips li {
   font-size: 0.75rem;
-  color: #bbb;
-  border: 1px solid var(--glass-border);
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
   border-radius: 999px;
   padding: 0.15rem 0.55rem;
 }
@@ -327,4 +343,63 @@
 
 .tpl-prompt code {
   font-size: 0.78rem;
+}
+
+.skill-cats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0 0 1.5rem;
+}
+
+.skill-cat {
+  border: 1px solid hsl(var(--border));
+  background: hsl(var(--card));
+  color: hsl(var(--foreground));
+  border-radius: 999px;
+  padding: 0.28rem 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.skill-cat:hover {
+  background: hsl(var(--muted));
+}
+
+.skill-cat.is-active {
+  background: hsl(var(--primary) / 0.16);
+  border-color: hsl(var(--primary));
+  color: hsl(var(--foreground));
+}
+
+.skill-source {
+  margin: 1.25rem 0 0;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: hsl(var(--muted-foreground));
+  line-height: 1.5;
+}
+
+.skill-source a {
+  color: hsl(var(--muted-foreground));
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.skill-source a:hover {
+  color: hsl(var(--foreground));
+}
+
+.skill-empty {
+  padding: 1.25rem;
+  background: hsl(var(--card));
+  border: 1px dashed hsl(var(--border));
+  border-radius: 12px;
+  color: hsl(var(--muted-foreground));
+  font-size: 0.9rem;
+  line-height: 1.45;
 }

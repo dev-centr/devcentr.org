@@ -1,0 +1,13 @@
+= 2026-08-16 — Agent skills page and advisor contrast
+:navtitle: 2026-08-16 Agent skills
+
+== Summary
+
+Toolchain Advisor and the skills selector now follow site light/dark tokens (the search field was a hardcoded dark box).
+The former templates page is **Agent skills**, with Bootstrap skills as a category.
+
+== Changed
+
+* `/skills` catalog (All, Bootstrap, Writing, Docs, Publishing, Review, Studio). `/templates` redirects to `/skills?cat=bootstrap`.
+* Source SDL is a small per-category link (All → the skills tree on GitHub).
+* Home hero adds Agent skills and Bootstrap an org. Destinations list becomes a visual surface map.

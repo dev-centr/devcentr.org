@@ -23,7 +23,7 @@ Open the URL printed by Vinxi (typically `http://localhost:3000`).
 
 == Full fidelity (changelog + advisor + templates)
 
-For `/changelog`, `/toolchain-advisor`, and `/templates` with live sibling data, clone checkouts beside this repo:
+For `/changelog`, `/toolchain-advisor`, and `/skills` with live sibling data, clone checkouts beside this repo:
 
 [source,bash]
 ----
@@ -76,6 +76,6 @@ See xref:walkthrough-vscode-and-ci.adoc[VS Code & CI walkthrough] for rationale.
 
 * **Stale news or changelog** — run `pnpm news:build` after editing `content/news/` or after pulling sibling changelog files.
 * **Advisor page empty** — run `pnpm sync-advisor` with `toolchain-advisor` checked out; verify `public/catalog/advisor.json` exists.
-* **Templates page empty** — run `pnpm sync-bootstrap-profiles` with `agent-rules` checked out; verify `public/catalog/bootstrap-profiles.json` exists (gitignored, not committed).
-* **CI fails `templates/index.html`** — Vinxi does not emit a directory index for client-only routes; `scripts/spa-fallback.mjs` must copy the SPA shell into `.output/public/templates/`.
+* **Skills / bootstrap selector empty** — run `pnpm sync-bootstrap-profiles` with `agent-rules` checked out; verify `public/catalog/bootstrap-profiles.json` exists (gitignored, not committed).
+* **CI fails `skills/index.html`** — Vinxi does not emit a directory index for client-only routes; `scripts/spa-fallback.mjs` must copy the SPA shell into `.output/public/skills/`.
 * **Build fails on CI but works locally** — CI uses `pnpm install --no-frozen-lockfile`; ensure lockfile is committed after dependency changes.

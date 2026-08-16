@@ -28,9 +28,6 @@ export type BootstrapProfileCatalog = {
   profiles: BootstrapProfile[];
 };
 
-const AUTHORITATIVE =
-  "https://github.com/dev-centr/agent-rules/tree/main/skills/bootstrap-org/profiles";
-
 async function loadCatalog(): Promise<BootstrapProfileCatalog> {
   const res = await fetch("/catalog/bootstrap-profiles.json");
   if (!res.ok) {
@@ -102,7 +99,7 @@ const BootstrapProfiles: Component = () => {
   return (
     <div class="advisor-root">
       <Show when={loading()}>
-        <p class="advisor-status">Loading profiles from agent-rules…</p>
+        <p class="advisor-status">Loading skills from agent-rules…</p>
       </Show>
       <Show when={error()}>
         <p class="advisor-error">{error()}</p>
@@ -112,9 +109,9 @@ const BootstrapProfiles: Component = () => {
       </Show>
       <Show when={catalog() && !loading() && !error()}>
         <div class="advisor-split">
-          <div class="advisor-flow tpl-flow" role="listbox" aria-label="Bootstrap profiles">
+          <div class="advisor-flow tpl-flow" role="listbox" aria-label="Bootstrap skills">
             <div class="advisor-step advisor-step-focused tpl-list">
-              <h3>Profiles</h3>
+              <h3>Skills</h3>
               <p class="advisor-hint">Click a name to inspect it. Copy pastes the id into a Cursor prompt.</p>
               <input
                 type="search"
@@ -147,7 +144,7 @@ const BootstrapProfiles: Component = () => {
           <aside class="advisor-context">
             <Show
               when={selected()}
-              fallback={<p class="advisor-status">Select a profile.</p>}
+              fallback={<p class="advisor-status">Select a skill.</p>}
             >
               {(p) => (
                 <>
@@ -200,14 +197,6 @@ const BootstrapProfiles: Component = () => {
             </Show>
           </aside>
         </div>
-        <p class="advisor-source">
-          Names and defaults come from{" "}
-          <a href={AUTHORITATIVE} target="_blank" rel="noopener noreferrer">
-            agent-rules / bootstrap-org profiles
-          </a>{" "}
-          (SDL compiled at site build — not a second hand-maintained table). Sibling of{" "}
-          <a href="/toolchain-advisor">Toolchain Advisor</a>.
-        </p>
       </Show>
     </div>
   );

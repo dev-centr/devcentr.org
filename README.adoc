@@ -82,11 +82,11 @@ Site copies live in `public/brand/`. Canonical org-wide assets (including `logo.
 * **Hosted uptime:** link:https://status.devcentr.org[status.devcentr.org] (Better Stack) — linked from the probe page
 * Community surfaces (Help, Status, Slack, …) live under the header **Community** menu
 
-=== Templates
+=== Skills
 
-* **URL:** link:https://devcentr.org/templates[/templates]
-* Click a bootstrap-org profile, read the description, copy the name for a skill prompt.
-* SDL source: `dev-centr/agent-rules` (`skills/bootstrap-org/profiles/`); compiled at site build, not duplicated in this repo.
+* **URL:** link:https://devcentr.org/skills[/skills] (`/templates` redirects to `/skills?cat=bootstrap`)
+* Click a category, then a skill, copy the name for a Cursor prompt. Bootstrap skills are the org/project SDL selector.
+* SDL source: `dev-centr/agent-rules` (`skills/`); compiled at site build, not duplicated in this repo.
 
 ++++
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

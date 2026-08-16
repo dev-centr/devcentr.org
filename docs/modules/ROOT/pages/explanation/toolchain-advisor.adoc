@@ -24,6 +24,6 @@ If compilation fails but a committed `advisor.json` exists in the definitions re
 
 == Related docs
 
-* xref:explanation/bootstrap-templates.adoc[Bootstrap templates] — same compile-from-SDL pattern for org profiles
+* xref:explanation/bootstrap-templates.adoc[Agent skills] — inventory plus bootstrap-org SDL selector
 * xref:general-knowledge::explanation/infrastructure/toolchain-management.adoc[Toolchain management] (general-knowledge)
 * xref:devcentr::index.adoc[DevCentr] — desktop host for the same advisor definitions

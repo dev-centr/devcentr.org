@@ -1,6 +1,7 @@
 import { HeroOrbit } from "~/components/hero-orbit";
 import { SiblingOwnershipDiagram } from "~/components/sibling-ownership-diagram";
 import { SiteFooter } from "~/components/site-footer";
+import { SiteMap } from "~/components/site-map";
 import { ToolchainArchitectureDiagram } from "~/components/toolchain-architecture-diagram";
 import { Button } from "~/components/ui/button";
 
@@ -28,49 +29,6 @@ const pillars = [
     title: "DevOps",
     kicker: "One facet of the suite",
     body: "CI/CD, infrastructure, and traditional ops where they belong on the path—without reducing DevCentr to a DevOps product.",
-  },
-] as const;
-
-const destinations = [
-  {
-    href: "https://devcentr.app",
-    label: "devcentr.app",
-    detail: "Flagship DOS",
-  },
-  {
-    href: "/apps",
-    label: "Apps",
-    detail: "Products, services & standards",
-  },
-  {
-    href: "https://docs.devcentr.org",
-    label: "docs.devcentr.org",
-    detail: "Knowledge base & specs",
-  },
-  {
-    href: "/news",
-    label: "News",
-    detail: "Initiatives & engineering blog",
-  },
-  {
-    href: "/changelog",
-    label: "Changelog",
-    detail: "Product & docs shipping notes",
-  },
-  {
-    href: "/templates",
-    label: "Templates",
-    detail: "Copy a bootstrap profile name",
-  },
-  {
-    href: "/toolchain-advisor",
-    label: "Toolchain Advisor",
-    detail: "Pick host, target, language",
-  },
-  {
-    href: "https://github.com/dev-centr",
-    label: "GitHub",
-    detail: "Source-available ecosystem",
   },
 ] as const;
 
@@ -113,6 +71,18 @@ export default function Home() {
             >
               Toolchain Advisor
             </Button>
+            <a
+              href="/skills"
+              class="font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Agent skills
+            </a>
+            <a
+              href="/skills?cat=bootstrap"
+              class="font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:text-foreground"
+            >
+              Bootstrap an org
+            </a>
           </div>
         </div>
       </section>
@@ -196,24 +166,8 @@ export default function Home() {
 
       <section class="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
         <p class="eyebrow">Go further</p>
-        <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl">Destinations</h2>
-        <ul class="mt-12 divide-y divide-border/70 border-y border-border/70">
-          {destinations.map((d) => (
-            <li>
-              <a
-                href={d.href}
-                class="group flex flex-col gap-1 py-6 no-underline transition-colors sm:flex-row sm:items-baseline sm:justify-between sm:gap-8"
-              >
-                <span class="font-display text-xl font-semibold tracking-tight text-foreground group-hover:text-primary md:text-2xl">
-                  {d.label}
-                </span>
-                <span class="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-                  {d.detail}
-                </span>
-              </a>
-            </li>
-          ))}
-        </ul>
+        <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl">Surfaces</h2>
+        <SiteMap />
       </section>
 
       <SiteFooter />

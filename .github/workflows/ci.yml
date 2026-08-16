@@ -81,8 +81,9 @@ jobs:
       - name: Verify advisor route artifact
         run: test -f .output/public/toolchain-advisor/index.html
 
-      - name: Verify bootstrap templates artifact
+      - name: Verify agent skills artifact
         run: |
+          test -f .output/public/skills/index.html
           test -f .output/public/templates/index.html
           test -f .output/public/catalog/bootstrap-profiles.json
 

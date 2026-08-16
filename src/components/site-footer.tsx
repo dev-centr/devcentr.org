@@ -21,8 +21,8 @@ export function SiteFooter() {
             <a href="/changelog" class={footLink}>
               Changelog
             </a>
-            <a href="/templates" class={footLink}>
-              Templates
+            <a href="/skills" class={footLink}>
+              Skills
             </a>
             <a href="/toolchain-advisor" class={footLink}>
               Toolchain Advisor

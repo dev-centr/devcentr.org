@@ -44,6 +44,7 @@ export default defineConfig({
       routes: [
         "/",
         "/toolchain-advisor",
+        "/skills",
         "/templates",
         "/news",
         "/blog",

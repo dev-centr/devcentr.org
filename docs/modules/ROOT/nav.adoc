@@ -3,7 +3,7 @@
 ** xref:explanation/news-and-changelog.adoc[News & changelog pipeline]
 ** xref:explanation/theme-reveal.adoc[Theme reveal]
 ** xref:explanation/toolchain-advisor.adoc[Toolchain Advisor]
-** xref:explanation/bootstrap-templates.adoc[Bootstrap templates]
+** xref:explanation/bootstrap-templates.adoc[Agent skills]
 ** xref:how-to/local-development.adoc[Local development]
 ** xref:help-and-support-plans.adoc[Help & support plans]
 ** xref:walkthrough-vscode-and-ci.adoc[VS Code & CI walkthrough]

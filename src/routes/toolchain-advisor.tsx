@@ -1,7 +1,6 @@
 import { A } from "@solidjs/router";
 import { SiteFooter } from "~/components/site-footer";
 import { ToolchainAdvisor } from "~/components/ToolchainAdvisor";
-import { Button } from "~/components/ui/button";
 
 export default function ToolchainAdvisorPage() {
   return (
@@ -16,25 +15,6 @@ export default function ToolchainAdvisorPage() {
             Choose host, target, language, and toolchain. Guidance comes from the same SDL definitions as DevCentr
             desktop.
           </p>
-          <div class="mt-6 flex flex-wrap gap-2">
-            <Button
-              as={A}
-              href="/"
-              variant="outline"
-              class="rounded-md border-border/70 font-mono text-xs uppercase tracking-[0.16em]"
-            >
-              Home
-            </Button>
-            <Button
-              as="a"
-              href="https://github.com/dev-centr/toolchain-advisor"
-              target="_blank"
-              variant="ghost"
-              class="rounded-md font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground"
-            >
-              Definitions repo
-            </Button>
-          </div>
         </header>
         <ToolchainAdvisor />
       </div>

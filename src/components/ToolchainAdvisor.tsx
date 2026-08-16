@@ -220,7 +220,7 @@ export const ToolchainAdvisor: Component = () => {
             selections={selections()}
           />
         </div>
-        <p class="advisor-source">
+        <p class="skill-source">
           Definitions from{" "}
           <a
             href="https://github.com/dev-centr/toolchain-advisor"
@@ -228,7 +228,8 @@ export const ToolchainAdvisor: Component = () => {
             rel="noopener noreferrer"
           >
             dev-centr/toolchain-advisor
-          </a>{" "}
+          </a>
+          {" "}
           (SDL → JSON at site build). Desktop syncs the same repo via git.
         </p>
       </Show>
