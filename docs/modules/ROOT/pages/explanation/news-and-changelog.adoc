@@ -1,0 +1,81 @@
+= News and changelog pipeline
+:navtitle: News & changelog
+:description: How authored news posts and mirrored Antora changelogs are built for devcentr.org.
+
+devcentr.org separates **narrative news** from **shipping notes**:
+
+* **News** (`/news`) — outward-facing essays and announcements authored in this repo.
+* **Changelog** (`/changelog`) — day-to-day bullets mirrored from Antora changelogs in sibling repos.
+
+Do not put changelog bullets in news posts, and do not hand-edit the generated JSON catalogs.
+
+== News (authored)
+
+=== Source
+
+AsciiDoc files in `content/news/YYYY-MM-DD-slug.adoc`.
+
+Each post should set:
+
+[source,asciidoc]
+----
+= Post title
+:description: One-line summary for feeds and meta
+:revdate: 2026-08-10
+:keywords: news, blog, optional-topic
+----
+
+=== Authoring options
+
+* **Pages CMS** — GitHub-connected editor; config in `.pages.yml` at the repo root.
+* **Git / PR** — create or edit files under `content/news/`, run `pnpm news:build`, open a PR.
+
+Voice and checklist: see `content/news/README.adoc` in the repository (conversational, scene-driven; changelog bullets belong elsewhere).
+
+=== Build output
+
+`scripts/build-news.mjs` (also `predev` / `prebuild`) writes:
+
+* `src/lib/news-posts.generated.json` — post metadata and rendered HTML for Solid routes
+* `public/news/rss.xml` and `public/news/atom.xml` — syndication feeds
+
+Routes: `src/routes/news/` (and `/blog` alias).
+
+== Changelog (mirrored)
+
+=== Sources
+
+At build time, `build-news.mjs` ingests Antora timeline files from sibling checkouts:
+
+[cols="1,2",options="header"]
+|===
+| Source ID | Antora file
+
+| `devcentr`
+| `devcentr/docs/modules/ROOT/pages/changelog.adoc`
+
+| `general-knowledge`
+| `general-knowledge/docs/modules/ROOT/pages/changelog.adoc`
+
+| `docs-portal`
+| `docs/docs/modules/ROOT/pages/activity-log.adoc` (monthly activity-log format)
+|===
+
+CI checks out `dev-centr/devcentr`, `dev-centr/general-knowledge`, and `dev-centr/docs` into the workspace before running the script.
+Locally, place sibling clones next to this repo or rely on the `../<repo>` fallback paths.
+
+=== Build output
+
+* `src/lib/changelog-entries.generated.json` — deduplicated, date-sorted entries
+* Route: `src/routes/changelog.tsx` renders the mirror index with links back to canonical docs URLs
+
+=== Fixing a changelog entry
+
+Edit the source `changelog.adoc` or `activity-log.adoc` in the owning repository — not `changelog-entries.generated.json`.
+Rebuild (or push to `main` and let CI regenerate).
+
+== Troubleshooting
+
+* **Empty `/changelog` locally** — clone `dev-centr/devcentr`, `general-knowledge`, and `docs` as siblings, then `pnpm news:build`.
+* **News post missing** — confirm filename ends in `.adoc`, is not `README.adoc`, and has `:revdate:`.
+* **Feeds stale** — run `pnpm news:build`; feeds are regenerated from the news JSON, not hand-edited.

@@ -1,0 +1,29 @@
+= Changelog
+
+Timeline of notable documentation and site changes in the devcentr.org repository.
+
+== 2026-08-10 — Antora component and site docs
+
+* Added Antora component (`docs/antora.yml`) with overview, site architecture, news/changelog pipeline, theme reveal, toolchain advisor, and local development guides.
+* README badges for docs portal and CI workflow.
+* See xref:changelog-details/2026-08-10 - antora-site-docs.adoc[Detailed changelog].
+
+== 2026-08-09 — News voice and API keys essay
+
+* `content/news/README.adoc` — clarified news vs changelog voice; scene-driven writing checklist.
+* News post on API keys vs tokens (narrative; canonical explanation lives in general-knowledge).
+
+== 2026-08-08 — Business Bootstrap support-systems hub (news)
+
+* News post announcing Business Bootstrap capability areas on docs.devcentr.org.
+
+== 2026-08-06 — Theme reveal stabilization
+
+* Restored elliptical View Transition reveal anchored to the mode toggle (`src/lib/theme-reveal.ts`).
+* Mobile WebKit and Chrome fixes: px origins, unique keyframe names, WAAPI radii after `transition.ready`, reverse contract when returning to OS/load baseline.
+
+== 2026-07-24 — Help hub, status probes, news CMS
+
+* `/help` and `/status` community surfaces; changelog mirror from Antora sibling repos.
+* Pages CMS config (`.pages.yml`) and `content/news/` authoring guide.
+* GitHub Actions CI deploy to Pages with multi-repo changelog ingest.

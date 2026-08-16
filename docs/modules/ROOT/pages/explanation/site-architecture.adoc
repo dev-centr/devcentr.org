@@ -1,0 +1,77 @@
+= Site architecture
+:navtitle: Site architecture
+:description: SolidStart static shell, routes, CI sibling checkouts, and GitHub Pages deploy for devcentr.org.
+
+devcentr.org is a **static** SolidStart (Vinxi) application.
+`app.config.ts` sets `ssr: false` and `server.preset: "static"` so the build emits HTML under `.output/public` for GitHub Pages.
+
+== Stack
+
+* **SolidStart + Vinxi** — file-based routes under `src/routes/`
+* **Tailwind CSS v4** — `src/app.css`, Kobalte primitives for accessible UI
+* **AsciiDoc** — news posts (`content/news/`) compiled with `@asciidoctor/core` at build time
+* **GitHub Actions** — `.github/workflows/ci.yml` builds and deploys on push to `main`
+
+== Public routes
+
+[cols="1,2",options="header"]
+|===
+| Path | Purpose
+
+| `/`
+| Landing — hero, ecosystem copy, toolchain diagram, apps teaser
+
+| `/news`, `/blog`
+| News index and posts (`/blog` is an SEO alias)
+
+| `/changelog`
+| Changelog mirror from Antora sibling repos
+
+| `/help`, `/support`
+| Help hub (`/support` redirects to `/help#support`)
+
+| `/status`, `/health`
+| Client-side endpoint probes (`/health` redirects to `/status`)
+
+| `/apps`, `/apps/products`, `/apps/services`, `/apps/standards`
+| Apps catalogue (data in `src/lib/apps-catalog.ts`)
+
+| `/ideas/:slug`
+| Idea pages for catalogue entries with `ideaSlug`
+
+| `/toolchain-advisor`
+| Interactive toolchain decision flow (SDL from `toolchain-advisor` repo)
+
+| `/resting-lanczos`
+| Image resampling comparison demo
+|===
+
+== Build pipeline
+
+`pnpm run build` runs, in order:
+
+. `prebuild` — `scripts/sync-advisor-catalog.mjs` then `scripts/build-news.mjs`
+. `vinxi build` — static route artifacts
+. `postbuild` — `scripts/spa-fallback.mjs` for client-side routing on Pages
+
+CI (`.github/workflows/ci.yml`) additionally checks out sibling repos into the workspace root before `build-news.mjs`:
+
+* `toolchain-advisor/` — SDL catalog for `/toolchain-advisor`
+* `general-knowledge/`, `devcentr/`, `docs/` — Antora changelogs and activity log for `/changelog`
+
+Locally, the same scripts fall back to `../<repo>` paths when CI checkouts are absent.
+
+== Deploy
+
+On push to `main`, the `deploy` job uploads `.output/public` via `actions/deploy-pages`.
+A `.nojekyll` file is added so GitHub Pages serves `_build` and `_server` paths correctly.
+Custom domain `devcentr.org` is configured in the repository's Pages settings.
+
+== Key source locations
+
+* `src/routes/` — page components
+* `src/components/` — shared UI (header, footer, diagrams, advisor widget)
+* `src/lib/` — catalog data, changelog loader, theme reveal, site links
+* `content/news/` — authored news (see xref:explanation/news-and-changelog.adoc[News & changelog pipeline])
+* `public/brand/` — SVG logo marks (canonical org assets live in `.github` profile repos)
+* `scripts/` — news/changelog build, advisor sync, SPA fallback, logo rasterize

@@ -7,6 +7,8 @@ ifdef::env-github[]
 ++++
 <a id="readme-top"></a>
 <div align="center">
+<a href="https://docs.devcentr.org/devcentr-org/"><img src="https://img.shields.io/badge/docs-Dev--Centr-22c55e?style=for-the-badge" alt="Docs"></a>
+<a href="https://github.com/dev-centr/devcentr.org/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/dev-centr/devcentr.org/ci.yml?branch=main&style=for-the-badge&label=CI" alt="CI"></a>
 <a href="https://github.com/dev-centr/devcentr.org/graphs/contributors"><img src="https://img.shields.io/github/contributors/dev-centr/devcentr.org.svg?style=for-the-badge" alt="Contributors"></a>
 <a href="https://github.com/dev-centr/devcentr.org/network/members"><img src="https://img.shields.io/github/forks/dev-centr/devcentr.org.svg?style=for-the-badge" alt="Forks"></a>
 <a href="https://github.com/dev-centr/devcentr.org/stargazers"><img src="https://img.shields.io/github/stars/dev-centr/devcentr.org.svg?style=for-the-badge" alt="Stars"></a>
@@ -25,6 +27,8 @@ Organization landing page for Dev-Centr — tools and resources to become a bett
 endif::[]
 
 ifndef::env-github[]
+image:https://img.shields.io/badge/docs-Dev--Centr-22c55e?style=for-the-badge[Docs,link=https://docs.devcentr.org/devcentr-org/]
+image:https://img.shields.io/github/actions/workflow/status/dev-centr/devcentr.org/ci.yml?branch=main&style=for-the-badge&label=CI[CI,link=https://github.com/dev-centr/devcentr.org/actions/workflows/ci.yml]
 image:https://img.shields.io/github/contributors/dev-centr/devcentr.org.svg?style=for-the-badge[Contributors,link=https://github.com/dev-centr/devcentr.org/graphs/contributors]
 image:https://img.shields.io/github/forks/dev-centr/devcentr.org.svg?style=for-the-badge[Forks,link=https://github.com/dev-centr/devcentr.org/network/members]
 image:https://img.shields.io/github/stars/dev-centr/devcentr.org.svg?style=for-the-badge[Stars,link=https://github.com/dev-centr/devcentr.org/stargazers]
@@ -70,7 +74,7 @@ Site copies live in `public/brand/`. Canonical org-wide assets (including `logo.
 
 * **URL:** link:https://devcentr.org/help[/help] (`/support` redirects to `/help#support`)
 * Hub for self-help (docs) vs assisted support (coming soon), plus status, GitHub, and `support@devcentr.org`.
-* Planning notes: `docs/help-and-support-plans.adoc`
+* Planning notes: link:https://docs.devcentr.org/devcentr-org/latest/help-and-support-plans.html[Help & support plans] (Antora)
 
 === Status
 
@@ -111,6 +115,7 @@ pnpm dev
 * `public/` — Static assets (includes generated feeds under `public/news/`)
 * `src/lib/news-posts.generated.json` / `changelog-entries.generated.json` — build outputs from `pnpm news:build`
 * `app.config.ts` — SolidStart/Vinxi configuration
+* `docs/` — Antora component (published on link:https://docs.devcentr.org/devcentr-org/[docs.devcentr.org])
 * `DESIGN.md` — Design philosophy and guidelines
 
 == Site Generation

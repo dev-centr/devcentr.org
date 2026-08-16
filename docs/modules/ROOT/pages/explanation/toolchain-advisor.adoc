@@ -1,0 +1,28 @@
+= Toolchain Advisor
+:navtitle: Toolchain Advisor
+:description: Public toolchain decision flow on devcentr.org, synced from dev-centr/toolchain-advisor SDL definitions.
+
+`/toolchain-advisor` hosts an interactive decision flow that matches the SDL definitions used by the DevCentr desktop app.
+
+== Data flow
+
+. `scripts/sync-advisor-catalog.mjs` copies `catalog/advisor.sdl` from a `toolchain-advisor` checkout.
+. It compiles SDL to JSON via `toolchain-advisor/scripts/compile-sdl.mjs`.
+. Outputs land in `public/catalog/advisor.json` and `public/catalog/advisor.sdl`.
+. `src/components/ToolchainAdvisor.tsx` loads the JSON at runtime.
+
+CI checks out `dev-centr/toolchain-advisor` into `toolchain-advisor/` before sync.
+Locally, place a sibling clone at `../toolchain-advisor` or run `pnpm sync-advisor` after cloning.
+
+If compilation fails but a committed `advisor.json` exists in the definitions repo, the sync script falls back to that file.
+
+== Route
+
+* Page: `src/routes/toolchain-advisor.tsx`
+* Styles: `src/toolchain-advisor.css`
+* Definitions repo: https://github.com/dev-centr/toolchain-advisor
+
+== Related docs
+
+* xref:general-knowledge::explanation/infrastructure/toolchain-management.adoc[Toolchain management] (general-knowledge)
+* xref:devcentr::index.adoc[DevCentr] — desktop host for the same advisor definitions

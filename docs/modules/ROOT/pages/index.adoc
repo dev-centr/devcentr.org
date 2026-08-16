@@ -1,0 +1,53 @@
+= devcentr.org
+:description: Organization landing site for Dev-Centr — SolidStart marketing shell, news, changelog mirror, and public tools.
+
+link:https://devcentr.org[devcentr.org] is the public organization landing page for link:https://github.com/dev-centr[Dev-Centr].
+It is a static SolidStart site deployed to GitHub Pages on every push to `main`.
+
+Repository::
+https://github.com/dev-centr/devcentr.org
+
+Live site::
+https://devcentr.org
+
+== What lives here
+
+* **Marketing home** — Developer ecosystem positioning, apps catalogue, and links to the flagship DOS at link:https://devcentr.app[devcentr.app].
+* **News** (`/news`, SEO alias `/blog`) — Narrative AsciiDoc posts from `content/news/`.
+* **Changelog** (`/changelog`) — Mirror index of Antora changelogs from sibling repos (built at CI time).
+* **Community** — Help hub (`/help`), status probes (`/status`), and toolchain surfaces.
+* **Public tools** — Toolchain Advisor (`/toolchain-advisor`), resting-lanczos demo (`/resting-lanczos`), and apps catalogue (`/apps`).
+
+== Documentation map
+
+[cols="1,2",options="header"]
+|===
+| Topic | Page
+
+| Routes, build pipeline, and CI checkouts
+| xref:explanation/site-architecture.adoc[Site architecture]
+
+| News vs changelog, `build-news.mjs`, feeds
+| xref:explanation/news-and-changelog.adoc[News & changelog pipeline]
+
+| Light/dark toggle animation
+| xref:explanation/theme-reveal.adoc[Theme reveal]
+
+| SDL catalog sync and `/toolchain-advisor`
+| xref:explanation/toolchain-advisor.adoc[Toolchain Advisor]
+
+| `pnpm dev`, sibling repos, troubleshooting
+| xref:how-to/local-development.adoc[Local development]
+
+| `/help` IA and future support desk
+| xref:help-and-support-plans.adoc[Help & support plans]
+
+| `.vscode` and GitHub Actions deploy
+| xref:walkthrough-vscode-and-ci.adoc[VS Code & CI walkthrough]
+|===
+
+== Related docs
+
+* xref:home::where-docs-live.adoc[Where documentation lives] — org-wide docs portal map
+* xref:devcentr::index.adoc[DevCentr app docs] — flagship Development Orchestration Suite
+* link:https://docs.devcentr.org[docs.devcentr.org] — aggregated Antora site

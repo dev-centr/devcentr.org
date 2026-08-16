@@ -1,0 +1,74 @@
+= Local development
+:navtitle: Local development
+:description: Clone, install, run, and troubleshoot the devcentr.org SolidStart site locally.
+
+== Prerequisites
+
+* Node.js **22+** (`package.json` `engines`)
+* link:https://pnpm.io/[pnpm] **9** (CI uses `pnpm/action-setup@v4` with version 9)
+
+== Quick start
+
+[source,bash]
+----
+git clone https://github.com/dev-centr/devcentr.org.git
+cd devcentr.org
+pnpm install
+pnpm dev
+----
+
+`predev` runs `scripts/build-news.mjs`, which needs news posts under `content/news/` (always present in the repo).
+
+Open the URL printed by Vinxi (typically `http://localhost:3000`).
+
+== Full fidelity (changelog + advisor)
+
+For `/changelog` and `/toolchain-advisor` with live sibling data, clone checkouts beside this repo:
+
+[source,bash]
+----
+cd ..
+git clone https://github.com/dev-centr/toolchain-advisor.git
+git clone https://github.com/dev-centr/devcentr.git
+git clone https://github.com/dev-centr/general-knowledge.git
+git clone https://github.com/dev-centr/docs.git
+cd devcentr.org
+pnpm news:build
+pnpm sync-advisor
+pnpm dev
+----
+
+Without siblings, news still builds; changelog ingest logs `changelog skip (missing)` for absent repos; advisor sync warns and exits cleanly if no SDL is found.
+
+== Common scripts
+
+[cols="1,2",options="header"]
+|===
+| Command | Purpose
+
+| `pnpm dev`
+| Dev server (`predev` rebuilds news)
+
+| `pnpm build`
+| Production static build to `.output/public`
+
+| `pnpm news:build`
+| Regenerate news JSON, changelog JSON, RSS, and Atom
+
+| `pnpm sync-advisor`
+| Copy and compile toolchain-advisor SDL → `public/catalog/`
+
+| `pnpm brand:raster`
+| Rasterize SVG logos to PNG sizes under `public/brand/`
+|===
+
+== Editor setup
+
+Committed `.vscode/settings.json` and `.vscode/extensions.json` enable dprint format-on-save and recommend the SolidJS extension.
+See xref:walkthrough-vscode-and-ci.adoc[VS Code & CI walkthrough] for rationale.
+
+== Troubleshooting
+
+* **Stale news or changelog** — run `pnpm news:build` after editing `content/news/` or after pulling sibling changelog files.
+* **Advisor page empty** — run `pnpm sync-advisor` with `toolchain-advisor` checked out; verify `public/catalog/advisor.json` exists.
+* **Build fails on CI but works locally** — CI uses `pnpm install --no-frozen-lockfile`; ensure lockfile is committed after dependency changes.
