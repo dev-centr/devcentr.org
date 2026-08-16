@@ -455,92 +455,186 @@
     @apply mt-3 text-center font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground;
   }
 
-  .site-map {
+  .solsys {
     position: relative;
-    min-height: min(26rem, 70vw);
-    margin-top: 2.5rem;
+    height: min(36rem, 82vw);
+    margin-top: 1.5rem;
+    overflow: visible;
   }
 
-  .site-map-hub {
+  .solsys-orbits {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .solsys-orbits path {
+    fill: none;
+    stroke: hsl(var(--primary) / 0.32);
+    stroke-width: 0.0075;
+  }
+
+  .solsys-star {
     position: absolute;
     left: 50%;
     top: 50%;
+    z-index: 20;
+    width: 4.5rem;
+    height: 4.5rem;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+  }
+
+  .solsys-star-spikes {
+    position: absolute;
+    inset: -28%;
+    background:
+      linear-gradient(
+          hsl(170 40% 100% / 0),
+          hsl(173 70% 92% / 0.7),
+          hsl(170 40% 100% / 0)
+        )
+        center / 10% 100% no-repeat,
+      linear-gradient(
+          90deg,
+          hsl(170 40% 100% / 0),
+          hsl(173 70% 92% / 0.55),
+          hsl(170 40% 100% / 0)
+        )
+        center / 100% 10% no-repeat;
+    opacity: 0.75;
+  }
+
+  .solsys-star-core {
+    position: absolute;
+    inset: 16%;
+    border-radius: 50%;
+    background: radial-gradient(
+      circle at 38% 32%,
+      hsl(170 20% 100%) 0%,
+      hsl(173 45% 90%) 18%,
+      hsl(173 72% 58%) 48%,
+      hsl(173 72% 38%) 78%,
+      hsl(174 50% 22%) 100%
+    );
+    box-shadow:
+      0 0 16px hsl(173 80% 78% / 0.7),
+      0 0 42px hsl(173 72% 46% / 0.45),
+      0 0 88px hsl(173 55% 36% / 0.25);
+  }
+
+  .solsys-star-label {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 0.4rem);
+    transform: translateX(-50%);
+    font-family: var(--font-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: hsl(var(--muted-foreground));
+    white-space: nowrap;
+  }
+
+  .solsys-planet {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 3.35rem;
+    height: 3.35rem;
+    text-decoration: none;
+    color: inherit;
+    --scale: 1;
+    --opacity: 1;
+    --lit-x: 30%;
+    --lit-y: 30%;
+    --fill: hsl(173 40% 28%);
+    transform: translate(-50%, -50%);
+  }
+
+  .solsys-globe {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    border-radius: 50%;
+    background: var(--fill);
+    color: hsl(170 20% 96%);
+    opacity: var(--opacity);
+    transform: scale(var(--scale));
+    box-shadow: inset 0 0 0 1px hsl(170 25% 100% / 0.14);
+  }
+
+  .solsys-icon {
+    position: relative;
     z-index: 1;
     display: grid;
     place-items: center;
-    width: 6.5rem;
-    height: 6.5rem;
-    margin: -3.25rem 0 0 -3.25rem;
-    border-radius: 999px;
-    border: 1px solid hsl(var(--border));
-    background: hsl(var(--card));
+    width: 56%;
+    height: 56%;
+  }
+
+  .solsys-icon svg {
+    width: 100%;
+    height: 100%;
+  }
+
+  .solsys-light {
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    background:
+      radial-gradient(
+        circle at var(--lit-x) var(--lit-y),
+        hsl(170 40% 100% / 0.5) 0%,
+        hsl(170 40% 100% / 0.1) 26%,
+        transparent 48%
+      ),
+      radial-gradient(
+        circle at var(--lit-x) var(--lit-y),
+        transparent 34%,
+        hsl(210 28% 4% / 0.38) 64%,
+        hsl(210 28% 4% / 0.78) 100%
+      );
+  }
+
+  .solsys-label {
+    position: absolute;
+    left: 50%;
+    top: calc(100% + 0.4rem);
+    z-index: 2;
+    transform: translateX(-50%);
     font-family: var(--font-display);
     font-size: 0.82rem;
     font-weight: 600;
     letter-spacing: -0.02em;
-  }
-
-  .site-map-ring {
-    position: absolute;
-    inset: 12%;
-    border: 1px dashed hsl(var(--border));
-    border-radius: 999px;
-    pointer-events: none;
-  }
-
-  .site-map-node {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: max-content;
-    max-width: 9.5rem;
-    margin: 0;
-    transform: rotate(var(--a)) translate(min(34vw, 13.5rem)) rotate(calc(-1 * var(--a)))
-      translate(-50%, -50%);
-    transform-origin: 0 0;
-  }
-
-  .site-map-node a {
-    display: block;
-    padding: 0.45rem 0.7rem;
-    border: 1px solid hsl(var(--border));
-    border-radius: 0.5rem;
-    background: hsl(var(--card));
     color: hsl(var(--foreground));
-    text-decoration: none;
-    font-family: var(--font-display);
-    font-size: 0.9rem;
-    font-weight: 600;
-    letter-spacing: -0.02em;
     white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    text-shadow: 0 1px 8px hsl(var(--background) / 0.9);
+    transition: opacity 0.18s ease;
   }
 
-  .site-map-node a:hover {
-    border-color: hsl(var(--primary));
-    color: hsl(var(--primary));
+  .solsys-planet:hover,
+  .solsys-planet:focus-visible {
+    z-index: 40 !important;
+    outline: none;
   }
 
-  @media (max-width: 700px) {
-    .site-map {
-      min-height: 0;
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 0.65rem;
-    }
+  .solsys-planet:hover .solsys-globe,
+  .solsys-planet:focus-visible .solsys-globe {
+    opacity: 1;
+  }
 
-    .site-map-hub,
-    .site-map-ring {
-      display: none;
-    }
-
-    .site-map-node {
-      position: static;
-      max-width: none;
-      transform: none;
-    }
-
-    .site-map-node a {
-      white-space: normal;
-    }
+  .solsys-planet:hover .solsys-label,
+  .solsys-planet:focus-visible .solsys-label {
+    opacity: 1;
   }
 }

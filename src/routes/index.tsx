@@ -166,7 +166,7 @@ export default function Home() {
 
       <section class="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
         <p class="eyebrow">Go further</p>
-        <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl">Surfaces</h2>
+        <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl">System</h2>
         <SiteMap />
       </section>
 
