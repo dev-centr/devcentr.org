@@ -21,24 +21,26 @@ pnpm dev
 
 Open the URL printed by Vinxi (typically `http://localhost:3000`).
 
-== Full fidelity (changelog + advisor)
+== Full fidelity (changelog + advisor + templates)
 
-For `/changelog` and `/toolchain-advisor` with live sibling data, clone checkouts beside this repo:
+For `/changelog`, `/toolchain-advisor`, and `/templates` with live sibling data, clone checkouts beside this repo:
 
 [source,bash]
 ----
 cd ..
 git clone https://github.com/dev-centr/toolchain-advisor.git
+git clone https://github.com/dev-centr/agent-rules.git
 git clone https://github.com/dev-centr/devcentr.git
 git clone https://github.com/dev-centr/general-knowledge.git
 git clone https://github.com/dev-centr/docs.git
 cd devcentr.org
 pnpm news:build
 pnpm sync-advisor
+pnpm sync-bootstrap-profiles
 pnpm dev
 ----
 
-Without siblings, news still builds; changelog ingest logs `changelog skip (missing)` for absent repos; advisor sync warns and exits cleanly if no SDL is found.
+Without siblings, news still builds; changelog ingest logs `changelog skip (missing)` for absent repos; advisor and bootstrap-profile sync warn and exit cleanly if no SDL is found.
 
 == Common scripts
 
@@ -58,6 +60,9 @@ Without siblings, news still builds; changelog ingest logs `changelog skip (miss
 | `pnpm sync-advisor`
 | Copy and compile toolchain-advisor SDL → `public/catalog/`
 
+| `pnpm sync-bootstrap-profiles`
+| Compile bootstrap-org SDL → `public/catalog/bootstrap-profiles.json` (gitignored)
+
 | `pnpm brand:raster`
 | Rasterize SVG logos to PNG sizes under `public/brand/`
 |===
@@ -71,4 +76,6 @@ See xref:walkthrough-vscode-and-ci.adoc[VS Code & CI walkthrough] for rationale.
 
 * **Stale news or changelog** — run `pnpm news:build` after editing `content/news/` or after pulling sibling changelog files.
 * **Advisor page empty** — run `pnpm sync-advisor` with `toolchain-advisor` checked out; verify `public/catalog/advisor.json` exists.
+* **Templates page empty** — run `pnpm sync-bootstrap-profiles` with `agent-rules` checked out; verify `public/catalog/bootstrap-profiles.json` exists (gitignored, not committed).
+* **CI fails `templates/index.html`** — Vinxi does not emit a directory index for client-only routes; `scripts/spa-fallback.mjs` must copy the SPA shell into `.output/public/templates/`.
 * **Build fails on CI but works locally** — CI uses `pnpm install --no-frozen-lockfile`; ensure lockfile is committed after dependency changes.

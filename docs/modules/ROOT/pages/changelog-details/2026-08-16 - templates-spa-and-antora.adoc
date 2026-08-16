@@ -1,0 +1,21 @@
+= 2026-08-16 — Templates SPA fallback and Antora
+:navtitle: 2026-08-16 Templates SPA
+
+== Summary
+
+Landing CI for `/templates` copies the SPA shell into `.output/public/templates/`, the same way `/toolchain-advisor` already did.
+Antora pages now cover the selector; the draft site-docs PR is merged on `main`.
+
+== Fixed
+
+* `scripts/spa-fallback.mjs` — `ensureSpa` for `/templates`.
+* Unversioned component (`docs/antora.yml` `version: ~`) so hub URLs omit `master` / `latest`.
+
+== Documented
+
+* xref:explanation/bootstrap-templates.adoc[Bootstrap templates]
+* Site architecture, local development, and VS Code & CI walkthrough mention agent-rules checkout and the catalog artifact check.
+
+== Hub
+
+* `dev-centr/docs` playbooks register this component; xref:home::where-docs-live.adoc[Where documentation lives] and the activity log list it.

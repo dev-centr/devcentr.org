@@ -42,6 +42,9 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 | `/toolchain-advisor`
 | Interactive toolchain decision flow (SDL from `toolchain-advisor` repo)
 
+| `/templates`
+| Org bootstrap profile selector (SDL from `agent-rules` / `bootstrap-org`)
+
 | `/resting-lanczos`
 | Image resampling comparison demo
 |===
@@ -50,13 +53,14 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 
 `pnpm run build` runs, in order:
 
-. `prebuild` — `scripts/sync-advisor-catalog.mjs` then `scripts/build-news.mjs`
+. `prebuild` — `scripts/sync-advisor-catalog.mjs`, `scripts/sync-bootstrap-profiles.mjs`, then `scripts/build-news.mjs`
 . `vinxi build` — static route artifacts
 . `postbuild` — `scripts/spa-fallback.mjs` for client-side routing on Pages
 
 CI (`.github/workflows/ci.yml`) additionally checks out sibling repos into the workspace root before `build-news.mjs`:
 
 * `toolchain-advisor/` — SDL catalog for `/toolchain-advisor`
+* `agent-rules/` — bootstrap-org SDL catalog for `/templates`
 * `general-knowledge/`, `devcentr/`, `docs/` — Antora changelogs and activity log for `/changelog`
 
 Locally, the same scripts fall back to `../<repo>` paths when CI checkouts are absent.
@@ -70,8 +74,8 @@ Custom domain `devcentr.org` is configured in the repository's Pages settings.
 == Key source locations
 
 * `src/routes/` — page components
-* `src/components/` — shared UI (header, footer, diagrams, advisor widget)
+* `src/components/` — shared UI (header, footer, diagrams, advisor widget, bootstrap profile selector)
 * `src/lib/` — catalog data, changelog loader, theme reveal, site links
 * `content/news/` — authored news (see xref:explanation/news-and-changelog.adoc[News & changelog pipeline])
 * `public/brand/` — SVG logo marks (canonical org assets live in `.github` profile repos)
-* `scripts/` — news/changelog build, advisor sync, SPA fallback, logo rasterize
+* `scripts/` — news/changelog build, advisor and bootstrap-profile sync, SPA fallback, logo rasterize

@@ -16,7 +16,7 @@ https://devcentr.org
 * **News** (`/news`, SEO alias `/blog`) — Narrative AsciiDoc posts from `content/news/`.
 * **Changelog** (`/changelog`) — Mirror index of Antora changelogs from sibling repos (built at CI time).
 * **Community** — Help hub (`/help`), status probes (`/status`), and toolchain surfaces.
-* **Public tools** — Toolchain Advisor (`/toolchain-advisor`), resting-lanczos demo (`/resting-lanczos`), and apps catalogue (`/apps`).
+* **Public tools** — Toolchain Advisor (`/toolchain-advisor`), bootstrap templates (`/templates`), resting-lanczos demo (`/resting-lanczos`), and apps catalogue (`/apps`).
 
 == Documentation map
 
@@ -35,6 +35,9 @@ https://devcentr.org
 
 | SDL catalog sync and `/toolchain-advisor`
 | xref:explanation/toolchain-advisor.adoc[Toolchain Advisor]
+
+| Bootstrap-org profile selector (`/templates`)
+| xref:explanation/bootstrap-templates.adoc[Bootstrap templates]
 
 | `pnpm dev`, sibling repos, troubleshooting
 | xref:how-to/local-development.adoc[Local development]

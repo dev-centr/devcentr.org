@@ -1,0 +1,34 @@
+= Bootstrap templates
+:navtitle: Bootstrap templates
+:description: Public org-bootstrap profile selector on devcentr.org, compiled from agent-rules bootstrap-org SDL.
+
+`/templates` is a list-and-detail picker for the named SDL profiles in `dev-centr/agent-rules` (`skills/bootstrap-org/profiles/`).
+It uses the same interaction pattern as xref:explanation/toolchain-advisor.adoc[Toolchain Advisor]: click a profile on the left, read the description on the right, copy the profile name for a skill prompt.
+
+JSON is compiled at site build time. The SDL files in agent-rules stay the source of truth; the site does not hand-maintain a duplicate table.
+
+== Data flow
+
+. `scripts/sync-bootstrap-profiles.mjs` locates `skills/bootstrap-org/profiles/` in an `agent-rules` checkout.
+. It runs `agent-rules/skills/bootstrap-org/scripts/compile-profiles.mjs`.
+. Output is `public/catalog/bootstrap-profiles.json` (gitignored; produced on `predev` / `prebuild`).
+. `src/components/BootstrapProfiles.tsx` loads that JSON at runtime.
+
+CI checks out `dev-centr/agent-rules` into `agent-rules/` before build.
+Locally, place a sibling clone at `../agent-rules` and run `pnpm sync-bootstrap-profiles`.
+
+== SPA fallback
+
+Vinxi's static preset does not write `.output/public/templates/index.html` for this client-only route.
+`scripts/spa-fallback.mjs` copies the SPA shell there (same as `/toolchain-advisor`) so GitHub Pages and the CI artifact check succeed.
+
+== Route
+
+* Page: `src/routes/templates.tsx`
+* Widget: `src/components/BootstrapProfiles.tsx`
+* Skill: https://github.com/dev-centr/agent-rules/tree/main/skills/bootstrap-org
+
+== Related docs
+
+* xref:business-bootstrap::tutorials/fast-org-bootstrap.adoc[Fast org bootstrap] (Business Bootstrap)
+* xref:general-knowledge::how-to/bootstrap-cursor-skills.adoc[Bootstrap Cursor skills]

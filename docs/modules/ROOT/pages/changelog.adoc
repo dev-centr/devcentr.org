@@ -2,6 +2,12 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-08-16 — Templates SPA fallback and Antora merge
+
+* Copied SPA `index.html` for `/templates` so GitHub Pages and the CI artifact check find the route.
+* Documented the bootstrap-org profile selector; merged draft Antora site docs onto `main`.
+* See xref:changelog-details/2026-08-16 - templates-spa-and-antora.adoc[Detailed changelog].
+
 == 2026-08-10 — Antora component and site docs
 
 * Added Antora component (`docs/antora.yml`) with overview, site architecture, news/changelog pipeline, theme reveal, toolchain advisor, and local development guides.

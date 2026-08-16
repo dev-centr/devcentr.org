@@ -74,13 +74,19 @@ Site copies live in `public/brand/`. Canonical org-wide assets (including `logo.
 
 * **URL:** link:https://devcentr.org/help[/help] (`/support` redirects to `/help#support`)
 * Hub for self-help (docs) vs assisted support (coming soon), plus status, GitHub, and `support@devcentr.org`.
-* Planning notes: link:https://docs.devcentr.org/devcentr-org/latest/help-and-support-plans.html[Help & support plans] (Antora)
+* Planning notes: link:https://docs.devcentr.org/devcentr-org/help-and-support-plans.html[Help & support plans] (Antora)
 
 === Status
 
 * **Probes:** link:https://devcentr.org/status[/status] (`/health` redirects here) — client-side checks of public endpoints
 * **Hosted uptime:** link:https://status.devcentr.org[status.devcentr.org] (Better Stack) — linked from the probe page
 * Community surfaces (Help, Status, Slack, …) live under the header **Community** menu
+
+=== Templates
+
+* **URL:** link:https://devcentr.org/templates[/templates]
+* Click a bootstrap-org profile, read the description, copy the name for a skill prompt.
+* SDL source: `dev-centr/agent-rules` (`skills/bootstrap-org/profiles/`); compiled at site build, not duplicated in this repo.
 
 ++++
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
