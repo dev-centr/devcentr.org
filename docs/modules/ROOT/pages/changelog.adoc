@@ -4,7 +4,7 @@ Timeline of notable documentation and site changes in the devcentr.org repositor
 
 == 2026-08-16 — Home solar system
 
-* Homepage destinations are a teal-white dwarf with overlapping orbits. Planets shade from the star, shrink/fade on the far side, and show a label on hover.
+* Homepage destinations are a teal-white dwarf with overlapping 3D circular orbits. Planets shade from the star, shrink/fade on the far side, and show a label on hover.
 * See xref:changelog-details/2026-08-16 - home-solar-system.adoc[Detailed changelog].
 
 == 2026-08-16 — Apps catalog trail, product marks, and Lanczos status

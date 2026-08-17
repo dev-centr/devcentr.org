@@ -457,8 +457,9 @@
 
   .solsys {
     position: relative;
-    height: min(36rem, 82vw);
-    margin-top: 1.5rem;
+    width: 100%;
+    aspect-ratio: 100 / 74;
+    margin-top: 1.25rem;
     overflow: visible;
   }
 
@@ -471,46 +472,20 @@
     z-index: 1;
   }
 
-  .solsys-orbits path {
-    fill: none;
-    stroke: hsl(var(--primary) / 0.32);
-    stroke-width: 0.0075;
-  }
-
   .solsys-star {
     position: absolute;
     left: 50%;
     top: 50%;
     z-index: 20;
-    width: 4.5rem;
-    height: 4.5rem;
+    width: clamp(6.25rem, 14vw, 8.25rem);
+    height: clamp(6.25rem, 14vw, 8.25rem);
     transform: translate(-50%, -50%);
     pointer-events: none;
   }
 
-  .solsys-star-spikes {
-    position: absolute;
-    inset: -28%;
-    background:
-      linear-gradient(
-          hsl(170 40% 100% / 0),
-          hsl(173 70% 92% / 0.7),
-          hsl(170 40% 100% / 0)
-        )
-        center / 10% 100% no-repeat,
-      linear-gradient(
-          90deg,
-          hsl(170 40% 100% / 0),
-          hsl(173 70% 92% / 0.55),
-          hsl(170 40% 100% / 0)
-        )
-        center / 100% 10% no-repeat;
-    opacity: 0.75;
-  }
-
   .solsys-star-core {
     position: absolute;
-    inset: 16%;
+    inset: 0;
     border-radius: 50%;
     background: radial-gradient(
       circle at 38% 32%,
@@ -521,38 +496,54 @@
       hsl(174 50% 22%) 100%
     );
     box-shadow:
-      0 0 16px hsl(173 80% 78% / 0.7),
-      0 0 42px hsl(173 72% 46% / 0.45),
-      0 0 88px hsl(173 55% 36% / 0.25);
+      0 0 18px hsl(173 80% 78% / 0.7),
+      0 0 52px hsl(173 72% 46% / 0.45),
+      0 0 110px hsl(173 55% 36% / 0.28);
   }
 
   .solsys-star-label {
     position: absolute;
-    left: 50%;
-    top: calc(100% + 0.4rem);
-    transform: translateX(-50%);
+    inset: 0;
+    z-index: 1;
+    display: grid;
+    place-items: center;
     font-family: var(--font-mono);
-    font-size: 0.62rem;
-    letter-spacing: 0.16em;
+    font-size: clamp(0.52rem, 1.55vw, 0.78rem);
+    font-weight: 500;
+    letter-spacing: 0.11em;
     text-transform: uppercase;
-    color: hsl(var(--muted-foreground));
+    color: hsl(174 16% 34%);
+    text-shadow:
+      0 1px 0 hsl(170 40% 100% / 0.55),
+      0 1px 4px hsl(174 28% 12% / 0.45);
     white-space: nowrap;
+  }
+
+  .dark .solsys-star-label,
+  [data-kb-theme="dark"] .solsys-star-label {
+    color: hsl(170 14% 78%);
+    text-shadow:
+      0 1px 0 hsl(174 40% 8% / 0.55),
+      0 0 8px hsl(174 30% 10% / 0.5);
   }
 
   .solsys-planet {
     position: absolute;
     left: 50%;
     top: 50%;
-    width: 3.35rem;
-    height: 3.35rem;
+    width: clamp(3.4rem, 6.2vw, 4.35rem);
+    height: clamp(3.4rem, 6.2vw, 4.35rem);
     text-decoration: none;
     color: inherit;
+    --x: 0px;
+    --y: 0px;
     --scale: 1;
     --opacity: 1;
     --lit-x: 30%;
     --lit-y: 30%;
     --fill: hsl(173 40% 28%);
-    transform: translate(-50%, -50%);
+    transform: translate3d(var(--x), var(--y), 0) translate(-50%, -50%);
+    will-change: transform;
   }
 
   .solsys-globe {

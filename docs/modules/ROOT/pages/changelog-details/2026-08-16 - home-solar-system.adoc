@@ -7,6 +7,8 @@ The homepage “Go further” block is an animated DevCentr system: a compact te
 
 == Changed
 
-* Overlapping elliptical orbits; planets pass behind the star on the far side (half size, half opacity) and brighten as they come forward.
-* Lighting on each globe tracks the vector toward the dwarf.
+* Circular orbits in 3D (inclination + node) projected at a 56° pitch. Tracks are canvas polylines (~192 samples), not 72-point SVG facets.
+* Outer diameter is about 70% of the content column. Planets move with `translate3d`.
+* Dwarf is sphere + glow only; `DEVCENTR` sits in the core.
+* Planets pass behind the star on the far side (half size, half opacity) and brighten as they come forward. Lighting tracks the vector toward the dwarf.
 * Hover/focus fades in a one-word label (`Skills` not Agent skills). GitHub uses the Octocat mark; other bodies use first-party glyphs.

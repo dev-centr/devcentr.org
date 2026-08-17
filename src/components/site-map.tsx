@@ -1,26 +1,33 @@
 import { onCleanup, onMount, type JSX } from "solid-js";
 
+/** Circular orbit in XZ, then inclination / node, then a pitched camera. */
 type PlanetDef = {
   id: string;
   label: string;
   href: string;
-  rx: number;
-  ry: number;
-  tilt: number;
+  radius: number;
+  incl: number;
+  node: number;
   period: number;
   phase: number;
   fill: string;
 };
 
+const TAU = Math.PI * 2;
+/** Look-from-horizon angle: 0 = edge-on, π/2 = top-down. */
+const VIEW_PITCH = (56 * Math.PI) / 180;
+const SIN_PITCH = Math.sin(VIEW_PITCH);
+const COS_PITCH = Math.cos(VIEW_PITCH);
+
 const PLANETS: PlanetDef[] = [
-  { id: "app", label: "App", href: "https://devcentr.app", rx: 0.2, ry: 0.09, tilt: -16, period: 18_000, phase: 0.08, fill: "hsl(173 48% 28%)" },
-  { id: "apps", label: "Apps", href: "/apps", rx: 0.28, ry: 0.13, tilt: 12, period: 24_000, phase: 0.31, fill: "hsl(210 22% 28%)" },
-  { id: "docs", label: "Docs", href: "https://docs.devcentr.org", rx: 0.34, ry: 0.15, tilt: -28, period: 32_000, phase: 0.57, fill: "hsl(198 38% 30%)" },
-  { id: "news", label: "News", href: "/news", rx: 0.4, ry: 0.16, tilt: 22, period: 28_000, phase: 0.14, fill: "hsl(168 42% 26%)" },
-  { id: "changelog", label: "Changelog", href: "/changelog", rx: 0.46, ry: 0.2, tilt: -8, period: 40_000, phase: 0.72, fill: "hsl(160 28% 26%)" },
-  { id: "skills", label: "Skills", href: "/skills", rx: 0.38, ry: 0.22, tilt: 34, period: -36_000, phase: 0.44, fill: "hsl(186 40% 28%)" },
-  { id: "advisor", label: "Advisor", href: "/toolchain-advisor", rx: 0.5, ry: 0.18, tilt: -34, period: 46_000, phase: 0.91, fill: "hsl(174 36% 24%)" },
-  { id: "github", label: "GitHub", href: "https://github.com/dev-centr", rx: 0.54, ry: 0.24, tilt: 8, period: 52_000, phase: 0.22, fill: "hsl(210 12% 16%)" },
+  { id: "app", label: "App", href: "https://devcentr.app", radius: 0.34, incl: 0.18, node: 0.4, period: 18_000, phase: 0.08, fill: "hsl(173 48% 28%)" },
+  { id: "apps", label: "Apps", href: "/apps", radius: 0.44, incl: -0.12, node: 1.1, period: 24_000, phase: 0.31, fill: "hsl(210 22% 28%)" },
+  { id: "docs", label: "Docs", href: "https://docs.devcentr.org", radius: 0.54, incl: 0.32, node: 2.2, period: 32_000, phase: 0.57, fill: "hsl(198 38% 30%)" },
+  { id: "news", label: "News", href: "/news", radius: 0.63, incl: -0.22, node: 3.6, period: 28_000, phase: 0.14, fill: "hsl(168 42% 26%)" },
+  { id: "changelog", label: "Changelog", href: "/changelog", radius: 0.74, incl: 0.08, node: 5.1, period: 40_000, phase: 0.72, fill: "hsl(160 28% 26%)" },
+  { id: "skills", label: "Skills", href: "/skills", radius: 0.82, incl: -0.38, node: 0.9, period: -36_000, phase: 0.44, fill: "hsl(186 40% 28%)" },
+  { id: "advisor", label: "Advisor", href: "/toolchain-advisor", radius: 0.91, incl: 0.28, node: 4.4, period: 46_000, phase: 0.91, fill: "hsl(174 36% 24%)" },
+  { id: "github", label: "GitHub", href: "https://github.com/dev-centr", radius: 1, incl: -0.16, node: 2.8, period: 52_000, phase: 0.22, fill: "hsl(210 12% 16%)" },
 ];
 
 function Icon(props: { id: string }): JSX.Element {
@@ -99,56 +106,98 @@ function Icon(props: { id: string }): JSX.Element {
   }
 }
 
-function ellipsePath(rx: number, ry: number, tilt: number): string {
-  const a = (tilt * Math.PI) / 180;
-  const steps = 72;
-  const pts: string[] = [];
-  for (let i = 0; i <= steps; i++) {
-    const t = (i / steps) * Math.PI * 2;
-    const x = rx * Math.cos(t);
-    const y = ry * Math.sin(t);
-    const xr = x * Math.cos(a) - y * Math.sin(a);
-    const yr = x * Math.sin(a) + y * Math.cos(a);
-    pts.push(`${i === 0 ? "M" : "L"}${xr.toFixed(2)} ${yr.toFixed(2)}`);
-  }
-  pts.push("Z");
-  return pts.join(" ");
+type Vec3 = { x: number; y: number; z: number };
+
+function worldOnOrbit(radius: number, theta: number, incl: number, node: number): Vec3 {
+  let x = radius * Math.cos(theta);
+  let y = 0;
+  let z = radius * Math.sin(theta);
+  const ci = Math.cos(incl);
+  const si = Math.sin(incl);
+  const y1 = y * ci - z * si;
+  const z1 = y * si + z * ci;
+  const cn = Math.cos(node);
+  const sn = Math.sin(node);
+  return {
+    x: x * cn + z1 * sn,
+    y: y1,
+    z: -x * sn + z1 * cn,
+  };
+}
+
+/** Orthographic view of a pitched XZ orbit. +z is far (top of the ellipse). */
+function project(p: Vec3, cx: number, cy: number, k: number) {
+  const sx = cx + p.x * k;
+  const sy = cy - (p.y * COS_PITCH + p.z * SIN_PITCH) * k;
+  const depth = p.z * COS_PITCH - p.y * SIN_PITCH;
+  return { sx, sy, depth };
 }
 
 export function SiteMap() {
   let root: HTMLDivElement | undefined;
+  let canvas: HTMLCanvasElement | undefined;
   const bodies: (HTMLElement | undefined)[] = [];
   let raf = 0;
+  let origin = 0;
 
-  const place = (now: number, freeze: boolean) => {
-    if (!root) return;
+  const layout = () => {
+    if (!root) return { w: 0, h: 0, cx: 0, cy: 0, rMax: 1 };
     const w = root.clientWidth;
     const h = root.clientHeight;
-    const cx = w / 2;
-    const cy = h / 2;
-    const unit = Math.min(w, h) * 0.5;
-    const t = freeze ? 0 : now;
+    const rMax = Math.min(w * 0.35, (h * 0.42) / SIN_PITCH);
+    return { w, h, cx: w / 2, cy: h / 2, rMax };
+  };
 
+  const drawOrbits = () => {
+    if (!canvas || !root) return;
+    const { w, h, cx, cy, rMax } = layout();
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = Math.max(1, Math.round(w * dpr));
+    canvas.height = Math.max(1, Math.round(h * dpr));
+    canvas.style.width = `${w}px`;
+    canvas.style.height = `${h}px`;
+    const ctx = canvas.getContext("2d");
+    if (!ctx) return;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.clearRect(0, 0, w, h);
+    const hue = getComputedStyle(root).getPropertyValue("--primary").trim() || "173 72% 32%";
+    ctx.strokeStyle = `hsl(${hue} / 0.38)`;
+    ctx.lineWidth = Math.max(1, w * 0.0014);
+    ctx.lineJoin = "round";
+    ctx.lineCap = "round";
+    const steps = 192;
+    for (const p of PLANETS) {
+      ctx.beginPath();
+      for (let i = 0; i <= steps; i++) {
+        const theta = (i / steps) * TAU;
+        const { sx, sy } = project(worldOnOrbit(p.radius * rMax, theta, p.incl, p.node), cx, cy, 1);
+        if (i === 0) ctx.moveTo(sx, sy);
+        else ctx.lineTo(sx, sy);
+      }
+      ctx.stroke();
+    }
+  };
+
+  const place = (now: number, freeze: boolean) => {
+    const { cx, cy, rMax } = layout();
+    if (rMax <= 1) return;
+    const t = freeze ? 0 : now;
     PLANETS.forEach((p, i) => {
       const el = bodies[i];
       if (!el) return;
-      const theta = p.phase * Math.PI * 2 + ((Math.PI * 2) / p.period) * t;
-      const lx = p.rx * unit * Math.cos(theta);
-      const ly = p.ry * unit * Math.sin(theta);
-      const a = (p.tilt * Math.PI) / 180;
-      const x = lx * Math.cos(a) - ly * Math.sin(a);
-      const y = lx * Math.sin(a) + ly * Math.cos(a);
-      const near = (Math.sin(theta) + 1) / 2;
+      const theta = p.phase * TAU + (TAU / p.period) * t;
+      const world = worldOnOrbit(p.radius * rMax, theta, p.incl, p.node);
+      const { sx, sy, depth } = project(world, cx, cy, 1);
+      const far = Math.max(-1, Math.min(1, depth / (p.radius * rMax * COS_PITCH || 1)));
+      const near = (1 - far) / 2;
       const scale = 0.5 + 0.5 * near;
       const opacity = 0.5 + 0.5 * near;
-      const mag = Math.hypot(x, y) || 1;
-      const litX = 50 + (-x / mag) * 42;
-      const litY = 50 + (-y / mag) * 42;
-      const z = near < 0.5 ? Math.round(2 + near * 16) : Math.round(22 + (near - 0.5) * 24);
-      el.style.left = `${cx + x}px`;
-      el.style.top = `${cy + y}px`;
-      el.style.zIndex = String(z);
-      el.style.setProperty("--near", String(near));
+      const mag = Math.hypot(world.x, world.y, world.z) || 1;
+      const litX = 50 + (-world.x / mag) * 42;
+      const litY = 50 + (world.z / mag) * 38;
+      el.style.setProperty("--x", `${sx - cx}px`);
+      el.style.setProperty("--y", `${sy - cy}px`);
+      el.style.zIndex = String(near < 0.5 ? Math.round(2 + near * 16) : Math.round(22 + (near - 0.5) * 24));
       el.style.setProperty("--scale", String(scale));
       el.style.setProperty("--opacity", String(opacity));
       el.style.setProperty("--lit-x", `${litX}%`);
@@ -158,13 +207,17 @@ export function SiteMap() {
 
   onMount(() => {
     const freeze = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    const origin = performance.now();
+    origin = performance.now();
     const tick = (now: number) => {
       place(now - origin, freeze);
       if (!freeze) raf = requestAnimationFrame(tick);
     };
-    const ro = new ResizeObserver(() => place(performance.now() - origin, freeze));
+    const ro = new ResizeObserver(() => {
+      drawOrbits();
+      place(performance.now() - origin, freeze);
+    });
     if (root) ro.observe(root);
+    drawOrbits();
     raf = requestAnimationFrame(tick);
     onCleanup(() => {
       cancelAnimationFrame(raf);
@@ -174,16 +227,11 @@ export function SiteMap() {
 
   return (
     <div class="solsys" ref={root} role="group" aria-label="DevCentr system">
-      <svg class="solsys-orbits" viewBox="-1 -1 2 2" preserveAspectRatio="xMidYMid meet" aria-hidden="true">
-        {PLANETS.map((p) => (
-          <path d={ellipsePath(p.rx, p.ry, p.tilt)} />
-        ))}
-      </svg>
+      <canvas class="solsys-orbits" ref={canvas} aria-hidden="true" />
 
       <div class="solsys-star" aria-hidden="true">
-        <span class="solsys-star-spikes" />
         <span class="solsys-star-core" />
-        <span class="solsys-star-label">DevCentr</span>
+        <span class="solsys-star-label">DEVCENTR</span>
       </div>
 
       {PLANETS.map((p, i) => (
