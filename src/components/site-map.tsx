@@ -20,10 +20,9 @@ const SIN_PITCH = Math.sin(VIEW_PITCH);
 const COS_PITCH = Math.cos(VIEW_PITCH);
 
 const PLANETS: PlanetDef[] = [
-  { id: "app", label: "App", href: "https://devcentr.app", radius: 0.34, incl: 0.18, node: 0.4, period: 18_000, phase: 0.08, fill: "hsl(173 48% 28%)" },
-  { id: "apps", label: "Apps", href: "/apps", radius: 0.44, incl: -0.12, node: 1.1, period: 24_000, phase: 0.31, fill: "hsl(210 22% 28%)" },
-  { id: "docs", label: "Docs", href: "https://docs.devcentr.org", radius: 0.54, incl: 0.32, node: 2.2, period: 32_000, phase: 0.57, fill: "hsl(198 38% 30%)" },
-  { id: "news", label: "News", href: "/news", radius: 0.63, incl: -0.22, node: 3.6, period: 28_000, phase: 0.14, fill: "hsl(168 42% 26%)" },
+  { id: "apps", label: "Apps", href: "/apps", radius: 0.4, incl: -0.12, node: 1.1, period: 24_000, phase: 0.31, fill: "hsl(210 22% 28%)" },
+  { id: "docs", label: "Docs", href: "https://docs.devcentr.org", radius: 0.52, incl: 0.32, node: 2.2, period: 32_000, phase: 0.57, fill: "hsl(198 38% 30%)" },
+  { id: "news", label: "News", href: "/news", radius: 0.62, incl: -0.22, node: 3.6, period: 28_000, phase: 0.14, fill: "hsl(168 42% 26%)" },
   { id: "changelog", label: "Changelog", href: "/changelog", radius: 0.74, incl: 0.08, node: 5.1, period: 40_000, phase: 0.72, fill: "hsl(160 28% 26%)" },
   { id: "skills", label: "Skills", href: "/skills", radius: 0.82, incl: -0.38, node: 0.9, period: -36_000, phase: 0.44, fill: "hsl(186 40% 28%)" },
   { id: "advisor", label: "Advisor", href: "/toolchain-advisor", radius: 0.91, incl: 0.28, node: 4.4, period: 46_000, phase: 0.91, fill: "hsl(174 36% 24%)" },
@@ -41,12 +40,6 @@ function Icon(props: { id: string }): JSX.Element {
     "aria-hidden": "true" as const,
   };
   switch (props.id) {
-    case "app":
-      return (
-        <svg {...common}>
-          <rect x="8" y="8" width="8" height="8" rx="1.2" transform="rotate(45 12 12)" fill="currentColor" stroke="none" />
-        </svg>
-      );
     case "apps":
       return (
         <svg {...common}>
@@ -67,8 +60,10 @@ function Icon(props: { id: string }): JSX.Element {
     case "news":
       return (
         <svg {...common}>
-          <circle cx="12" cy="12" r="3" fill="currentColor" stroke="none" />
-          <path d="M12 5.2v2.1M12 16.7v2.1M5.2 12h2.1M16.7 12h2.1M7.1 7.1l1.5 1.5M15.4 15.4l1.5 1.5M16.9 7.1l-1.5 1.5M8.6 15.4l-1.5 1.5" />
+          <ellipse cx="6.8" cy="12" rx="2.7" ry="5.5" fill="currentColor" stroke="none" />
+          <path d="M7.2 6.5h9c1.4 0 2.3 1.1 2.3 2.4v6.2c0 1.3-.9 2.4-2.3 2.4h-9" />
+          <path d="M6.2 8.2c.9.7.9 6.9 0 7.6" />
+          <path d="M10.8 9.4h6.2M10.8 12h6.6M10.8 14.6h5.5" />
         </svg>
       );
     case "changelog":
@@ -229,10 +224,16 @@ export function SiteMap() {
     <div class="solsys" ref={root} role="group" aria-label="DevCentr system">
       <canvas class="solsys-orbits" ref={canvas} aria-hidden="true" />
 
-      <div class="solsys-star" aria-hidden="true">
+      <a
+        class="solsys-star"
+        href="https://devcentr.app"
+        aria-label="DevCentr app"
+      >
+        <span class="solsys-star-halo" aria-hidden="true" />
         <span class="solsys-star-core" />
         <span class="solsys-star-label">DEVCENTR</span>
-      </div>
+        <span class="solsys-label">App</span>
+      </a>
 
       {PLANETS.map((p, i) => (
         <a

@@ -3,12 +3,12 @@
 
 == Summary
 
-The homepage “Go further” block is an animated DevCentr system: a compact teal-white dwarf and eight orbiting destination planets instead of a static node ring.
+The homepage “Go further” block is an animated DevCentr system: a compact teal-white dwarf (the App) and seven orbiting destination planets instead of a static node ring.
 
 == Changed
 
 * Circular orbits in 3D (inclination + node) projected at a 56° pitch. Tracks are canvas polylines (~192 samples), not 72-point SVG facets.
 * Outer diameter is about 70% of the content column. Planets move with `translate3d`.
-* Dwarf is sphere + glow only; `DEVCENTR` sits in the core.
+* Dwarf is the App link (`devcentr.app`). `DEVCENTR` sits in the core; hover/focus shows an undulating red glow behind the sphere.
 * Planets pass behind the star on the far side (half size, half opacity) and brighten as they come forward. Lighting tracks the vector toward the dwarf.
-* Hover/focus fades in a one-word label (`Skills` not Agent skills). GitHub uses the Octocat mark; other bodies use first-party glyphs.
+* Hover/focus fades in a one-word label (`Skills` not Agent skills). News is a newspaper roll; GitHub uses the Octocat mark; other bodies use first-party glyphs.
