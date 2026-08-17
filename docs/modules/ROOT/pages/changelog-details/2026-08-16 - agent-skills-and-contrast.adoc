@@ -10,4 +10,4 @@ The former templates page is **Agent skills**, with Bootstrap skills as a catego
 
 * `/skills` catalog (All, Bootstrap, Writing, Docs, Publishing, Review, Studio). `/templates` redirects to `/skills?cat=bootstrap`.
 * Source SDL is a small per-category link (All → the skills tree on GitHub).
-* Home hero adds Agent skills and Bootstrap an org. Destinations list becomes a visual surface map.
+* Home hero uses outline buttons for Agent skills and Bootstrap an org (same treatment as Toolchain Advisor).
