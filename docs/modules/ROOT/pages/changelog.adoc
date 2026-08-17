@@ -6,6 +6,7 @@ Timeline of notable documentation and site changes in the devcentr.org repositor
 
 * Products lists **UniConfig Config Panel** with an idea page for `uniconfig` + `uniconfig-core`.
 * News: Config files get a Control Panel.
+* File-route `/ideas/uniconfig` so GitHub Pages emits `index.html` for the idea page.
 * See xref:changelog-details/2026-08-17 - uniconfig-catalog.adoc[Detailed changelog].
 
 == 2026-08-16 — Home solar system
