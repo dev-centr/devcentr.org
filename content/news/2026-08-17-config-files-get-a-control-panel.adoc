@@ -9,7 +9,7 @@ The first beat is deliberately ordinary. Point the app at a `.gitconfig`, a `dub
 
 The engine is a separate D package, `uniconfig-core`, so the DevCentr suite can depend on the tree without dragging dlangui. Profiles that map filename globs onto JSON Schema ship as SDLang beside the exe. The optional Vello GPU path on the dlang-supplemental dlangui fork is documented, not required; default builds stay on dlangui's stock backend.
 
-Docs: link:https://docs.devcentr.org/uniconfig/latest/[UniConfig] ·
+Docs: link:https://docs.devcentr.org/uniconfig/[UniConfig] ·
 Releases: link:https://github.com/dev-centr/uniconfig/releases[uniconfig] ·
 Library: link:https://github.com/dev-centr/uniconfig-core[uniconfig-core] ·
 HCI companion: link:https://hci-nerdz.github.io/blog/when-config-files-withhold-the-vocabulary/[When config files withhold the vocabulary].

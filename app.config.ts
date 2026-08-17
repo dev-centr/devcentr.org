@@ -58,6 +58,7 @@ export default defineConfig({
         "/apps/services",
         "/apps/standards",
         "/ideas/equivalence-engine",
+        "/ideas/uniconfig",
         ...newsRoutes,
       ],
     },
