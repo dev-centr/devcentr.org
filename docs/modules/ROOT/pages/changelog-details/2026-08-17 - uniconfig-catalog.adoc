@@ -1,4 +1,4 @@
 = UniConfig catalog entry
 :description: Apps catalog and news for UniConfig Config Panel.
 
-Added the product to `src/lib/apps-catalog.ts` (idea slug `uniconfig`) and a logo under `public/apps/logos/uniconfig.svg`. News post records the first public cut. Deep docs live in the `uniconfig` Antora component, not in this marketing repo. `/ideas/uniconfig` is a file route plus prerender so Pages serves `index.html` instead of a 404 on the dynamic slug.
+Added the product to `src/lib/apps-catalog.ts` (idea slug `uniconfig`) and a logo under `public/apps/logos/uniconfig.svg`. News post records the first public cut. Deep docs live in the `uniconfig` Antora component, not in this marketing repo. `scripts/spa-fallback.mjs` now copies root `index.html` under `/ideas/<slug>/` for every `slug` in `apps-catalog.ts` (GitHub Pages has no SPA router). `uniconfig.tsx` is a file route as a second breadcrumb.

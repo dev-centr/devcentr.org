@@ -30,6 +30,16 @@ ensureSpa(join(pub, "apps", "products"));
 ensureSpa(join(pub, "apps", "services"));
 ensureSpa(join(pub, "apps", "standards"));
 ensureSpa(join(pub, "ideas", "equivalence-engine"));
+{
+  const catalog = join(root, "src", "lib", "apps-catalog.ts");
+  if (existsSync(catalog)) {
+    const text = readFileSync(catalog, "utf8");
+    const slugs = [...text.matchAll(/slug:\s*"([^"]+)"/g)].map((m) => m[1]);
+    for (const slug of new Set(slugs)) {
+      ensureSpa(join(pub, "ideas", slug));
+    }
+  }
+}
 
 const generated = join(root, "src", "lib", "news-posts.generated.json");
 if (existsSync(generated)) {
