@@ -1,0 +1,18 @@
+= Config files get a Control Panel
+:description: UniConfig Config Panel opens other people's INI, YAML, TOML, SDLang, and tfvars with schema-backed settings widgets — including fields the file never mentioned.
+:revdate: 2026-08-17
+:keywords: news, blog, UniConfig, config, settings, dlang, dlangui
+
+A text file can store a configuration. It cannot, by itself, tell an operator which other keys exist, what the enum is, or why a default is safe. That gap is now a Dev-Centr product: **UniConfig Config Panel**, a schema-driven desktop surface for config files that never grew their own settings UI.
+
+The first beat is deliberately ordinary. Point the app at a `.gitconfig`, a `dub.sdl`, an EditorConfig, or a Terraform `.tfvars`. The same panel widgets appear: labels, descriptions, drop-downs, include checkboxes for **unset** schema fields. Opened files register into a left-hand tree persisted as SDLang (`registry.sdl`). Headless `dump` and `validate` exist for the same merge.
+
+The engine is a separate D package, `uniconfig-core`, so the DevCentr suite can depend on the tree without dragging dlangui. Profiles that map filename globs onto JSON Schema ship as SDLang beside the exe. The optional Vello GPU path on the dlang-supplemental dlangui fork is documented, not required; default builds stay on dlangui's stock backend.
+
+Docs: link:https://docs.devcentr.org/uniconfig/latest/[UniConfig] ·
+Releases: link:https://github.com/dev-centr/uniconfig/releases[uniconfig] ·
+Library: link:https://github.com/dev-centr/uniconfig-core[uniconfig-core] ·
+HCI companion: link:https://hci-nerdz.github.io/blog/when-config-files-withhold-the-vocabulary/[When config files withhold the vocabulary].
+
+.File versus panel
+image::https://devcentr.org/news/media/uniconfig-vocabulary-split.png[alt="Split workbench: sparse config text on the left, schema-backed settings rows on the right"]

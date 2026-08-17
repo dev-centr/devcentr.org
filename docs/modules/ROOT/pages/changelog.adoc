@@ -2,6 +2,12 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-08-17 — UniConfig on the apps catalog
+
+* Products lists **UniConfig Config Panel** with an idea page for `uniconfig` + `uniconfig-core`.
+* News: Config files get a Control Panel.
+* See xref:changelog-details/2026-08-17 - uniconfig-catalog.adoc[Detailed changelog].
+
 == 2026-08-16 — Home solar system
 
 * Homepage destinations are a teal-white dwarf with overlapping 3D circular orbits. Planets shade from the star, shrink/fade on the far side, and show a label on hover.

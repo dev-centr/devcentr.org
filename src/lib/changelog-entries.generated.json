@@ -1,6 +1,102 @@
 {
   "entries": [
     {
+      "id": "devcentr-2026-08-17-first-public-binary-v0-1-0",
+      "date": "2026-08-17",
+      "title": "First public binary (v0.1.0)",
+      "bullets": [
+        "Tagged v0.1.0 with a portable Windows x64 zip (DevCentr-windows-x64.zip).",
+        "See DUB project-map pin shipped in the same cut."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-08-17-project-map-via-dub-registry",
+      "date": "2026-08-17",
+      "title": "project-map via DUB registry",
+      "bullets": [
+        "Depend on registry project-map ~>0.1.3 instead of a local openshellorg/project-map/lib path (that subfolder has no DUB recipe).",
+        "Restore arsd-official to ~>11.5.3 to match dlangui.",
+        "Resolve stack profiles from the DUB package cache, then hive clones.",
+        "Rename LineageScope.scope to scopeId so the catalog compiles on current LDC (scope is a keyword).",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-08-17-uniconfig-launch",
+      "date": "2026-08-17",
+      "title": "UniConfig launch",
+      "bullets": [
+        "Spec: UniConfig Config Panel — spawn standalone uniconfig from Open With when the binary is on PATH.",
+        "Implementation: modules.uniconfig.launch.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-08-17-windows-setup-exe-portable-zip-in-ci",
+      "date": "2026-08-17",
+      "title": "Windows setup EXE + portable zip in CI",
+      "bullets": [
+        "GitHub Actions Release compiles Windows x64 and attaches DevCentr-windows-x64-setup.exe (NSIS, per-user), the existing zip as portable only, and an MSI from msi-generator when that step succeeds.",
+        "Website downloads should use the setup EXE; the zip is not the installer.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-17-skill-descriptions-as-trigger-words",
+      "date": "2026-08-17",
+      "title": "Skill descriptions as trigger words",
+      "bullets": [
+        "How-to Bootstrap Cursor skills, explanation Vibe coding bootstrap, and the studio catalog now treat YAML description as trigger words (utterances, filenames, task phrases), not a lay summary of the skill. Cursor create-skill stays layout; skill write-a-skill wins on matching.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-17-write-a-skill",
+      "date": "2026-08-17",
+      "title": "write-a-skill",
+      "bullets": [
+        "Renamed Cursor skill write-skill to write-a-skill so the slug is not ambiguous with “write” as a verb.",
+        "How-to, vibe-coding, catalog, and team SOP now name write-a-skill."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-15-fast-org-bootstrap-not-vibe-coding",
+      "date": "2026-08-15",
+      "title": "Fast org bootstrap (not vibe coding)",
+      "bullets": [
+        "Business Bootstrap gained Fast org bootstrap (Cursor skill bootstrap-org) for GitHub org identity. This how-to index and vibe-coding explanation point at it so it is not confused with installing Cursor skills.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
       "id": "devcentr-2026-08-13-abstract-playbooks-playtime",
       "date": "2026-08-13",
       "title": "Abstract playbooks (PlayTime)",
@@ -610,6 +706,9 @@
       "date": "2026-08-01",
       "title": "August 2026",
       "bullets": [
+        "UniConfig Config Panel -- Schema-driven desktop panel for other people's config files (INI, YAML, TOML, SDLang, tfvars). Engine uniconfig-core; app uniconfig. Wired into this hub. portal · component.",
+        "devcentr.org on this hub -- Marketing site Antora component (devcentr-org): architecture, news/changelog pipelines, Toolchain Advisor, agent skills. Registered in the playbooks. devcentr.org · live devcentr.org.",
+        "Fast org bootstrap -- GitHub org identity (About, public .github profile, site, docs hub) as a Cursor skill, named SDLang profiles (SolidStart static + solid-ui defaults), and a Business Bootstrap tutorial. Capability-area literature (email, vault, chat, infra) is unchanged. Fast org bootstrap · skill bootstrap-org in dev-centr/agent-rules.",
         "Abstract playbooks / PlayTime -- Write intents, not a bash-to-PowerShell blender. Scriptbook + Equivalence Engine wired into this hub. Encyclopedia Abstract playbooks. Essay: Intents, not shell translation. OpenShellOrg cousins on docs.opensh.org. PlayTime stays in scriptbook while it is built.",
         "AsciiDoc image alts + SVG encoding + mock chrome — Unquoted alts became HTML width/height; SVG/adoc mojibake and Encoding errors were agent transcode bugs (not Antora). Mocks now use a single fill-only chrome path (breadcrumb no longer struck through). Org skill fix-docs-encoding checks/fixes. Hub redeploy required for _images/. Access how-to.",
         "Access Finish setup + multi-org consent — Cloudflare dashboard first, GitHub unlocked in the same browser; Authorize listing other orgs does not widen Access. Finish setup · Other orgs · portal.",

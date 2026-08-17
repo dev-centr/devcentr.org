@@ -29,6 +29,16 @@ export const categoryLabel: Record<CatalogCategory, string> = {
 
 export const products: CatalogItem[] = [
   {
+    id: "uniconfig",
+    name: "UniConfig Config Panel",
+    summary:
+      "Schema-driven Control Panel for config files that never grew a settings UI.",
+    href: "/ideas/uniconfig",
+    ideaSlug: "uniconfig",
+    logo: "/apps/logos/uniconfig.svg",
+    tags: "Tooling · Config",
+  },
+  {
     id: "devcentr",
     name: "DevCentr",
     summary: "Flagship Development Orchestration Suite (DOS).",
@@ -109,6 +119,25 @@ export const standards: CatalogItem[] = [
 ];
 
 export const ideas: IdeaPage[] = [
+  {
+    slug: "uniconfig",
+    title: "UniConfig Config Panel",
+    category: "products",
+    overview:
+      "A generic settings surface for other people's config files: open INI, YAML, TOML, SDLang, JSON, or tfvars; overlay JSON Schema from an SDLang profile catalog; register paths after touch. The D library (uniconfig-core) is independent of the dlangui desktop app so DevCentr can reuse the tree.",
+    repos: [
+      {
+        name: "uniconfig",
+        summary: "Desktop panel and CLI (dlangui).",
+        href: "https://github.com/dev-centr/uniconfig",
+      },
+      {
+        name: "uniconfig-core",
+        summary: "Codecs, schema merge, SDLang profiles, registry.",
+        href: "https://github.com/dev-centr/uniconfig-core",
+      },
+    ],
+  },
   {
     slug: "equivalence-engine",
     title: "Equivalence Engine",

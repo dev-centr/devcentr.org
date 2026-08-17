@@ -4,8 +4,17 @@
   <link href="https://devcentr.org/news" rel="alternate"/>
   <link href="https://devcentr.org/news/atom.xml" rel="self"/>
   <id>https://devcentr.org/news</id>
-  <updated>2026-08-13T12:00:00Z</updated>
+  <updated>2026-08-17T12:00:00Z</updated>
   <subtitle>News and engineering blog posts from Dev-Centr.</subtitle>
+  <entry>
+    <title>Config files get a Control Panel</title>
+    <link href="https://devcentr.org/news/2026-08-17-config-files-get-a-control-panel" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-08-17-config-files-get-a-control-panel</id>
+    <updated>2026-08-17T12:00:00Z</updated>
+    <summary>UniConfig Config Panel opens other people&apos;s INI, YAML, TOML, SDLang, and tfvars with schema-backed settings widgets — including fields the file never mentioned.</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
   <entry>
     <title>Intents, not shell translation</title>
     <link href="https://devcentr.org/news/2026-08-13-intents-not-shell-translation" rel="alternate"/>

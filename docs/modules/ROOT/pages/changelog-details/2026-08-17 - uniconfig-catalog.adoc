@@ -1,0 +1,4 @@
+= UniConfig catalog entry
+:description: Apps catalog and news for UniConfig Config Panel.
+
+Added the product to `src/lib/apps-catalog.ts` (idea slug `uniconfig`) and a logo under `public/apps/logos/uniconfig.svg`. News post records the first public cut. Deep docs live in the `uniconfig` Antora component, not in this marketing repo.

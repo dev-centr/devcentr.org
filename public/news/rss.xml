@@ -5,7 +5,16 @@
   <link>https://devcentr.org/news</link>
   <description>News and engineering blog posts from Dev-Centr.</description>
   <language>en-us</language>
-  <lastBuildDate>Thu, 13 Aug 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 17 Aug 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Config files get a Control Panel</title>
+    <link>https://devcentr.org/news/2026-08-17-config-files-get-a-control-panel</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-08-17-config-files-get-a-control-panel</guid>
+    <pubDate>Mon, 17 Aug 2026 12:00:00 GMT</pubDate>
+    <description>UniConfig Config Panel opens other people&apos;s INI, YAML, TOML, SDLang, and tfvars with schema-backed settings widgets — including fields the file never mentioned.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
   <item>
     <title>Intents, not shell translation</title>
     <link>https://devcentr.org/news/2026-08-13-intents-not-shell-translation</link>
