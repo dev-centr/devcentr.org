@@ -2,6 +2,12 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-08-18 — Polyglot distribution research
+
+* News: Unified binary distribution under investigation.
+* Essay: When the binary assumes one kernel.
+* See xref:changelog-details/2026-08-18 - polyglot-distribution-research.adoc[Detailed changelog].
+
 == 2026-08-17 — UniConfig on the apps catalog
 
 * Products lists **UniConfig Config Panel** with an idea page for `uniconfig` + `uniconfig-core`.

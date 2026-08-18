@@ -1,0 +1,19 @@
+= Unified binary distribution under investigation
+:description: Dev-Centr is prototyping a single-download pack of native OS/arch slices, with Binary Tailor stripping foreign headers on delivery.
+:revdate: 2026-08-18
+:keywords: news, blog, distribution, Binary Tailor, PackageHub, APE
+
+Dev-Centr is documenting and prototyping a **single-file** path for application binaries: one CI matrix, one GitHub Release asset, and an install adapter that writes a conventional PE, ELF, or Mach-O for the host.
+
+The work is research, not a replacement for winget, MSI, or language registries. PackageHub's current product remains OIDC publish to npm, PyPI, and Crates.io. Docs now mark a possible later job: attach the pack to a release and tailor at delivery so antivirus and debuggers see a boring header.
+
+New public prototypes:
+
+* https://github.com/dev-centr/binary-tailor[binary-tailor] — pack native slices; tailor or assimilate on the machine that runs the download
+* https://github.com/dev-centr/macho-memload[macho-memload] — in-memory Mach-O mapper (D BetterC), because macOS has no `fexecve`
+* https://github.com/dev-centr/polyglot-debug[polyglot-debug] — LLDB/GDB patches so `MZ` does not exclusively own Actually Portable Executables
+
+House CI guidance (Windows x64/arm64, macOS arm64 only, Linux x64/arm64, BSD off GitHub-hosted) lives in the `polyglot-ci` agent skill and in general-knowledge. Intel GitHub-hosted Macs are out of the matrix.
+
+Essay (inward): link:https://devcentr.org/news/2026-08-18-when-the-binary-assumes-one-kernel[When the binary assumes one kernel].
+Concepts: link:https://docs.devcentr.org/general-knowledge/latest/explanation/architecture/polyglot-distribution.html[Polyglot distribution].

@@ -1,6 +1,21 @@
 {
   "entries": [
     {
+      "id": "general-knowledge-2026-08-18-polyglot-distribution-experimental",
+      "date": "2026-08-18",
+      "title": "Polyglot distribution (experimental)",
+      "bullets": [
+        "Explanation Polyglot distribution -- one CI matrix, one download pack, Binary Tailor on delivery, cosmocc native graft as a later transplant, debugger chords.",
+        "How-to Binary Tailor and Polyglot CI matrix.",
+        "Tools: https://github.com/dev-centr/binary-tailor[binary-tailor], https://github.com/dev-centr/macho-memload[macho-memload], https://github.com/dev-centr/polyglot-debug[polyglot-debug].",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
       "id": "devcentr-2026-08-17-first-public-binary-v0-1-0",
       "date": "2026-08-17",
       "title": "First public binary (v0.1.0)",

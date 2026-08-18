@@ -1,0 +1,26 @@
+= When the binary assumes one kernel
+:description: Almost every compiled program encodes one OS and one CPU. That is a local accident, and the download page is the scar.
+:revdate: 2026-08-18
+:keywords: blog, polyglot, APE, Cosmopolitan, Binary Tailor, distribution, Mach-O
+
+Open a desktop app's Download page. Count the buttons. Windows 64-bit. Windows ARM. macOS (Apple Silicon). Maybe a strikethrough Intel Mac. Ubuntu x64. Ubuntu ARM. A tarball that says “Linux” and hopes. Two BSDs if the maintainer is stubborn. Each button is a second CI job, a second signing secret, a second support email that begins *I grabbed the wrong one*.
+
+We talk as if that grid were physics. It is a parser convention.
+
+The file on disk is allowed to be more than one kind of object at once. Cosmopolitan Libc's Actually Portable Executable is the existence proof: a shell stub, a PE, an ELF, a Mach-O header hiding in a `dd` window, a ZIP directory at the end. Fat `apelink` images carry AMD64 and ARM64 code in the same blob. You can dislike the aesthetics. You cannot call it impossible.
+
+Debuggers and antivirus still behave as if the first eight bytes were destiny. LLDB walks its `ObjectFile` plugins and lets whoever matches `MZ` at offset zero own the file. On Linux that is often the PE plugin, which then tries to map Windows virtual addresses through `ptrace`. GDB's BFD layer can *list* multiple matches and still pick PEI because the PE vector is early in the table. The maintainers are not stupid. They optimized for the case that is true about **99.99%** of binaries compiled worldwide: one ABI, one kernel, one grammar. First-match is fast. First-match is also how a chord looks like a virus or a corrupt executable.
+
+I want that statistic to move.
+
+Not by compiling every GUI with `cosmocc` and giving up host `dlopen`. NVIDIA, Metal, DirectX, and the rest of the proprietary stacks do not live in Cosmopolitan's static world. The move is clumsier and more honest: **native compilers** emit the slices users actually run — MSVC, Apple clang, the Linux toolchain whose LLVM bugfix landed last Tuesday — and a packer stitches those slices into **one download**. A persistent adapter, Binary Tailor, strips the non-target headers on delivery so Defender sees a PE and `ld.so` sees ELF. That *kind of* undoes the romance of a single on-disk identity. It keeps a single CI matrix and a single link. I will take the boring file on disk if I can stop teaching every intern a twelve-cell spreadsheet of `runs-on`.
+
+macOS is the awkward sibling. GitHub's Intel Mac runners are not a path we will keep patching around. The house matrix is Apple Silicon only. And Darwin still has no `fexecve`: if you refuse to drop a Mach-O onto a `noexec` volume, you need a loader. We wrote one in D BetterC, `macho-memload`, and linked Binary Tailor against it. It is experimental. Chained fixups and Apple's signing gates are not “done.” It is a place to put a debugger and a fuzzer instead of a shrug.
+
+`cosmocc` should eventually do the surgical version of the same idea: keep a slow-moving APE header template, compile with the native compiler, transplant `.text` and friends into the slots. Today it wraps GCC/Clang with TLS rewrites and `-mno-red-zone`. That is a compiler. It is not a graft from MSVC. Until the header schema is pinned and the transplant is real, ZIP payloads are the graft that cannot lie about offsets.
+
+PackageHub started as registry publish — npm, PyPI, crates, OIDC, no long-lived tokens. That job remains. The experimental question is whether the same dashboard should also be the place a maintainer attaches one pack and lets the edge tailor it. I think yes, because the alternative is every org reinventing the matrix and the Download page independently, which is how we got twelve buttons in the first place.
+
+The debugger fix is not a new GUI. Stepping already looks like stepping. The object-file layer needs to **survey** and **score**. If PE and ELF both raise their hands, a meta-plugin asks the process plugin which kernel is live. We published patches under `polyglot-debug` rather than yelling at LLDB in a blog comment. Upstream may not want the attack surface of a scoring loop. That is a fair security argument. It is not an argument that greedy `MZ` is correct.
+
+If you ship software this year, try packing the slices you already build. Run them through Binary Tailor on a clean VM. Watch whether Defender still flinches at the pack and goes quiet on the tailored PE. File the debugger bugs with the chord language, not “APE is weird.” The 99.99% is a measurement of our tools, not of what a file is allowed to be.

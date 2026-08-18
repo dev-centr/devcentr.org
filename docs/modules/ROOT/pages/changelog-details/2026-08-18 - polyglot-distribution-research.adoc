@@ -1,0 +1,5 @@
+= 2026-08-18 — Polyglot distribution research
+
+* Outward news post records that Dev-Centr is investigating a single-download native-slice pack and Binary Tailor; not a registry or installer replacement.
+* Inward essay argues first-match binary parsers and twelve-button Download pages are a local accident, not physics.
+* Points at `binary-tailor`, `macho-memload`, `polyglot-debug`, and general-knowledge polyglot distribution.

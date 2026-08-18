@@ -5,7 +5,25 @@
   <link>https://devcentr.org/news</link>
   <description>News and engineering blog posts from Dev-Centr.</description>
   <language>en-us</language>
-  <lastBuildDate>Mon, 17 Aug 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Tue, 18 Aug 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>When the binary assumes one kernel</title>
+    <link>https://devcentr.org/news/2026-08-18-when-the-binary-assumes-one-kernel</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-08-18-when-the-binary-assumes-one-kernel</guid>
+    <pubDate>Tue, 18 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Almost every compiled program encodes one OS and one CPU. That is a local accident, and the download page is the scar.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
+  <item>
+    <title>Unified binary distribution under investigation</title>
+    <link>https://devcentr.org/news/2026-08-18-unified-binary-distribution-under-investigation</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-08-18-unified-binary-distribution-under-investigation</guid>
+    <pubDate>Tue, 18 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Dev-Centr is prototyping a single-download pack of native OS/arch slices, with Binary Tailor stripping foreign headers on delivery.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
   <item>
     <title>Config files get a Control Panel</title>
     <link>https://devcentr.org/news/2026-08-17-config-files-get-a-control-panel</link>

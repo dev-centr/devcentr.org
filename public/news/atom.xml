@@ -4,8 +4,26 @@
   <link href="https://devcentr.org/news" rel="alternate"/>
   <link href="https://devcentr.org/news/atom.xml" rel="self"/>
   <id>https://devcentr.org/news</id>
-  <updated>2026-08-17T12:00:00Z</updated>
+  <updated>2026-08-18T12:00:00Z</updated>
   <subtitle>News and engineering blog posts from Dev-Centr.</subtitle>
+  <entry>
+    <title>When the binary assumes one kernel</title>
+    <link href="https://devcentr.org/news/2026-08-18-when-the-binary-assumes-one-kernel" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-08-18-when-the-binary-assumes-one-kernel</id>
+    <updated>2026-08-18T12:00:00Z</updated>
+    <summary>Almost every compiled program encodes one OS and one CPU. That is a local accident, and the download page is the scar.</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
+  <entry>
+    <title>Unified binary distribution under investigation</title>
+    <link href="https://devcentr.org/news/2026-08-18-unified-binary-distribution-under-investigation" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-08-18-unified-binary-distribution-under-investigation</id>
+    <updated>2026-08-18T12:00:00Z</updated>
+    <summary>Dev-Centr is prototyping a single-download pack of native OS/arch slices, with Binary Tailor stripping foreign headers on delivery.</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
   <entry>
     <title>Config files get a Control Panel</title>
     <link href="https://devcentr.org/news/2026-08-17-config-files-get-a-control-panel" rel="alternate"/>
