@@ -1,0 +1,99 @@
+= Agent rules without the harness baked in
+:description: Forkable agent-rules templates should not assume Cursor—or any single AI harness. Machine facts belong in HARNESS.md and MEMORIES.md; illustrated architecture now on docs.devcentr.org.
+:revdate: 2026-08-19
+:keywords: blog, news, agent-rules, harness, cursor, ai, templates, dev-centr
+
+You copy the team rules into a new harness—Hermes on Tuesday, Cursor on Wednesday, something else next month—and within a week the template has your drive letter, your username, and a paragraph that only makes sense if the agent lives inside one vendor's settings panel.
+
+That is not a portability problem.
+It is a **layering** mistake wearing a reasonable filename.
+
+== The moment the template stops being forkable
+
+Picture the failure in a standup, not a diagram.
+
+Someone opens `agent-rules/AGENTS.md` to add a changelog rule.
+The agent "helpfully" writes `Z:\code\github.com\TheirName\.issues` into the org skill because that is what it saw on the last machine.
+The PR looks fine in review—until another teammate on Linux pulls it and their agent now hallucinates paths that never existed on their box.
+
+Or worse: the rules assume `~/.cursor/skills` as if skill discovery were a law of physics.
+It is not.
+It is one harness's convention.
+Another reads playbooks straight from disk.
+A third injects everything through a project-local file you have never heard of yet.
+
+The template was supposed to travel.
+Instead it became a diary entry with YAML frontmatter.
+
+== What we split apart
+
+Dev-Centr's `agent-rules` repo always had layers on paper—portable, org, project, machine.
+What we had *not* done cleanly was treat **harness behavior** as its own machine-local fact, separate from workstation facts and separate from forkable policy.
+
+So we drew a harder line:
+
+[cols="1,2",options="header"]
+|===
+| Layer | Lives in
+
+| Forkable templates
+| `RULES.md`, `AGENTS.md`, `general/*`, `agents/*`, skill bodies — placeholders only
+
+| Harness config (this machine)
+| `$CODE_ROOT/HARNESS.md` — name, skill discovery root, always-on injection slot, chat/citation behaviors
+
+| Workstation facts (this machine)
+| `$CODE_ROOT/MEMORIES.md` — tool paths, PATH gaps, hardware quirks
+
+| Project facts
+| `<repo>/AGENTS.md` + docs
+|===
+
+Polyglot harness use is normal on one desk.
+You might pair Cursor with Claude Code on the same `CODE_ROOT`.
+`HARNESS.md` records what applies *now*; `MEMORIES.md` stays shared because `ffmpeg` does not care which chat window asked for it.
+
+== What the agent must do instead of guessing
+
+We added skill **`harness-setup`** and portable modules `general/harness.md` + `general/harness-boundary.md`.
+
+The contract is blunt:
+
+. **Probe** the active harness—discovery hooks, always-on slot, link behavior, MCP availability.
+. **Write** concrete values to `$CODE_ROOT/HARNESS.md`, never into upstream templates.
+. **Read** `general/harness-boundary.md` before editing anything forkable.
+
+If an agent is about to commit your username into a skill body, it should stop and ask which layer owns that fact.
+That sounds obvious.
+It only becomes automatic when the boundary is always-on policy, not a README footnote.
+
+== Satellite orgs: pull, don't patch
+
+House org init gives each banner a thin `{org}/agent-rules` wrapper—pointer README plus org overlay, **no submodule** of the canonical tree.
+
+That means propagation is boring in the good way:
+
+. Merge or pull in `$CODE_ROOT/github.com/dev-centr/agent-rules`
+. Re-compose always-on rules if you use rules-manager
+. Run `harness-setup` only if *your* harness paths changed
+
+Wrapper repos do not need a PR for shared portable improvements unless org policy itself changed.
+One canonical clone, one `git pull`, twelve orgs breathe the same air.
+
+== Where to read the illustrated version
+
+README slop is fine for a landing page.
+It is a terrible place to teach layering.
+
+The full guide—with mermaid diagrams, setup checklist, and Cursor-as-one-example-not-the-template—is on the docs hub:
+
+https://docs.devcentr.org/agent-rules/harness-neutral.html
+
+Start there if you are copying these templates into another harness and want the agent to discover its own variables instead of inheriting ours.
+
+== The thesis
+
+Other harnesses should aspire to Cursor-class features—skill discovery, local overlays, rich file links.
+They should not inherit Cursor's *paths* baked into team policy.
+
+Templates stay forkable when machine facts stay on the machine—and when every agent knows which file is allowed to hold them.
