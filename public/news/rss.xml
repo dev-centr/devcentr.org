@@ -5,7 +5,16 @@
   <link>https://devcentr.org/news</link>
   <description>News and engineering blog posts from Dev-Centr.</description>
   <language>en-us</language>
-  <lastBuildDate>Tue, 18 Aug 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Wed, 19 Aug 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>After Skia: where rendering is headed</title>
+    <link>https://devcentr.org/news/2026-08-19-after-skia-where-rendering-is-headed</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-08-19-after-skia-where-rendering-is-headed</guid>
+    <pubDate>Wed, 19 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Electron wins the ecosystem until the document grows. Then the renderer—not the feature list—decides whether your app survives two gigabytes of chat. What comes after Skia on Windows and Linux.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
   <item>
     <title>When the binary assumes one kernel</title>
     <link>https://devcentr.org/news/2026-08-18-when-the-binary-assumes-one-kernel</link>

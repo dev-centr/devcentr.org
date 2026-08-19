@@ -1,6 +1,90 @@
 {
   "entries": [
     {
+      "id": "devcentr-2026-08-19-toolchain-advisor-graphics-rendering-docs-link",
+      "date": "2026-08-19",
+      "title": "Toolchain advisor: graphics rendering docs link",
+      "bullets": [
+        "Toolchain advisor recommends Graphics rendering engines when target is desktop or web; Read docs opens the hub page from ranked guidance.",
+        "windows-desktop and web option copy points at the same explanation; project vision links the essay."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-19-graphics-rendering-engines",
+      "date": "2026-08-19",
+      "title": "Graphics rendering engines",
+      "bullets": [
+        "Explanation Graphics rendering engines — desktop UI stack comparison, large-document architecture, Skia successors (Graphite, Impeller, Vello, Rive, Blend2D).",
+        "Linked from GUI apps, Desktop template, and DevCentr toolchain advisor.",
+        "Essay: After Skia: where rendering is headed."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-19-pnpm-run-routing-reference",
+      "date": "2026-08-19",
+      "title": "pnpm run routing reference",
+      "bullets": [
+        "Reference pnpm run routing — grammar of pnpm run, package.json scripts, --filter vs -C, root-first monorepo commands.",
+        "pnpm mechanics links to the new page."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-08-18-appearance-extra-fonts-ligature-preview-live-install-refresh",
+      "date": "2026-08-18",
+      "title": "Appearance: extra fonts, ligature preview, live install refresh",
+      "bullets": [
+        "Appearance radios expanded to Fira Code, Iosevka, and GitHub Monaspace (Neon) alongside Cascadia Mono and JetBrains Mono.",
+        "Ligature demo line (!= === -> |>) with Show ligature demo line toggle; persisted as codeFontLigatures (preview-only — dlangui does not apply OpenType ligatures).",
+        "After Scriptbook font install completes, Appearance re-enumerates OS fonts and refreshes preview/status without closing the dialog.",
+        "Spec Appearance (code font) updated.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-08-18-appearance-font-preview-scriptbook-install",
+      "date": "2026-08-18",
+      "title": "Appearance: font preview + Scriptbook install",
+      "bullets": [
+        "Appearance dialog: editable monospace preview (pangram + D sample) for Cascadia Mono / JetBrains Mono; warns when the face is missing; Install selected font spawns Scriptbook when on PATH (modules.appearance.font_install).",
+        "Spec Appearance (code font) updated; playbooks unchanged in scriptbook/examples/fonts/.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-08-18-appearance-what-is-in-the-dialog-vs-later",
+      "date": "2026-08-18",
+      "title": "Appearance: what is in the dialog vs later",
+      "bullets": [
+        "Spec records why a Suitcase-style manager, Fontsource web UI, Nerd Font radio, proprietary picker, and real OT ligatures stay out of Appearance -- later, separate, or never; not \"forgot.\"",
+        "Todo & Roadmap lists resume order (optional Nerd Font toggle, then project font lock library).",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
       "id": "general-knowledge-2026-08-18-polyglot-distribution-experimental",
       "date": "2026-08-18",
       "title": "Polyglot distribution (experimental)",
@@ -9,6 +93,18 @@
         "How-to Binary Tailor and Polyglot CI matrix.",
         "Tools: https://github.com/dev-centr/binary-tailor[binary-tailor], https://github.com/dev-centr/macho-memload[macho-memload], https://github.com/dev-centr/polyglot-debug[polyglot-debug].",
         "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-18-tcf-practice-kit-on-the-hub",
+      "date": "2026-08-18",
+      "title": "TCF practice kit on the hub",
+      "bullets": [
+        "TCF explanation and the naming table on Toolchain Management Pattern now point at the TCF Antora component (no longer a \"planned\" kit)."
       ],
       "sourceId": "general-knowledge",
       "sourceLabel": "General Knowledge",
@@ -721,6 +817,10 @@
       "date": "2026-08-01",
       "title": "August 2026",
       "bullets": [
+        "Graphics rendering engines — general-knowledge explanation for desktop UI stacks, large-document patterns, and post-Skia pipelines (Graphite, Impeller, Vello). Essay: After Skia: where rendering is headed. Wired into DevCentr toolchain advisor and docs nav. Explanation.",
+        "Fonts / Appearance — DevCentr can pick and install five OS coding fonts for *this app* (Cascadia Mono default). Project Fontsource lock is later; a Suitcase-style manager is a different product -- recorded, not forgotten. Public spec: Appearance (code font). Member orientation: team-docs *Font lock*.",
+        "Toolchain Framework (TCF) — Practice kit (schemas, adapters, validators) wired into this hub. CI used to fail because pnpm/action-setup duplicated package.json packageManager. portal · component.",
+        "RepoLab — Dev-Centr product under the RepoLabs org (RepoLab-dev): one browser frontend for GitHub, other git hosts, and other VCS backends. Product site repolab.dev; docs docs.repolab.dev. portal · devcentr.org catalog.",
         "UniConfig Config Panel -- Schema-driven desktop panel for other people's config files (INI, YAML, TOML, SDLang, tfvars). Engine uniconfig-core; app uniconfig. Wired into this hub. portal · component.",
         "devcentr.org on this hub -- Marketing site Antora component (devcentr-org): architecture, news/changelog pipelines, Toolchain Advisor, agent skills. Registered in the playbooks. devcentr.org · live devcentr.org.",
         "Fast org bootstrap -- GitHub org identity (About, public .github profile, site, docs hub) as a Cursor skill, named SDLang profiles (SolidStart static + solid-ui defaults), and a Business Bootstrap tutorial. Capability-area literature (email, vault, chat, infra) is unchanged. Fast org bootstrap · skill bootstrap-org in dev-centr/agent-rules.",

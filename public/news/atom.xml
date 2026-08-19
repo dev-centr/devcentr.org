@@ -4,8 +4,17 @@
   <link href="https://devcentr.org/news" rel="alternate"/>
   <link href="https://devcentr.org/news/atom.xml" rel="self"/>
   <id>https://devcentr.org/news</id>
-  <updated>2026-08-18T12:00:00Z</updated>
+  <updated>2026-08-19T12:00:00Z</updated>
   <subtitle>News and engineering blog posts from Dev-Centr.</subtitle>
+  <entry>
+    <title>After Skia: where rendering is headed</title>
+    <link href="https://devcentr.org/news/2026-08-19-after-skia-where-rendering-is-headed" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-08-19-after-skia-where-rendering-is-headed</id>
+    <updated>2026-08-19T12:00:00Z</updated>
+    <summary>Electron wins the ecosystem until the document grows. Then the renderer—not the feature list—decides whether your app survives two gigabytes of chat. What comes after Skia on Windows and Linux.</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
   <entry>
     <title>When the binary assumes one kernel</title>
     <link href="https://devcentr.org/news/2026-08-18-when-the-binary-assumes-one-kernel" rel="alternate"/>

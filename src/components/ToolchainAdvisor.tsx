@@ -150,6 +150,13 @@ const ContextPanel: Component<{
         <h3>Guidance for full selection</h3>
         <p class="advisor-guidance-title">{best().title}</p>
         <p>{best().summary}</p>
+        <Show when={best().docs}>
+          <p class="advisor-meta">
+            <a href={best().docs} target="_blank" rel="noopener noreferrer">
+              Read docs
+            </a>
+          </p>
+        </Show>
       </section>
     </aside>
   );

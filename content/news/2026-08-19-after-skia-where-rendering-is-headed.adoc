@@ -1,0 +1,98 @@
+= After Skia: where rendering is headed
+:description: Electron wins the ecosystem until the document grows. Then the renderer—not the feature list—decides whether your app survives two gigabytes of chat. What comes after Skia on Windows and Linux.
+:revdate: 2026-08-19
+:keywords: blog, news, rendering, skia, electron, avalonia, vello, desktop, ui
+
+You open the IDE, start a long thread, paste a few stack traces, let the model riff for an hour.
+Everything feels fine until it doesn't—the scroll stutters, the fan spins, the window goes white, and you are staring at a renderer that lost an argument with a two-gigabyte conversation.
+
+That moment is not "JavaScript is slow."
+It is a **rendering architecture** problem wearing a familiar logo.
+
+== The stack you picked before you knew you needed headroom
+
+Most desktop tools today ship as **Chromium in a trench coat**: Electron, or something close enough that the failure modes rhyme.
+You get the web stack's superpower—every npm package, every CSS trick, every hire who has touched React—and you pay for it in processes, heaps, and layout work you never asked for.
+
+Compare that to a **retained-mode native shell** (Avalonia on .NET, Qt Quick, Flutter desktop, GPUI in Rust).
+These draw through Skia or a successor pipeline directly to the GPU.
+There is no DOM tree to reflow when message number 4,000 streams in token by token.
+Memory still matters; GC still exists in managed runtimes—but you are not duplicating the entire web engine to render a sidebar.
+
+The trade is real: ecosystem reach vs. baseline cost.
+Electron idle memory often sits in the **200–400 MB** band before your app does anything interesting.
+A modest Avalonia or Qt shell might idle at **40–80 MB**.
+Cold start tells the same story: browser boot vs. a single process that paints its first frame without parsing an HTML document.
+
+None of that means "never Electron."
+It means **know which problem you are buying**.
+
+== When the document becomes the product
+
+The pain shows up in **gigabyte-scale client documents**: chat, mail, live logs, repo maps with syntax highlighting on every line.
+
+Chromium/Electron degrades because:
+
+. Thousands of live DOM nodes force style recalc and reflow on every streaming update.
+. JSON payloads cross IPC between Node and the renderer; the V8 heap balloons.
+. Major GC pauses freeze input; OOM ends the session.
+
+Surviving that shape requires two patterns **no renderer gives you for free**:
+
+. **Viewport windowing** — only mount what is visible plus a small overdraw buffer.
+. **Off-heap history** — append-only logs, SQLite, memory-mapped files; not the entire transcript as live objects in the UI heap.
+
+Native stacks make those patterns easier.
+They do not remove the obligation.
+
+== The generation after "tessellate on the CPU, draw on the GPU"
+
+Skia is not vanishing tomorrow.
+It still underpins Chrome, Android, Flutter's legacy paths, Avalonia, and half the cross-platform map you already know.
+
+But Skia's classic **Ganesh** path carries twenty years of assumptions: CPU-side curve flattening, intermediate render targets, runtime shader compilation stutters.
+Google's **Graphite** rewrite targets modern APIs—Vulkan, D3D12, Metal—with batched command buffers and pre-baked pipeline state.
+
+**Impeller** is Flutter's answer: precompiled shaders, display-list recording, less jank on mobile—and desktop paths exist, but Impeller is **Flutter's engine**, not a general-purpose Skia successor you drop into arbitrary apps.
+
+The sharper break is **compute-first** 2D:
+
+* **Vello** (Linebender, `wgpu`) pushes path filling and binning into **GPU compute shaders**—parallel scans instead of serial CPU tessellation. Windows via D3D12/Vulkan; Linux via Vulkan; dual-licensed Apache/MIT.
+* **Rive Renderer** optimizes animated vector UI with pixel-local storage tricks—MIT, embeddable.
+* **Blend2D** stays on CPU with JIT SIMD when GPU is absent or virtualized—Zlib.
+
+Think in generations:
+
+[source,text]
+----
+Gen 1 — CPU raster:        Cairo, GDI+, software Skia
+Gen 2 — GPU tessellation:  Skia Ganesh/Graphite, Direct2D, Impeller
+Gen 3 — GPU compute-first: Vello, Rive
+----
+
+Windows and Linux are not waiting on a mobile-only fork.
+**Vello + wgpu** is the cross-platform bet that does not require you to ship Flutter to get off CPU tessellation bottlenecks.
+
+== What I am watching (and what I am not claiming)
+
+I am not writing a framework scorecard.
+Pick Avalonia if you live in .NET and want templating depth.
+Pick Qt if you need an industrial scene graph and C++ models.
+Pick GPUI if text latency and zero GC are the whole job.
+Pick Electron if time-to-market and web hiring dominate and your UI stays **bounded**.
+
+I *am* claiming that **renderer generation** is becoming a first-class product decision—especially for tools that hold unbounded user-generated documents.
+Skia Graphite incrementalizes the incumbent.
+Vello-style compute paths rewrite the curve.
+Impeller proves precompiled pipelines matter—but mostly inside Flutter's world.
+
+All of the above are open source under permissive licenses (BSD, MIT, Apache, Zlib).
+The constraint is integration, not secrecy.
+
+== Where we wrote it down
+
+The outward comparison tables, successor matrix, and desktop guidance live in the docs hub:
+
+link:https://docs.devcentr.org/general-knowledge/latest/explanation/architecture/graphics-rendering-engines.html[Graphics rendering engines — explanation]
+
+DevCentr's toolchain advisor links there when you are targeting a **desktop app** or **browser shell**—so the mental model shows up while you are still choosing a stack, not after the heap catches fire.
