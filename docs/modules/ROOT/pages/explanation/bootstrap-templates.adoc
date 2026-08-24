@@ -22,6 +22,18 @@ Locally, place a sibling clone at `../agent-rules` and run `pnpm sync-bootstrap-
 Vinxi's static preset does not write `.output/public/skills/index.html` for this client-only route.
 `scripts/spa-fallback.mjs` copies the SPA shell there (same as `/toolchain-advisor`) so GitHub Pages and the CI artifact check succeed. `/templates` is kept as a redirect page.
 
+== Harness vs portable layers
+
+Forkable policy in `dev-centr/agent-rules` (`RULES.md`, `AGENTS.md`, `agents/*`, skill bodies) must stay harness-neutral — placeholders only, no machine paths or vendor-specific discovery rules baked in.
+
+Machine-local facts split further:
+
+* `MEMORIES.md` — workstation paths, hive layout, OS quirks
+* `HARNESS.md` — how a specific AI harness loads skills (for example Cursor `~/.cursor/skills` junctions vs project-local playbooks)
+
+The public `/skills` page compiles bootstrap SDL and lists shipped skills; it does not duplicate harness wiring.
+See the inward essay *Agent rules without the harness baked in* on link:https://devcentr.org/news/2026-08-19-agent-rules-without-the-harness-baked-in[/news] and xref:general-knowledge::how-to/bootstrap-cursor-skills.adoc[Bootstrap Cursor skills].
+
 == Route
 
 * Canonical: `src/routes/skills.tsx` (`/skills`)

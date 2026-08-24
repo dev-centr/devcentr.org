@@ -2,6 +2,17 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-08-19 — Agent rules harness layering (blog)
+
+* Essay: Agent rules without the harness baked in — forkable templates vs `HARNESS.md` / `MEMORIES.md`.
+* See xref:changelog-details/2026-08-19 - agent-rules-harness-blog.adoc[Detailed changelog].
+
+== 2026-08-19 — After Skia essay and advisor rendering docs
+
+* Essay: After Skia — rendering headroom for dense desktop clients.
+* Advisor: `desktop-rendering-engines` recommendation and **Read docs** link to general-knowledge graphics rendering guide.
+* See xref:changelog-details/2026-08-19 - after-skia-advisor-rendering.adoc[Detailed changelog].
+
 == 2026-08-18 — Polyglot distribution research
 
 * News: Unified binary distribution under investigation.

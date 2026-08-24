@@ -19,7 +19,7 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 | Path | Purpose
 
 | `/`
-| Landing — hero, ecosystem copy, toolchain diagram, apps teaser
+| Landing — hero, ecosystem copy, toolchain diagram, apps teaser, and `SiteMap` solar-system navigator
 
 | `/news`, `/blog`
 | News index and posts (`/blog` is an SEO alias)
@@ -73,10 +73,22 @@ On push to `main`, the `deploy` job uploads `.output/public` via `actions/deploy
 A `.nojekyll` file is added so GitHub Pages serves `_build` and `_server` paths correctly.
 Custom domain `devcentr.org` is configured in the repository's Pages settings.
 
+== Home solar system (`SiteMap`)
+
+The landing page footer includes an interactive orbit field (`src/components/site-map.tsx`):
+
+* Teal-white dwarf at the center links to link:https://devcentr.app[devcentr.app].
+* Seven planets orbit on inclined 3D circular paths (canvas-drawn tracks + CSS-positioned bodies).
+* Planets link to Apps, docs portal, News, Changelog, Skills, Toolchain Advisor, and the GitHub org.
+* Animation uses `requestAnimationFrame`; `prefers-reduced-motion: reduce` freezes planet positions.
+* Planets scale and fade on the far side of the orbit; labels appear on hover.
+
+The hero background uses a separate decorative `HeroOrbit` SVG (`src/components/hero-orbit.tsx`) — not the same widget as `SiteMap`.
+
 == Key source locations
 
 * `src/routes/` — page components
-* `src/components/` — shared UI (header, footer, diagrams, advisor widget, agent skills catalog)
+* `src/components/` — shared UI (header, footer, diagrams, advisor widget, agent skills catalog, `SiteMap` solar system)
 * `src/lib/` — catalog data, changelog loader, theme reveal, site links
 * `content/news/` — authored news (see xref:explanation/news-and-changelog.adoc[News & changelog pipeline])
 * `public/brand/` — SVG logo marks (canonical org assets live in `.github` profile repos)

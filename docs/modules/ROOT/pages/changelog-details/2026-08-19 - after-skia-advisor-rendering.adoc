@@ -1,0 +1,6 @@
+= 2026-08-19 — After Skia essay and advisor rendering docs
+
+* Inward essay *After Skia: where rendering is headed* — Electron vs native stacks, gigabyte-scale documents, and what comes after Skia on Windows and Linux.
+* Toolchain Advisor catalog adds `desktop-rendering-engines` guidance with a link to xref:general-knowledge::explanation/architecture/graphics-rendering-engines.adoc[graphics-rendering-engines] in general-knowledge.
+* Desktop/GUI and web-runtime option overviews in `advisor.json` now point readers at the rendering-engine landscape before they pick a shell.
+* `ToolchainAdvisor.tsx` shows a **Read docs** link when the best recommendation includes a `docs` URL.

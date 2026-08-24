@@ -1,0 +1,5 @@
+= 2026-08-19 — Agent rules without the harness baked in
+
+* Inward essay on forkable `agent-rules` layering — portable templates vs machine-local `HARNESS.md` and `MEMORIES.md`.
+* Clarifies that skill discovery paths (for example `~/.cursor/skills`) are harness facts, not org policy.
+* Points readers at the harness-neutral guide on link:https://docs.devcentr.org[docs.devcentr.org] and the canonical `dev-centr/agent-rules` repo.
