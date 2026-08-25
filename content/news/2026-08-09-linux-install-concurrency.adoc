@@ -1,0 +1,169 @@
+= Installation concurrency when Linux locks wait—or don't
+:description: Linux package managers serialize with lock files and, in modern apt, optional wait timeouts—but agents still bounce across dpkg, DNF, Flatpak, and GUI software centers. What exists, what to fake in orchestration, and who would need to cooperate for a real install bus.
+:revdate: 2026-08-09
+:keywords: news, blog, Linux, apt, dpkg, DNF, Flatpak, PackageKit, concurrency, agents, installers
+
+Linux looks healthier than Windows at first glance: package databases have locks, distro tools know about them, and some clients can *wait* instead of instantly failing.
+That is real progress—and still not an OS-wide install queue that concurrent agent workflows can trust when one worker wants `apt`, another wants Flatpak, and a third is unpacking a vendor `.run` into `/opt`.
+
+This is the Linux half of a diptych with link:https://devcentr.org/news/2026-08-09-windows-install-concurrency[Installation concurrency when Windows has a mutex but not a queue].
+Same agentic pressure; different primitives; different cooperation map.
+
+Practitioner short form (agent-host mutex rule, no OS treatise): link:https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/os-install-concurrency.html[OS install concurrency] on the docs hub.
+
+== The short answer
+
+Linux distributions **do** serialize many package transactions with lock files and manager-specific transaction locks.
+Some stacks even **wait** for those locks (notably modern `apt` with `DPkg::Lock::Timeout`, and interactive `apt(8)` defaults).
+What they do **not** provide is a single machine-wide admission queue spanning every way software lands on disk—native packages, Flatpak/Snap, language toolchains, AppImages, and vendor install scripts—so parallel agents still bounce or race at the seams.
+
+== What actually serializes today
+
+=== `dpkg` / `apt` (Debian, Ubuntu, and friends)
+
+* Frontend and database locks under paths like `/var/lib/dpkg/lock-frontend` and `/var/lib/dpkg/lock` make concurrent `dpkg`/`apt` transactions exclusive.
+* Historically, a second `apt-get` **failed immediately** with “Could not get lock …”.
+* Since apt 1.9.11-era work (widely felt on Ubuntu 20.04+), wait is a first-class option:
+** `apt-get -o DPkg::Lock::Timeout=60 …` waits up to N seconds; `-1` waits indefinitely.
+** `apt(8)` itself waits by default (on the order of two minutes non-interactively, longer/infinite when interactive—treat distro docs as source of truth).
+* GUI tools (GNOME Software, Synaptic) and unattended upgrades often already waited; CLI scripts were the last to get a non-hacky story.
+
+That is **lock + optional wait** for one ecosystem—not a general job queue with priorities, structured observers, or cross-manager exclusion.
+
+=== RPM world (`dnf`, `yum`, `zypper`)
+
+RPM-based systems take their own transaction / metadata locks.
+A second DNF transaction typically fails or blocks according to that stack’s rules; it does not join Debian’s locks, and it does not know about Flatpak’s.
+Agents that mix “install a .deb-equivalent via DNF” with “install a Flatpak” still need an outer critical section.
+
+=== Arch (`pacman` / ALPM)
+
+`pacman` holds a DB lock under `/var/lib/pacman/db.lck` (and related paths).
+Second callers fail until the lock is cleared—again, fail-or-wait is local to ALPM, not a desktop-wide install bus.
+
+=== PackageKit
+
+PackageKit’s D-Bus API was always a bid for **one session/system broker** above apt/dnf/zypper.
+In practice agents still shell out to native CLIs for determinism, and PackageKit does not own Flatpak/Snap/language toolchains as a unified queue.
+Treat it as an important *pattern*—central broker—more than a solved problem.
+
+=== Flatpak, Snap, AppImage, Nix/Guix
+
+* **Flatpak / Snap** serialize their own installs/updates; they do not take `dpkg` locks, so they can mutate large parts of the user-visible app set while `apt` runs.
+* **AppImage** often sidesteps system package DBs entirely (file copy + desktop entry)—concurrency becomes ordinary filesystem races.
+* **Nix / Guix** isolate via the store; they reduce *some* classic shared-`/usr` races and introduce their own daemon/store locks. They are a different model, not a drop-in OS queue for apt-shaped workflows.
+
+=== Language and vendor installers
+
+`pip`, `npm`, `cargo`, SDK `.run` scripts, and JetBrains/Oracle-style installers do not participate in distro locks.
+Agents love these paths.
+They are exactly where “Linux has locks” becomes a false comfort.
+
+== Why agent workflows still bounce
+
+Boot-time races are the classic demo: `unattended-upgrades` or `cloud-init` holds the dpkg lock while a provisioner runs `apt-get install`.
+Agent desktops repeat the pattern without the cloud vocabulary:
+
+. Worker A installs build-essential via apt (waits correctly on dpkg).
+. Worker B installs a Flatpak SDK and a pip tool in parallel.
+. Worker C runs a vendor `.run` that writes into `/usr/local`.
+. A and B “succeeded”; C raced a library; the next compile is a mystery.
+
+Linux gave us better **intra-manager** manners than Windows MSI’s fail-fast `1618`.
+It did not give agents a **cross-manager** single-flight guarantee.
+
+== Workarounds that actually work today
+
+. **Prefer wait over poll hacks for apt.** Use `DPkg::Lock::Timeout` (or `apt(8)`’s built-in wait) instead of `fuser` loops when you are in the Debian family.
+. **Hold an outer orchestration lock anyway.** One named mutex / flock that covers “any mutating install this host considers exclusive”—apt, dnf, flatpak, snap, vendor `.run`—across agent PIDs. Distro locks are necessary; they are not sufficient.
+. **Serialize privilege prompts.** `polkit` / sudo password storms from parallel agents are a human denial-of-service. Batch installs under one elevated session or a pre-authorized policy.
+. **Know your GUI neighbors.** GNOME Software and Discover may already own the PackageKit/apt lock; agents should wait, not kill, those transactions.
+. **Prefer declarative store models when the workload allows.** Nix-style isolation shrinks shared mutable `/usr`—at the cost of teaching agents a different install verb.
+
+== A feature Linux could grow (without pretending systemd can wish away apt)
+
+Linux does not need a Windows-style “freeze stranger threads in CreateFile” daemon as badly—lock files and D-Bus brokers are already the culture.
+The missing piece is a **cross-manager install bus** with teeth:
+
+=== Machine-wide install admission
+
+A privileged service (evolving PackageKit, or a leaner successor) that:
+
+* accepts **jobs** from apt/dnf/pacman backends, Flatpak/Snap, and a declared “foreign installer” protocol for vendor scripts,
+* provides **waitable** job handles for agents (sd-bus / varlink / simple CLI),
+* publishes **who holds what** (pkg DB, user Flatpak installation, `/opt/vendor`) without scraping `lsof`,
+* supports **timeouts, cancel, and reboot inhibit** composition with `systemd-inhibit`.
+
+=== Optional syscall stall for foreign installers
+
+Vendor `.run` and AppImage “install to /opt” flows will never all rewrite for the bus.
+A *small* compatibility shim—eBPF or LSM-hook based admission that delays write opens under protected prefixes while a job is active, and notifies the user/agent—is the Linux rhyme to the Windows detection-layer idea.
+It should be opt-in/enterprise-profile, not a surprise for every desktop: freezing writers is still a compatibility weapon.
+
+Distros will not “force” every ISV tomorrow any more than Microsoft will.
+They *can* make the bus the default path for Software centers, cloud-init, and fleet agents—and shame raw parallel `apt-get` in root CI images the way they already shame curling bash into prod.
+
+== Candidate projects and their roles
+
+[cols="1,2"]
+|===
+| Project / surface | Role in a working concurrency story
+
+| **`dpkg` / `apt`**
+| Own Debian-family DB locks; keep improving wait defaults and machine-readable “blocked on pid …” output for agents; integrate as a backend to a shared bus rather than only a private lock file.
+
+| **RPM / `dnf` / `yum` / `zypper`**
+| Same role on RPM distros: transaction locks that can be observed and waited on by a broker; structured conflict reasons agents can parse.
+
+| **`pacman` / ALPM**
+| Arch’s lock owner; needs the same observe/wait story when agents and AUR helpers race.
+
+| **PackageKit**
+| Existing D-Bus broker pattern; strongest candidate to *become* the cross-backend admission queue if clients stop bypassing it for “real” work.
+
+| **Flatpak / Snap**
+| Parallel app runtimes that must *join* system admission when they mutate shared OS integration (MIME, PATH helpers, system helpers)—not only their own repos.
+
+| **GNOME Software / KDE Discover / Apper**
+| Human-facing queue UI; should display agent jobs and vice versa so the desktop does not feel haunted when automation installs.
+
+| **`unattended-upgrades` / `cloud-init`**
+| Boot and maintenance holders of locks; must publish long-running job identity so agents wait with context instead of timing out blindly.
+
+| **systemd (`systemd-inhibit`, transactional update stories)**
+| Reboot/shutdown inhibit and (where used) transactional roots; compose with install jobs so “install finished” and “safe to reboot” are one timeline.
+
+| **polkit**
+| Authorization for who may submit install jobs; stop parallel password prompts from becoming the concurrency failure mode.
+
+| **Nix / Guix**
+| Alternate isolation model; role is interoperability notes (when store installs still touch profiles/user envs that conflict with apt-world agents).
+
+| **Homebrew on Linux / language package managers**
+| High-churn agent paths; should either stay in user trees without claiming system locks, or explicitly take the outer install flock when they touch shared prefixes.
+
+| **Ansible / Puppet / Salt / fleet agents**
+| Classic orchestrators; should submit to the bus (or hold the outer flock) so human Software Center and CI agents do not fight config management.
+
+| **Coding / desktop agents** (Cursor agents, Copilot agents, runner sidecars)
+| Consumers: one “install exclusively” adapter per host; prefer `apt` wait options; never assume Flatpak and apt are free to overlap.
+
+| **Dev-Centr Easy Installer (Linux plugins / AppImage path)**
+| Our lane: emit entrypoints that honor distro locks and an outer agent flock; document when AppImage/portable PATH installs are the concurrency escape hatch.
+|===
+
+== Cross-compose with the Windows piece
+
+Windows standardized a **global MSI execute mutex** and almost nothing else—then taught a generation of tools to fail with `1618`.
+Linux standardized **per-database lock files** and slowly taught apt to wait.
+Neither OS gives agents a complete answer when “install” means five different package universes.
+
+Composition:
+
+* **Windows post** — feature ask leans toward a new serialization API plus a legacy detection/stall layer, because custom EXE culture never shared a lock file convention.
+* **This post** — feature ask leans toward strengthening a PackageKit-shaped bus and optional LSM/eBPF admission for foreign writers, because lock-and-wait is already native vocabulary.
+* **Shared orchestration rule** — until those exist, agents own a host-wide install critical section on *both* platforms; silent/unattended flags; one admission owner per machine.
+
+If your failure mentions `_MSIExecute` or “Another installation is already in progress,” start with the Windows essay.
+If it mentions `lock-frontend`, DNF’s transaction lock, or Software Center vs apt, you are here.
+If you are writing an agent host, you need both adapters—and the humility to treat “install” as scheduled work, not a fire-and-forget side effect of a clever model.

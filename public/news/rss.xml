@@ -5,13 +5,58 @@
   <link>https://devcentr.org/news</link>
   <description>News and engineering blog posts from Dev-Centr.</description>
   <language>en-us</language>
-  <lastBuildDate>Sat, 08 Aug 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 09 Aug 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Installation concurrency when Windows has a mutex but not a queue</title>
+    <link>https://devcentr.org/news/2026-08-09-windows-install-concurrency</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-08-09-windows-install-concurrency</guid>
+    <pubDate>Sun, 09 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Windows does not queue GUI or CLI installs across process trees—agents hit MSI 1618, custom EXE races, and package-manager exit codes. What exists, what we fake in orchestration, and what a real serialization API would need.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
+  <item>
+    <title>Installation concurrency when Linux locks wait—or don&amp;#8217;t</title>
+    <link>https://devcentr.org/news/2026-08-09-linux-install-concurrency</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-08-09-linux-install-concurrency</guid>
+    <pubDate>Sun, 09 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Linux package managers serialize with lock files and, in modern apt, optional wait timeouts—but agents still bounce across dpkg, DNF, Flatpak, and GUI software centers. What exists, what to fake in orchestration, and who would need to cooperate for a real install bus.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
+  <item>
+    <title>Why Git feels hard when features aren&amp;#8217;t files</title>
+    <link>https://devcentr.org/news/2026-08-09-git-features-are-not-files</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-08-09-git-features-are-not-files</guid>
+    <pubDate>Sun, 09 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Git stores file blobs, not features or dependencies. That is why unrelated functions collide on pull, and why connectome-fs (now under Dev-Centr) treats semantic units and graph edges as filesystem-native.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
+  <item>
+    <title>When code platforms flatten portfolios</title>
+    <link>https://devcentr.org/news/2026-08-09-forges-flatten-portfolios</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-08-09-forges-flatten-portfolios</guid>
+    <pubDate>Sun, 09 Aug 2026 12:00:00 GMT</pubDate>
+    <description>GitHub spent the word Projects on boards, not on nesting product families under a portfolio. A short Dev-Centr note on forge ontology — with the HCI essay as the deeper cut.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
   <item>
     <title>Business Bootstrap becomes a support-systems hub</title>
     <link>https://devcentr.org/news/2026-08-08-support-systems-hub</link>
     <guid isPermaLink="true">https://devcentr.org/news/2026-08-08-support-systems-hub</guid>
     <pubDate>Sat, 08 Aug 2026 12:00:00 GMT</pubDate>
     <description>Founder ops docs grow past email—scheduling, design, and vaults get their own capability areas on docs.devcentr.org.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
+  <item>
+    <title>GUI tools outside the suite</title>
+    <link>https://devcentr.org/news/2026-08-08-gui-tools-gallery</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-08-08-gui-tools-gallery</guid>
+    <pubDate>Sat, 08 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Screenshots and a feature index for Dev-Centr’s standalone developer GUIs — RepoDrive, Issues Browser, Rules Manager, GitHub Actions Editor, FixNow, and the workflow templates store.</description>
     <category>blog</category>
     <category>news</category>
   </item>

@@ -1,0 +1,173 @@
+= Installation concurrency when Windows has a mutex but not a queue
+:description: Windows does not queue GUI or CLI installs across process trees—agents hit MSI 1618, custom EXE races, and package-manager exit codes. What exists, what we fake in orchestration, and what a real serialization API would need.
+:revdate: 2026-08-09
+:keywords: news, blog, Windows, MSI, winget, installers, concurrency, agents, Easy Installer, package managers
+
+Agents that provision their own toolchains assume “install X” is a safe verb.
+On Windows it is often a *bounce*: a second workflow starts a setup while another still owns the machine’s install path, and the OS answers with a modal error, exit code `1618`, or a silent file/registry race—not a ticket in a queue.
+
+This piece is the Windows half of a diptych with link:https://devcentr.org/news/2026-08-09-linux-install-concurrency[Installation concurrency when Linux locks wait—or don't].
+Read them together: same agentic pressure, different OS traditions, different places the fix can land.
+
+Practitioner short form (agent-host mutex rule, no OS treatise): link:https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/os-install-concurrency.html[OS install concurrency] on the docs hub.
+
+== The short answer
+
+Windows has **no native OS-level queue or signaling system** for GUI- or CLI-driven software installation that independent process trees can share.
+Concurrent installer invocations do not line up behind a job scheduler.
+They fail fast on a shared lock, collide outside any lock, or serialize only inside one package-manager process that still shells out into the same contested world.
+
+== What actually serializes today
+
+=== Windows Installer (MSI / `msiexec`)
+
+Standard MSI installs go through the Windows Installer service.
+During `InstallExecuteSequence`, the engine takes a single global kernel mutex named `_MSIExecute`.
+
+* Only one execute sequence holds that mutex at a time.
+* A second install does **not** enqueue. The API returns `ERROR_INSTALL_ALREADY_RUNNING` (`1618`), or a modal GUI says another installation is already in progress.
+* There is no public “submit install job; wake me when the mutex is free” contract for arbitrary callers.
+
+That is serialization without a queue: exclusive, fail-closed, and opaque to agents that only see an exit code.
+
+=== Custom EXE / GUI setups (Inno, NSIS, Wise, hand-rolled)
+
+Non-MSI setup executables are not required to take `_MSIExecute` or any other system-wide install mutex.
+Unless the author opted into one, two setups can race on files (`ERROR_SHARING_VIOLATION`), overwrite DLLs, and interleave registry writes.
+GUI sequences also assume a user session: HWND focus, dialogs, UAC prompts.
+Spawn them headless or from parallel agent workers and you get modal lockups that are not “concurrency bugs” so much as a UI model that never contemplated multiple installers as peers.
+
+=== Package managers (`winget`, Chocolatey, Scoop)
+
+CLI managers help *humans* and scripts, but they do not invent an OS job queue across independent process trees.
+
+* They may serialize **inside their own** process graph.
+* They still invoke MSIs that hit `1618`, or EXE setups that ignore every global convention.
+* Failures surface as exit codes and logs—not as a durable, inspectable install queue other agents can join.
+
+So “use winget” is necessary hygiene for agents; it is not a substitute for OS-level install concurrency design.
+
+== Why agent workflows feel this first
+
+A single developer rarely double-clicks two setups at once.
+Three agent workers on one Windows desktop or self-hosted runner will:
+
+. discover missing SDKs in parallel,
+. each decide to install,
+. each invoke `winget` / `msiexec` / a vendor EXE,
+. and bounce—or worse, succeed into a half-corrupted tree because nothing owned the non-MSI path.
+
+The orchestration layer must invent the queue Windows never shipped.
+
+== Workarounds that actually work today
+
+Treat installation as a **critical section** owned by your agent host—not by hope.
+
+. **Respect `_MSIExecute`.** Poll the mutex / Windows Installer service state before invoking `msiexec`; block and retry until free. This only covers MSI execute sequences.
+. **Wrap everything else in a named system mutex or file lock.** One global lock for “any install this machine considers mutually exclusive”—MSI, winget, Chocolatey, custom EXE—across agent PIDs. PowerShell `System.Threading.Mutex` or a well-known lock file both work if every installer entrypoint cooperates.
+. **Force quiet / unattended flags inside that lock.** `/qn`, `/verysilent /norestart`, `winget install --silent --accept-package-agreements --accept-source-agreements`, and friends. Serialization without silent mode still dies on a modal dialog nobody will click.
+. **Prefer package managers that can express intent**, then still hold the outer lock while they run. Inner serialization is not enough when two agent trees each start their own manager.
+
+None of this is elegant.
+It is the tax of an OS that standardized *exclusion* for MSI and left *admission control* to the ecosystem.
+
+== A feature Windows could ship (and probably will not)
+
+The honest product ask is larger than “make `1618` wait.”
+
+=== A proper install serialization API
+
+Expose a first-class **install job queue** at the OS (or a privileged service) with roughly:
+
+* **Submit** — declare package identity, payload type (MSI, MSIX, declared EXE protocol, bundle), silent constraints, reboot policy, and caller identity (user, agent, MDM).
+* **Observe** — waitable handle / ETW / WinRT events for queued → running → succeeded/failed, with structured reasons (held by whom, estimated progress if known).
+* **Policy** — who may jump the queue, when reboot is allowed, whether interactive UI is permitted at all on this session.
+* **Single-flight by resource** — not only “one MSI execute,” but keyed exclusion for Program Files trees, service names, and driver packages when declared.
+
+New installer *builders* would be required to emit against that API for Store / attestation / enterprise catalog paths—top-down pressure through WiX, InstallShield, Advanced Installer, Inno, NSIS, and the MSIX toolchain so *future* software conforms.
+
+=== A detection and interference layer for legacy setups
+
+Momentum and the long tail of old apps are why Microsoft will not rip out EXE setup culture tomorrow.
+A plausible bridge is a **daemon** that:
+
+. recognizes common installer families (MSI engine, Inno/NSIS signatures, bootstrapper patterns, known publisher helpers),
+. when a second install attempts mutating syscalls or reserved paths while a job is active, **stalls those calls** (or the relevant threads) instead of failing the whole process with a cryptic sharing violation,
+. surfaces a user- or agent-visible notice—“Install B is waiting behind Install A”—while the stalled installer remains frozen on its blocked thread,
+. releases the stall when the active job completes or the user/agent cancels with an explicit policy.
+
+That is invasive.
+It is also the only way to give *old* installers queue semantics without rewriting them.
+Call it a feature suggestion with eyes open: enterprise antivirus and Application Control already sit near this layer; an official install serializer would need the same trust, signing, and escape hatches—and still would not cover every custom bootstrapper that writes with `CreateFile` and hope.
+
+=== Why momentum wins
+
+Windows cannot unilaterally redefine decades of vendor setup EXEs without breaking silent corporate images, games, OEM utilities, and every CI image that shells `setup.exe /S`.
+A clean API for *new* software is imaginable.
+A detection layer that freezes strangers’ threads is a security and compatibility minefield.
+So agents will keep owning the mutex for the foreseeable future—unless the package-manager and installer-builder ecosystems voluntarily converge on a shared queue protocol even without an OS mandate.
+
+== Candidate projects and their roles
+
+Cooperation is not “everyone installs slower.”
+It is a shared contract: who **admits** work, who **executes** it, who **declares** resources, who **orchestrates** agents.
+
+[cols="1,2"]
+|===
+| Project / surface | Role in a working concurrency story
+
+| **Windows Installer service / `msiexec`**
+| Own today’s `_MSIExecute` truth; evolve from fail-fast mutex to queue-aware execute admission; publish waitable status beyond `1618`.
+
+| **MSIX / App Installer**
+| Modern packaging path that can require declaration of install impact and reboot; natural place to attach job IDs and silent policy.
+
+| **Windows Package Manager (`winget`)**
+| Cross-tree client of the OS queue; stop being a second private serializer that still loses to raw `msiexec` and vendor EXEs; expose agent-friendly wait/stream APIs.
+
+| **WiX Toolset**
+| Authoring default for MSI/bundles that *emit* queue-protocol metadata and quiet-first UX; pressure point for “new software conforms.”
+
+| **Inno Setup / NSIS**
+| Dominant custom-EXE builders; must grow an opt-in (then default) “register with install serializer” stub so their runtime participates without each script reinventing mutexes.
+
+| **InstallShield / Advanced Installer / InstallAware**
+| Commercial suites that set enterprise expectations; if they adopt the API, ISVs follow; if they ignore it, the long tail never moves.
+
+| **Chocolatey / Scoop**
+| Community managers that wrap the messy EXE world; role is to hold or join the *system* queue, not only an internal one, and to fail with structured “queued behind …” instead of opaque exit codes.
+
+| **Visual Studio Installer / channel bootstrapper**
+| Heavy, long-running, frequently concurrent with SDK installs agents also request; must publish progress and exclusion sets other jobs can wait on.
+
+| **Intune / MDM / WSUS-class deployment**
+| Policy authority for who may install, whether UI is allowed, and reboot windows; the queue is useless if MDM and agents race underneath it.
+
+| **Microsoft Defender / WDAC / App Control**
+| Already interfere with file mutation during install; should *compose* with a serializer (scan without inventing a second bounce) rather than amplify `ERROR_SHARING_VIOLATION`.
+
+| **Agent hosts** (Cursor agents, Copilot coding agents, self-hosted Actions/Azure DevOps runners, etc.)
+| Until an OS queue exists: own the global install lock; prefer silent package-manager paths; never spawn parallel setups “because the model is multi-threaded.”
+
+| **Dev-Centr Easy Installer / msi-generator**
+| Our lane: emit silent-capable, lock-aware install entrypoints; document agent orchestration patterns; refuse to pretend a generated EXE is concurrency-safe without an outer mutex.
+
+| **PowerShell DSC / configuration as code**
+| Enterprise install orchestration; should become a first-class *submitter* to the queue so human MDM and agent installs share one admission path.
+|===
+
+== Cross-compose with the Linux piece
+
+Linux already treats package databases as lockable resources and, in modern `apt`, can **wait** on those locks instead of only bouncing.
+That is closer to a queue’s *admission* behavior—but it is still per-ecosystem (`dpkg` vs `rpm` vs Flatpak), and agents still race across managers.
+The sibling post maps that world and lists who would need to cooperate for a *cross-manager* install bus.
+
+Composition, not duplication:
+
+* Use **this** post when the failure mode is `1618`, a modal “another installation is in progress,” or two EXE setups eating the same Program Files tree.
+* Use the **Linux** post when the failure mode is `Could not get lock /var/lib/dpkg/lock-frontend`, DNF’s transaction lock, or PackageKit vs `apt` on the same box.
+* Use **both** when designing an agent host that spans OSes: one orchestration verb (“install with exclusive machine admission”), two platform adapters, no fantasy that winget and apt already solved peer agents.
+
+We care because Easy Installer, msi-generator, and every agentic toolchain story assume installs are boring.
+On Windows they are not boring—they are a single-flight problem dressed up as a desktop convenience.
+Until the OS grows a queue, the agent that forgets the mutex is the agent that bounces.

@@ -1,0 +1,30 @@
+= When code platforms flatten portfolios
+:description: GitHub spent the word Projects on boards, not on nesting product families under a portfolio. A short Dev-Centr note on forge ontology — with the HCI essay as the deeper cut.
+:revdate: 2026-08-09
+:keywords: news, blog, github, org-structure, governance, connectome-fs, hci
+
+We keep stuffing systems work into the wrong GitHub containers because the forge never modeled the hierarchy people already use: portfolio → charter org → product → repos → working sets.
+
+GitHub’s **Projects** are boards and tables.
+They are not projects in the human sense — coordinated bodies of work with many assets under a brand.
+So maintainers invent nesting with org-owned orgs, personal dumps, or bloated “devtools” houses that absorb an operating-system trajectory by accident.
+
+That is a **schema and UX failure**, not a personal branding problem.
+
+The deeper cut lives on HCI-Nerdz — where product representation and cognitive tax belong:
+
+link:https://hci-nerdz.github.io/blog/when-forges-lack-super-orgs/[When forges lack super-orgs]
+
+== Why Dev-Centr is commenting
+
+We run a Development Orchestration Suite.
+We are *not* the natural owner of a filesystem substrate, even when git concurrency and agent workspaces desperately want one.
+connectome-fs now lives under link:https://github.com/connectome-fs[github.com/connectome-fs] so systems adapters, demos, and drivers can accumulate without rewriting Dev-Centr’s charter every quarter.
+
+Practical rule for our catalog:
+
+* **Dev-Centr** — orchestration, installers, agent hosts, practitioner docs
+* **Partner systems orgs** — substrates and runtimes with their own gravity
+* **Cross-link aggressively** — do not merge charters to save a URL
+
+Until forges grow a real super-org / product-family type, that rule is how we stop paying the flatten tax.

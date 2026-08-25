@@ -1,0 +1,133 @@
+= GUI tools outside the suite
+:description: Screenshots and a feature index for Dev-Centr’s standalone developer GUIs — RepoDrive, Issues Browser, Rules Manager, GitHub Actions Editor, FixNow, and the workflow templates store.
+:revdate: 2026-08-08
+:keywords: news, blog, RepoDrive, Issues Browser, Rules Manager, GitHub Actions Editor, FixNow, screenshots, GUI
+
+DevCentr the suite is still cooking. Meanwhile the org already ships (or nearly ships) a handful of **standalone GUIs** that do one job well. We ran them with demo data and captured the surfaces that matter — not a changelog dump, a visual index you can skim.
+
+Some shots are live product UI. A few (Actions Editor auth/editor chrome, workflow-templates submit, Rules tray menu) are idealized stand-ins where the real binary needs a toolchain we did not have on the capture machine, matching the Easy Installer “idealized UI” precedent.
+
+== Feature index
+
+[cols="2,3,3",options="header"]
+|===
+|Tool |Feature |Image
+
+|RepoDrive
+|Mount / Catalog / Schema / Analytics / Settings / About
+|`repo-drive-*.webp`
+
+|Issues Browser
+|Three-pane browser with seeded issues, PRs, discussions
+|`issues-browser-main.webp`
+
+|Rules Manager
+|Settings status JSON, About, tray menu
+|`rules-manager-*.webp`
+
+|GitHub Actions Editor
+|Auth + workflow editor (idealized)
+|`github-actions-editor-*.webp`
+
+|FixNow.dev
+|Home, browse, register, docs
+|`fixnow-*.webp`
+
+|Workflow templates store
+|Browse + submit placeholder
+|`workflow-templates-*.webp`
+|===
+
+== RepoDrive
+
+Virtual filesystem for forge repos: mount point, catalog of visible slugs, schema facets, analytics, file-manager integration settings, and About.
+
+.Mount
+image::https://devcentr.org/news/media/repo-drive-mount.webp[RepoDrive Mount tab with G: mount point]
+
+.Catalog
+image::https://devcentr.org/news/media/repo-drive-catalog.webp[RepoDrive Catalog listing sample-tool, rules-manager, repo-drive]
+
+.Schema
+image::https://devcentr.org/news/media/repo-drive-schema.webp[RepoDrive Schema path pattern and facet toggles]
+
+.Analytics
+image::https://devcentr.org/news/media/repo-drive-analytics.webp[RepoDrive Analytics tab]
+
+.Settings
+image::https://devcentr.org/news/media/repo-drive-settings.webp[RepoDrive Settings integration modes and dependencies]
+
+.About
+image::https://devcentr.org/news/media/repo-drive-about.webp[RepoDrive About tab]
+
+Source: link:https://github.com/dev-centr/repo-drive[dev-centr/repo-drive].
+
+== Issues Browser
+
+Local archive browser for issues, PRs, and discussions — folder of git repos on the left, item list in the middle, detail + comments on the right. We seeded a `sample-tool` archive so the panes read as a real day-one desk.
+
+.Three-pane browser
+image::https://devcentr.org/news/media/issues-browser-main.webp[Issues Browser with sample-tool issue #42 selected]
+
+Source: link:https://github.com/dev-centr/issues-browser[dev-centr/issues-browser].
+
+== Rules Manager
+
+Tray companion for `rulesd`: compose agent-rules, open the composed file, settings with live status JSON.
+
+.Settings
+image::https://devcentr.org/news/media/rules-manager-settings.webp[Rules Manager settings showing idle laptop profile status]
+
+.About
+image::https://devcentr.org/news/media/rules-manager-about.webp[About Rules Manager dialog]
+
+.Tray menu (idealized)
+image::https://devcentr.org/news/media/rules-manager-tray-menu.webp[Rules Manager tray context menu]
+
+Source: link:https://github.com/dev-centr/rules-manager[dev-centr/rules-manager].
+
+== GitHub Actions Editor
+
+Iced desktop editor for workflow YAML — PAT auth, job/step sidebar, step editor, marketplace search. Capture machine lacked an MSVC linker, so these frames are idealized from the real view layout.
+
+.Auth
+image::https://devcentr.org/news/media/github-actions-editor-auth.webp[GitHub Actions Editor auth screen with masked PAT]
+
+.Editor
+image::https://devcentr.org/news/media/github-actions-editor-editor.webp[GitHub Actions Editor with jobs, step editor, and action browser]
+
+Source: link:https://github.com/dev-centr/github-actions-editor[dev-centr/github-actions-editor].
+
+== FixNow.dev
+
+Public web product: put ignored high-value issues on a clock. Home search, browse list, register form, and in-app docs — all live from the SolidStart app with demo cards.
+
+.Home
+image::https://devcentr.org/news/media/fixnow-home.webp[FixNow.dev home hero and issue cards]
+
+.Browse
+image::https://devcentr.org/news/media/fixnow-browse.webp[FixNow browse demands list]
+
+.Register
+image::https://devcentr.org/news/media/fixnow-register.webp[FixNow register issue form]
+
+.Docs
+image::https://devcentr.org/news/media/fixnow-docs.webp[FixNow in-app docs]
+
+Source: link:https://github.com/dev-centr/fixnow-dev[dev-centr/fixnow-dev].
+
+== Workflow templates store
+
+Browse full workflow files (not Marketplace actions). The vinxi app config on this machine would not boot, so browse is a faithful static stand-in of the route; submit remains a placeholder.
+
+.Browse
+image::https://devcentr.org/news/media/workflow-templates-browse.webp[Workflow templates store listing default and community templates]
+
+.Submit
+image::https://devcentr.org/news/media/workflow-templates-submit.webp[Workflow templates submit placeholder]
+
+Source: link:https://github.com/dev-centr/workflow-templates-site[dev-centr/workflow-templates-site].
+
+== What we skipped
+
+DevCentr.app and its modules (does not run when executed). PackageHub and content-tags demos (placeholder / library demo). `ver-gui` (Qt rebuild). Pure CLIs stay on `/apps` as text until they grow a window worth photographing.

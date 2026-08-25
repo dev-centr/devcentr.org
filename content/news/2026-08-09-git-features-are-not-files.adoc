@@ -1,0 +1,29 @@
+= Why Git feels hard when features aren't files
+:description: Git stores file blobs, not features or dependencies. That is why unrelated functions collide on pull, and why connectome-fs (now under Dev-Centr) treats semantic units and graph edges as filesystem-native.
+:revdate: 2026-08-09
+:keywords: news, blog, git, vcs, connectome-fs, unison, dependencies, developer-experience, editions
+
+We transferred link:https://github.com/dev-centr/connectome-fs[connectome-fs] into the Dev-Centr org and wrote up a thesis that usually lives in a personal essay: **Git feels difficult because it will not admit that features are not files.**
+
+image::https://devcentr.org/news/media/git-blobs-vs-graph-units.webp[Diagram contrasting Git file blobs with mixed features against a graph of feature nodes and dependency edges]
+
+== The epiphany in one paragraph
+
+You cannot honestly commit two unrelated features that happen to share a file as two first-class histories—only as hunks you babysit.
+Git also does not know that `api.ts` depends on `auth.ts`.
+So when Alice lands a typo fix and Bob is editing a different function in the same path, Bob still pays the stash → pull → unstash tax and may eat a conflict for a system he never touched.
+
+image::https://devcentr.org/news/media/team-sync-unrelated-hunk.webp[Team sync collision on an unrelated function versus syntax-aware forward]
+
+That meta-information—units of change, dependency edges, “this patch is safe to broadcast”—is exactly the kind of thing a graph / dependency filesystem should own.
+link:https://www.unison-lang.org/[Unison] proves the point from the language side with content-addressed definitions.
+Connectome-fs aims at the substrate: GUID nodes, associations, editions, and eventually syntax-aware auto-forward for boring fixes.
+
+image::https://devcentr.org/news/media/syntax-aware-autoforward.webp[Syntax-aware typo patch auto-forwarding into peer editions]
+
+== Where to read it
+
+* Practitioner essay (docs hub): link:https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/git-semantic-boundaries.html[Git's file-shaped change model]
+* Canonical design (connectome-fs): link:https://docs.devcentr.org/connectome-fs/0.1/explanation/semantic-change-units.html[Semantic change units]
+* Sibling concurrency thread: link:https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/git-concurrency-enshittification.html[Git concurrency enshittification] — many live trees; this post is about the wrong unit *inside* a tree
+* Repo: link:https://github.com/dev-centr/connectome-fs[dev-centr/connectome-fs]
