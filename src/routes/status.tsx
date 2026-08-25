@@ -41,9 +41,9 @@ const SERVICES: Omit<ProbeResult, "state" | "statusText" | "ms">[] = [
   },
   {
     id: "advisor",
-    name: "Toolchain Advisor",
-    url: "https://devcentr.org/toolchain-advisor/",
-    detail: "Interactive decision flow",
+    name: "Toolchain Browser",
+    url: "https://devcentr.org/toolchain-browser/",
+    detail: "Browse host · target · language · toolchain",
   },
   {
     id: "rss",

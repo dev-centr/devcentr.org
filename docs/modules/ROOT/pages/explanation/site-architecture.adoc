@@ -39,8 +39,8 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 | `/ideas/:slug`
 | Idea pages for catalogue entries with `ideaSlug`
 
-| `/toolchain-advisor`
-| Interactive toolchain decision flow (SDL from `toolchain-advisor` repo)
+| `/toolchain-browser`
+| Interactive toolchain browse flow (advice built in; SDL from `toolchain-advisor` repo). `/toolchain-advisor` redirects here.
 
 | `/skills`
 | Agent skills catalog (bootstrap-org SDL plus shipped skill inventory). `/templates` redirects here.
@@ -61,7 +61,7 @@ Catalogue and nested article pages (`PageTrail`) show the access path as `Sectio
 
 CI (`.github/workflows/ci.yml`) additionally checks out sibling repos into the workspace root before `build-news.mjs`:
 
-* `toolchain-advisor/` — SDL catalog for `/toolchain-advisor`
+* `toolchain-advisor/` — SDL catalog for `/toolchain-browser`
 * `agent-rules/` — bootstrap-org SDL catalog for `/skills?cat=bootstrap`
 * `general-knowledge/`, `devcentr/`, `docs/` — Antora changelogs and activity log for `/changelog`
 
@@ -76,7 +76,7 @@ Custom domain `devcentr.org` is configured in the repository's Pages settings.
 == Key source locations
 
 * `src/routes/` — page components
-* `src/components/` — shared UI (header, footer, diagrams, advisor widget, agent skills catalog)
+* `src/components/` — shared UI (header, footer, diagrams, toolchain browser widget, agent skills catalog)
 * `src/lib/` — catalog data, changelog loader, theme reveal, site links
 * `content/news/` — authored news (see xref:explanation/news-and-changelog.adoc[News & changelog pipeline])
 * `public/brand/` — SVG logo marks (canonical org assets live in `.github` profile repos)

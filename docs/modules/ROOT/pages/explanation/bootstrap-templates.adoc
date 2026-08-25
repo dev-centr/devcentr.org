@@ -20,7 +20,7 @@ Locally, place a sibling clone at `../agent-rules` and run `pnpm sync-bootstrap-
 == SPA fallback
 
 Vinxi's static preset does not write `.output/public/skills/index.html` for this client-only route.
-`scripts/spa-fallback.mjs` copies the SPA shell there (same as `/toolchain-advisor`) so GitHub Pages and the CI artifact check succeed. `/templates` is kept as a redirect page.
+`scripts/spa-fallback.mjs` copies the SPA shell there (same as `/toolchain-browser`) so GitHub Pages and the CI artifact check succeed. `/templates` is kept as a redirect page.
 
 == Route
 

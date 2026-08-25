@@ -1,0 +1,13 @@
+= 2026-08-25 — Toolchain Browser rename
+:description: Public rename from Toolchain Advisor to Toolchain Browser; route move with legacy redirect.
+
+== Summary
+
+The public tool is **Toolchain Browser**. Advice stays in the product as a browse-flow feature, not the product name.
+
+== Changes
+
+* Home, footer, status probes, and solar-map planet label use **Toolchain Browser**.
+* New route `/toolchain-browser`; `/toolchain-advisor` redirects for bookmarks and old links.
+* Antora page `explanation/toolchain-browser.adoc` replaces `toolchain-advisor.adoc`.
+* Definitions repo remains `dev-centr/toolchain-advisor` (SDL / package identity unchanged).

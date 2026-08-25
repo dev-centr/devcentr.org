@@ -25,7 +25,7 @@ const PLANETS: PlanetDef[] = [
   { id: "news", label: "News", href: "/news", radius: 0.62, incl: -0.22, node: 3.6, period: 28_000, phase: 0.14, fill: "hsl(168 42% 26%)" },
   { id: "changelog", label: "Changelog", href: "/changelog", radius: 0.74, incl: 0.08, node: 5.1, period: 40_000, phase: 0.72, fill: "hsl(160 28% 26%)" },
   { id: "skills", label: "Skills", href: "/skills", radius: 0.82, incl: -0.38, node: 0.9, period: -36_000, phase: 0.44, fill: "hsl(186 40% 28%)" },
-  { id: "advisor", label: "Advisor", href: "/toolchain-advisor", radius: 0.91, incl: 0.28, node: 4.4, period: 46_000, phase: 0.91, fill: "hsl(174 36% 24%)" },
+  { id: "browser", label: "Browser", href: "/toolchain-browser", radius: 0.91, incl: 0.28, node: 4.4, period: 46_000, phase: 0.91, fill: "hsl(174 36% 24%)" },
   { id: "github", label: "GitHub", href: "https://github.com/dev-centr", radius: 1, incl: -0.16, node: 2.8, period: 52_000, phase: 0.22, fill: "hsl(210 12% 16%)" },
 ];
 
@@ -79,7 +79,7 @@ function Icon(props: { id: string }): JSX.Element {
           <path d="M12 4.5 13.6 9h4.7l-3.8 2.9 1.5 4.6L12 13.8 8 16.5l1.5-4.6L5.7 9h4.7z" fill="currentColor" stroke="none" />
         </svg>
       );
-    case "advisor":
+    case "browser":
       return (
         <svg {...common}>
           <circle cx="12" cy="12" r="7.5" />

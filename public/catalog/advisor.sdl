@@ -1,4 +1,4 @@
-// Toolchain Advisor definitions — source of truth.
+// Toolchain Browser definitions — source of truth (advice is a browse-flow feature).
 // Compiled to catalog/advisor.json for web bundles; DevCentr desktop parses this file from git.
 
 toolchainAdvisor {

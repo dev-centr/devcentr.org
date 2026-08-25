@@ -2,6 +2,12 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-08-25 — Toolchain Browser rename
+
+* Public product name is **Toolchain Browser**; advice is a feature of the browse flow.
+* Canonical route `/toolchain-browser`; `/toolchain-advisor` redirects.
+* See xref:changelog-details/2026-08-25 - toolchain-browser-rename.adoc[Detailed changelog].
+
 == 2026-08-18 — Polyglot distribution research
 
 * News: Unified binary distribution under investigation.

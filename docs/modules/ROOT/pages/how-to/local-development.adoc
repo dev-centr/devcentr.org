@@ -21,9 +21,9 @@ pnpm dev
 
 Open the URL printed by Vinxi (typically `http://localhost:3000`).
 
-== Full fidelity (changelog + advisor + templates)
+== Full fidelity (changelog + browser + templates)
 
-For `/changelog`, `/toolchain-advisor`, and `/skills` with live sibling data, clone checkouts beside this repo:
+For `/changelog`, `/toolchain-browser`, and `/skills` with live sibling data, clone checkouts beside this repo:
 
 [source,bash]
 ----

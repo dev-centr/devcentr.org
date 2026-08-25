@@ -17,7 +17,7 @@ First-class Antora documentation for the devcentr.org marketing site, covering a
 * xref:explanation/site-architecture.adoc[Site architecture] — routes, static SolidStart build, CI sibling checkouts, Pages deploy.
 * xref:explanation/news-and-changelog.adoc[News & changelog pipeline] — `build-news.mjs`, feeds, mirror sources, troubleshooting.
 * xref:explanation/theme-reveal.adoc[Theme reveal] — View Transitions + WAAPI elliptical reveal from the mode toggle.
-* xref:explanation/toolchain-advisor.adoc[Toolchain Advisor] — SDL sync from `dev-centr/toolchain-advisor`.
+* xref:explanation/toolchain-browser.adoc[Toolchain Browser] — SDL sync from `dev-centr/toolchain-advisor`.
 
 === How-to
 

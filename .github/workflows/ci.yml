@@ -78,8 +78,10 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Verify advisor route artifact
-        run: test -f .output/public/toolchain-advisor/index.html
+      - name: Verify toolchain browser route artifact
+        run: |
+          test -f .output/public/toolchain-browser/index.html
+          test -f .output/public/toolchain-advisor/index.html
 
       - name: Verify agent skills artifact
         run: |

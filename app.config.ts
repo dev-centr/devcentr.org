@@ -43,6 +43,7 @@ export default defineConfig({
     prerender: {
       routes: [
         "/",
+        "/toolchain-browser",
         "/toolchain-advisor",
         "/skills",
         "/templates",

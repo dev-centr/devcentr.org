@@ -1,8 +1,9 @@
-= Toolchain Advisor
-:navtitle: Toolchain Advisor
-:description: Public toolchain decision flow on devcentr.org, synced from dev-centr/toolchain-advisor SDL definitions.
+= Toolchain Browser
+:navtitle: Toolchain Browser
+:description: Public toolchain browser on devcentr.org, synced from dev-centr/toolchain-advisor SDL definitions. Advice is a feature of the browse flow.
 
-`/toolchain-advisor` hosts an interactive decision flow that matches the SDL definitions used by the DevCentr desktop app.
+`/toolchain-browser` hosts an interactive browse-and-advise flow that matches the SDL definitions used by the DevCentr desktop app.
+`/toolchain-advisor` redirects here for old links.
 
 == Data flow
 
@@ -18,7 +19,8 @@ If compilation fails but a committed `advisor.json` exists in the definitions re
 
 == Route
 
-* Page: `src/routes/toolchain-advisor.tsx`
+* Page: `src/routes/toolchain-browser.tsx`
+* Legacy redirect: `src/routes/toolchain-advisor.tsx` → `/toolchain-browser`
 * Styles: `src/toolchain-advisor.css`
 * Definitions repo: https://github.com/dev-centr/toolchain-advisor
 
@@ -26,4 +28,4 @@ If compilation fails but a committed `advisor.json` exists in the definitions re
 
 * xref:explanation/bootstrap-templates.adoc[Agent skills] — inventory plus bootstrap-org SDL selector
 * xref:general-knowledge::explanation/infrastructure/toolchain-management.adoc[Toolchain management] (general-knowledge)
-* xref:devcentr::index.adoc[DevCentr] — desktop host for the same advisor definitions
+* xref:devcentr::index.adoc[DevCentr] — desktop host for the same definitions
