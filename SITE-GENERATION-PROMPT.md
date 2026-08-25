@@ -30,7 +30,7 @@ Vision and content for the official **DevCentr** organization landing page.
 
 ## Messaging funnel
 
-1. **org hero (path + outcome):** H1 **DevCentr**; eyebrow “Developer Ecosystem”; headline “More than just a tool, a development path.”; under-copy “Become a better developer: go from 0 to pro.” + cultural resource / flagship DOS — **no DevOps or Dev OS in the hero**
+1. **org hero (path + outcome):** H1 **DevCentr**; tagline “Developer Ecosystem and Support.”; under-copy opens with “More than just a tool—a path to mastery.” then tools/resources/support + 0→pro + flagship DOS — **no DevOps or Dev OS in the hero**; primary CTA “Get App”
 2. **org body:** Four practical ideas including DevOps; light Dev OS association in section lead if useful
 3. **app hero (category + mechanism):** Owned by https://devcentr.app — “Stop managing tools. Orchestrate ecosystems.” (DevOps / Dev OS only below the fold)
 4. **Quiet claims:** Footer / details only when needed—not competing with the path/outcome hero

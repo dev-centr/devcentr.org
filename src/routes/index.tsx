@@ -38,19 +38,18 @@ export default function Home() {
       <section class="relative isolate min-h-[calc(100dvh-5.5rem)] overflow-hidden">
         <HeroOrbit />
         <div class="relative z-10 mx-auto flex max-w-6xl flex-col justify-center px-6 pb-20 pt-10 md:min-h-[calc(100dvh-5.5rem)] md:px-10 md:pb-28 md:pt-6">
-          <p class="eyebrow rise text-primary">Developer Ecosystem</p>
-
-          <h1 class="rise rise-delay-1 mt-5 max-w-3xl font-display text-[clamp(3rem,12vw,6.5rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-foreground">
+          <h1 class="rise max-w-3xl font-display text-[clamp(3rem,12vw,6.5rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-foreground">
             DevCentr
           </h1>
 
-          <p class="rise rise-delay-2 mt-6 max-w-xl font-display text-xl font-medium leading-snug tracking-tight text-foreground/90 md:text-2xl">
-            More than just a tool, a path to mastery.
+          <p class="rise rise-delay-1 mt-6 max-w-xl font-display text-xl font-medium leading-snug tracking-tight text-foreground/90 md:text-2xl">
+            Developer Ecosystem and Support.
           </p>
 
           <p class="rise rise-delay-2 mt-4 max-w-lg text-base leading-relaxed text-muted-foreground md:text-[1.05rem]">
-            An ecosystem of tools and resources for developers. Go from 0 to pro. Learn and manage development workflows with our flagship Development Orchestration
-            Suite that improves how developers live and work.
+            More than just a tool—a path to mastery. Tools, resources, and support so developers can go from 0 to
+            pro: learn and manage workflows with our flagship Development Orchestration Suite that improves how
+            developers live and work.
           </p>
 
           <div class="rise rise-delay-3 mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
@@ -60,7 +59,7 @@ export default function Home() {
               class="rounded-md font-mono text-xs uppercase tracking-[0.16em]"
               href="https://devcentr.app"
             >
-              Get the app
+              Get App
             </Button>
             <Button
               as="a"
