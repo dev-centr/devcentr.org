@@ -1,0 +1,15 @@
+= 2026-08-25 — Toolchain Browser extract + UX
+
+::description: Site embeds toolchain-advisor/web; guided vs DIY modes; standalone Pages link.
+
+== Summary
+
+* Site `/toolchain-browser` embeds `@dev-centr/toolchain-browser` from the sibling `toolchain-advisor` repo (single UI source).
+* Modes: Guided path (preload) and Build filters (gated DIY levels).
+* CTA links to the standalone GitHub Pages app.
+* Apps catalog lists Toolchain Browser.
+
+== Related
+
+* Definitions/app repo changelog: `dev-centr/toolchain-advisor` CHANGELOG (2026-08-25).
+* Prior rename: xref:changelog-details/2026-08-25 - toolchain-browser-rename.adoc[Toolchain Browser rename].

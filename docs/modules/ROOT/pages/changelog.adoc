@@ -2,6 +2,12 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-08-25 — Toolchain Browser extract + UX
+
+* Site embeds the Toolchain Browser package from `toolchain-advisor/web` (Guided + DIY modes).
+* Standalone app CTA → GitHub Pages; apps catalog entry.
+* See xref:changelog-details/2026-08-25 - toolchain-browser-extract.adoc[Detailed changelog].
+
 == 2026-08-25 — Toolchain Browser rename
 
 * Public product name is **Toolchain Browser**; advice is a feature of the browse flow.

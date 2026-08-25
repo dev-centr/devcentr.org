@@ -89,6 +89,14 @@ export const products: CatalogItem[] = [
     href: "/resting-lanczos",
     tags: "Tooling · Image pipeline",
   },
+  {
+    id: "toolchain-browser",
+    name: "Toolchain Browser",
+    summary:
+      "Browse host · target · language · toolchain. Guided path or DIY filters; advice is a browse-flow feature.",
+    href: "/toolchain-browser",
+    tags: "Tooling · Toolchains",
+  },
 ];
 
 export const services: CatalogItem[] = [

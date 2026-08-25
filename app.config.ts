@@ -10,6 +10,18 @@ const advisorCandidates = [
   resolve(rootDir, "../toolchain-advisor/lib/src/index.ts"),
 ];
 const advisorCore = advisorCandidates.find((p) => existsSync(p)) ?? advisorCandidates[1];
+const browserCandidates = [
+  resolve(rootDir, "toolchain-advisor/web/src/Browser.tsx"),
+  resolve(rootDir, "../toolchain-advisor/web/src/Browser.tsx"),
+];
+const browserUi =
+  browserCandidates.find((p) => existsSync(p)) ?? browserCandidates[1];
+const browserCssCandidates = [
+  resolve(rootDir, "toolchain-advisor/web/src/browser.css"),
+  resolve(rootDir, "../toolchain-advisor/web/src/browser.css"),
+];
+const browserCss =
+  browserCssCandidates.find((p) => existsSync(p)) ?? browserCssCandidates[1];
 
 function collectNewsSlugs() {
   const generated = join(rootDir, "src", "lib", "news-posts.generated.json");
@@ -69,6 +81,8 @@ export default defineConfig({
     resolve: {
       alias: {
         "@dev-centr/toolchain-advisor-core": advisorCore,
+        "@dev-centr/toolchain-browser": browserUi,
+        "@dev-centr/toolchain-browser/styles.css": browserCss,
       },
     },
   },

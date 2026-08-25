@@ -4,6 +4,8 @@ import { SiteFooter } from "~/components/site-footer";
 import { ToolchainAdvisor } from "~/components/ToolchainAdvisor";
 import { Button } from "~/components/ui/button";
 
+const STANDALONE_URL = "https://dev-centr.github.io/toolchain-advisor/";
+
 export default function ToolchainBrowserPage() {
   return (
     <>
@@ -19,10 +21,22 @@ export default function ToolchainBrowserPage() {
             Toolchain Browser
           </h1>
           <p class="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            Browse host, target, language, and toolchain. Advice is a feature of the browser—grounded in the same SDL
-            definitions as DevCentr desktop.
+            Browse host, target, language, and toolchain. Advice is a feature of
+            the browser—grounded in the same SDL definitions as DevCentr
+            desktop. Use <strong class="font-medium text-foreground">Guided path</strong> for a
+            preloaded stack, or <strong class="font-medium text-foreground">Build filters</strong> to
+            add levels combinatorially.
           </p>
           <div class="mt-6 flex flex-wrap gap-2">
+            <Button
+              as="a"
+              href={STANDALONE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="rounded-md font-mono text-xs uppercase tracking-[0.16em]"
+            >
+              Open standalone app
+            </Button>
             <Button
               as={A}
               href="/"
@@ -38,7 +52,7 @@ export default function ToolchainBrowserPage() {
               variant="ghost"
               class="rounded-md font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground"
             >
-              Definitions repo
+              Definitions + app repo
             </Button>
           </div>
         </header>
