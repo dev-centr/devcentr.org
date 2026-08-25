@@ -87,11 +87,22 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
     resolve: {
-      alias: {
-        "@dev-centr/stack-advisor-core": advisorCore,
-        "@dev-centr/stack-advisor": browserUi,
-        "@dev-centr/stack-advisor/styles.css": browserCss,
-      },
+      // Exact finds: string aliases are prefix-matched, so `@dev-centr/stack-advisor`
+      // would otherwise swallow `@dev-centr/stack-advisor/styles.css` as Browser.tsx/styles.css.
+      alias: [
+        {
+          find: "@dev-centr/stack-advisor/styles.css",
+          replacement: browserCss,
+        },
+        {
+          find: "@dev-centr/stack-advisor-core",
+          replacement: advisorCore,
+        },
+        {
+          find: /^@dev-centr\/stack-advisor$/,
+          replacement: browserUi,
+        },
+      ],
     },
   },
 });
