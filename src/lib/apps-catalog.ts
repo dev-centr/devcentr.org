@@ -90,11 +90,11 @@ export const products: CatalogItem[] = [
     tags: "Tooling · Image pipeline",
   },
   {
-    id: "toolchain-browser",
-    name: "Toolchain Browser",
+    id: "stack-advisor",
+    name: "Stack Advisor",
     summary:
-      "Browse host · target · language · toolchain. Guided path or DIY filters; advice is a browse-flow feature.",
-    href: "/toolchain-browser",
+      "Reach a host · target · language · toolchain stack. Guided path or DIY filters; browse and advice are modes.",
+    href: "/stack-advisor",
     tags: "Tooling · Toolchains",
   },
 ];

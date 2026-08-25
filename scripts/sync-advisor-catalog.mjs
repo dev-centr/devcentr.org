@@ -5,6 +5,8 @@ import { fileURLToPath } from "node:url";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const sdlCandidates = [
+  join(root, "stack-advisor", "catalog", "advisor.sdl"),
+  join(root, "..", "stack-advisor", "catalog", "advisor.sdl"),
   join(root, "toolchain-advisor", "catalog", "advisor.sdl"),
   join(root, "..", "toolchain-advisor", "catalog", "advisor.sdl"),
 ];
@@ -15,20 +17,15 @@ const destJson = join(destDir, "advisor.json");
 const destSdl = join(destDir, "advisor.sdl");
 
 if (!sdlSrc) {
-  console.warn("sync-advisor-catalog: no toolchain-advisor SDL found");
+  console.warn("sync-advisor-catalog: no stack-advisor SDL found");
   process.exit(0);
 }
 
 mkdirSync(destDir, { recursive: true });
 copyFileSync(sdlSrc, destSdl);
 
-const compileScript = join(
-  sdlSrc.includes("toolchain-advisor")
-    ? dirname(dirname(sdlSrc))
-    : join(root, "..", "toolchain-advisor"),
-  "scripts",
-  "compile-sdl.mjs",
-);
+const repoRoot = dirname(dirname(sdlSrc));
+const compileScript = join(repoRoot, "scripts", "compile-sdl.mjs");
 
 const compile = spawnSync(process.execPath, [compileScript, sdlSrc, destJson], {
   stdio: "inherit",

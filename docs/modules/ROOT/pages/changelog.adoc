@@ -2,16 +2,22 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-08-25 — Stack Advisor rename
+
+* Public product name is **Stack Advisor**; browse and advice remain modes.
+* Canonical route `/stack-advisor`; `/toolchain-browser` and `/toolchain-advisor` redirect.
+* Sibling/CI checkout: `dev-centr/stack-advisor` (repo renamed from `toolchain-advisor`).
+* See xref:changelog-details/2026-08-25 - stack-advisor-rename.adoc[Detailed changelog].
+
 == 2026-08-25 — Toolchain Browser extract + UX
 
-* Site embeds the Toolchain Browser package from `toolchain-advisor/web` (Guided + DIY modes).
+* Site embeds the UI package from `stack-advisor/web` (Guided + DIY modes; historically under the prior product name).
 * Standalone app CTA → GitHub Pages; apps catalog entry.
 * See xref:changelog-details/2026-08-25 - toolchain-browser-extract.adoc[Detailed changelog].
 
 == 2026-08-25 — Toolchain Browser rename
 
-* Public product name is **Toolchain Browser**; advice is a feature of the browse flow.
-* Canonical route `/toolchain-browser`; `/toolchain-advisor` redirects.
+* Interim public name **Toolchain Browser** (superseded by Stack Advisor the same day).
 * See xref:changelog-details/2026-08-25 - toolchain-browser-rename.adoc[Detailed changelog].
 
 == 2026-08-18 — Polyglot distribution research

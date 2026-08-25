@@ -1,15 +1,16 @@
 import { Meta, Title } from "@solidjs/meta";
 import { Navigate } from "@solidjs/router";
 
+/** Legacy Toolchain Advisor path → Stack Advisor. */
 export default function ToolchainAdvisorRedirect() {
   return (
     <>
-      <Title>Toolchain Browser · DevCentr</Title>
+      <Title>Stack Advisor · DevCentr</Title>
       <Meta
         name="description"
-        content="Toolchain Advisor redirected to Toolchain Browser."
+        content="Toolchain Advisor redirected to Stack Advisor."
       />
-      <Navigate href="/toolchain-browser" />
+      <Navigate href="/stack-advisor" />
     </>
   );
 }

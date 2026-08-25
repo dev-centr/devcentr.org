@@ -6,17 +6,24 @@ import { fileURLToPath } from "node:url";
 
 const rootDir = dirname(fileURLToPath(import.meta.url));
 const advisorCandidates = [
+  resolve(rootDir, "stack-advisor/lib/src/index.ts"),
+  resolve(rootDir, "../stack-advisor/lib/src/index.ts"),
+  // legacy CI/sibling folder names during transition
   resolve(rootDir, "toolchain-advisor/lib/src/index.ts"),
   resolve(rootDir, "../toolchain-advisor/lib/src/index.ts"),
 ];
 const advisorCore = advisorCandidates.find((p) => existsSync(p)) ?? advisorCandidates[1];
 const browserCandidates = [
+  resolve(rootDir, "stack-advisor/web/src/Browser.tsx"),
+  resolve(rootDir, "../stack-advisor/web/src/Browser.tsx"),
   resolve(rootDir, "toolchain-advisor/web/src/Browser.tsx"),
   resolve(rootDir, "../toolchain-advisor/web/src/Browser.tsx"),
 ];
 const browserUi =
   browserCandidates.find((p) => existsSync(p)) ?? browserCandidates[1];
 const browserCssCandidates = [
+  resolve(rootDir, "stack-advisor/web/src/browser.css"),
+  resolve(rootDir, "../stack-advisor/web/src/browser.css"),
   resolve(rootDir, "toolchain-advisor/web/src/browser.css"),
   resolve(rootDir, "../toolchain-advisor/web/src/browser.css"),
 ];
@@ -55,6 +62,7 @@ export default defineConfig({
     prerender: {
       routes: [
         "/",
+        "/stack-advisor",
         "/toolchain-browser",
         "/toolchain-advisor",
         "/skills",
@@ -80,9 +88,9 @@ export default defineConfig({
     plugins: [tailwindcss()],
     resolve: {
       alias: {
-        "@dev-centr/toolchain-advisor-core": advisorCore,
-        "@dev-centr/toolchain-browser": browserUi,
-        "@dev-centr/toolchain-browser/styles.css": browserCss,
+        "@dev-centr/stack-advisor-core": advisorCore,
+        "@dev-centr/stack-advisor": browserUi,
+        "@dev-centr/stack-advisor/styles.css": browserCss,
       },
     },
   },

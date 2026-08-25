@@ -39,8 +39,8 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 | `/ideas/:slug`
 | Idea pages for catalogue entries with `ideaSlug`
 
-| `/toolchain-browser`
-| Interactive toolchain browse flow (advice built in; SDL from `toolchain-advisor` repo). `/toolchain-advisor` redirects here.
+| `/stack-advisor`
+| Interactive stack decision flow (browse + advice modes; SDL from `stack-advisor` repo). `/toolchain-browser` and `/toolchain-advisor` redirect here.
 
 | `/skills`
 | Agent skills catalog (bootstrap-org SDL plus shipped skill inventory). `/templates` redirects here.
@@ -61,7 +61,7 @@ Catalogue and nested article pages (`PageTrail`) show the access path as `Sectio
 
 CI (`.github/workflows/ci.yml`) additionally checks out sibling repos into the workspace root before `build-news.mjs`:
 
-* `toolchain-advisor/` — SDL catalog for `/toolchain-browser`
+* `stack-advisor/` — SDL catalog for `/stack-advisor`
 * `agent-rules/` — bootstrap-org SDL catalog for `/skills?cat=bootstrap`
 * `general-knowledge/`, `devcentr/`, `docs/` — Antora changelogs and activity log for `/changelog`
 

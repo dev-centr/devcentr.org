@@ -24,8 +24,8 @@ export function SiteFooter() {
             <a href="/skills" class={footLink}>
               Skills
             </a>
-            <a href="/toolchain-browser" class={footLink}>
-              Toolchain Browser
+            <a href="/stack-advisor" class={footLink}>
+              Stack Advisor
             </a>
             <a href="https://docs.devcentr.org" class={footLink}>
               Docs

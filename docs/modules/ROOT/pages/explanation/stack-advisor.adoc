@@ -1,0 +1,37 @@
+= Stack Advisor
+:navtitle: Stack Advisor
+:description: Public Stack Advisor on devcentr.org and GitHub Pages, synced from this repo’s SDL definitions. Browse and advice are modes of the same product.
+
+`/stack-advisor` embeds the **Stack Advisor** package from `dev-centr/stack-advisor` (`web/`).
+A standalone SPA also deploys from that repo to https://dev-centr.github.io/stack-advisor/[GitHub Pages].
+
+`/toolchain-browser` and `/toolchain-advisor` redirect here for old links.
+
+== Modes
+
+* **Guided path** — preloads a typical stack; focus one level at a time; breadcrumb jumps.
+* **Build filters** — DIY: unlock levels with “Add filter level”; unset levels do not constrain advice.
+
+== Data path
+
+. `scripts/sync-advisor-catalog.mjs` copies `catalog/advisor.sdl` from a `stack-advisor` checkout.
+. It compiles SDL to JSON via `stack-advisor/scripts/compile-sdl.mjs`.
+. Outputs land in `public/catalog/advisor.json` and `public/catalog/advisor.sdl`.
+. `@dev-centr/stack-advisor` (aliased to `stack-advisor/web`) loads the JSON at runtime.
+
+CI checks out `dev-centr/stack-advisor` into `stack-advisor/` before sync.
+Locally, place a sibling clone at `../stack-advisor` or run `pnpm sync-advisor` after cloning.
+
+If compilation fails but a committed `advisor.json` exists in the definitions repo, the sync script falls back to that file.
+
+== Key files
+
+* Page: `src/routes/stack-advisor.tsx`
+* Legacy redirects: `src/routes/toolchain-browser.tsx`, `src/routes/toolchain-advisor.tsx` → `/stack-advisor`
+* UI package: `stack-advisor/web` (sibling / CI checkout)
+* Shared CSS still used by skills: `src/toolchain-advisor.css`
+* Definitions + app repo: https://github.com/dev-centr/stack-advisor
+
+== See also
+
+* xref:general-knowledge::explanation/infrastructure/toolchain-management.adoc[Toolchain management] (general-knowledge)

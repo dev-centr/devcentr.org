@@ -46,5 +46,5 @@ Vision and content for the official **DevCentr** organization landing page.
 
 - https://devcentr.app — flagship product
 - https://docs.devcentr.org — docs
-- /toolchain-browser — browse + advice (legacy `/toolchain-advisor` redirects)
+- /stack-advisor — stack decision (legacy `/toolchain-browser` and `/toolchain-advisor` redirect)
 - https://github.com/dev-centr — org

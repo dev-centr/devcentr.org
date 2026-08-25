@@ -1,0 +1,12 @@
+= 2026-08-25 — Stack Advisor rename
+:description: Public rename to Stack Advisor; repo and routes aligned.
+
+The public tool is **Stack Advisor**. Browse and advice stay as modes; the product noun is the stack decision outcome.
+
+== Changes
+
+* Home, footer, status probes, apps catalog, and solar-map planet use **Stack Advisor** / **Stack**.
+* Canonical route `/stack-advisor`; `/toolchain-browser` and `/toolchain-advisor` redirect.
+* Antora page `explanation/stack-advisor.adoc`; package alias `@dev-centr/stack-advisor`.
+* Definitions repo: `dev-centr/stack-advisor` (renamed from `toolchain-advisor`).
+* Standalone Pages: https://dev-centr.github.io/stack-advisor/

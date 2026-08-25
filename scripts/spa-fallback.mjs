@@ -15,6 +15,7 @@ function ensureSpa(dir) {
   }
 }
 
+ensureSpa(join(pub, "stack-advisor"));
 ensureSpa(join(pub, "toolchain-browser"));
 ensureSpa(join(pub, "toolchain-advisor"));
 ensureSpa(join(pub, "skills"));

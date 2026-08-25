@@ -16,7 +16,7 @@ https://devcentr.org
 * **News** (`/news`, SEO alias `/blog`) — Narrative AsciiDoc posts from `content/news/`.
 * **Changelog** (`/changelog`) — Mirror index of Antora changelogs from sibling repos (built at CI time).
 * **Community** — Help hub (`/help`), status probes (`/status`), and toolchain surfaces.
-* **Public tools** — Toolchain Browser (`/toolchain-browser`; `/toolchain-advisor` redirects), agent skills (`/skills`), resting-lanczos demo (`/resting-lanczos`), and apps catalogue (`/apps`).
+* **Public tools** — Stack Advisor (`/stack-advisor`; `/toolchain-browser` and `/toolchain-advisor` redirect), agent skills (`/skills`), resting-lanczos demo (`/resting-lanczos`), and apps catalogue (`/apps`).
 
 == Documentation map
 
@@ -33,8 +33,8 @@ https://devcentr.org
 | Light/dark toggle animation
 | xref:explanation/theme-reveal.adoc[Theme reveal]
 
-| SDL catalog sync and `/toolchain-browser`
-| xref:explanation/toolchain-browser.adoc[Toolchain Browser]
+| SDL catalog sync and `/stack-advisor`
+| xref:explanation/stack-advisor.adoc[Stack Advisor]
 
 | Agent skills catalog (`/skills`; `/templates` redirects)
 | xref:explanation/bootstrap-templates.adoc[Agent skills]

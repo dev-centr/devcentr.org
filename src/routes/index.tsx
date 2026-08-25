@@ -66,9 +66,9 @@ export default function Home() {
               size="lg"
               variant="outline"
               class="rounded-md border-border/80 bg-background/40 font-mono text-xs uppercase tracking-[0.16em] backdrop-blur-sm"
-              href="/toolchain-browser"
+              href="/stack-advisor"
             >
-              Toolchain Browser
+              Stack Advisor
             </Button>
             <Button
               as="a"

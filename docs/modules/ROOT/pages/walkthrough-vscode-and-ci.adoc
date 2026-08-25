@@ -20,7 +20,7 @@ This document records the project-specific setup for editor configuration and co
 
 * Workflow file: `.github/workflows/ci.yml`
 * Triggers: push and pull_request to `main`
-* Build job: Ubuntu, Node 22, pnpm 9; checks out sibling repos for changelog ingest, toolchain-advisor SDL, and agent-rules bootstrap profiles; `pnpm install --no-frozen-lockfile` then `pnpm run build`. Static build output is in `.output/public`. A `.nojekyll` file is added there so GitHub Pages serves `_build` and `_server` correctly. Post-build, CI asserts `skills/index.html` and `catalog/bootstrap-profiles.json` exist.
+* Build job: Ubuntu, Node 22, pnpm 9; checks out sibling repos for changelog ingest, stack-advisor SDL, and agent-rules bootstrap profiles; `pnpm install --no-frozen-lockfile` then `pnpm run build`. Static build output is in `.output/public`. A `.nojekyll` file is added there so GitHub Pages serves `_build` and `_server` correctly. Post-build, CI asserts `skills/index.html` and `catalog/bootstrap-profiles.json` exist.
 * Deploy job (runs only on push to `main`): uploads `.output/public` as the Pages artifact and deploys via `actions/deploy-pages`. Requires GitHub Pages to be set to "Deploy from a GitHub Actions workflow" in the repo Settings → Pages. Custom domain (e.g. devcentr.org) can be set there.
 
 === Static build (app.config.ts)

@@ -22,11 +22,11 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Checkout toolchain-advisor definitions
+      - name: Checkout stack-advisor definitions
         uses: actions/checkout@v4
         with:
-          repository: dev-centr/toolchain-advisor
-          path: toolchain-advisor
+          repository: dev-centr/stack-advisor
+          path: stack-advisor
 
       - name: Checkout agent-rules (bootstrap profile SDL)
         uses: actions/checkout@v4
@@ -78,8 +78,9 @@ jobs:
       - name: Build
         run: pnpm run build
 
-      - name: Verify toolchain browser route artifact
+      - name: Verify stack-advisor route artifacts
         run: |
+          test -f .output/public/stack-advisor/index.html
           test -f .output/public/toolchain-browser/index.html
           test -f .output/public/toolchain-advisor/index.html
 
