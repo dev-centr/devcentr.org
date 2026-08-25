@@ -1,16 +1,18 @@
 = Stack Advisor
 :navtitle: Stack Advisor
-:description: Public Stack Advisor on devcentr.org and GitHub Pages, synced from this repo’s SDL definitions. Browse and advice are modes of the same product.
+:description: Public Stack Advisor on devcentr.org and GitHub Pages, synced from this repo’s SDL definitions. One sample-based filter path for browse and advice.
 
 `/stack-advisor` embeds the **Stack Advisor** package from `dev-centr/stack-advisor` (`web/`).
 A standalone SPA also deploys from that repo to https://dev-centr.github.io/stack-advisor/[GitHub Pages].
 
 `/toolchain-browser` and `/toolchain-advisor` redirect here for old links.
 
-== Modes
+== Filter path
 
-* **Guided path** — preloads a typical stack; focus one level at a time; breadcrumb jumps.
-* **Build filters** — DIY: unlock levels with “Add filter level”; unset levels do not constrain advice.
+* Loads a **sample stack** (first option on each level).
+* Numbered breadcrumb levels; green light when a level has a selection; clear with ×.
+* Cleared levels do not constrain advice. **Reset to sample** restores the preload.
+* Selecting an option does not auto-advance — use the crumb strip or Previous / Next.
 
 == Data path
 

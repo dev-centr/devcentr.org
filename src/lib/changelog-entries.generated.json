@@ -1,6 +1,63 @@
 {
   "entries": [
     {
+      "id": "devcentr-2026-08-25-stack-advisor-rename",
+      "date": "2026-08-25",
+      "title": "Stack Advisor rename",
+      "bullets": [
+        "Public product name is Stack Advisor (desktop labels, definitions dialog, default Git URL).",
+        "Definitions repository: dev-centr/stack-advisor (renamed from toolchain-advisor).",
+        "Internal D module path toolchain_advisor and on-disk cache folder name unchanged this pass."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-08-25-toolchain-advisor-language-filter",
+      "date": "2026-08-25",
+      "title": "Toolchain Advisor language filter",
+      "bullets": [
+        "Decision-step search no longer silently selects the first visible row.",
+        "Ranking treats empty selection strings as unset (DIY / partial constraints).",
+        "See Stack Advisor in dev-centr/stack-advisor for the shared catalog UX."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-25-internet-reliability",
+      "date": "2026-08-25",
+      "title": "Internet Reliability",
+      "bullets": [
+        "New systems-altitude section Internet Architecture / Internet Reliability (peer to product SPE Architecture on the docs hub).",
+        "Pages: three altitudes, reference reliability, identity stack, near-term absorb, NDN and friends — thin framing + local Mermaid/PlantUML/SVG; deep-link HCI *Labels versus wires* and connectome-fs.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-08-19-project-visualizer-mission-and-interaction-layout-profiles",
+      "date": "2026-08-19",
+      "title": "Project Visualizer mission and interaction layout profiles",
+      "bullets": [
+        "Project Visualizer spec — Live Blueprint renderer; mental models at point of interaction; curated SDL profiles + repo extractors; root-first command routing.",
+        "Initial SDL catalog: app/src/modules/project-visualizer/interaction-layouts/ — 8 hand-maintained starters plus 141 generated profiles (149 total); source table _catalog.tsv, generator _generate-from-tsv.ps1.",
+        "project-map ~>0.1.4: Vite and pnpm workspace stack detection profiles.",
+        "Project vision and Capabilities updated; Definition files documents profile location."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
       "id": "devcentr-2026-08-19-toolchain-advisor-graphics-rendering-docs-link",
       "date": "2026-08-19",
       "title": "Toolchain advisor: graphics rendering docs link",
@@ -454,6 +511,19 @@
       "kind": "changelog"
     },
     {
+      "id": "devcentr-2026-08-08-studio-mcp-install-strategies-docs",
+      "date": "2026-08-08",
+      "title": "Studio MCP install strategies (docs)",
+      "bullets": [
+        "AI Workflow Arrangement + AI Config MCP tab point at general-knowledge",
+        "Guided add: recommend connector packages via that ladder; do not invent a DevCentr-owned OAuth broker."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
       "id": "general-knowledge-2026-08-08-auxiliary-features-and-delivery-classes",
       "date": "2026-08-08",
       "title": "Auxiliary features and delivery classes",
@@ -817,6 +887,7 @@
       "date": "2026-08-01",
       "title": "August 2026",
       "bullets": [
+        "Internet Architecture / Internet Reliability — Peer home-nav group (body in general-knowledge): systems altitude for reference durability and usability of the internet; deep-links HCI *Labels versus wires* + connectome-fs. Build-time Mermaid + PlantUML via Kroki (asciidoctor-kroki); how-to Antora diagram formats. Compose pack scaffold antora-supplemental/antora-facto (Valentus stays lean). Internet Reliability.",
         "Graphics rendering engines — general-knowledge explanation for desktop UI stacks, large-document patterns, and post-Skia pipelines (Graphite, Impeller, Vello). Essay: After Skia: where rendering is headed. Wired into DevCentr toolchain advisor and docs nav. Explanation.",
         "Fonts / Appearance — DevCentr can pick and install five OS coding fonts for *this app* (Cascadia Mono default). Project Fontsource lock is later; a Suitcase-style manager is a different product -- recorded, not forgotten. Public spec: Appearance (code font). Member orientation: team-docs *Font lock*.",
         "Toolchain Framework (TCF) — Practice kit (schemas, adapters, validators) wired into this hub. CI used to fail because pnpm/action-setup duplicated package.json packageManager. portal · component.",

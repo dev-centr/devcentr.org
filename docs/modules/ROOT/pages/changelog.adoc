@@ -2,6 +2,11 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-08-25 — Stack Advisor unified filter path
+
+* Site copy and docs drop Guided / Build mode language; match the sample-path filter UX.
+* See xref:changelog-details/2026-08-25 - stack-advisor-unified-filter.adoc[Detailed changelog].
+
 == 2026-08-25 — Stack Advisor rename
 
 * Public product name is **Stack Advisor**; browse and advice remain modes.

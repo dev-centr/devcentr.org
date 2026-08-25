@@ -12,7 +12,7 @@ export default function StackAdvisorPage() {
       <Title>Stack Advisor · DevCentr</Title>
       <Meta
         name="description"
-        content="Pick a host, target, language, and toolchain stack. Browse and advice modes share the same SDL definitions as DevCentr desktop."
+        content="Pick a host, target, language, and toolchain stack. A sample path is preloaded; clear levels freely. Same SDL definitions as DevCentr desktop."
       />
       <div class="mx-auto max-w-7xl px-6 pb-12 pt-2 md:px-10">
         <header class="mb-10 md:mb-12">
@@ -22,12 +22,9 @@ export default function StackAdvisorPage() {
           </h1>
           <p class="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
             Reach a stack decision—host, target, language, and toolchain.
-            Browse and advice are modes of the same tool, grounded in the SDL
-            definitions used by DevCentr desktop. Use{" "}
-            <strong class="font-medium text-foreground">Guided path</strong> for a
-            preloaded stack, or{" "}
-            <strong class="font-medium text-foreground">Build filters</strong> to
-            add levels combinatorially.
+            A sample path is preloaded; clear any level with × (cleared levels
+            stay unconstrained). Grounded in the same SDL definitions as
+            DevCentr desktop.
           </p>
           <div class="mt-6 flex flex-wrap gap-2">
             <Button
