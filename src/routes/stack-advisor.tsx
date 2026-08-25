@@ -22,9 +22,9 @@ export default function StackAdvisorPage() {
           </h1>
           <p class="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
             Reach a stack decision—host, target, language, and toolchain.
-            A sample path is preloaded; clear any level with × (cleared levels
-            stay unconstrained). Grounded in the same SDL definitions as
-            DevCentr desktop.
+            A sample path is preloaded as one linked filter strip; remove levels
+            with × or insert with +. Off-path levels stay unconstrained. Grounded
+            in the same SDL definitions as DevCentr desktop.
           </p>
           <div class="mt-6 flex flex-wrap gap-2">
             <Button

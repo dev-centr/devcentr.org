@@ -1,10 +1,11 @@
 = 2026-08-25 — Stack Advisor unified filter path
-:description: Site copy and docs match the single sample-based filter flow (no Guided/Build modes).
+:description: Site copy and docs match the sample path strip with insert + (no Guided/Build modes).
 
 Stack Advisor no longer presents Guided path and Build filters as separate modes.
-The embed follows the package: sample preload, clear with ×, Reset to sample.
+The embed follows the package: sample preload, compound `/` path, × to remove,
++ to insert/append, Reset to sample.
 
 == Changes
 
 * Page lede on `/stack-advisor` updated for the unified filter path.
-* Antora explanation page documents numbered crumbs, green lights, and no auto-forward.
+* Antora explanation page documents numbered path segments, green lights, insert +, and no auto-forward.
