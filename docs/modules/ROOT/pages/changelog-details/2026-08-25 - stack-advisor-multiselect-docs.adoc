@@ -1,0 +1,8 @@
+= 2026-08-25 — Stack Advisor multiselect + path docs
+
+Site docs for `/stack-advisor` updated to match the definitions app.
+
+== What changed
+
+* Filter path description uses vertical dividers (not `/` slash connectors).
+* Notes host/target multi-select and that Reset appears only after divergence from the sample.

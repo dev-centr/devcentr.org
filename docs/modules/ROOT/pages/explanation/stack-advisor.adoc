@@ -10,9 +10,10 @@ A standalone SPA also deploys from that repo to https://dev-centr.github.io/stac
 == Filter path
 
 * Loads a **sample stack** (first option on each level) as one compound path strip.
-* Numbered segments with `/` connectors; green light when a level has a selection; **×** (left of slash) removes a level from the path.
-* **+** (right of slash) inserts a missing catalog level between neighbors; circular **+** outside the strip appends.
-* Off-path levels do not constrain advice. **Reset to sample** restores the full preload.
+* Numbered segments with vertical dividers; green light when a level has a selection; **×** removes a level from the path.
+* **+** inserts a missing catalog level between neighbors; circular **+** outside the strip appends.
+* **Host** and **target** allow multiple selections; advice must work for every selected option. Other levels stay single-select.
+* Off-path levels do not constrain advice. **Reset to sample** restores the full preload (shown only after the user diverges).
 * Selecting an option does not auto-advance — use the path strip or Previous / Next.
 
 == Data path
