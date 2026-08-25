@@ -22,3 +22,7 @@ Thumbs.db
 
 app.config.timestamp_*.js
 
+# Local screenshot capture scratch (not shipped)
+.screenshot-demo/
+public/news/media/_raw/
+

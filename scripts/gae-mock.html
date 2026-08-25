@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>GitHub Actions Editor</title>
+  <style>
+    :root { --bg:#1b1f27; --panel:#232833; --line:#343b4a; --text:#e8edf7; --muted:#9aa6bd; --accent:#58a6ff; --ok:#3fb950; }
+    * { box-sizing: border-box; }
+    body { margin:0; font: 14px/1.4 "Segoe UI", system-ui, sans-serif; background: var(--bg); color: var(--text); }
+    header { display:flex; align-items:center; gap:1rem; padding:.75rem 1rem; border-bottom:1px solid var(--line); background:#151922; }
+    header strong { font-size:1.05rem; }
+    .pill { padding:.15rem .55rem; border-radius:999px; background:#273147; color:var(--ok); font-size:.8rem; }
+    .layout { display:grid; grid-template-columns: 240px 1fr 300px; height: calc(100vh - 52px - 32px); }
+    aside, main, .market { border-right:1px solid var(--line); padding:1rem; overflow:auto; }
+    .market { border-right:0; }
+    h2 { margin:0 0 .75rem; font-size:.85rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }
+    .job { margin-bottom:.85rem; }
+    .job > .name { font-weight:600; margin-bottom:.35rem; }
+    .step { padding:.45rem .6rem; margin:.25rem 0; border:1px solid var(--line); border-radius:8px; background:var(--panel); }
+    .step.active { border-color: var(--accent); background:#1d2a3f; }
+    label { display:block; color:var(--muted); font-size:.8rem; margin:.7rem 0 .25rem; }
+    input, textarea { width:100%; background:#12161e; color:var(--text); border:1px solid var(--line); border-radius:8px; padding:.55rem .65rem; }
+    textarea { min-height:110px; font-family: ui-monospace, Consolas, monospace; }
+    .card { border:1px solid var(--line); border-radius:10px; padding:.75rem; margin-bottom:.65rem; background:var(--panel); }
+    .card .stars { color:#e3b341; font-size:.85rem; }
+    footer { height:32px; display:flex; align-items:center; gap:1rem; padding:0 1rem; border-top:1px solid var(--line); color:var(--muted); font-size:.82rem; background:#151922; }
+  </style>
+</head>
+<body>
+  <header>
+    <strong>GitHub Actions Editor</strong>
+    <span class="pill">Connected as demo-user</span>
+    <span style="margin-left:auto;color:var(--muted)">ci.yml · release workflow</span>
+  </header>
+  <div class="layout">
+    <aside>
+      <h2>Workflow</h2>
+      <div class="job">
+        <div class="name">build</div>
+        <div class="step">actions/checkout@v4</div>
+        <div class="step active">Run tests</div>
+        <div class="step">Upload artifact</div>
+      </div>
+      <div class="job">
+        <div class="name">publish</div>
+        <div class="step">Download artifact</div>
+        <div class="step">softprops/action-gh-release@v2</div>
+      </div>
+    </aside>
+    <main>
+      <h2>Step editor</h2>
+      <label>Name</label>
+      <input value="Run tests" />
+      <label>Uses</label>
+      <input value="" placeholder="owner/action@ref" />
+      <label>Run</label>
+      <textarea>pnpm install --frozen-lockfile
+pnpm test</textarea>
+      <label>Working directory</label>
+      <input value="." />
+    </main>
+    <section class="market">
+      <h2>Action browser</h2>
+      <input value="checkout" style="margin-bottom:.75rem" />
+      <div class="card">
+        <div><strong>actions/checkout</strong></div>
+        <div class="stars">★ 6.4k · official</div>
+        <div style="color:var(--muted);margin-top:.35rem">Check out a Git repository</div>
+      </div>
+      <div class="card">
+        <div><strong>actions/setup-node</strong></div>
+        <div class="stars">★ 4.1k · official</div>
+        <div style="color:var(--muted);margin-top:.35rem">Set up Node.js</div>
+      </div>
+    </section>
+  </div>
+  <footer>
+    <span>API rate: 4982/5000</span>
+    <span>Cache: 12 actions</span>
+    <span style="margin-left:auto">Auth · Editor · Settings</span>
+  </footer>
+</body>
+</html>

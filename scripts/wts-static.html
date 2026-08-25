@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Workflow templates store</title>
+  <style>
+    :root { color-scheme: light; --ink:#142033; --muted:#4b5b73; --line:#d7deea; --bg:#f4f7fb; --accent:#1f6feb; }
+    body { margin:0; font-family: "Segoe UI", system-ui, sans-serif; background: linear-gradient(180deg,#eef3fa 0%, #f8fafc 40%, #fff 100%); color: var(--ink); }
+    main { max-width: 800px; margin: 0 auto; padding: 2.5rem 2rem 4rem; }
+    h1 { font-size: 2rem; margin: 0 0 .75rem; letter-spacing: -0.02em; }
+    h2 { margin-top: 2rem; font-size: 1.25rem; }
+    p { line-height: 1.55; color: var(--muted); }
+    a { color: var(--accent); }
+    ul { list-style: none; padding: 0; margin: 1rem 0 0; }
+    li { border: 1px solid var(--line); background: #fff; padding: 1rem 1.1rem; margin-bottom: .75rem; border-radius: 10px; }
+    strong { color: var(--ink); }
+    .src { color: var(--muted); font-size: .92rem; }
+    .footer { margin-top: 1.5rem; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Workflow templates store</h1>
+    <p>
+      Full workflow files to copy. Not GitHub Marketplace actions (those are steps you call with inputs).
+      GitHub has not added a real community workflow-templates feature. This site is the workaround.
+    </p>
+    <p>
+      <a href="#">Docs: GitHub Actions templates vs Marketplace (DevCentr)</a>
+    </p>
+    <h2>Templates</h2>
+    <ul>
+      <li><strong>Static HTML to GitHub Pages</strong> <span class="src">(default)</span></li>
+      <li><strong>Antora docs to GitHub Pages</strong> <span class="src">(default)</span></li>
+      <li><strong>DUB release matrix</strong> <span class="src">(community)</span></li>
+      <li><strong>pnpm SolidStart deploy</strong> <span class="src">(community)</span></li>
+    </ul>
+    <p class="footer"><a href="#">Submit your repo as a template</a> (GitHub login required).</p>
+  </main>
+</body>
+</html>
