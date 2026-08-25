@@ -1,0 +1,1215 @@
+{
+  "sourceRepo": "https://github.com/dev-centr/agent-rules",
+  "sourcePath": "skills/bootstrap-org/profiles",
+  "skill": "bootstrap-org",
+  "defaults": {
+    "forge": {
+      "values": [
+        "github",
+        "package_manager",
+        "pnpm",
+        "formatter",
+        "dprint",
+        "gitignore",
+        "allow-list",
+        "node",
+        "current-lts",
+        "site"
+      ],
+      "framework": [
+        "solidstart",
+        "ui",
+        "solid-ui",
+        "css",
+        "tailwindcss",
+        "ssr",
+        false,
+        "preset",
+        "static",
+        "host",
+        "github-pages",
+        "cloudflare",
+        "dns-only",
+        "news",
+        "/news/",
+        "blog",
+        "/blog/",
+        "cta",
+        "Explore the docs »"
+      ]
+    },
+    "docs": {
+      "generator": [
+        "antora",
+        "theme",
+        "valentus",
+        "pin",
+        "v2",
+        "one_site_per_org",
+        true,
+        "math",
+        true
+      ]
+    },
+    "github_profile": {
+      "public": [
+        true,
+        "private",
+        false,
+        "readme",
+        "profile/README.md"
+      ]
+    },
+    "legal_entity": [
+      "not-this-session",
+      "connectors",
+      "composio-when-no-cli"
+    ]
+  },
+  "profiles": [
+    {
+      "id": "oss-collective",
+      "kind": "[object Object]",
+      "summary": "",
+      "useWhen": [
+        "OSS collective",
+        "new GitHub org landing",
+        "github.io"
+      ],
+      "sessionScope": [],
+      "skip": [
+        "email",
+        "infra",
+        "github-private",
+        "legal-entity",
+        "self-host-chat",
+        "partners",
+        "cross-link-do-not-absorb"
+      ],
+      "file": "oss-collective.sdl",
+      "merged": {
+        "forge": {
+          "values": [
+            "github",
+            "package_manager",
+            "pnpm",
+            "formatter",
+            "dprint",
+            "gitignore",
+            "allow-list",
+            "node",
+            "current-lts",
+            "site"
+          ],
+          "framework": [
+            "solidstart",
+            "ui",
+            "solid-ui",
+            "css",
+            "tailwindcss",
+            "ssr",
+            false,
+            "preset",
+            "static",
+            "host",
+            "github-pages",
+            "cloudflare",
+            "dns-only",
+            "news",
+            "/news/",
+            "blog",
+            "/blog/",
+            "cta",
+            "Explore the docs »"
+          ]
+        },
+        "docs": {
+          "generator": [
+            "antora",
+            "theme",
+            "valentus",
+            "pin",
+            "v2",
+            "repo",
+            "docs"
+          ]
+        },
+        "github_profile": {
+          "public": [
+            true,
+            "private",
+            false,
+            "readme",
+            "profile/README.md"
+          ]
+        },
+        "legal_entity": [
+          "not-this-session",
+          "connectors",
+          "composio-when-no-cli"
+        ],
+        "kind": {
+          "values": [
+            "org",
+            "summary",
+            "OSS collective: identity, SolidStart static hub, Antora docs, news vs blog.",
+            "session_scope",
+            "identity",
+            "site",
+            "docs",
+            "news-blog",
+            "site"
+          ],
+          "framework": [
+            "solidstart",
+            "ui",
+            "solid-ui",
+            "preset",
+            "static",
+            "ssr",
+            false,
+            "host",
+            "github-pages",
+            "repo",
+            "{org}.github.io"
+          ]
+        },
+        "skip": [
+          "email",
+          "infra",
+          "github-private",
+          "legal-entity",
+          "self-host-chat",
+          "partners",
+          "cross-link-do-not-absorb"
+        ]
+      }
+    },
+    {
+      "id": "product-org",
+      "kind": "[object Object]",
+      "summary": "",
+      "useWhen": [
+        "product company",
+        "shipping app + org hub"
+      ],
+      "sessionScope": [],
+      "skip": [
+        "self-host-chat",
+        "github-private"
+      ],
+      "file": "product-org.sdl",
+      "merged": {
+        "forge": {
+          "values": [
+            "github",
+            "package_manager",
+            "pnpm",
+            "formatter",
+            "dprint",
+            "gitignore",
+            "allow-list",
+            "node",
+            "current-lts",
+            "site"
+          ],
+          "framework": [
+            "solidstart",
+            "ui",
+            "solid-ui",
+            "css",
+            "tailwindcss",
+            "ssr",
+            false,
+            "preset",
+            "static",
+            "host",
+            "github-pages",
+            "cloudflare",
+            "dns-only",
+            "news",
+            "/news/",
+            "blog",
+            "/blog/",
+            "cta",
+            "Explore the docs »"
+          ]
+        },
+        "docs": {
+          "generator": [
+            "antora",
+            "theme",
+            "valentus",
+            "pin",
+            "v2",
+            "repo",
+            "docs"
+          ]
+        },
+        "github_profile": {
+          "public": [
+            true,
+            "private",
+            false,
+            "readme",
+            "profile/README.md"
+          ]
+        },
+        "legal_entity": [
+          "not-this-session",
+          "connectors",
+          "composio-when-no-cli"
+        ],
+        "kind": {
+          "values": [
+            "org",
+            "summary",
+            "Product org: hub + docs + separate product hostname; email lanes when in scope.",
+            "session_scope",
+            "identity",
+            "site",
+            "docs",
+            "news-blog",
+            "email",
+            "infra",
+            "site"
+          ],
+          "framework": [
+            "solidstart",
+            "ui",
+            "solid-ui",
+            "preset",
+            "static",
+            "ssr",
+            false,
+            "host",
+            "github-pages",
+            "repo",
+            "{org}.github.io",
+            "product_host",
+            "separate-from-org-hub"
+          ]
+        },
+        "email": {
+          "inbound": [
+            "cloudflare-routing",
+            "human",
+            "zeptomail",
+            "product",
+            "resend",
+            "product_host",
+            "updates.",
+            "marketing",
+            "customerio-when-journeys",
+            "apex",
+            "do-not-mix-lanes"
+          ]
+        },
+        "infra": {
+          "repo": [
+            "infra",
+            "tool",
+            "pulumi",
+            "language",
+            "typescript"
+          ]
+        },
+        "skip": [
+          "self-host-chat",
+          "github-private"
+        ]
+      }
+    },
+    {
+      "id": "nonprofit",
+      "kind": "[object Object]",
+      "summary": "",
+      "useWhen": [
+        "nonprofit",
+        "public-good org",
+        "donate page"
+      ],
+      "sessionScope": [],
+      "skip": [
+        "google-workspace",
+        "self-host-chat",
+        "github-private"
+      ],
+      "file": "nonprofit.sdl",
+      "merged": {
+        "forge": {
+          "values": [
+            "github",
+            "package_manager",
+            "pnpm",
+            "formatter",
+            "dprint",
+            "gitignore",
+            "allow-list",
+            "node",
+            "current-lts",
+            "site"
+          ],
+          "framework": [
+            "solidstart",
+            "ui",
+            "solid-ui",
+            "css",
+            "tailwindcss",
+            "ssr",
+            false,
+            "preset",
+            "static",
+            "host",
+            "github-pages",
+            "cloudflare",
+            "dns-only",
+            "news",
+            "/news/",
+            "blog",
+            "/blog/",
+            "cta",
+            "Explore the docs »"
+          ]
+        },
+        "docs": {
+          "generator": [
+            "antora",
+            "theme",
+            "valentus",
+            "pin",
+            "v2",
+            "repo",
+            "docs"
+          ]
+        },
+        "github_profile": {
+          "public": [
+            true,
+            "private",
+            false,
+            "readme",
+            "profile/README.md"
+          ]
+        },
+        "legal_entity": [
+          "not-this-session",
+          "connectors",
+          "composio-when-no-cli"
+        ],
+        "kind": {
+          "values": [
+            "org",
+            "summary",
+            "Nonprofit: identity, static hub, docs, optional donate/sponsors; skip Workspace.",
+            "session_scope",
+            "identity",
+            "site",
+            "docs",
+            "news-blog",
+            "funding",
+            "site"
+          ],
+          "framework": [
+            "solidstart",
+            "ui",
+            "solid-ui",
+            "preset",
+            "static",
+            "ssr",
+            false,
+            "host",
+            "github-pages",
+            "donate",
+            "on-site-balance-and-floor"
+          ]
+        },
+        "funding": {
+          "sponsors": [
+            true,
+            "fiscal_host",
+            "when-shared-money",
+            "ask",
+            "balance-plus-floor"
+          ]
+        },
+        "skip": [
+          "google-workspace",
+          "self-host-chat",
+          "github-private"
+        ]
+      }
+    },
+    {
+      "id": "web-app",
+      "kind": "[object Object]",
+      "summary": "",
+      "useWhen": [
+        "SolidStart product site",
+        "SPA/MPA",
+        "not an org hub"
+      ],
+      "sessionScope": [],
+      "skip": [
+        "org-hub-competing-site",
+        "self-host-chat",
+        "ship_layer",
+        "general/app-architecture.md"
+      ],
+      "file": "web-app.sdl",
+      "merged": {
+        "forge": {
+          "values": [
+            "github",
+            "package_manager",
+            "pnpm",
+            "formatter",
+            "dprint",
+            "gitignore",
+            "allow-list",
+            "node",
+            "current-lts",
+            "site"
+          ],
+          "framework": [
+            "solidstart",
+            "ui",
+            "solid-ui",
+            "css",
+            "tailwindcss",
+            "ssr",
+            false,
+            "preset",
+            "static",
+            "host",
+            "github-pages",
+            "cloudflare",
+            "dns-only",
+            "news",
+            "/news/",
+            "blog",
+            "/blog/",
+            "cta",
+            "Explore the docs »"
+          ]
+        },
+        "docs": {
+          "generator": [
+            "antora",
+            "theme",
+            "valentus",
+            "pin",
+            "v2",
+            "one_site_per_org",
+            true,
+            "math",
+            true
+          ]
+        },
+        "github_profile": {
+          "public": [
+            true,
+            "private",
+            false,
+            "readme",
+            "profile/README.md"
+          ]
+        },
+        "legal_entity": [
+          "not-this-session",
+          "connectors",
+          "composio-when-no-cli"
+        ],
+        "kind": {
+          "values": [
+            "project",
+            "summary",
+            "Product web app: SolidStart static + solid-ui; i18n + GitHub icon; Product Essentials Band A.",
+            "session_scope",
+            "app-site",
+            "docs-link",
+            "site"
+          ],
+          "framework": {
+            "values": [
+              "solidstart",
+              "ui",
+              "solid-ui",
+              "preset",
+              "static",
+              "ssr",
+              false,
+              "host",
+              "github-pages",
+              "i18n",
+              "top-bar",
+              "github_icon",
+              true,
+              "if_auth"
+            ],
+            "host": [
+              "netlify",
+              "preset",
+              "netlify"
+            ]
+          }
+        },
+        "product_essentials": {
+          "about_version": [
+            true,
+            "help_link",
+            true,
+            "error_boundary",
+            true,
+            "privacy_if_accounts",
+            true
+          ]
+        },
+        "skip": [
+          "org-hub-competing-site",
+          "self-host-chat",
+          "ship_layer",
+          "general/app-architecture.md"
+        ]
+      }
+    },
+    {
+      "id": "library",
+      "kind": "[object Object]",
+      "summary": "",
+      "useWhen": [
+        "publishable library",
+        "crate",
+        "DUB package",
+        "npm package"
+      ],
+      "sessionScope": [],
+      "skip": [],
+      "file": "library.sdl",
+      "merged": {
+        "forge": {
+          "values": [
+            "github",
+            "package_manager",
+            "pnpm",
+            "formatter",
+            "dprint",
+            "gitignore",
+            "allow-list",
+            "node",
+            "current-lts",
+            "site"
+          ],
+          "framework": [
+            "solidstart",
+            "ui",
+            "solid-ui",
+            "css",
+            "tailwindcss",
+            "ssr",
+            false,
+            "preset",
+            "static",
+            "host",
+            "github-pages",
+            "cloudflare",
+            "dns-only",
+            "news",
+            "/news/",
+            "blog",
+            "/blog/",
+            "cta",
+            "Explore the docs »"
+          ]
+        },
+        "docs": {
+          "generator": [
+            "antora",
+            "theme",
+            "valentus",
+            "pin",
+            "v2",
+            "contribute_to_org_hub",
+            true,
+            "second_public_site",
+            false
+          ]
+        },
+        "github_profile": {
+          "public": [
+            true,
+            "private",
+            false,
+            "readme",
+            "profile/README.md"
+          ]
+        },
+        "legal_entity": [
+          "not-this-session",
+          "connectors",
+          "composio-when-no-cli"
+        ],
+        "kind": {
+          "values": [
+            "project",
+            "summary",
+            "Library: in-repo docs for the org Antora hub; optional SolidStart static marketing; Product Essentials for libraries.",
+            "session_scope",
+            "repo",
+            "docs",
+            "registry",
+            "site"
+          ],
+          "optional": [
+            true,
+            "framework",
+            "solidstart",
+            "ui",
+            "solid-ui",
+            "preset",
+            "static",
+            "ssr",
+            false,
+            "host",
+            "github-pages",
+            "role",
+            "marketing-or-skip"
+          ]
+        },
+        "product_essentials": {
+          "version_visible": [
+            true,
+            "changelog",
+            true,
+            "license",
+            true
+          ]
+        },
+        "registry": [
+          "poll",
+          "skip",
+          "org-hub-competing-site",
+          "email",
+          "infra",
+          "self-host-chat",
+          "ship_layer",
+          "general/app-architecture.md"
+        ]
+      }
+    },
+    {
+      "id": "cli",
+      "kind": "[object Object]",
+      "summary": "",
+      "useWhen": [
+        "command-line tool",
+        "CLI",
+        "--help"
+      ],
+      "sessionScope": [],
+      "skip": [
+        "org-hub-competing-site",
+        "email",
+        "infra",
+        "self-host-chat",
+        "ship_layer",
+        "general/app-architecture.md"
+      ],
+      "file": "cli.sdl",
+      "merged": {
+        "forge": {
+          "values": [
+            "github",
+            "package_manager",
+            "pnpm",
+            "formatter",
+            "dprint",
+            "gitignore",
+            "allow-list",
+            "node",
+            "current-lts",
+            "site"
+          ],
+          "framework": [
+            "solidstart",
+            "ui",
+            "solid-ui",
+            "css",
+            "tailwindcss",
+            "ssr",
+            false,
+            "preset",
+            "static",
+            "host",
+            "github-pages",
+            "cloudflare",
+            "dns-only",
+            "news",
+            "/news/",
+            "blog",
+            "/blog/",
+            "cta",
+            "Explore the docs »"
+          ]
+        },
+        "docs": {
+          "generator": [
+            "antora",
+            "theme",
+            "valentus",
+            "pin",
+            "v2",
+            "contribute_to_org_hub",
+            true,
+            "second_public_site",
+            false
+          ]
+        },
+        "github_profile": {
+          "public": [
+            true,
+            "private",
+            false,
+            "readme",
+            "profile/README.md"
+          ]
+        },
+        "legal_entity": [
+          "not-this-session",
+          "connectors",
+          "composio-when-no-cli"
+        ],
+        "kind": {
+          "values": [
+            "project",
+            "summary",
+            "CLI: version and help flags, redacted debug dump; optional SolidStart static marketing; Product Essentials for CLI.",
+            "session_scope",
+            "repo",
+            "docs-link",
+            "site"
+          ],
+          "optional": [
+            true,
+            "framework",
+            "solidstart",
+            "ui",
+            "solid-ui",
+            "preset",
+            "static",
+            "ssr",
+            false,
+            "host",
+            "github-pages",
+            "role",
+            "marketing-or-skip"
+          ]
+        },
+        "product_essentials": {
+          "version_flag": [
+            true,
+            "help_flag",
+            true,
+            "debug_dump",
+            true
+          ]
+        },
+        "skip": [
+          "org-hub-competing-site",
+          "email",
+          "infra",
+          "self-host-chat",
+          "ship_layer",
+          "general/app-architecture.md"
+        ]
+      }
+    },
+    {
+      "id": "desktop",
+      "kind": "[object Object]",
+      "summary": "",
+      "useWhen": [
+        "desktop GUI",
+        "Tauri",
+        "tray app"
+      ],
+      "sessionScope": [],
+      "skip": [
+        "org-hub-competing-site",
+        "self-host-chat",
+        "ship_layer",
+        "general/app-architecture.md"
+      ],
+      "file": "desktop.sdl",
+      "merged": {
+        "forge": {
+          "values": [
+            "github",
+            "package_manager",
+            "pnpm",
+            "formatter",
+            "dprint",
+            "gitignore",
+            "allow-list",
+            "node",
+            "current-lts",
+            "site"
+          ],
+          "framework": [
+            "solidstart",
+            "ui",
+            "solid-ui",
+            "css",
+            "tailwindcss",
+            "ssr",
+            false,
+            "preset",
+            "static",
+            "host",
+            "github-pages",
+            "cloudflare",
+            "dns-only",
+            "news",
+            "/news/",
+            "blog",
+            "/blog/",
+            "cta",
+            "Explore the docs »"
+          ]
+        },
+        "docs": {
+          "generator": [
+            "antora",
+            "theme",
+            "valentus",
+            "pin",
+            "v2",
+            "contribute_to_org_hub",
+            true,
+            "second_public_site",
+            false
+          ]
+        },
+        "github_profile": {
+          "public": [
+            true,
+            "private",
+            false,
+            "readme",
+            "profile/README.md"
+          ]
+        },
+        "legal_entity": [
+          "not-this-session",
+          "connectors",
+          "composio-when-no-cli"
+        ],
+        "kind": {
+          "values": [
+            "project",
+            "summary",
+            "Desktop GUI: Tauri + SolidStart/solid-ui UI; Band A Product Essentials; optional static marketing site.",
+            "session_scope",
+            "app",
+            "docs-link",
+            "desktop"
+          ],
+          "shell": [
+            "tauri",
+            "ui",
+            "solid-ui",
+            "framework",
+            "solidstart"
+          ]
+        },
+        "site": {
+          "optional": [
+            true,
+            "framework",
+            "solidstart",
+            "ui",
+            "solid-ui",
+            "preset",
+            "static",
+            "ssr",
+            false,
+            "host",
+            "github-pages",
+            "role",
+            "marketing-or-skip"
+          ]
+        },
+        "product_essentials": {
+          "about_version": [
+            true,
+            "help_link",
+            true,
+            "debug_dump",
+            true,
+            "windows_installer",
+            true,
+            "auto_update",
+            true
+          ]
+        },
+        "skip": [
+          "org-hub-competing-site",
+          "self-host-chat",
+          "ship_layer",
+          "general/app-architecture.md"
+        ]
+      }
+    },
+    {
+      "id": "docs-hub",
+      "kind": "[object Object]",
+      "summary": "",
+      "useWhen": [
+        "docs-first org",
+        "thin marketing site"
+      ],
+      "sessionScope": [],
+      "skip": [
+        "news-until-newsworthy",
+        "email",
+        "infra",
+        "github-private"
+      ],
+      "file": "docs-hub.sdl",
+      "merged": {
+        "forge": {
+          "values": [
+            "github",
+            "package_manager",
+            "pnpm",
+            "formatter",
+            "dprint",
+            "gitignore",
+            "allow-list",
+            "node",
+            "current-lts",
+            "site"
+          ],
+          "framework": [
+            "solidstart",
+            "ui",
+            "solid-ui",
+            "css",
+            "tailwindcss",
+            "ssr",
+            false,
+            "preset",
+            "static",
+            "host",
+            "github-pages",
+            "cloudflare",
+            "dns-only",
+            "news",
+            "/news/",
+            "blog",
+            "/blog/",
+            "cta",
+            "Explore the docs »"
+          ]
+        },
+        "docs": {
+          "generator": [
+            "antora",
+            "theme",
+            "valentus",
+            "pin",
+            "v2",
+            "repo",
+            "docs",
+            "public_face",
+            true,
+            "math",
+            true
+          ]
+        },
+        "github_profile": {
+          "public": [
+            true,
+            "private",
+            false,
+            "readme",
+            "profile/README.md"
+          ]
+        },
+        "legal_entity": [
+          "not-this-session",
+          "connectors",
+          "composio-when-no-cli"
+        ],
+        "kind": {
+          "values": [
+            "org",
+            "summary",
+            "Docs-first: Antora + Valentus is the public site; marketing github.io optional stub only.",
+            "session_scope",
+            "identity",
+            "docs",
+            "site"
+          ],
+          "optional": [
+            true,
+            "framework",
+            "solidstart",
+            "ui",
+            "solid-ui",
+            "preset",
+            "static",
+            "ssr",
+            false,
+            "host",
+            "github-pages",
+            "role",
+            "stub-or-skip"
+          ]
+        },
+        "skip": [
+          "news-until-newsworthy",
+          "email",
+          "infra",
+          "github-private"
+        ]
+      }
+    },
+    {
+      "id": "forks-org",
+      "kind": "[object Object]",
+      "summary": "",
+      "useWhen": [
+        "supplemental forks",
+        "splinter org",
+        "rebrand warehouse"
+      ],
+      "sessionScope": [],
+      "skip": [
+        "news-until-newsworthy",
+        "blog",
+        "email",
+        "infra",
+        "github-private",
+        "workflow-templates"
+      ],
+      "file": "forks-org.sdl",
+      "merged": {
+        "forge": {
+          "values": [
+            "github",
+            "package_manager",
+            "pnpm",
+            "formatter",
+            "dprint",
+            "gitignore",
+            "allow-list",
+            "node",
+            "current-lts",
+            "site"
+          ],
+          "framework": [
+            "solidstart",
+            "ui",
+            "solid-ui",
+            "css",
+            "tailwindcss",
+            "ssr",
+            false,
+            "preset",
+            "static",
+            "host",
+            "github-pages",
+            "cloudflare",
+            "dns-only",
+            "news",
+            "/news/",
+            "blog",
+            "/blog/",
+            "cta",
+            "Explore the docs »"
+          ]
+        },
+        "docs": {
+          "generator": [
+            "antora",
+            "theme",
+            "valentus",
+            "pin",
+            "v2",
+            "one_site_per_org",
+            true,
+            "math",
+            true
+          ],
+          "optional": [
+            true,
+            "generator",
+            "antora",
+            "theme",
+            "valentus",
+            "pin",
+            "v2"
+          ]
+        },
+        "github_profile": {
+          "public": [
+            true,
+            "private",
+            false,
+            "readme",
+            "profile/README.md"
+          ]
+        },
+        "legal_entity": [
+          "not-this-session",
+          "connectors",
+          "composio-when-no-cli"
+        ],
+        "kind": {
+          "values": [
+            "org",
+            "summary",
+            "Forks/splinter org: license first, thin profile + optional hub; no over-sync of upstream.",
+            "session_scope",
+            "identity",
+            "site",
+            "license",
+            "confirm-before-rebrand",
+            "site"
+          ],
+          "framework": [
+            "solidstart",
+            "ui",
+            "solid-ui",
+            "preset",
+            "static",
+            "ssr",
+            false,
+            "host",
+            "github-pages",
+            "role",
+            "thin"
+          ]
+        },
+        "hive": {
+          "forks": [
+            ".forks/",
+            "clones",
+            ".clones/",
+            "avoid",
+            "mirror-every-upstream-live"
+          ]
+        },
+        "skip": [
+          "news-until-newsworthy",
+          "blog",
+          "email",
+          "infra",
+          "github-private",
+          "workflow-templates"
+        ]
+      }
+    }
+  ]
+}
