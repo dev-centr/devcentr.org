@@ -317,10 +317,9 @@
 }
 
 /*
- * Elliptical theme reveal (View Transition API).
- * Origin + radii live on <html> as CSS vars (same path as the dual-veil wave
- * that tracked the toggle on mobile Chrome). Radii are WAAPI-driven from
- * theme-reveal.ts — asymmetric 1.28×1.05 cover bias, no veil layers.
+ * Elliptical theme reveal with a soft transparency rim (experiment).
+ * Hard clip-path keeps the destination from flashing through; the mask only
+ * feathers the rim. Radii are WAAPI-driven from theme-reveal.ts.
  */
 @property --theme-reveal-rx {
   syntax: "<length>";
@@ -335,6 +334,11 @@
 }
 
 @supports (view-transition-name: root) {
+  html[data-theme-reveal]::view-transition-group(root) {
+    /* Keep the VT tree alive for the full WAAPI radius duration. */
+    animation-duration: 450ms;
+  }
+
   html[data-theme-reveal]::view-transition-old(root),
   html[data-theme-reveal]::view-transition-new(root) {
     animation: none;
@@ -350,6 +354,21 @@
     clip-path: ellipse(
       var(--theme-reveal-rx) var(--theme-reveal-ry) at var(--theme-reveal-x) var(--theme-reveal-y)
     );
+    /* Narrow feather — opaque through most of the ellipse, soft only at the rim. */
+    -webkit-mask-image: radial-gradient(
+      ellipse var(--theme-reveal-rx) var(--theme-reveal-ry) at var(--theme-reveal-x) var(--theme-reveal-y),
+      #000 0%,
+      #000 78%,
+      rgba(0, 0, 0, 0.55) 90%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse var(--theme-reveal-rx) var(--theme-reveal-ry) at var(--theme-reveal-x) var(--theme-reveal-y),
+      #000 0%,
+      #000 78%,
+      rgba(0, 0, 0, 0.55) 90%,
+      transparent 100%
+    );
   }
 
   html[data-theme-reveal="contract"]::view-transition-new(root) {
@@ -361,6 +380,24 @@
     clip-path: ellipse(
       var(--theme-reveal-rx) var(--theme-reveal-ry) at var(--theme-reveal-x) var(--theme-reveal-y)
     );
+    /*
+     * Contract soft-masks the *old* snapshot. A wide feather reads as a flash
+     * of the destination underneath — keep the opaque core large.
+     */
+    -webkit-mask-image: radial-gradient(
+      ellipse var(--theme-reveal-rx) var(--theme-reveal-ry) at var(--theme-reveal-x) var(--theme-reveal-y),
+      #000 0%,
+      #000 84%,
+      rgba(0, 0, 0, 0.5) 93%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse var(--theme-reveal-rx) var(--theme-reveal-ry) at var(--theme-reveal-x) var(--theme-reveal-y),
+      #000 0%,
+      #000 84%,
+      rgba(0, 0, 0, 0.5) 93%,
+      transparent 100%
+    );
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -368,8 +405,64 @@
     html[data-theme-reveal]::view-transition-new(root) {
       animation: none;
       clip-path: none;
+      -webkit-mask-image: none;
+      mask-image: none;
     }
   }
+}
+
+/*
+ * SPA route crossfades (ViewTransitionNav). Skipped while theme reveal owns
+ * the root transition. Header / page names keep chrome stable across routes.
+ */
+@supports (view-transition-name: root) {
+  .site-header {
+    view-transition-name: site-header;
+  }
+
+  .site-page {
+    view-transition-name: site-page;
+  }
+
+  @keyframes site-vt-fade-out {
+    to {
+      opacity: 0;
+    }
+  }
+
+  @keyframes site-vt-fade-in {
+    from {
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    html:not([data-theme-reveal])::view-transition-old(site-page) {
+      animation: site-vt-fade-out 160ms ease-out both;
+    }
+
+    html:not([data-theme-reveal])::view-transition-new(site-page) {
+      animation: site-vt-fade-in 200ms ease-out both;
+    }
+
+    html:not([data-theme-reveal])::view-transition-old(root),
+    html:not([data-theme-reveal])::view-transition-new(root) {
+      animation: none;
+      mix-blend-mode: normal;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .site-header,
+    .site-page {
+      view-transition-name: none;
+    }
+  }
+}
+
+/* Same-origin full document navigations (prerendered static hits). */
+@view-transition {
+  navigation: auto;
 }
 
 /* AsciiDoc → HTML article body (news / engineering blog posts) */

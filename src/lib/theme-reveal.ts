@@ -30,16 +30,19 @@ function supportsViewTransitions(): boolean {
 
 /**
  * End radii for an ellipse that covers the viewport from (x, y).
- * Same asymmetric polar bias as the dual-veil wave (wider than tall) — shape
- * only; no veil layers.
+ * Same asymmetric polar bias as the dual-veil wave (wider than tall).
+ * Soft-mask opaque stop is ~78–84% of rx/ry (see app.css) — inflate so the
+ * solid core still clears the far corner when the fade finishes.
  */
 function ellipticalCoverRadii(x: number, y: number): { rx: number; ry: number } {
   const maxX = Math.max(x, window.innerWidth - x);
   const maxY = Math.max(y, window.innerHeight - y);
   const corner = Math.hypot(maxX, maxY);
+  // Match the tighter opaque stops in app.css (expand 78%, contract 84%).
+  const softOpaque = 0.78;
   return {
-    rx: Math.ceil(corner * 1.28) + 1,
-    ry: Math.ceil(corner * 1.05) + 1,
+    rx: Math.ceil((corner * 1.28) / softOpaque) + 1,
+    ry: Math.ceil((corner * 1.05) / softOpaque) + 1,
   };
 }
 
@@ -80,9 +83,12 @@ function toggleCenterPx(fromEl?: EventTarget | null): Point {
 
 /**
  * Same origin path as the dual-veil wave that tracked the button on mobile
- * Chrome: bake x/y onto <html> as CSS vars, keep clip-path as a *live* style
- * on the VT pseudo (not keyframed coords), and WAAPI-animate only the radii
- * on documentElement after transition.ready.
+ * Chrome: bake x/y onto <html> as CSS vars, keep the reveal mask as a *live*
+ * style on the VT pseudo (not keyframed coords), and WAAPI-animate only the
+ * radii on documentElement after transition.ready.
+ *
+ * Soft radial-gradient mask (see app.css) replaces a hard clip so the ellipse
+ * rim stays translucent and blends into the page underneath.
  */
 function setRevealOrigin(
   origin: Point,
@@ -159,19 +165,21 @@ export function applyThemeWithCircleReveal(apply: () => void, options: CircleRev
   let radiusAnimation: Animation | undefined;
   const transition = document.startViewTransition(apply);
 
-  void transition.ready
+  // Wait for both the VT tree and our radius WAAPI — never cancel() mid-teardown
+  // (that snapped rx/ry back to the inline start and flashed the wrong snapshot).
+  const radiiDone = transition.ready
     .then(() => {
       radiusAnimation =
         direction === "expand"
           ? animateRevealRadii(0, 0, rx, ry)
           : animateRevealRadii(rx, ry, 0, 0);
+      return radiusAnimation.finished;
     })
     .catch(() => {
       /* Transition skipped/aborted — finished handler cleans up. */
     });
 
-  void transition.finished.finally(() => {
-    radiusAnimation?.cancel();
+  void Promise.all([transition.finished, radiiDone]).finally(() => {
     clearRevealOrigin();
   });
 }

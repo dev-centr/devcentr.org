@@ -7,7 +7,7 @@ const linkClass =
 
 export function SiteHeader() {
   return (
-    <header class="mx-auto flex w-full max-w-6xl items-center justify-between px-6 pb-4 pt-6 md:px-10 md:pt-8">
+    <header class="site-header mx-auto flex w-full max-w-6xl items-center justify-between px-6 pb-4 pt-6 md:px-10 md:pt-8">
       <a href="/" class="group flex items-center gap-3 text-foreground no-underline">
         <LogoMark class="size-9 text-primary transition-transform duration-500 group-hover:rotate-12" />
         <span class="font-display text-lg font-semibold tracking-tight">DevCentr</span>
