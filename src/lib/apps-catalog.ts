@@ -29,6 +29,14 @@ export const categoryLabel: Record<CatalogCategory, string> = {
 
 export const products: CatalogItem[] = [
   {
+    id: "repolab",
+    name: "RepoLab",
+    summary: "One browser frontend for GitHub, other git hosts, and other VCS backends.",
+    href: "https://repolab.dev",
+    external: true,
+    tags: "Tooling · Version control",
+  },
+  {
     id: "uniconfig",
     name: "UniConfig Config Panel",
     summary:

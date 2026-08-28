@@ -48,6 +48,9 @@ export function SiteFooter() {
           </nav>
           <nav class="flex flex-col gap-2" aria-label="Related projects">
             <span class="text-muted-foreground/70">Related</span>
+            <a href="https://repolab.dev" class={footLink}>
+              RepoLab
+            </a>
             <a href="https://openshellorg.github.io/" class={footLink}>
               OpenShellOrg
             </a>

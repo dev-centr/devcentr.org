@@ -1,0 +1,4 @@
+= RepoLab catalog entry
+:description: Apps catalog and related-projects footer for RepoLab.
+
+Added RepoLab to `src/lib/apps-catalog.ts` as an external product linking to https://repolab.dev. Footer **Related** cluster now includes RepoLab alongside OpenShellOrg and sibling orgs. Docs hub portal stub: `docs` repo `tools/repolab.adoc`.

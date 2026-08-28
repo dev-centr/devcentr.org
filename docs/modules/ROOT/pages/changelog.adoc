@@ -30,6 +30,13 @@ Timeline of notable documentation and site changes in the devcentr.org repositor
 * Interim public name **Toolchain Browser** (superseded by Stack Advisor the same day).
 * See xref:changelog-details/2026-08-25 - toolchain-browser-rename.adoc[Detailed changelog].
 
+== 2026-08-18 — RepoLab on the apps catalog
+
+* Products lists **RepoLab** (Dev-Centr product at link:https://repolab.dev[repolab.dev]).
+* Related-projects footer includes RepoLab.
+* Docs hub portal stub in the `docs` repo (`tools/repolab.adoc`).
+* See xref:changelog-details/2026-08-18 - repolab-catalog.adoc[Detailed changelog].
+
 == 2026-08-18 — Polyglot distribution research
 
 * News: Unified binary distribution under investigation.
