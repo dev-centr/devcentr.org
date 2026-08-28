@@ -1,0 +1,25 @@
+= Lightweight agent harness direction
+:description: DevCentr is building a T3code-weight local agent runtime on dlang-supplemental infrastructure — harness-neutral rules, ecosystem specialization, token provenance as first UX contract.
+:revdate: 2026-08-28
+:keywords: news, agent-rules, harness, t3code, dlang-supplemental, token-provenance, dev-centr
+
+DevCentr is officially pursuing a **lightweight agent harness** — not a Cursor-scale IDE, but a local runtime that runs the same harness-neutral rules stack while delegating native work to **dlang-supplemental**.
+
+== Why now
+
+Open-source harnesses are useful reference implementations, but each carries its own design direction and duplicate features DevCentr already covers elsewhere in the ecosystem.
+
+The plan is to **steer upstream where it helps** and **integrate locally with overlap stripped** — HCI Nerdz for attention and representation, Desktop-Tooling for OS utilities, dlang-supplemental for D libraries and native tooling.
+
+== First UX contract
+
+**Token provenance** (HCI Nerdz) is the first harness metadata contract: mark heuristic versus grounded tokens inline so users spot assumptions like a wrong fork slug before turn three.
+
+* Demo — link:https://hci-nerdz.github.io/demos/token-provenance/[Token provenance replay]
+* Docs — link:https://docs.devcentr.org/agent-rules/agent-harness.html[Agent harness direction]
+* Harness variable — `TOKEN_PROVENANCE` in link:https://github.com/dev-centr/agent-rules/blob/main/harness.example.md[`harness.example.md`]
+
+== Related
+
+* link:https://docs.devcentr.org/agent-rules/harness-neutral.html[Harness-neutral architecture]
+* link:https://github.com/dlang-supplemental[dlang-supplemental]
