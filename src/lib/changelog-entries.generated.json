@@ -1,6 +1,98 @@
 {
   "entries": [
     {
+      "id": "general-knowledge-2026-08-29-marketing-for-engineers",
+      "date": "2026-08-29",
+      "title": "Marketing for engineers",
+      "bullets": [
+        "Explanation Marketing for engineers — matter-of-fact, low-stimulation pricing and signup surfaces for technical buyers; linked from the Web delivery-class page.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-29-release-target-patterns",
+      "date": "2026-08-29",
+      "title": "Release target patterns",
+      "bullets": [
+        "Explanation Release target patterns — named common / desktop / lab / omnibus sets with year freezes (common/2026) and cited ISA usage statistics.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-08-28-cli-catalog-hive-watch-rules-manager",
+      "date": "2026-08-28",
+      "title": "CLI catalog: Hive Watch + Rules Manager",
+      "bullets": [
+        "equivalence-rules-cli catalog adds hive-watch (GitHub Release install) and rules-manager (hive clone); bundled fallback-tools.json refreshed.",
+        "Hive Watch ships as a standalone daemon + tray HUD for CODE_ROOT git remotes; reduces agent fetch duty (see dev-centr/hive-watch)."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-08-28-terminal-bridge-related-demos",
+      "date": "2026-08-28",
+      "title": "Terminal bridge related demos",
+      "bullets": [
+        "Terminal Bridge: related demos section (manager + zones + org catalogs)."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-08-28-terminal-bridge-stubs-demo-screenshot",
+      "date": "2026-08-28",
+      "title": "Terminal bridge stubs + demo screenshot",
+      "bullets": [
+        "New Terminal Bridge consume page: spawn registration + grid highlight API stubs.",
+        "Cross-links OpenShellOrg shell-architecture / open-terminal and HCI contained-tiling + highlight-vs-pipe.",
+        "Demo screenshot from HCI-Nerdz shell-context-demo #/manager."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-28-agent-cli-auth-cross-links",
+      "date": "2026-08-28",
+      "title": "Agent CLI auth cross-links",
+      "bullets": [
+        "How-to index + secrets / Google Cloud OAuth pages link to agent-rules Bitwarden CLI (agents) and gcloud CLI (agents)."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-28-curated-ai-watching-sophontic",
+      "date": "2026-08-28",
+      "title": "Curated AI watching (Sophontic)",
+      "bullets": [
+        "Explanation Curated watching (AI) — mandatory / high-signal list; first entry is Sophontic’s geometric-reasoning interview (Michels).",
+        "Index convention: grow via topical pages under explanation/ai/; other docs link to topical pages; personal profile keeps its own stable pick list and deep-links for blurbs.",
+        "Figures: linkage SVG + Mermaid, YouTube still under images/ai/; page-context attrs.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
       "id": "devcentr-2026-08-25-stack-advisor-rename",
       "date": "2026-08-25",
       "title": "Stack Advisor rename",
@@ -40,6 +132,20 @@
       "sourceId": "general-knowledge",
       "sourceLabel": "General Knowledge",
       "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-08-20-startup-no-longer-spawns-hanging-console-probes",
+      "date": "2026-08-20",
+      "title": "Startup no longer spawns hanging console probes",
+      "bullets": [
+        "CLI install checks use PATH only (where / which) with suppressed consoles; no more npx … --version on startup.",
+        "Installed builds resolve and ship ui/main.sdl next to the exe.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
       "kind": "changelog"
     },
     {
@@ -887,7 +993,9 @@
       "date": "2026-08-01",
       "title": "August 2026",
       "bullets": [
+        "valentus-theme FOUC paint-hold — Synced supplemental head-meta.hbs with Valentus interim paint-hold (adt-fouc-pending): hide until layered CSS, preference attrs, and web fonts apply; release via document.fonts.ready (3s fallback). Brand CSS stays in the stylesheet stack before the release script. Antora UI branding.",
         "Internet Architecture / Internet Reliability — Peer home-nav group (body in general-knowledge): systems altitude for reference durability and usability of the internet; deep-links HCI *Labels versus wires* + connectome-fs. Build-time Mermaid + PlantUML via Kroki (asciidoctor-kroki); how-to Antora diagram formats. Compose pack scaffold antora-supplemental/antora-facto (Valentus stays lean). Internet Reliability.",
+        "Spatial web windows — multi-window desktop web UX for UI-heavy and WASM apps: lite palettes, SharedWorker hubs, intent routing. HCI Nerdz essay When the browser flattens working memory; docs Spatial web windows; demo desk. Developer notes: Spatial windows and lite palettes. Browser fork: Desktop-Tooling/spatial-browser.",
         "Graphics rendering engines — general-knowledge explanation for desktop UI stacks, large-document patterns, and post-Skia pipelines (Graphite, Impeller, Vello). Essay: After Skia: where rendering is headed. Wired into DevCentr toolchain advisor and docs nav. Explanation.",
         "Fonts / Appearance — DevCentr can pick and install five OS coding fonts for *this app* (Cascadia Mono default). Project Fontsource lock is later; a Suitcase-style manager is a different product -- recorded, not forgotten. Public spec: Appearance (code font). Member orientation: team-docs *Font lock*.",
         "Toolchain Framework (TCF) — Practice kit (schemas, adapters, validators) wired into this hub. CI used to fail because pnpm/action-setup duplicated package.json packageManager. portal · component.",

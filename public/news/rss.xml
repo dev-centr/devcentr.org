@@ -5,7 +5,34 @@
   <link>https://devcentr.org/news</link>
   <description>News and engineering blog posts from Dev-Centr.</description>
   <language>en-us</language>
-  <lastBuildDate>Wed, 19 Aug 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 29 Aug 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>When unrelated installers still queue</title>
+    <link>https://devcentr.org/news/2026-08-29-when-unrelated-installers-still-queue</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-08-29-when-unrelated-installers-still-queue</guid>
+    <pubDate>Sat, 29 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Open-source Windows installer tooling is mature at copying files and stale everywhere else. The global MSI lock is coarse on purpose — and that is a design gap worth naming.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
+  <item>
+    <title>Lightweight agent harness direction</title>
+    <link>https://devcentr.org/news/2026-08-28-lightweight-agent-harness-direction</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-08-28-lightweight-agent-harness-direction</guid>
+    <pubDate>Fri, 28 Aug 2026 12:00:00 GMT</pubDate>
+    <description>DevCentr is building a T3code-weight local agent runtime on dlang-supplemental infrastructure — harness-neutral rules, ecosystem specialization, token provenance as first UX contract.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
+  <item>
+    <title>Agent rules without the harness baked in</title>
+    <link>https://devcentr.org/news/2026-08-19-agent-rules-without-the-harness-baked-in</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-08-19-agent-rules-without-the-harness-baked-in</guid>
+    <pubDate>Wed, 19 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Forkable agent-rules templates should not assume Cursor—or any single AI harness. Machine facts belong in HARNESS.md and MEMORIES.md; illustrated architecture now on docs.devcentr.org.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
   <item>
     <title>After Skia: where rendering is headed</title>
     <link>https://devcentr.org/news/2026-08-19-after-skia-where-rendering-is-headed</link>

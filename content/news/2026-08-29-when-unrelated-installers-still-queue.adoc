@@ -1,0 +1,115 @@
+= When unrelated installers still queue
+:description: Open-source Windows installer tooling is mature at copying files and stale everywhere else. The global MSI lock is coarse on purpose — and that is a design gap worth naming.
+:revdate: 2026-08-29
+:keywords: blog, installers, MSI, Windows, NSIS, Inno Setup, WiX, packaging, Easy Installer, concurrency, DevCentr
+
+You double-click an installer. Nothing happens for a few seconds. You double-click again, because humans do that. A dialog appears: *Another installation is already in progress.* You did not install anything yet — or you did, and the first window is hidden behind a browser tab. You wait. You do not know what you are waiting for. You cannot tell whether the block is yours, Microsoft's, or some redistributable you never asked for by name.
+
+That moment is the whole argument in miniature. The tooling around Windows installation is good at finishing a single job and bad at explaining the queue.
+
+We have been circling this problem while building packaging pieces in-house — link:https://github.com/dev-centr/easy-installer[Easy Installer] as a host, link:https://github.com/dev-centr/msi-generator[msi-generator] as an engine, NSIS and Inno as optional backends. This post is not a roadmap. It is the line of questioning that made us look twice at what "installer builder" even means on Windows in 2026.
+
+== The free tools are not missing features. They are missing a decade.
+
+Open a comparison matrix for Windows packaging and you will find the same names: link:https://wixtoolset.org/[WiX Toolset], link:https://nsis.sourceforge.io/[NSIS], link:https://jrsoftware.org/isinfo.php[Inno Setup], plus Microsoft's MSIX line and a pile of stack-specific wrappers (electron-builder, Tauri, CPack, cargo-wix). All of them can copy files, write registry keys, create shortcuts, and emit something a user can run.
+
+What they rarely do well is the part users *feel*:
+
+* **Presentation** — Wizard pages with bitmap headers and system-gray chrome. Real theming — typography, motion, dark mode, frameless brand windows — means fighting the framework or embedding a full custom UI host.
+* **One schema, many surfaces** — GUI pages live in one place. Silent flags live in another. There is no single option model that drives wizard, CLI, and headless API equally.
+* **Orchestration** — Prerequisite chains, conflict detection, and queue visibility are ad hoc scripts, not first-class scheduling.
+* **Observability** — Structured step logs, resumable installs, explicit rollback boundaries: inconsistent at best.
+
+Commercial tools (InstallShield, Advanced Installer) mostly win on visual authoring and enterprise deployment integration — not on a fundamentally different runtime architecture. The open-source tier is productive and visually stuck.
+
+Inno Setup remains source-available under a custom license; since 6.5 the authors have asked commercial users to buy a license while keeping non-commercial use free. That is fair. It does not fix the UI model. WiX is the serious MSI path — XML tables, CI-friendly, enterprise-legible — and inherits every MSI constraint by design. NSIS is compact and plugin-rich and speaks a niche language your next teammate may not know.
+
+None of them answer the question that started this thread: *Why can't two unrelated installs run at once, and what would a builder look like if it treated that as a product problem instead of an OS fact?*
+
+== Three layers people conflate
+
+The "only one installer at a time" rule is real on Windows. It is also three different mechanisms stacked on top of each other. Treating them as one blob is how you get helpless error dialogs.
+
+=== Layer 1: MSI's global `_MSIExecute` mutex
+
+Microsoft's Windows Installer holds a system-wide kernel mutex named `_MSIExecute` during execute sequences — and blocks concurrent API use during UI sequences too. A second MSI gets `ERROR_INSTALL_ALREADY_RUNNING` (1618). Microsoft documents this: link:https://learn.microsoft.com/en-us/windows/win32/msi/-msiexecute-mutex[\_MSIExecute Mutex].
+
+Why it exists — and this is not mere bad engineering:
+
+* **Transactional commit/rollback** — Between `InstallInitialize` and `InstallFinalize`, MSI treats file, registry, and service changes as one atomic transaction. Two concurrent writers against overlapping system state is database concurrency without a real database underneath.
+* **Shared component reference counting** — MSI tracks shared DLLs and components across products. Concurrent installs can corrupt ref-count bookkeeping even when the human-visible apps look unrelated.
+* **Patch ordering** — MSP patches assume sequential application against a stable installed baseline.
+* **Deadlock avoidance** — Fine-grained locking without a global coordinator needs lock ordering, conflict detection, and rollback orchestration MSI never implemented.
+
+The critical detail for this essay: **the mutex is acquired before MSI knows whether two packages conflict.** One global "installation server context" at a time — even if you are installing `C:\Apps\Foo` and `D:\Tools\Bar` with zero shared components.
+
+Your instinct — *if they only touch their own disk and registry entries, they should be able to run in parallel* — is correct for provably independent MSI packages. MSI chose pessimistic simplicity in enterprise conditions where shared runtimes and SCCM-driven updates were the norm. The Visual Studio setup team ran into the same wall for automated testing and wrote about link:https://devblogs.microsoft.com/setup/waiting-to-install/[waiting on the mutex] rather than failing. The lock is the explicit gate; the pain is real.
+
+=== Layer 2: EXE installers that could parallelize — and often do not
+
+NSIS and Inno do **not** use `_MSIExecute`. Multiple unrelated EXE installers can run simultaneously on Windows.
+
+In practice you still hit walls:
+
+* **Self-imposed mutexes** — Inno's `SetupMutex`, NSIS `CreateMutex` recipes. Authors deliberately prevent double-clicking the same installer twice, often after crash horror stories.
+* **Prerequisite chains through MSI** — Your "pure EXE" installer silently launches `vc_redist.x64.exe`. That payload is MSI. You are back in Layer 1.
+* **Shared path collisions** — `%ProgramFiles%`, `%TEMP%`, service names, `%PATH%` surgery.
+* **Bootstrapper serialization** — WiX Burn, custom launchers, `winget`, Chocolatey: orchestrators queue at their layer even when underlying payloads could overlap.
+
+=== Layer 3: Enterprise and package-manager policy
+
+Intune, SCCM, GPO software installation, and many package managers serialize by policy — one deployment at a time per machine or session — independent of MSI mechanics. That is sometimes correct (change control). Sometimes it is habit.
+
+== What a smarter runtime would declare
+
+Imagine each install manifest declares **claims** instead of grabbing a global lock:
+
+[source,yaml]
+----
+claims:
+  files:
+    - path: "C:/Program Files/MyApp/**"
+      mode: exclusive
+  registry:
+    - key: "HKLM\\Software\\MyVendor\\MyApp"
+      mode: exclusive
+  mutex:
+    - name: "Global\\MyVendor.VCRedist"
+      mode: exclusive   # only this blocks peers
+----
+
+A coordinator acquires fine-grained locks on declared resources, queues only conflicts with visible status ("Waiting for Visual C++ Runtime…"), allows parallel non-overlapping work, and rolls back per package.
+
+MSI cannot retrofit this easily. Its component model, transforms, patches, and `_MSIExecute` are baked into twenty-five years of IT tooling.
+
+A **non-MSI-first** runtime could. The tradeoff: you lose native GPO/Intune MSI deployment, familiar Add/Remove Programs semantics, and admin comfort. A hybrid authoring layer — unified option schema driving GUI, CLI, and optional WiX/MSIX export — is the pragmatic shape if anyone builds this seriously.
+
+== Is there a case for a new installer builder?
+
+**Yes, if it targets orchestration and surfaces, not "yet another script-to-EXE compiler."**
+
+Strong arguments:
+
+. *UX gap* — A modern UI host (WebView2 or equivalent) with real theming and accessibility would differentiate immediately from MUI2-era wizards.
+. *GUI ≡ CLI ≡ API* — Define install options once; render pages, flags, and JSON automation from the same schema.
+. *Smart concurrency as a feature* — Serialize only conflicts; show both timelines when Foo waits on VC++ and Bar proceeds. That is better than a context-free 1618 dialog.
+. *Structured install plans* — Steps as a DAG with checkpoint/resume beats monolithic imperative scripts for anything beyond trivial copies.
+
+Hard arguments — be honest:
+
+. *Enterprise wants MSI/MSIX* — Without export paths, you are an indie developer tool, not a platform.
+. *Trust and signing* — New runtimes face SmartScreen reputation cliffs.
+. *The hard parts are not UI* — Elevation, reboot handling, uninstall cleanup, upgrade migrations, x64/ARM64, per-user vs per-machine, broken partial states: that is where decades of Inno/NSIS/WiX bug-fixes live.
+. *MSIX is Microsoft's bet* — Containerization sidesteps some MSI mess and introduces identity rigidity (link:https://devblogs.microsoft.com/insidemsix/third-rule-of-msix/[the Third Rule of MSIX]).
+. *Adoption moat* — Stack defaults already point at NSIS/WiX.
+
+We are not announcing a replacement for WiX. We are naming the gap: **install orchestration with a modern UI host**, resource-aware scheduling, and one option model for every surface — with optional MSI/MSIX backends when IT requires them.
+
+== Where this investigation goes next
+
+This article freezes a working theory. The next passes will be narrower: which operations *must* serialize versus which are artificially blocked today; whether Easy Installer's plugin model should grow a scheduler; what a minimal resource-claim DSL looks like in `installer.kdl`.
+
+If you have war stories — double-click deadlocks, bootstrapper chains that stall on 1618, Inno mutexes you did not know you shipped — they belong in the investigation. We may revise this page or split a follow-up once the design stops being a question and starts being a spec.
+
+* Related shipping context: link:https://devcentr.org/news/2026-08-06-easy-installer-ships[Easy Installer ships] · link:https://devcentr.org/news/2026-08-06-msi-tables-land[MSI tables land in the generator]
+* Microsoft reference: link:https://learn.microsoft.com/en-us/windows/win32/msi/-msiexecute-mutex[\_MSIExecute Mutex]
