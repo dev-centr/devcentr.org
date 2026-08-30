@@ -1,6 +1,19 @@
 {
   "entries": [
     {
+      "id": "general-knowledge-2026-08-30-open-canvas-interchange-ocif",
+      "date": "2026-08-30",
+      "title": "Open Canvas Interchange (OCIF)",
+      "bullets": [
+        "Explanation Open Canvas Interchange Format (OCIF) — endorse OCIF for canvas edit/interchange; SVG as export; Plain / CentrMark / OCIF kind map; D implementation posture.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
       "id": "general-knowledge-2026-08-29-marketing-for-engineers",
       "date": "2026-08-29",
       "title": "Marketing for engineers",

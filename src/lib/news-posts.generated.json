@@ -1,6 +1,24 @@
 {
   "posts": [
     {
+      "slug": "2026-08-30-when-auto-mode-math-meets-a-local-router",
+      "title": "When Auto-mode math meets a local router",
+      "description": "Why raw frontier APIs blow past a sixty-dollar IDE plan, and how Hornet Mixr plus a local classify model change the spend curve without shipping Python glue.",
+      "date": "2026-08-30",
+      "tags": [
+        "blog",
+        "hornet",
+        "mixr",
+        "routing",
+        "cost",
+        "t3code",
+        "harness",
+        "news"
+      ],
+      "html": "<div id=\"preamble\">\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>The first time you point an agentic editor at Claude for every turn, the invoice feels like a dare.\nYou already paid for a fixed IDE plan.\nYou open a ten-turn debug loop with forty thousand tokens of context and watch the meter treat every replay like a first date.</p>\n</div>\n<div class=\"paragraph\">\n<p>I spent a morning walking that math with an export of open-source Auto-mode alternatives — RouteLLM, Aider&#8217;s architect/editor split, surplus GPU markets, batch APIs.\nUseful maps.\nWrong destination if the destination is <strong>our</strong> harness.</p>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"_the_spend_curve_is_a_routing_problem\">The spend curve is a routing problem</h2>\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>Cursor Auto is not magic intelligence.\nIt is subsidized routing plus caching plus a willingness to spend frontier tokens only where the classifier says they earn their keep.\nPoint Roo or Cline at Sonnet for every autocomplete and you are not competing with Auto — you are competing with the list price of a frontier model multiplied by your own context re-sends.</p>\n</div>\n<div class=\"paragraph\">\n<p>The escape is not a cheaper aggregator.\nIt is <strong>not sending frontier work to the frontier</strong>.</p>\n</div>\n<div class=\"paragraph\">\n<p>Architect/editor splits do that by role.\nMixr does it by node and job: coordinator voice, task coding, flash explore, boundary disambiguation — each with a catalog entry that can be a GLM Flash, a MiniMax agent loop, or a Kimi long-horizon run.\nAnthropic stays on a suppress list until someone deliberately asks for it.\nNothing in my month has justified the automatic route.</p>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"_on_device_classify_not_python_glue\">On-device classify, not Python glue</h2>\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>The Gemini thread kept nominating RouteLLM and BERT classifiers.\nThe useful part is the <strong>idea</strong>: a small model decides the route before the heavy model spends.\nThe unusable part is shipping PyTorch and a Python proxy into the agent loop.</p>\n</div>\n<div class=\"paragraph\">\n<p>Hornet&#8217;s default is boring on purpose: Mixr POSTs a short classify call to a local OpenAI-compatible server.\nIf the machine is low on RAM or the server is down, we fall back.\nWeights can come from anywhere — convert them to whatever your runner already speaks.\nGlue stays out.</p>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"_lag_is_an_architecture_smell\">Lag is an architecture smell</h2>\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>Shadow workspaces that clone extension hosts and language servers buy first-try correctness with a second IDE in the basement.\nTree-sitter driving live DOM updates buys structural awareness with reflow tax.\nWe are not copying that stack.\nSpeculative edits land in copy-on-write buffers; one LSP process sees synthetic URIs; tgc keeps actor threads from stop-the-worlding each other; <code>@nogc</code> stays on the hot patch and framing paths.</p>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"_borrow_the_remote_ui_while_the_harness_grows\">Borrow the remote UI while the harness grows</h2>\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>t3code already registers machines so a laptop can see conversations on a desktop.\nHornet does not need to reinvent that pairing story this season.\nIt needs to be a <strong>provider</strong> that t3code can drive — session and turn over <code>hornet serve</code> — while Mixr and the node graph grow teeth.</p>\n</div>\n<div class=\"paragraph\">\n<p>That is the bargain: spend like Auto without the IDE tax, suppress the models that never justify themselves, keep the router local, and let a mature remote surface babysit the harness until the desk is ready.</p>\n</div>\n</div>\n</div>",
+      "source": "authored"
+    },
+    {
       "slug": "2026-08-29-when-unrelated-installers-still-queue",
       "title": "When unrelated installers still queue",
       "description": "Open-source Windows installer tooling is mature at copying files and stale everywhere else. The global MSI lock is coarse on purpose — and that is a design gap worth naming.",

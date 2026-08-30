@@ -4,8 +4,17 @@
   <link href="https://devcentr.org/news" rel="alternate"/>
   <link href="https://devcentr.org/news/atom.xml" rel="self"/>
   <id>https://devcentr.org/news</id>
-  <updated>2026-08-29T12:00:00Z</updated>
+  <updated>2026-08-30T12:00:00Z</updated>
   <subtitle>News and engineering blog posts from Dev-Centr.</subtitle>
+  <entry>
+    <title>When Auto-mode math meets a local router</title>
+    <link href="https://devcentr.org/news/2026-08-30-when-auto-mode-math-meets-a-local-router" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-08-30-when-auto-mode-math-meets-a-local-router</id>
+    <updated>2026-08-30T12:00:00Z</updated>
+    <summary>Why raw frontier APIs blow past a sixty-dollar IDE plan, and how Hornet Mixr plus a local classify model change the spend curve without shipping Python glue.</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
   <entry>
     <title>When unrelated installers still queue</title>
     <link href="https://devcentr.org/news/2026-08-29-when-unrelated-installers-still-queue" rel="alternate"/>

@@ -1,0 +1,52 @@
+= When Auto-mode math meets a local router
+:description: Why raw frontier APIs blow past a sixty-dollar IDE plan, and how Hornet Mixr plus a local classify model change the spend curve without shipping Python glue.
+:revdate: 2026-08-30
+:keywords: blog, hornet, mixr, routing, cost, t3code, harness
+
+The first time you point an agentic editor at Claude for every turn, the invoice feels like a dare.
+You already paid for a fixed IDE plan.
+You open a ten-turn debug loop with forty thousand tokens of context and watch the meter treat every replay like a first date.
+
+I spent a morning walking that math with an export of open-source Auto-mode alternatives — RouteLLM, Aider's architect/editor split, surplus GPU markets, batch APIs.
+Useful maps.
+Wrong destination if the destination is *our* harness.
+
+== The spend curve is a routing problem
+
+Cursor Auto is not magic intelligence.
+It is subsidized routing plus caching plus a willingness to spend frontier tokens only where the classifier says they earn their keep.
+Point Roo or Cline at Sonnet for every autocomplete and you are not competing with Auto — you are competing with the list price of a frontier model multiplied by your own context re-sends.
+
+The escape is not a cheaper aggregator.
+It is **not sending frontier work to the frontier**.
+
+Architect/editor splits do that by role.
+Mixr does it by node and job: coordinator voice, task coding, flash explore, boundary disambiguation — each with a catalog entry that can be a GLM Flash, a MiniMax agent loop, or a Kimi long-horizon run.
+Anthropic stays on a suppress list until someone deliberately asks for it.
+Nothing in my month has justified the automatic route.
+
+== On-device classify, not Python glue
+
+The Gemini thread kept nominating RouteLLM and BERT classifiers.
+The useful part is the *idea*: a small model decides the route before the heavy model spends.
+The unusable part is shipping PyTorch and a Python proxy into the agent loop.
+
+Hornet's default is boring on purpose: Mixr POSTs a short classify call to a local OpenAI-compatible server.
+If the machine is low on RAM or the server is down, we fall back.
+Weights can come from anywhere — convert them to whatever your runner already speaks.
+Glue stays out.
+
+== Lag is an architecture smell
+
+Shadow workspaces that clone extension hosts and language servers buy first-try correctness with a second IDE in the basement.
+Tree-sitter driving live DOM updates buys structural awareness with reflow tax.
+We are not copying that stack.
+Speculative edits land in copy-on-write buffers; one LSP process sees synthetic URIs; tgc keeps actor threads from stop-the-worlding each other; `@nogc` stays on the hot patch and framing paths.
+
+== Borrow the remote UI while the harness grows
+
+t3code already registers machines so a laptop can see conversations on a desktop.
+Hornet does not need to reinvent that pairing story this season.
+It needs to be a **provider** that t3code can drive — session and turn over `hornet serve` — while Mixr and the node graph grow teeth.
+
+That is the bargain: spend like Auto without the IDE tax, suppress the models that never justify themselves, keep the router local, and let a mature remote surface babysit the harness until the desk is ready.
