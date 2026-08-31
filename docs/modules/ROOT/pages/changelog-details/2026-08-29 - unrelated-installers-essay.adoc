@@ -1,0 +1,5 @@
+= 2026-08-29 — When unrelated installers still queue
+
+* Inward essay on Windows installer gaps — presentation, orchestration, and the coarse global MSI lock.
+* Frames Dev-Centr packaging work (Easy Installer, msi-generator, NSIS/Inno backends) as open questions, not a shipped roadmap.
+* Argues for resource-aware orchestration and queue visibility as first-class installer concerns.

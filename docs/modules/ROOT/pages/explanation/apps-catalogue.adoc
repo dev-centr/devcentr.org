@@ -1,0 +1,56 @@
+= Apps catalogue
+:navtitle: Apps catalogue
+:description: Products, services, and standards lists on devcentr.org — data model, idea pages, and GitHub Pages routing.
+
+The `/apps` tree is a curated index of Dev-Centr offerings. Lists are hand-maintained in `src/lib/apps-catalog.ts`; the site does not scrape GitHub for metadata.
+
+== Routes
+
+[cols="1,2",options="header"]
+|===
+| Path | Purpose
+
+| `/apps`
+| Hub with links to the three category lists
+
+| `/apps/products`, `/apps/services`, `/apps/standards`
+| Category lists (`CatalogPage` component)
+
+| `/ideas/:slug`
+| Idea pages for in-ecosystem products with narrative copy and repo links
+
+| `/resting-lanczos`
+| Image-pipeline comparison demo (listed under Products; not an idea page)
+|===
+
+== Data model
+
+`apps-catalog.ts` exports:
+
+* `products`, `services`, `standards` — arrays of `CatalogItem` (name, summary, `href`, optional `logo`, `ideaSlug`, `tags`, `external`)
+* `ideas` — `IdeaPage` records keyed by `slug` (title, category, overview, `repos[]`)
+
+An item with `ideaSlug` links to `/ideas/<slug>`. External products link straight to `devcentr.app`, GitHub, or partner sites.
+
+Topic strings such as `Tooling · Image pipeline` are *tags*, not breadcrumb segments. Nested pages use `PageTrail` for `Apps / Category / Current`.
+
+== Idea pages and static export
+
+Vinxi's static preset prerenders file routes under `src/routes/ideas/`. The dynamic `[slug].tsx` route does not always emit HTML for new slugs before CI runs.
+
+When GitHub Pages must serve a slug immediately:
+
+. Add the idea to `ideas[]` and a matching `ideaSlug` on the catalog item.
+. Add a file route such as `src/routes/ideas/uniconfig.tsx` that renders `IdeaDetail` for that slug (ensures `ideas/<slug>/index.html` in `.output/public`).
+. `scripts/spa-fallback.mjs` copies the SPA shell into `/ideas/<slug>/` for every `slug` in `ideas[]` as a second line of defense.
+
+CI asserts `ideas/equivalence-engine/index.html` and `ideas/uniconfig/index.html` after build.
+
+== Logos
+
+Product marks live under `public/apps/logos/`. Omit `logo` on catalog items until a mark exists — lists stay text-only.
+
+== Related docs
+
+* xref:explanation/site-architecture.adoc[Site architecture] — full route map and build pipeline
+* xref:changelog-details/2026-08-17 - uniconfig-catalog.adoc[UniConfig catalog entry] — first idea page with file route + SPA fallback

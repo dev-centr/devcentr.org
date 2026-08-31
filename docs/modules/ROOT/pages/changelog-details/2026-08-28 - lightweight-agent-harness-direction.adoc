@@ -1,0 +1,5 @@
+= 2026-08-28 — Lightweight agent harness direction
+
+* Outward news post announces a T3code-weight local agent runtime on **dlang-supplemental** infrastructure — harness-neutral rules, ecosystem specialization.
+* First UX contract: **token provenance** (HCI Nerdz) with demo and `TOKEN_PROVENANCE` harness variable.
+* Links: link:https://docs.devcentr.org/agent-rules/agent-harness.html[Agent harness direction], link:https://docs.devcentr.org/agent-rules/harness-neutral.html[Harness-neutral architecture].

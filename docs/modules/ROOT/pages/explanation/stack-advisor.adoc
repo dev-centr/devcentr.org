@@ -28,6 +28,14 @@ Locally, place a sibling clone at `../stack-advisor` or run `pnpm sync-advisor` 
 
 If compilation fails but a committed `advisor.json` exists in the definitions repo, the sync script falls back to that file.
 
+== Recommendations panel
+
+`rankRecommendations` picks the best-matching entry from `catalog.recommendations` for the current step selections.
+The context panel shows its title, summary, and — when present — a **Read docs** outbound link (`best().docs`).
+
+Recent example: `desktop-rendering-engines` links to xref:general-knowledge::explanation/architecture/graphics-rendering-engines.adoc[graphics-rendering-engines] and summarizes when Electron/Chromium vs native stacks (Avalonia, Qt, Flutter, GPUI) fit dense, long-lived UIs.
+Desktop and web-runtime *option* overviews in the catalog also reference that guide.
+
 == Key files
 
 * Page: `src/routes/stack-advisor.tsx`
@@ -39,3 +47,4 @@ If compilation fails but a committed `advisor.json` exists in the definitions re
 == See also
 
 * xref:general-knowledge::explanation/infrastructure/toolchain-management.adoc[Toolchain management] (general-knowledge)
+* xref:general-knowledge::explanation/architecture/graphics-rendering-engines.adoc[Graphics rendering engines] — linked from desktop UI recommendations

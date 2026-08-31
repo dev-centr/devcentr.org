@@ -2,6 +2,26 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-08-30 — When Auto-mode math meets a local router
+
+* Inward essay on agentic IDE spend and on-device Mixr routing vs frontier APIs.
+* See xref:changelog-details/2026-08-30 - auto-mode-math-local-router.adoc[Detailed changelog].
+
+== 2026-08-29 — When unrelated installers still queue
+
+* Inward essay on Windows installer gaps, MSI global locking, and orchestration visibility.
+* See xref:changelog-details/2026-08-29 - unrelated-installers-essay.adoc[Detailed changelog].
+
+== 2026-08-28 — Lightweight agent harness direction
+
+* Outward news: T3code-weight local runtime on dlang-supplemental; token provenance as first UX contract.
+* See xref:changelog-details/2026-08-28 - lightweight-agent-harness-direction.adoc[Detailed changelog].
+
+== 2026-08-25 — Home hero copy refresh
+
+* Subhead **Developer Ecosystem and Support**; mastery line moves into supporting copy; **Get App** CTA.
+* See xref:changelog-details/2026-08-25 - home-hero-copy.adoc[Detailed changelog].
+
 == 2026-08-25 — Stack Advisor multiselect + path docs
 
 * Explanation page: vertical dividers (not `/`); host/target multi-select; Reset only when dirty.
@@ -29,6 +49,17 @@ Timeline of notable documentation and site changes in the devcentr.org repositor
 
 * Interim public name **Toolchain Browser** (superseded by Stack Advisor the same day).
 * See xref:changelog-details/2026-08-25 - toolchain-browser-rename.adoc[Detailed changelog].
+
+== 2026-08-19 — Agent rules harness layering (blog)
+
+* Essay: Agent rules without the harness baked in — forkable templates vs `HARNESS.md` / `MEMORIES.md`.
+* See xref:changelog-details/2026-08-19 - agent-rules-harness-blog.adoc[Detailed changelog].
+
+== 2026-08-19 — After Skia essay and advisor rendering docs
+
+* Essay: After Skia — rendering headroom for dense desktop clients.
+* Stack Advisor: `desktop-rendering-engines` recommendation and **Read docs** link to general-knowledge graphics rendering guide.
+* See xref:changelog-details/2026-08-19 - after-skia-advisor-rendering.adoc[Detailed changelog].
 
 == 2026-08-18 — RepoLab on the apps catalog
 
