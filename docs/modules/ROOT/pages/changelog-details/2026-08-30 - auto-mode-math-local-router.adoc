@@ -1,0 +1,5 @@
+= 2026-08-30 — When Auto-mode math meets a local router
+
+* Inward essay on agentic IDE spend — frontier APIs vs subsidized routing in fixed plans.
+* Argues cost control is on-device **Hornet Mixr** routing plus a local classify model, not Python classifier glue or raw aggregator APIs.
+* Positions Mixr node/job catalogs (coordinator, task coding, flash explore) as the harness-side answer to Auto-mode economics.

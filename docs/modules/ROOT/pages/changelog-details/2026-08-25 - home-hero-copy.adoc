@@ -1,0 +1,5 @@
+= 2026-08-25 — Home hero copy refresh
+
+* Headline stays **DevCentr**; subhead is now **Developer Ecosystem and Support** (replaces the eyebrow + split tagline).
+* Mastery line (*More than just a tool—a path to mastery*) moves into the supporting paragraph with ecosystem copy.
+* Primary CTA label: **Get App** (was *Get the app*).

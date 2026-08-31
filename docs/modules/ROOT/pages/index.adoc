@@ -27,6 +27,9 @@ https://devcentr.org
 | Routes, build pipeline, and CI checkouts
 | xref:explanation/site-architecture.adoc[Site architecture]
 
+| `/apps` lists, idea pages, SPA fallback for `/ideas`
+| xref:explanation/apps-catalogue.adoc[Apps catalogue]
+
 | News vs changelog, `build-news.mjs`, feeds
 | xref:explanation/news-and-changelog.adoc[News & changelog pipeline]
 
