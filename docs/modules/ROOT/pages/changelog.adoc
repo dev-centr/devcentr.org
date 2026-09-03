@@ -7,6 +7,11 @@ Timeline of notable documentation and site changes in the devcentr.org repositor
 * Apps catalog / idea: `/ideas/provider-mirror-backups` (vision service).
 * News: Provider search and consumer mirror backups.
 
+== 2026-09-03 — MarkView for reading Markdown
+
+* News: MarkView as free local Markdown **viewer only** (no editing) for people’s machines; DevCentr products keep in-house rendering.
+* Screenshot under `public/news/media/markview-biome-readme.png`.
+
 == 2026-09-02 — UniProvider, OPR, SoloMD, OPR Directory MVP
 
 * Apps catalog: UniProvider (product), OPR (standards), OPR Directory (SolidStart service — Netlify/Vercel).

@@ -1,0 +1,18 @@
+= MarkView for reading Markdown on disk
+:description: Dev-Centr recommends MarkView as a free local Markdown viewer (no editing) for machines outside the product; DevCentr apps keep in-house rendering.
+:revdate: 2026-09-03
+:keywords: news, MarkView, Markdown, SoloMD, documentation
+
+Not every `.md` file needs an editor.
+Sometimes a colleague, an AI export, or a project README just needs to **open and read** without Notepad, VS Code, or an upload-to-preview site.
+
+**MarkView** (link:https://markview.io/[markview.io]) is now on the general-knowledge link:https://docs.devcentr.org/general-knowledge/reference/recommended-tools.html[recommended tools] list for that job: a free native **viewer** for macOS, Windows, and Linux — GitHub-style rendering, dark/light themes, zoom, drag-and-drop, no account.
+It has **no editing ability**; changing a file still means SoloMD, a forge editor, or another authoring tool.
+
+.MarkView with a project README open
+image::https://devcentr.org/news/media/markview-biome-readme.png[alt="MarkView rendering Biome Extension for VS Code README.md",width=720]
+
+MarkView is a third-party tool for **people’s machines**.
+Dev-Centr products do not adopt it as an in-app or org-docs viewer — published docs stay on Antora, and apps keep Markdown/help rendering in their own components and modules.
+
+Durable write-up: link:https://docs.devcentr.org/general-knowledge/explanation/documentation/markdown-editors-on-disk.html[Markdown editors on local disk].
