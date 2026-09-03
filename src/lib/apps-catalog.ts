@@ -140,6 +140,15 @@ export const services: CatalogItem[] = [
     ideaSlug: "opr-directory",
     tags: "Tentative · Inference · Registry",
   },
+  {
+    id: "provider-mirror-backups",
+    name: "Provider mirror backups",
+    summary:
+      "Vision — opt-in backups that mimic a data provider’s shape and API, plus provider-native fuzzy/vector search. Near-term wedge: .issues archives + Issues Browser.",
+    href: "/ideas/provider-mirror-backups",
+    ideaSlug: "provider-mirror-backups",
+    tags: "Vision · Data · Portability",
+  },
 ];
 
 export const standards: CatalogItem[] = [
@@ -216,6 +225,30 @@ export const ideas: IdeaPage[] = [
         name: "uniprovider",
         summary: "Local OPR reference implementation.",
         href: "https://github.com/dev-centr/uniprovider",
+      },
+    ],
+  },
+  {
+    slug: "provider-mirror-backups",
+    title: "Provider search and mirror backups",
+    category: "services",
+    overview:
+      "Architectural vision: data providers expose first-class fuzzy → vector/hybrid search so AI clients need not keep full private replicas just to RAG; consumers opt into mirror backups that mimic the provider’s data structure and API. Near-term demonstration wedge is personal .issues submission archives (bodies + media) plus Issues Browser forge metadata backups, with GitHub CLI --attach for live media. HCI face: Host-held history. Advocacy-by-demo for consumer-portable data over host-locked correspondence.",
+    repos: [
+      {
+        name: "issues-browser",
+        summary: "Forge metadata/body backup and offline search (early mirror wedge).",
+        href: "https://github.com/dev-centr/issues-browser",
+      },
+      {
+        name: "general-knowledge",
+        summary: "Encyclopedia: Provider search and mirror backups.",
+        href: "https://github.com/dev-centr/general-knowledge",
+      },
+      {
+        name: "HCI-Nerdz/docs",
+        summary: "Host-held history (human symptom ↔ treatment face).",
+        href: "https://github.com/HCI-Nerdz/docs",
       },
     ],
   },

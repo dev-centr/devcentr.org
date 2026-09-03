@@ -2,6 +2,11 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-09-02 — Provider mirror backups idea + news
+
+* Apps catalog / idea: `/ideas/provider-mirror-backups` (vision service).
+* News: Provider search and consumer mirror backups.
+
 == 2026-09-02 — UniProvider, OPR, SoloMD, tentative directory
 
 * Apps catalog: UniProvider (product), OPR (standards), OPR Directory (tentative service); idea pages `/ideas/uniprovider` and `/ideas/opr-directory`.

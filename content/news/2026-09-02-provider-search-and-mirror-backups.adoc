@@ -1,0 +1,13 @@
+= Provider search and consumer mirror backups
+:description: Vision for provider-native search APIs and API-compatible backups, with a near-term forge archive wedge.
+:date: 2026-09-02
+:categories: architecture, data, tooling
+
+GitHub CLI can now attach images and video on issues, pull requests, and comments (`--attach`, gh 2.99+). That closes a long gap for CLI and agent filings — and it is a good moment to separate **live forge media** from **consumer-owned archives**.
+
+Dev-Centr’s encyclopedia now records a broader architectural bet: data providers will need first-class fuzzy and eventually vector or hybrid search so AI clients can query large structured collections without maintaining full private replicas. Alongside search, consumers should be able to opt into **mirror backups that mimic the provider’s data shape and API**, so portability is usable rather than a locked HTML dump.
+
+The near-term demonstration wedge is already in the house: personal `.issues` submission trees (bodies plus media backup) and Issues Browser forge archives. Agent skills prefer `--attach` for what GitHub shows, and still commit local `images/` copies. HCI Nerdz names the human symptom *Host-held history*; connectome-fs notes that attachment bytes belong as addressable content, not only CDN URLs.
+
+Idea catalog: https://devcentr.org/ideas/provider-mirror-backups[`/ideas/provider-mirror-backups`].
+Encyclopedia: https://docs.devcentr.org/general-knowledge/explanation/internet-architecture/provider-search-and-mirror-backups.html[Provider search and mirror backups].
