@@ -26,5 +26,5 @@ OPR only answers what exists on the machine and how to reach it.
 Markdown editors that already speak OpenAI-compatible HTTP (including SoloMD’s compat slot) can consume discovery without rewriting their stack in D; localhost HTTP is the bridge of first resort.
 
 OpenAI-compat is not a global registration bureau.
-An online directory where niche providers self-register and apps poll is a different product — sketched only as link:https://github.com/dev-centr/opr-directory[opr-directory] (tentative `providers.devcentr.org`), deliberately not built in this cut.
+An online directory where niche providers self-register and apps poll is now being built as link:https://github.com/dev-centr/opr-directory[opr-directory] — SolidStart on Netlify/Vercel (planned `providers.devcentr.org`), not Cloudflare Workers.
 Prior art (OpenRouter, LiteLLM, Olla, UPP) covers marketplaces, operator proxies, and call abstractions; it does not retire the need for a neutral registration format runners can write once.

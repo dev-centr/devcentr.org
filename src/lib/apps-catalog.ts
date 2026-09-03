@@ -135,10 +135,10 @@ export const services: CatalogItem[] = [
     id: "opr-directory",
     name: "OPR Directory",
     summary:
-      "Tentative — online Open Provider Registry directory (providers.devcentr.org unset). Skeleton only; apps would poll registered endpoints later.",
+      "Online Open Provider Registry catalog (SolidStart · Netlify/Vercel). Apps poll /opr/v1/providers; providers self-register. Planned host providers.devcentr.org.",
     href: "/ideas/opr-directory",
     ideaSlug: "opr-directory",
-    tags: "Tentative · Inference · Registry",
+    tags: "Inference · Registry · SolidStart",
   },
   {
     id: "provider-mirror-backups",
@@ -195,7 +195,7 @@ export const ideas: IdeaPage[] = [
     title: "UniProvider",
     category: "products",
     overview:
-      "Reference implementation of the Open Provider Registry (OPR): local on-disk manifests, transitional well-known probes (Ollama, LM Studio, llama.cpp, …), and a localhost OpenAI-compat aggregator. Protocol-first — other aggregators may speak OPR without depending on this daemon. Does not replace LiteLLM/Olla proxies; feeds them. Online public directory is a separate tentative service (opr-directory).",
+      "Reference implementation of the Open Provider Registry (OPR): local on-disk manifests, transitional well-known probes (Ollama, LM Studio, llama.cpp, …), and a localhost OpenAI-compat aggregator. Protocol-first — other aggregators may speak OPR without depending on this daemon. Does not replace LiteLLM/Olla proxies; feeds them. Online public directory: opr-directory (SolidStart).",
     repos: [
       {
         name: "uniprovider",
@@ -204,7 +204,7 @@ export const ideas: IdeaPage[] = [
       },
       {
         name: "opr-directory",
-        summary: "Tentative online directory skeleton (providers.devcentr.org unset).",
+        summary: "SolidStart online directory (Netlify/Vercel).",
         href: "https://github.com/dev-centr/opr-directory",
       },
     ],
@@ -214,11 +214,11 @@ export const ideas: IdeaPage[] = [
     title: "OPR Directory",
     category: "services",
     overview:
-      "Tentative hosted directory where niche model providers could self-register OPR records and desktop apps could poll — the piece OpenAI-compat does not provide. Skeleton repository only; not in scope for implementation today. Local discovery remains uniprovider.",
+      "Online Open Provider Registry catalog: SolidStart SSR on Netlify (Vercel alternate), JSON or Turso persistence. Providers self-register publicly reachable endpoints; apps poll GET /opr/v1/providers. Localhost rejected — use UniProvider on disk for local runners. Custom domain providers.devcentr.org when DNS is pointed.",
     repos: [
       {
         name: "opr-directory",
-        summary: "STATUS + API sketch; no product code yet.",
+        summary: "SolidStart app + OPR HTTP API.",
         href: "https://github.com/dev-centr/opr-directory",
       },
       {
