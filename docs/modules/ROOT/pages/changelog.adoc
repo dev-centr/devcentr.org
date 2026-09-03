@@ -2,6 +2,12 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-09-02 — UniProvider, OPR, SoloMD, tentative directory
+
+* Apps catalog: UniProvider (product), OPR (standards), OPR Directory (tentative service); idea pages `/ideas/uniprovider` and `/ideas/opr-directory`.
+* News: SoloMD for Markdown on disk; one registration protocol for model runners (prior art + online directory out of scope).
+* Screenshots under `public/news/media/solomd-*.png`.
+
 == 2026-08-25 — Stack Advisor multiselect + path docs
 
 * Explanation page: vertical dividers (not `/`); host/target multi-select; Reset only when dirty.

@@ -1,0 +1,22 @@
+= SoloMD for Markdown on disk
+:description: Dev-Centr recommends SoloMD for local Markdown README and project-doc workflows, and points its AI surface at the Open Provider Registry idea.
+:revdate: 2026-09-02
+:keywords: news, SoloMD, Markdown, UniProvider, OPR, Tauri
+
+Dev-Centr’s own published docs stay on AsciiDoc and Antora.
+A large share of the developers who touch that tooling still ship **Markdown** — READMEs, contributor guides, vault folders — and need an editor that writes plain `.md` to a directory.
+
+**SoloMD** (link:https://solomd.app/[solomd.app], MIT, Tauri 2) is now on the general-knowledge link:https://docs.devcentr.org/general-knowledge/reference/recommended-tools.html[recommended tools] list for that job.
+It offers Typora-style live edit and a classic split source/preview, plus a vault agent and BYOK AI.
+Durable write-up: link:https://docs.devcentr.org/general-knowledge/explanation/documentation/markdown-editors-on-disk.html[Markdown editors on local disk].
+
+.Live edit
+image::https://devcentr.org/news/media/solomd-live-edit.png[alt="SoloMD live edit mode on Welcome.md",width=720]
+
+.Split view
+image::https://devcentr.org/news/media/solomd-split-view.png[alt="SoloMD split source and preview",width=720]
+
+SoloMD’s AI settings already first-class Ollama and expose a generic OpenAI-compatible slot for other local runners.
+That is good — and it is also the seam where every editor eventually grows a private unilayer.
+Dev-Centr is drafting an **Open Provider Registry (OPR)** so runners register once and apps consume a shared format instead of inventing competing ones.
+Reference implementation: link:https://github.com/dev-centr/uniprovider[dev-centr/uniprovider]. Explanation: link:https://docs.devcentr.org/general-knowledge/explanation/infrastructure/uniprovider.html[UniProvider and OPR].

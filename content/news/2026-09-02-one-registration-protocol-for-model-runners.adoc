@@ -1,0 +1,30 @@
+= One registration protocol for model runners
+:description: Why competing unilayer discovery formats punish offline model runners — and why Open Provider Registry (OPR) should be a shared protocol, not a product brand war.
+:revdate: 2026-09-02
+:keywords: news, blog, OPR, UniProvider, inference, Ollama, LM Studio
+
+You install a local model runner that is not Ollama.
+The markdown editor’s first-run wizard still lights up green for Ollama’s port and shrugs at yours.
+A second app invents a JSON drop folder under its own product name.
+A third ships “unilayer” in the marketing copy and a fourth schema on disk.
+The runner author is now the unpaid standards body for desktop AI.
+
+That is the thesis: **registration must be a protocol, not a brand.**
+
+Dev-Centr’s draft is the **Open Provider Registry (OPR)** — well-known `opr/providers/*.opr.json` manifests, optional `/opr/v1/providers` HTTP, online and offline in the same record shape.
+**UniProvider** is the reference D library, CLI, and transitional well-known probe set.
+Other aggregators may implement OPR without depending on UniProvider.
+Competing *products* are fine.
+Competing *registration formats* are the tax we are trying to kill.
+
+Spec: https://github.com/dev-centr/uniprovider/blob/main/spec/opr.md[`spec/opr.md`].
+Repo: https://github.com/dev-centr/uniprovider[dev-centr/uniprovider].
+Encyclopedia: https://docs.devcentr.org/general-knowledge/explanation/infrastructure/uniprovider.html[UniProvider and OPR].
+
+Routing which model to use for a job stays elsewhere — Hornet’s Mixr, an editor’s UI, a user’s pick.
+OPR only answers what exists on the machine and how to reach it.
+Markdown editors that already speak OpenAI-compatible HTTP (including SoloMD’s compat slot) can consume discovery without rewriting their stack in D; localhost HTTP is the bridge of first resort.
+
+OpenAI-compat is not a global registration bureau.
+An online directory where niche providers self-register and apps poll is a different product — sketched only as link:https://github.com/dev-centr/opr-directory[opr-directory] (tentative `providers.devcentr.org`), deliberately not built in this cut.
+Prior art (OpenRouter, LiteLLM, Olla, UPP) covers marketplaces, operator proxies, and call abstractions; it does not retire the need for a neutral registration format runners can write once.

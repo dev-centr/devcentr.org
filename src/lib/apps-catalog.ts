@@ -105,6 +105,15 @@ export const products: CatalogItem[] = [
     href: "/stack-advisor",
     tags: "Tooling · Toolchains",
   },
+  {
+    id: "uniprovider",
+    name: "UniProvider",
+    summary:
+      "Local Open Provider Registry reference implementation — discover on-disk manifests + well-known runners; localhost aggregator.",
+    href: "/ideas/uniprovider",
+    ideaSlug: "uniprovider",
+    tags: "Tooling · Inference",
+  },
 ];
 
 export const services: CatalogItem[] = [
@@ -122,6 +131,15 @@ export const services: CatalogItem[] = [
     href: "https://pkgpublish.dev",
     external: true,
   },
+  {
+    id: "opr-directory",
+    name: "OPR Directory",
+    summary:
+      "Tentative — online Open Provider Registry directory (providers.devcentr.org unset). Skeleton only; apps would poll registered endpoints later.",
+    href: "/ideas/opr-directory",
+    ideaSlug: "opr-directory",
+    tags: "Tentative · Inference · Registry",
+  },
 ];
 
 export const standards: CatalogItem[] = [
@@ -131,6 +149,15 @@ export const standards: CatalogItem[] = [
     summary: "Literate markup for Synchronous Literate Programming.",
     href: "https://github.com/dev-centr/centrmark",
     external: true,
+  },
+  {
+    id: "opr",
+    name: "Open Provider Registry (OPR)",
+    summary:
+      "Open on-disk (+ optional HTTP) registration for online and offline model runners — implement once, any aggregator may consume.",
+    href: "https://github.com/dev-centr/uniprovider/blob/main/spec/opr.md",
+    external: true,
+    tags: "Standards · Inference",
   },
 ];
 
@@ -151,6 +178,44 @@ export const ideas: IdeaPage[] = [
         name: "uniconfig-core",
         summary: "Codecs, schema merge, SDLang profiles, registry.",
         href: "https://github.com/dev-centr/uniconfig-core",
+      },
+    ],
+  },
+  {
+    slug: "uniprovider",
+    title: "UniProvider",
+    category: "products",
+    overview:
+      "Reference implementation of the Open Provider Registry (OPR): local on-disk manifests, transitional well-known probes (Ollama, LM Studio, llama.cpp, …), and a localhost OpenAI-compat aggregator. Protocol-first — other aggregators may speak OPR without depending on this daemon. Does not replace LiteLLM/Olla proxies; feeds them. Online public directory is a separate tentative service (opr-directory).",
+    repos: [
+      {
+        name: "uniprovider",
+        summary: "D library + CLI + OPR draft spec.",
+        href: "https://github.com/dev-centr/uniprovider",
+      },
+      {
+        name: "opr-directory",
+        summary: "Tentative online directory skeleton (providers.devcentr.org unset).",
+        href: "https://github.com/dev-centr/opr-directory",
+      },
+    ],
+  },
+  {
+    slug: "opr-directory",
+    title: "OPR Directory",
+    category: "services",
+    overview:
+      "Tentative hosted directory where niche model providers could self-register OPR records and desktop apps could poll — the piece OpenAI-compat does not provide. Skeleton repository only; not in scope for implementation today. Local discovery remains uniprovider.",
+    repos: [
+      {
+        name: "opr-directory",
+        summary: "STATUS + API sketch; no product code yet.",
+        href: "https://github.com/dev-centr/opr-directory",
+      },
+      {
+        name: "uniprovider",
+        summary: "Local OPR reference implementation.",
+        href: "https://github.com/dev-centr/uniprovider",
       },
     ],
   },
@@ -204,5 +269,5 @@ export function getCatalogItem(id: string) {
 }
 
 export function catalogItemForIdea(slug: string) {
-  return products.find((item) => item.ideaSlug === slug);
+  return [...products, ...services].find((item) => item.ideaSlug === slug);
 }
