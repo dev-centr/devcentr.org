@@ -101,7 +101,7 @@ export const products: CatalogItem[] = [
     id: "stack-advisor",
     name: "Stack Advisor",
     summary:
-      "Reach a host · target · language · toolchain stack. Guided path or DIY filters; browse and advice are modes.",
+      "Reach a host · target · language · toolchain stack via one sample-based filter path; browse and advice are modes.",
     href: "/stack-advisor",
     tags: "Tooling · Toolchains",
   },
