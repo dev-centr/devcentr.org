@@ -2,15 +2,17 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
-== 2026-09-02 — Provider mirror backups idea + news
-
-* Apps catalog / idea: `/ideas/provider-mirror-backups` (vision service).
-* News: Provider search and consumer mirror backups.
-
 == 2026-09-03 — MarkView for reading Markdown
 
 * News: MarkView as free local Markdown **viewer only** (no editing) for people’s machines; DevCentr products keep in-house rendering.
 * Screenshot under `public/news/media/markview-biome-readme.png`.
+* See xref:changelog-details/2026-09-03 - markview.adoc[Detailed changelog].
+
+== 2026-09-02 — Provider mirror backups idea + news
+
+* Apps catalog / idea: `/ideas/provider-mirror-backups` (vision service).
+* News: Provider search and consumer mirror backups.
+* See xref:changelog-details/2026-09-02 - provider-mirror-backups.adoc[Detailed changelog].
 
 == 2026-09-02 — UniProvider, OPR, SoloMD, OPR Directory MVP
 
@@ -18,6 +20,7 @@ Timeline of notable documentation and site changes in the devcentr.org repositor
 * News: SoloMD for Markdown on disk; one registration protocol for model runners.
 * Screenshots under `public/news/media/solomd-*.png`.
 * OPR Directory moved from tentative skeleton to SolidStart implementation (see `dev-centr/opr-directory`).
+* See xref:changelog-details/2026-09-02 - uniprovider-opr-solod.adoc[Detailed changelog].
 
 == 2026-08-25 — Stack Advisor multiselect + path docs
 

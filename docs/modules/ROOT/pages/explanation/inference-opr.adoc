@@ -1,0 +1,69 @@
+= Inference — UniProvider & OPR
+:navtitle: Inference & OPR
+:description: How devcentr.org surfaces Open Provider Registry (OPR), UniProvider, and OPR Directory — catalogue entries and links to canonical specs.
+
+September 2026 added inference-related catalogue entries and news.
+This page documents what the **marketing site** exposes; protocol and implementation detail live in sibling repositories.
+
+== Problem (one sentence)
+
+Local model runners should register once in a **neutral format** so editors and aggregators discover them without each app inventing its own JSON drop folder.
+
+== What appears on devcentr.org
+
+[cols="1,2",options="header"]
+|===
+| Catalogue entry | Route / link
+
+| **UniProvider** (product)
+| `/ideas/uniprovider` — reference D library, CLI, well-known probes, localhost OpenAI-compat aggregator
+
+| **Open Provider Registry (OPR)** (standard)
+| Standards list → `spec/opr.md` on GitHub — on-disk manifests + optional HTTP
+
+| **OPR Directory** (service)
+| `/ideas/opr-directory` — SolidStart online catalog; providers self-register; apps poll `GET /opr/v1/providers`
+
+| **Provider mirror backups** (vision)
+| `/ideas/provider-mirror-backups` — architectural direction for consumer-portable data and provider-native search; near-term wedge via `.issues` archives
+|===
+
+News posts (September 2026):
+
+* link:https://devcentr.org/news/2026-09-02-one-registration-protocol-for-model-runners[One registration protocol for model runners]
+* link:https://devcentr.org/news/2026-09-02-solomd-for-markdown-on-disk[SoloMD for Markdown on disk] — editor slot that consumes OPR discovery via OpenAI-compat HTTP
+
+== Canonical documentation (not in this repo)
+
+[cols="1,2",options="header"]
+|===
+| Topic | Where
+
+| OPR spec
+| https://github.com/dev-centr/uniprovider/blob/main/spec/opr.md[`dev-centr/uniprovider` → `spec/opr.md`]
+
+| UniProvider implementation
+| https://github.com/dev-centr/uniprovider[dev-centr/uniprovider]
+
+| Online directory app
+| https://github.com/dev-centr/opr-directory[dev-centr/opr-directory] (SolidStart · Netlify/Vercel; planned `providers.devcentr.org`)
+
+| Encyclopedia overview
+| https://docs.devcentr.org/general-knowledge/explanation/infrastructure/uniprovider.html[general-knowledge — UniProvider and OPR]
+
+| Provider search vision
+| https://docs.devcentr.org/general-knowledge/explanation/infrastructure/provider-search-and-mirror-backups.html[general-knowledge — Provider search and mirror backups]
+|===
+
+== Boundaries
+
+* **OPR** answers *what runners exist and how to reach them* — not routing which model to use for a job.
+* **UniProvider** is a reference implementation; other aggregators may speak OPR without depending on it.
+* **OPR Directory** is for publicly reachable providers; localhost runners stay on disk via UniProvider.
+* **MarkView** (September news) is a third-party *viewer* for people's machines — not an in-app or org-docs renderer. See general-knowledge link:https://docs.devcentr.org/general-knowledge/explanation/documentation/markdown-editors-on-disk.html[Markdown editors on local disk].
+
+== Maintaining catalogue copy
+
+Edit `src/lib/apps-catalog.ts` and follow xref:explanation/apps-catalog.adoc[Apps catalogue] for idea pages, prerender routes, and CI checks.
+
+Changelog: xref:changelog-details/2026-09-02 - uniprovider-opr-solod.adoc[2026-09-02 UniProvider & OPR], xref:changelog-details/2026-09-02 - provider-mirror-backups.adoc[2026-09-02 Provider mirror backups], xref:changelog-details/2026-09-03 - markview.adoc[2026-09-03 MarkView].

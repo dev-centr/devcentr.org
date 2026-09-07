@@ -1,0 +1,20 @@
+= MarkView for reading Markdown on disk
+:description: News recommending MarkView as a third-party local Markdown viewer.
+
+== News
+
+link:https://devcentr.org/news/2026-09-03-markview-for-reading-markdown-on-disk[MarkView for reading Markdown on disk]
+
+MarkView is recommended on the general-knowledge **recommended tools** list as a free native **viewer** (no editing) for macOS, Windows, and Linux.
+
+Screenshot: `public/news/media/markview-biome-readme.png`.
+
+== Scope
+
+* **People's machines** — third-party tool for opening `.md` files outside Dev-Centr products
+* **Not in-app** — DevCentr apps keep in-house rendering; org docs stay on Antora
+
+== Docs
+
+* https://docs.devcentr.org/general-knowledge/explanation/documentation/markdown-editors-on-disk.html[Markdown editors on local disk]
+* https://docs.devcentr.org/general-knowledge/reference/recommended-tools.html[Recommended tools]

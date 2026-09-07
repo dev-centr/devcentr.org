@@ -36,6 +36,12 @@ https://devcentr.org
 | SDL catalog sync and `/stack-advisor`
 | xref:explanation/stack-advisor.adoc[Stack Advisor]
 
+| Products, services, standards, and idea pages
+| xref:explanation/apps-catalog.adoc[Apps catalogue]
+
+| UniProvider, OPR, OPR Directory (September 2026)
+| xref:explanation/inference-opr.adoc[Inference & OPR]
+
 | Agent skills catalog (`/skills`; `/templates` redirects)
 | xref:explanation/bootstrap-templates.adoc[Agent skills]
 

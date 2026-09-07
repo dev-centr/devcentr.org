@@ -98,6 +98,9 @@ jobs:
           test -f .output/public/apps/standards/index.html
           test -f .output/public/ideas/equivalence-engine/index.html
           test -f .output/public/ideas/uniconfig/index.html
+          test -f .output/public/ideas/uniprovider/index.html
+          test -f .output/public/ideas/opr-directory/index.html
+          test -f .output/public/ideas/provider-mirror-backups/index.html
 
       - name: Verify news, changelog, and feed artifacts
         run: |

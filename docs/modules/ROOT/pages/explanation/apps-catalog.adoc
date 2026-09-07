@@ -1,0 +1,66 @@
+= Apps catalogue
+:navtitle: Apps catalogue
+:description: How devcentr.org lists products, services, and standards — catalog data, idea pages, and GitHub Pages routing.
+
+The public **Apps** section (`/apps`) is a marketing catalogue for Dev-Centr offerings.
+Data lives in a single TypeScript module; idea pages expand entries that need more context than a one-line summary.
+
+== Categories
+
+Three panes under `/apps`:
+
+[cols="1,2",options="header"]
+|===
+| Route | Contents
+
+| `/apps/products`
+| Shipped or in-progress products (DevCentr, UniConfig, Stack Advisor, UniProvider, …)
+
+| `/apps/services`
+| Hosted or planned services (PackageHub, OPR Directory, provider mirror vision, …)
+
+| `/apps/standards`
+| Protocols and shared specs (CentrMark, Open Provider Registry)
+|===
+
+Each list item is a `CatalogItem` in `src/lib/apps-catalog.ts` with `id`, `name`, `summary`, `href`, optional `logo`, `tags`, and optional `ideaSlug`.
+
+== Idea pages
+
+Entries with an `ideaSlug` link to `/ideas/<slug>` for a longer overview and linked repositories.
+
+Idea content is an `IdeaPage` in the same file (`ideas` array): `slug`, `title`, `category`, `overview`, and `repos[]`.
+
+Rendering:
+
+* Dynamic route: `src/routes/ideas/[slug].tsx` → `IdeaDetail` component
+* Optional file route: `src/routes/ideas/<slug>.tsx` when Vinxi prerender must emit a static `index.html` at build time (see below)
+* Breadcrumb: `Apps / <Category> / <Title>` via `PageTrail`; topic tags (e.g. `Tooling · Config`) sit below the trail, not in it
+
+== Adding or updating an entry
+
+. Edit `src/lib/apps-catalog.ts` — add or update `products`, `services`, or `standards`, and optionally an `ideas[]` record.
+. Add a logo under `public/apps/logos/` when a product mark exists (omit when none).
+. For a new idea slug:
+** Add the slug to `app.config.ts` `router.prerender.routes` (e.g. `/ideas/uniprovider`) so Vinxi emits HTML at build time.
+** `scripts/spa-fallback.mjs` also copies the SPA shell into `.output/public/ideas/<slug>/` for every slug in `ideas[]` — required for direct GitHub Pages loads when prerender misses a slug.
+** Optionally add `src/routes/ideas/<slug>.tsx` as a dedicated file route (same pattern as `uniconfig.tsx`).
+. Extend `.github/workflows/ci.yml` artifact checks for new `/ideas/<slug>/index.html` paths.
+. Changelog: add a dated entry to xref:changelog.adoc[Changelog] with a detail page under `changelog-details/`.
+. News (optional): narrative post under `content/news/` — see xref:explanation/news-and-changelog.adoc[News & changelog pipeline].
+
+Deep product docs belong in the owning repo's Antora component (e.g. `uniconfig`, `general-knowledge`), not duplicated here.
+
+== Key files
+
+* Data: `src/lib/apps-catalog.ts`
+* List UI: `src/components/catalog-page.tsx`
+* Idea UI: `src/components/idea-detail.tsx`
+* Routes: `src/routes/apps/`, `src/routes/ideas/`
+* SPA fallback: `scripts/spa-fallback.mjs`
+* Prerender list: `app.config.ts` → `router.prerender.routes`
+
+== See also
+
+* xref:explanation/inference-opr.adoc[Inference — UniProvider & OPR] — recent services/standards entries
+* xref:explanation/site-architecture.adoc[Site architecture] — full route map and build pipeline
