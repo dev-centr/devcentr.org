@@ -121,7 +121,7 @@ pnpm dev
 * `public/` — Static assets (includes generated feeds under `public/news/`)
 * `src/lib/news-posts.generated.json` / `changelog-entries.generated.json` — build outputs from `pnpm news:build`
 * `app.config.ts` — SolidStart/Vinxi configuration
-* `docs/` — Antora component (published on link:https://docs.devcentr.org/devcentr-org/[docs.devcentr.org])
+* `docs/` — Antora component (published on link:https://docs.devcentr.org/devcentr-org/[docs.devcentr.org]); includes apps catalogue and inference/OPR guides
 * `DESIGN.md` — Design philosophy and guidelines
 
 == Site Generation

@@ -1,0 +1,28 @@
+= UniProvider, OPR, SoloMD, and OPR Directory
+:description: Apps catalogue and news for Open Provider Registry ecosystem entries.
+
+== Catalogue
+
+Added to `src/lib/apps-catalog.ts`:
+
+* **UniProvider** (products) — idea slug `uniprovider`
+* **Open Provider Registry (OPR)** (standards) — links to `spec/opr.md`
+* **OPR Directory** (services) — idea slug `opr-directory`; SolidStart on Netlify/Vercel
+
+Prerender routes and CI artifact checks extended for `/ideas/uniprovider` and `/ideas/opr-directory`.
+
+== News
+
+* link:https://devcentr.org/news/2026-09-02-one-registration-protocol-for-model-runners[One registration protocol for model runners] — OPR as protocol vs product brand war
+* link:https://devcentr.org/news/2026-09-02-solomd-for-markdown-on-disk[SoloMD for Markdown on disk] — editor consuming discovery via OpenAI-compat HTTP
+
+Screenshots under `public/news/media/solomd-*.png`.
+
+== Implementation note
+
+OPR Directory moved from tentative skeleton to SolidStart implementation in `dev-centr/opr-directory`.
+
+== Docs
+
+* xref:explanation/inference-opr.adoc[Inference — UniProvider & OPR]
+* Canonical spec: https://github.com/dev-centr/uniprovider/blob/main/spec/opr.md

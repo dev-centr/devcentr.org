@@ -1,0 +1,19 @@
+= Provider search and mirror backups
+:description: Vision service entry and news for provider-native search and consumer mirror backups.
+
+== Catalogue
+
+Added **Provider mirror backups** (services) with idea slug `provider-mirror-backups` — vision for opt-in mirror backups that mimic a provider's shape/API and provider-native fuzzy/vector search.
+
+Near-term wedge: personal `.issues` submission archives plus Issues Browser forge metadata backups.
+
+Prerender route and CI artifact check for `/ideas/provider-mirror-backups`.
+
+== News
+
+link:https://devcentr.org/news/2026-09-02-provider-search-and-mirror-backups[Provider search and consumer mirror backups]
+
+== Docs
+
+* xref:explanation/inference-opr.adoc[Inference — UniProvider & OPR] (mirror vision section)
+* Encyclopedia: https://docs.devcentr.org/general-knowledge/explanation/infrastructure/provider-search-and-mirror-backups.html

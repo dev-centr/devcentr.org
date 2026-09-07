@@ -37,7 +37,7 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 | Apps catalogue (data in `src/lib/apps-catalog.ts`)
 
 | `/ideas/:slug`
-| Idea pages for catalogue entries with `ideaSlug`
+| Idea pages for catalogue entries with `ideaSlug` (`uniconfig`, `uniprovider`, `opr-directory`, `provider-mirror-backups`, `equivalence-engine`)
 
 | `/stack-advisor`
 | Interactive stack decision flow (browse + advice modes; SDL from `stack-advisor` repo). `/toolchain-browser` and `/toolchain-advisor` redirect here.
@@ -76,7 +76,7 @@ Custom domain `devcentr.org` is configured in the repository's Pages settings.
 == Key source locations
 
 * `src/routes/` — page components
-* `src/components/` — shared UI (header, footer, diagrams, toolchain browser widget, agent skills catalog)
+* `src/components/` — shared UI (header, footer, diagrams, stack advisor widget, agent skills catalog, apps catalogue)
 * `src/lib/` — catalog data, changelog loader, theme reveal, site links
 * `content/news/` — authored news (see xref:explanation/news-and-changelog.adoc[News & changelog pipeline])
 * `public/brand/` — SVG logo marks (canonical org assets live in `.github` profile repos)
