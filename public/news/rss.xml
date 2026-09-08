@@ -5,7 +5,34 @@
   <link>https://devcentr.org/news</link>
   <description>News and engineering blog posts from Dev-Centr.</description>
   <language>en-us</language>
-  <lastBuildDate>Sun, 30 Aug 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 03 Sep 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>MarkView for reading Markdown on disk</title>
+    <link>https://devcentr.org/news/2026-09-03-markview-for-reading-markdown-on-disk</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-09-03-markview-for-reading-markdown-on-disk</guid>
+    <pubDate>Thu, 03 Sep 2026 12:00:00 GMT</pubDate>
+    <description>Dev-Centr recommends MarkView as a free local Markdown viewer (no editing) for machines outside the product; DevCentr apps keep in-house rendering.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
+  <item>
+    <title>SoloMD for Markdown on disk</title>
+    <link>https://devcentr.org/news/2026-09-02-solomd-for-markdown-on-disk</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-09-02-solomd-for-markdown-on-disk</guid>
+    <pubDate>Wed, 02 Sep 2026 12:00:00 GMT</pubDate>
+    <description>Dev-Centr recommends SoloMD for local Markdown README and project-doc workflows, and points its AI surface at the Open Provider Registry idea.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
+  <item>
+    <title>One registration protocol for model runners</title>
+    <link>https://devcentr.org/news/2026-09-02-one-registration-protocol-for-model-runners</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-09-02-one-registration-protocol-for-model-runners</guid>
+    <pubDate>Wed, 02 Sep 2026 12:00:00 GMT</pubDate>
+    <description>Why competing unilayer discovery formats punish offline model runners — and why Open Provider Registry (OPR) should be a shared protocol, not a product brand war.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
   <item>
     <title>When Auto-mode math meets a local router</title>
     <link>https://devcentr.org/news/2026-08-30-when-auto-mode-math-meets-a-local-router</link>
@@ -183,6 +210,15 @@
     <guid isPermaLink="true">https://devcentr.org/news/2026-07-24-brand-motion</guid>
     <pubDate>Fri, 24 Jul 2026 12:00:00 GMT</pubDate>
     <description>Why DevCentr&apos;s new mark stays in SVG—and why we&apos;re cautious about Rive as a default for open brands.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
+  <item>
+    <title>Provider search and consumer mirror backups</title>
+    <link>https://devcentr.org/news/2026-09-02-provider-search-and-mirror-backups</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-09-02-provider-search-and-mirror-backups</guid>
+    <pubDate>Invalid Date</pubDate>
+    <description>Vision for provider-native search APIs and API-compatible backups, with a near-term forge archive wedge.</description>
     <category>blog</category>
     <category>news</category>
   </item>

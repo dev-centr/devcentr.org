@@ -4,13 +4,14 @@
     {
       "id": "host",
       "title": "Host environment",
-      "hint": "Where you sit and run your editor, terminal, and local builds.",
+      "hint": "Where you sit and run your editor, terminal, and local builds. Select every host you need the stack to support.",
+      "selectionMode": "multi",
       "options": [
         {
           "id": "windows-native",
           "label": "Windows (native shell)",
           "era": "modern",
-          "overview": "You work in PowerShell or CMD on Windows. Compilers and linkers run as native Windows\r\n                processes. This is still the default for shipping Windows desktop binaries and for MSVC.",
+          "overview": "You work in PowerShell or CMD on Windows. Compilers and linkers run as native Windows\n                processes. This is still the default for shipping Windows desktop binaries and for MSVC.",
           "timeline": [
             {
               "period": "1990s–2000s",
@@ -37,7 +38,7 @@
           "id": "windows-wsl2",
           "label": "Windows with WSL2",
           "era": "modern",
-          "overview": "Windows 11 (and current Windows 10) run a real Linux kernel in WSL2. You get Linux\r\n                toolchains and package managers while staying on a Windows machine. Path and debugger\r\n                boundaries still matter when the *artifact* is a Windows .exe.",
+          "overview": "Windows 11 (and current Windows 10) run a real Linux kernel in WSL2. You get Linux\n                toolchains and package managers while staying on a Windows machine. Path and debugger\n                boundaries still matter when the *artifact* is a Windows .exe.",
           "timeline": [
             {
               "period": "2016",
@@ -94,7 +95,8 @@
     {
       "id": "target",
       "title": "Target output",
-      "hint": "What you ship or run when the project is done.",
+      "hint": "What you ship or run when the project is done. Select every target the stack must cover.",
+      "selectionMode": "multi",
       "options": [
         {
           "id": "windows-desktop",
@@ -133,61 +135,62 @@
     {
       "id": "language",
       "title": "Primary language",
-      "hint": "Narrows toolchain families.",
+      "hint": "Narrows toolchain families. Pick one primary language.",
+      "selectionMode": "single",
       "options": [
         {
           "id": "cpp",
-          "label": "",
-          "era": "",
-          "overview": "",
+          "label": "C / C++",
+          "era": "modern",
+          "overview": "Native compilation; toolchain family choice is critical on Windows.",
           "timeline": [],
           "alternates": []
         },
         {
           "id": "dotnet",
-          "label": "",
-          "era": "",
-          "overview": "",
+          "label": "C# / .NET",
+          "era": "modern",
+          "overview": ".NET SDK and optional native AOT; WinUI often needs Windows.",
           "timeline": [],
           "alternates": []
         },
         {
           "id": "rust",
-          "label": "",
-          "era": "",
-          "overview": "",
+          "label": "Rust",
+          "era": "modern",
+          "overview": "rustup targets; MSVC vs GNU ABI on Windows.",
           "timeline": [],
           "alternates": []
         },
         {
           "id": "go",
-          "label": "",
-          "era": "",
-          "overview": "",
+          "label": "Go",
+          "era": "modern",
+          "overview": "Single binary cross-compile with GOOS/GOARCH.",
           "timeline": [],
           "alternates": []
         },
         {
           "id": "python",
-          "label": "",
-          "era": "",
-          "overview": "",
+          "label": "Python",
+          "era": "modern",
+          "overview": "Interpreter on host; packaging separate from compiler choice.",
           "timeline": [],
           "alternates": []
         },
         {
           "id": "node",
-          "label": "",
-          "era": "",
-          "overview": "",
+          "label": "JavaScript / TypeScript (Node)",
+          "era": "modern",
+          "overview": "Node LTS; container parity for production.",
           "timeline": [],
           "alternates": []
         },
         {
           "id": "other",
-          "label": "",
-          "era": "",
-          "overview": "",
+          "label": "Other / mixed stack",
+          "era": "modern",
+          "overview": "Document your stack in the repo README.",
           "timeline": [],
           "alternates": []
         }
@@ -197,6 +200,7 @@
       "id": "toolchain",
       "title": "Toolchain family",
       "hint": "Compiler and linker stack.",
+      "selectionMode": "single",
       "options": [
         {
           "id": "auto",
@@ -210,7 +214,7 @@
           "id": "msvc",
           "label": "Microsoft MSVC (Visual Studio Build Tools)",
           "era": "modern",
-          "overview": "Microsoft's C/C++ toolchain (cl/link/lib). Default for most Windows commercial libraries,\r\n                WinUI, and Windows SDK samples. Produces MSVC-name-mangled binaries incompatible with MinGW.",
+          "overview": "Microsoft's C/C++ toolchain (cl/link/lib). Default for most Windows commercial libraries,\n                WinUI, and Windows SDK samples. Produces MSVC-name-mangled binaries incompatible with MinGW.",
           "timeline": [
             {
               "period": "1990s–today",
@@ -239,7 +243,7 @@
           "id": "mingw",
           "label": "MinGW-w64 / MSYS2 (GCC on Windows)",
           "era": "modern",
-          "overview": "GNU toolchain on Windows, often via MSYS2. Popular for open-source C/C++ and for developers\r\n                who prefer GCC. UCRT-based mingw-w64 is the modern default over legacy mingw32.",
+          "overview": "GNU toolchain on Windows, often via MSYS2. Popular for open-source C/C++ and for developers\n                who prefer GCC. UCRT-based mingw-w64 is the modern default over legacy mingw32.",
           "timeline": [
             {
               "period": "2000s",
@@ -300,6 +304,7 @@
       "id": "execution",
       "title": "Build & run model",
       "hint": "Where compilation happens vs where the binary runs.",
+      "selectionMode": "single",
       "options": [
         {
           "id": "native-host",
@@ -313,7 +318,7 @@
           "id": "wsl-build",
           "label": "Build inside WSL; artifacts for Windows or Linux",
           "era": "modern",
-          "overview": "Compile inside WSL2. For Linux targets, keep sources on the Linux filesystem. For Windows\r\n                targets, install mingw-w64 inside WSL or prefer native Windows toolchain for debugging.",
+          "overview": "Compile inside WSL2. For Linux targets, keep sources on the Linux filesystem. For Windows\n                targets, install mingw-w64 inside WSL or prefer native Windows toolchain for debugging.",
           "timeline": [
             {
               "period": "Pre-WSL",
@@ -402,7 +407,7 @@
         "WSL: mingw-w64 for Windows targets from Linux env"
       ],
       "caveats": [
-        "Path mixing across \\\\\\\\wsl$\\\\ and C:\\\\ confuses some tools",
+        "Path mixing across \\\\wsl$\\ and C:\\ confuses some tools",
         "GUI debugging across WSL boundary is awkward"
       ],
       "match": {

@@ -1,12 +1,487 @@
 {
   "entries": [
     {
+      "id": "devcentr-2026-09-08-adaptive-playtime-diagrams",
+      "date": "2026-09-08",
+      "title": "Adaptive PlayTime diagrams",
+      "bullets": [
+        "The specifications component now carries synchronized standalone-adaptive and host variants for the ten canonical PlayTime diagrams while retaining the existing public image paths.",
+        "Diagram image blocks are marked for the shared docs-hub runtime.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-08-canonical-themed-diagram-sources",
+      "date": "2026-09-08",
+      "title": "Canonical themed diagram sources",
+      "bullets": [
+        "Nineteen diagrams now keep Mermaid source, explicit Themed SVG manifests, standalone adaptive SVGs, host-controlled SVGs, and preserved fixed originals.",
+        "Mermaid 11 renders text as SVG text, while the versioned theme bindings provide complete light and dark palettes without foreignObject.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-07-pathogenesis-composition-pointer",
+      "date": "2026-09-07",
+      "title": "Pathogenesis / composition pointer",
+      "bullets": [
+        "Git's file-shaped change model: onboarding section linking connectome-fs pathogenesis + composition essay and the tgc sidecar pilot."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-03-an-alternative-to-urls-editorial-titles",
+      "date": "2026-09-03",
+      "title": "An alternative to URLs + editorial titles",
+      "bullets": [
+        "Internet Reliability sibling faces: symptom *Broken links after a URL rename*; diagnosis/docs *An alternative to URLs*.",
+        "Writing clear docs with AI points at agent-rules Editorial titles (enthymeme + self-test)."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-03-binary-weaving-local-lemonade-framing",
+      "date": "2026-09-03",
+      "title": "Binary weaving + local lemonade framing",
+      "bullets": [
+        "Hash-matched binary conversion profiles — add binary weaving (leave-alone vs rewritten boundaries vs replaced modules); local-only lemonade framing; defer DRM/anti-cheat as early-wedge scope."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-03-case-study-link-from-writing-docs",
+      "date": "2026-09-03",
+      "title": "Case study link from writing docs",
+      "bullets": [
+        "Writing clear docs with AI links agent-rules Case study: agent voice vs reader voice."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-03-fix-reliability-svg-encoding-encoding-error",
+      "date": "2026-09-03",
+      "title": "Fix Reliability SVG encoding (Encoding error)",
+      "bullets": [
+        "three-altitudes.svg (and sibling rename-breakage-mockup.svg) declared UTF-8 but contained latin-1 MIDDLE DOT 0xB7 bytes. Browsers refuse the XML (Invalid character in the given encoding); the live <img> looked broken even though _images/ returned 200 and the alt was already quoted.",
+        "Rewrote labels to ASCII separators ( / ); escaped bare & in the rename mockup. Also repaired ai/curated-watching-linkage.svg the same way.",
+        "Renamed asset to \three-altitudes-diagram.svg so the live page points at a new _images/ URL (CDN still held the broken bytes at the old path for up to 4h).",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-03-hash-matched-binary-conversion-profiles",
+      "date": "2026-09-03",
+      "title": "Hash-matched binary conversion profiles",
+      "bullets": [
+        "Explanation Hash-matched binary conversion profiles — convert-on-disk recipes keyed by hash; store source priority; local apply vs live ABI translation; pairs with HCI *On-disk game conversion*.",
+        "Nav and Internet Architecture index updated.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-03-hci-docs-slug-an-alternative-to-urls",
+      "date": "2026-09-03",
+      "title": "HCI docs slug an-alternative-to-urls",
+      "bullets": [
+        "Reliability deep links use .../an-alternative-to-urls.html (wiki slug matches public title)."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-03-markview-markdown-viewer",
+      "date": "2026-09-03",
+      "title": "MarkView Markdown viewer",
+      "bullets": [
+        "Recommended MarkView alongside SoloMD in Recommended tools (viewer-only vs editor; not an in-product DevCentr viewer).",
+        "Markdown editors on local disk — MarkView section + screenshot (markview-biome-readme.png); house stack keeps Antora / in-app rendering.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-03-oracle-titles-for-conversion-quality",
+      "date": "2026-09-03",
+      "title": "Oracle titles for conversion quality",
+      "bullets": [
+        "Hash-matched binary conversion profiles ? near-term proof now has toy spike (machinery) plus oracle title (dual-shipped Win/Linux depots as behavioral ground truth)."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-03-quote-three-altitudes-image-alt",
+      "date": "2026-09-03",
+      "title": "Quote three-altitudes image alt",
+      "bullets": [
+        "Internet Reliability index: quote the three-altitudes.svg alt so commas are not parsed as AsciiDoc width/height (live HTML had height=\"internet\" while _images/ returned 200)."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-03-reader-voice-on-reliability-and-provider-mirrors",
+      "date": "2026-09-03",
+      "title": "Reader voice on Reliability and provider mirrors",
+      "bullets": [
+        "Internet Reliability index and Provider search openings: human umbrella wording; drop dialectic/ownership briefing lines."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-03-toy-spike-as-near-term-proof",
+      "date": "2026-09-03",
+      "title": "Toy spike as near-term proof",
+      "bullets": [
+        "Hash-matched binary conversion profiles ? *Near-term proof (toy spike)*: self-authored tiny PE ? profile ? Linux cache ? run; not a commercial before/after gallery."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-09-02-licensing-discourse-postgres-learn-hook",
+      "date": "2026-09-02",
+      "title": "Licensing discourse + Postgres learn hook",
+      "bullets": [
+        "Licensing — “why not perfectly OSS” links to general-knowledge ecosystem history discourse.",
+        "PostgreSQL interaction layout: docRef → open-source failures/successes page; profile notes for stack-browser ↔ wiki learning interconnection (README + Project Visualizer spec)."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-09-02-provider-data-access-vision",
+      "date": "2026-09-02",
+      "title": "Provider data access vision",
+      "bullets": [
+        "Project vision — Provider search + API-compatible mirror backups; near-term .issues / Issues Browser / gh --attach wedge."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-02-hci-symptom-essay-url-retitle",
+      "date": "2026-09-02",
+      "title": "HCI symptom essay URL retitle",
+      "bullets": [
+        "Internet Reliability faces: symptom essay link → *Path renames that break dependents* (/blog/path-renames-that-break-dependents/) in reliability/index.adoc and reference-reliability.adoc."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-02-open-source-ecosystem-discourse-decentralized-video-index",
+      "date": "2026-09-02",
+      "title": "Open-source ecosystem discourse + decentralized video index",
+      "bullets": [
+        "Explanation Open-source ecosystems: failures and successes — history book for CSL posture (xkcd 2347, Heartbleed, left-pad, xz, WordPress governance video, Postgres contrast).",
+        "Reference Decentralized video platforms — PeerTube / Odysee / LBRY-class index; DailyCoin survey + Wayback snapshot.",
+        "Curated watching (programming) — Coding with Lewis WordPress + Postgres entries (YouTube + Drive backups; no same-work PeerTube/Odysee mirrors found yet).",
+        "Nav + explanation/reference indexes updated."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-02-provider-search-and-mirror-backups",
+      "date": "2026-09-02",
+      "title": "Provider search and mirror backups",
+      "bullets": [
+        "Explanation Provider search and mirror backups — provider-native fuzzy/vector search APIs; opt-in API-compatible mirrors; .issues + Issues Browser as near-term wedge.",
+        "Nav, Internet Architecture index, and Reliability map updated.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-02-solomd-open-provider-registry",
+      "date": "2026-09-02",
+      "title": "SoloMD + Open Provider Registry",
+      "bullets": [
+        "Recommended SoloMD for local-disk Markdown workflows in Recommended tools.",
+        "Explanation Markdown editors on local disk (live edit + split screenshots; AI/OPR cross-link).",
+        "Explanation UniProvider and Open Provider Registry — protocol-first discovery so runners are not taxed by competing unilayer formats; prior art (OpenAI-compat / OpenRouter / LiteLLM / Olla / UPP); online directory deferred to tentative opr-directory.",
+        "Cross-links from agent control planes, AI studio tooling catalog, nav, and explanation indexes."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-02-tool-run-embedding-for-agents",
+      "date": "2026-09-02",
+      "title": "Tool-run embedding for agents",
+      "bullets": [
+        "Explanation Tool-run embedding for agents — consume OpenShellOrg Tool Runs (embed / daemon / no popup spam).",
+        "Dev-Centr and OpenShellOrg: table + practical-rule rows for Tool Runs; nav link."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-09-01-aop-moved-to-general-knowledge",
+      "date": "2026-09-01",
+      "title": "AOP moved to general-knowledge",
+      "bullets": [
+        "Aspect-Oriented Programming redirect stub — body now lives in general-knowledge Architecture."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-09-01-changelog-nav-typology-priority",
+      "date": "2026-09-01",
+      "title": "Changelog nav typology + priority",
+      "bullets": [
+        "Changelog moved to second slot under Dev Center (after index); @antora-supplemental/nav-typology also hoists changelog siblings site-wide."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-09-01-nav-tree-consolidation",
+      "date": "2026-09-01",
+      "title": "Nav tree consolidation",
+      "bullets": [
+        "Single ROOT nav tree with include:: for specifications, secrets-manager, publishing, upstream-contributions — fixes parallel-tree sidebar swap and mis-placed Secrets Manager Diátaxis groups.",
+        "Toolchain lifecycle group (product pointers, general-knowledge canon, TCM + ecosystem specs).",
+        "Specifications nav grouped into Components / Features / Reference."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-09-01-nav-typology-labels-drop-dotted-prefixes",
+      "date": "2026-09-01",
+      "title": "Nav typology labels (drop dotted prefixes)",
+      "bullets": [
+        "Specifications and Secrets Manager nav partials: plain unlinked parents (Components, Reference, …) instead of .Label dotted lines that rendered literally in the sidebar.",
+        "Secrets Manager: Overview and Architecture as linked siblings; removed artificial .Overview & design wrapper."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-09-01-page-level-version-selector-proposal",
+      "date": "2026-09-01",
+      "title": "Page-level version selector proposal",
+      "bullets": [
+        "New Page-level version selector feature spec — inner version tracks for hub pages (e.g. UniConfig spec) without splitting every feature into its own component. Upstream Antora issue deferred; spike planned on dev-centr/.forks/antora."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-09-01-retire-duplicate-activity-log-page",
+      "date": "2026-09-01",
+      "title": "Retire duplicate Activity Log page",
+      "bullets": [
+        "Removed Activity Log from nav; page is a redirect stub. Org-wide timeline: Home · Activity Log. DevCentr shipping notes stay here."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-09-01-sidebar-label-devcentr-app",
+      "date": "2026-09-01",
+      "title": "Sidebar label DevCentr App",
+      "bullets": [
+        "Component display title is DevCentr App in the site nav tree (title in antora.yml); component name and URL stay DevCentr."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-01-aspect-oriented-programming",
+      "date": "2026-09-01",
+      "title": "Aspect-Oriented Programming",
+      "bullets": [
+        "Explanation Aspect-Oriented Programming (AOP) — moved from DevCentr; product-agnostic primer on cross-cutting concerns.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-01-curated-watching-programming",
+      "date": "2026-09-01",
+      "title": "Curated watching (programming)",
+      "bullets": [
+        "Explanation Curated watching (programming) — programming learning library; first entry: Joe Armstrong, *The Mess We're In* (Strange Loop, September 2014) with combined medals + billions-of-lines quote, YouTube, timestamp, and Drive backup links."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-01-di-taxis-start-page-table-parsing",
+      "date": "2026-09-01",
+      "title": "Diátaxis start-page table parsing",
+      "bullets": [
+        "Fixed component start page Diátaxis grid: use AsciiDoc table cells (a|) so [.text-center] roles and === headings render instead of printing literally."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-01-nav-typology-icons-svg-not-emoji",
+      "date": "2026-09-01",
+      "title": "Nav typology icons (SVG, not emoji)",
+      "bullets": [
+        "Diátaxis nav labels and bucket H1s use plain text; sidebar icons come from @antora-supplemental/nav-typology + nav-typology-diataxis on the docs hub.",
+        "Start-page grid headings match (expressive emoji kept on Browse/Explore CTAs only)."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-30-di-taxis-nav-emojis-tutorials-landing",
+      "date": "2026-08-30",
+      "title": "Diátaxis nav emojis + Tutorials landing",
+      "bullets": [
+        "Restored 🎓 / 🛠️ / 📚 / 🧠 emojis on all four linked-parent nav labels; H1s on bucket index pages match.",
+        "Added 🎓 Tutorials index (How-to / Reference / Explanation already had landing pages).",
+        "Component start page links Tutorials to the new index."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-30-drop-component-start-page-nav-duplicate",
+      "date": "2026-08-30",
+      "title": "Drop component start-page nav duplicate",
+      "bullets": [
+        "Removed leading * General Knowledge under site-nav-tree (component root already covers the start page)."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-30-linked-parent-section-landings",
+      "date": "2026-08-30",
+      "title": "Linked parent section landings",
+      "bullets": [
+        "Replaced .How-to Guides / .Reference / .Explanation + Overview with linked parents (link text = H1); nested Overview labels under Internet Architecture / Delivery Classes now match those H1s.",
+        "House rule: agent-rules general/documentation.md."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
       "id": "general-knowledge-2026-08-30-open-canvas-interchange-ocif",
       "date": "2026-08-30",
       "title": "Open Canvas Interchange (OCIF)",
       "bullets": [
         "Explanation Open Canvas Interchange Format (OCIF) — endorse OCIF for canvas edit/interchange; SVG as export; Plain / CentrMark / OCIF kind map; D implementation posture.",
         "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-30-page-title-nav-label",
+      "date": "2026-08-30",
+      "title": "Page title = nav label",
+      "bullets": [
+        "Aligned document H1s with nav.adoc labels and dropped divergent :navtitle: attrs (one canonical title).",
+        "House rule: agent-rules general/documentation.md."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-08-30-restore-di-taxis-siblings-in-nav",
+      "date": "2026-08-30",
+      "title": "Restore Diátaxis siblings in nav",
+      "bullets": [
+        "Converted .🎓 Tutorials to an unlinked parent (* 🎓 Tutorials + ** children) so How-to / Reference / Explanation stay sibling top-level trees under the component root (a lone Antora .Title had absorbed the later linked parents)."
       ],
       "sourceId": "general-knowledge",
       "sourceLabel": "General Knowledge",
@@ -1002,62 +1477,6 @@
       "kind": "changelog"
     },
     {
-      "id": "activity-docs-portal-2026-08",
-      "date": "2026-08-01",
-      "title": "August 2026",
-      "bullets": [
-        "valentus-theme FOUC paint-hold — Synced supplemental head-meta.hbs with Valentus interim paint-hold (adt-fouc-pending): hide until layered CSS, preference attrs, and web fonts apply; release via document.fonts.ready (3s fallback). Brand CSS stays in the stylesheet stack before the release script. Antora UI branding.",
-        "Internet Architecture / Internet Reliability — Peer home-nav group (body in general-knowledge): systems altitude for reference durability and usability of the internet; deep-links HCI *Labels versus wires* + connectome-fs. Build-time Mermaid + PlantUML via Kroki (asciidoctor-kroki); how-to Antora diagram formats. Compose pack scaffold antora-supplemental/antora-facto (Valentus stays lean). Internet Reliability.",
-        "Spatial web windows — multi-window desktop web UX for UI-heavy and WASM apps: lite palettes, SharedWorker hubs, intent routing. HCI Nerdz essay When the browser flattens working memory; docs Spatial web windows; demo desk. Developer notes: Spatial windows and lite palettes. Browser fork: Desktop-Tooling/spatial-browser.",
-        "Graphics rendering engines — general-knowledge explanation for desktop UI stacks, large-document patterns, and post-Skia pipelines (Graphite, Impeller, Vello). Essay: After Skia: where rendering is headed. Wired into DevCentr toolchain advisor and docs nav. Explanation.",
-        "Fonts / Appearance — DevCentr can pick and install five OS coding fonts for *this app* (Cascadia Mono default). Project Fontsource lock is later; a Suitcase-style manager is a different product -- recorded, not forgotten. Public spec: Appearance (code font). Member orientation: team-docs *Font lock*.",
-        "Toolchain Framework (TCF) — Practice kit (schemas, adapters, validators) wired into this hub. CI used to fail because pnpm/action-setup duplicated package.json packageManager. portal · component.",
-        "RepoLab — Dev-Centr product under the RepoLabs org (RepoLab-dev): one browser frontend for GitHub, other git hosts, and other VCS backends. Product site repolab.dev; docs docs.repolab.dev. portal · devcentr.org catalog.",
-        "UniConfig Config Panel -- Schema-driven desktop panel for other people's config files (INI, YAML, TOML, SDLang, tfvars). Engine uniconfig-core; app uniconfig. Wired into this hub. portal · component.",
-        "devcentr.org on this hub -- Marketing site Antora component (devcentr-org): architecture, news/changelog pipelines, Toolchain Advisor, agent skills. Registered in the playbooks. devcentr.org · live devcentr.org.",
-        "Fast org bootstrap -- GitHub org identity (About, public .github profile, site, docs hub) as a Cursor skill, named SDLang profiles (SolidStart static + solid-ui defaults), and a Business Bootstrap tutorial. Capability-area literature (email, vault, chat, infra) is unchanged. Fast org bootstrap · skill bootstrap-org in dev-centr/agent-rules.",
-        "Abstract playbooks / PlayTime -- Write intents, not a bash-to-PowerShell blender. Scriptbook + Equivalence Engine wired into this hub. Encyclopedia Abstract playbooks. Essay: Intents, not shell translation. OpenShellOrg cousins on docs.opensh.org. PlayTime stays in scriptbook while it is built.",
-        "AsciiDoc image alts + SVG encoding + mock chrome — Unquoted alts became HTML width/height; SVG/adoc mojibake and Encoding errors were agent transcode bugs (not Antora). Mocks now use a single fill-only chrome path (breadcrumb no longer struck through). Org skill fix-docs-encoding checks/fixes. Hub redeploy required for _images/. Access how-to.",
-        "Access Finish setup + multi-org consent — Cloudflare dashboard first, GitHub unlocked in the same browser; Authorize listing other orgs does not widen Access. Finish setup · Other orgs · portal.",
-        "Language recommendations — Small-set suggestions (D, Rust, TypeScript, Julia, Lisp/Haskell) plus reconstructed C/D, C++/D, Julia/D/Java, and D/Rust comparisons (dead Gemini shares). Recommendations.",
-        "Finish GitHub IdP setup — API enterprise-setup URLs can 500; use Zero Trust → Identity providers → GitHub → Finish setup, then Test. How-to · portal.",
-        "Access setup order and API credentials — GitHub OAuth App is UI-only; team domain is the OAuth callback host; do not attach Access apps before the IdP (deny by default). Pages-scoped tokens 403 on identity providers; use Global API Key / Access-scoped token. Order · What agents cannot automate · portal.",
-        "How Access learns GitHub org membership — Cloudflare asks GitHub at login (OAuth + GET /user/orgs); it does not scrape the org. Explanation + how-to now have a flow diagram and simplified mocks (OAuth app, consent, IdP, Allow policy, login). How it works · How-to · portal.",
-        "Access in front of static sites — Member-only Antora stays static; Cloudflare Access on the hostname (and *.pages.dev). Reader accounts = GitHub org invite / Google / email PIN, not Cloudflare dashboard users. Explanation · How-to · portal · Org infra.",
-        "Transparent fund ask — Donation-supported orgs should show balance + floor/goal on their own donate page (Transparency HOA Analyze Queue as the exhibit). Canonical guide: Nonprofit Resources · Donate page as a ledger. DevCentr pointer + ideas stubs: Donation ask ideas. Hub copy clarifies Business Bootstrap is organization ops; repo name unchanged.",
-        "Context7 setup + AI docs writing + nav prune — Restored missing how-to/explanation pages; pruned general-knowledge nav entries that pointed at never-authored pages. Context7 · Writing clear docs with AI.",
-        "Vibe coding bootstrap (Cursor skills) — Documented AI-studio setup under Vibe coding → Bootstrap (not Business Bootstrap): operator configures *or* drops a recipe into a permissive agent. How-to for personal Cursor skills + worked example writing-news-vs-blog. In-repo shop: agent-rules/skills/BOOTSTRAP.md. BB hub / stage defaults / stack map / Chat now Related-link it so founders do not miss the sibling path while walking org IT bootstrap. Explanation · How-to · Catalog.",
-        "Business Bootstrap — OSS funding landscape — New Funding area: fiscal hosts (Open Collective / OSC), public grants (Sovereign Tech Fund, NLnet, …), Sponsors, Tidelift, thanks.dev, bounties, credits. Deep directory: OSS.Fund. Landscape · Funding.",
-        "Business Bootstrap — Pulumi Cloud org model — Free Individual = no invites; Organizations need Team / OSS Team / self-managed state. Org model · State backup (export + Drive offline copies; RepoDrive ≠ Google Drive).",
-        "connectome-fs org + forge ontology notes — Substrate moved to connectome-fs/connectome-fs (own org; removed from docs hub Antora sources). Site: connectome-fs.github.io. Practitioner essays stay in general-knowledge. Forge schema essay: HCI · DevCentr News. Portal stub: connectome-fs.",
-        "Git's file-shaped change model — Essays on why Git feels hard when features aren't files: practitioner · canonical.",
-        "Business Bootstrap — Chat / Mattermost — New Chat capability area with Mattermost self-host (hosting matrix, Linear/Composio, R2/B2 offload). Defaults by org stage subdivided by business phase so self-host chat is not day-one. Portal stub Mattermost.",
-        "Business Bootstrap hub — Restructured into capability areas (Email · Scheduling · Design · Vault · Org infra) with stack map and articles for Cal.com / Cal.diy, Penpot, Bitwarden / Vaultwarden. Hub stubs under Tools; FoodTruckNerdz links the same stack.",
-        "Studio MCP install strategies — Documented Composio’s Cursor install ladder (marketplace plugin, deeplink, mcp.json, skills, thin/fat MCP) as a reusable option for AI-studio tooling; master list AI studio tooling catalog. Wired into DevCentr AI Config / AI Workflow Arrangement specs. Explanation.",
-        "Composio MCP — Connector plane for Cursor/CLI agents (Gmail, GitHub, Vercel, …). How-to + stack explanation in general-knowledge; hub stub under Tools. Setup · Stack placement · portal.",
-        "Software Product Essentials — auxiliary templates — general-knowledge gained desktop/web/mobile auxiliary feature matrices (Help, About, updates, diagnostics, connectivity, privacy) plus macOS/Linux update apply guidance (quit/replace, package timers, AppImage). Auxiliary features · Delivery classes · Unix/macOS auto-updates.",
-        "Rules Manager — Compose/watch daemon + tray for agent-rules (dev-centr/rules-manager); Antora component on the hub. Rules Manager docs · portal · https://docs.devcentr.org/rules-manager/",
-        "Admonition TIP Antora green — DevCentr no longer remaps tip to brand teal; TIP pill + card stay on --tip-color / --adt-admonition-tip (Antora #41af46). Tip inline code keeps charcoal/coral with a rounded gray border.",
-        "Admonition TIP one green — TIP pill and card tint both follow --adt-admonition-tip (no second emerald on the body). Brand overlay clears stale cell washes; Valentus / antora-dark-mode ship the token wiring.",
-        "Admonition TIP card — TIP/NOTE label now sits *inside* the bordered card (table chrome). Prior overlay/fix only cleared the green wash and left the border on the body.",
-        "Theme toggle timing — Light↔dark animation was uneven: View Transitions (0.28s) raced Valentus --adt-transition paint rules (0.2s). Fixed upstream in antora-dark-mode (html.adt-theme-vt + :active-view-transition); docs brand overlay uses the CSS-only suppress until rolling v2 updates.",
-        "Admonition dark TIP wash — Earlier fix cleared type-tint wash on the TIP label cell (antora-dark-mode 1.4.1 / valentus-theme 2.0.6); superseded by the card-wrap fix above.",
-        "RepoDrive — Standalone forge virtual drive (dev-centr/repo-drive): GUI + tray, sparse mount, Ibex installers; wired into Antora hub. RepoDrive docs · portal · https://docs.devcentr.org/repo-drive/",
-        "Switchyard — New Windows file-association switchyard (dev-centr/switchyard): snapshot open/icon tracks, planned icon lock; Antora component on the hub. Switchyard docs · portal.",
-        "valentus-theme head-meta sync — Restored font-size FOUC + site-font-size.css in the supplemental head-meta.hbs overlay (was missing after brand fork). Condensed A/A/A control hides on desktop again and scales doc text on mobile. Playbooks already use rolling v2.",
-        "valentus-theme product topic — This repo (and other Valentus playbooks) tagged with GitHub topic valentus-theme for dependency rediscovery; convention documented upstream.",
-        "DOS naming — Public category stays Development Orchestration Suite; DevOps framed as one facet of the suite; *Dev OS* as quiet mental model only. Sites + DevCentr vision/capabilities docs updated.",
-        "Ibex — Rebrand of Easy Installer (ibex CLI): Install Builder EXtension. winget DevCentr.Ibex, Homebrew tap, Scoop. Ibex docs · portal.",
-        "Easy Installer CI emit — emit-ci / ci-runner.sdl writes GitHub Actions, GitLab, Azure, Jenkins, CircleCI, and Bitbucket workflows plus CI-INSTALLER.adoc without a local package build. DevCentr: --mode=emit-ci and New Installer CI pipeline menu. How-to: emit CI.",
-        "Easy Installer — Host for in-place PATH, installer.kdl projects, plugin backends (zip/NSIS/Inno/MSI/MSIX/AppImage), and file-manager menus (now Ibex). Ibex docs · portal.",
-        "msi-generator v0.2 — Real OLE2 CFB, uncompressed CAB, and core MSI tables; multi-file MSIX with placeholder assets. MSI Generator docs."
-      ],
-      "sourceId": "docs-portal",
-      "sourceLabel": "Docs portal",
-      "docsUrl": "https://docs.devcentr.org/home/activity-log.html",
-      "kind": "activity-log"
-    },
-    {
       "id": "general-knowledge-2026-07-31-github-pages-custom-domain-cloudflare-https",
       "date": "2026-07-31",
       "title": "GitHub Pages custom domain + Cloudflare HTTPS",
@@ -1384,47 +1803,6 @@
       "kind": "changelog"
     },
     {
-      "id": "activity-docs-portal-2026-07",
-      "date": "2026-07-01",
-      "title": "July 2026",
-      "bullets": [
-        "fixnow-dev — Repo transferred to dev-centr/fixnow-dev. Antora component added (Introduction, Getting Started, AI Evaluation, API, Security) and registered on the hub. FixNow docs.",
-        "valentus-theme 2.0.3 — Playbooks pin rolling v2 UI bundle (tool-band search, read-width, condensed font-size switcher, Plus Jakarta Sans visual redesign). Dropped the local header-content.hbs override; brand CSS is now accent-token-only. See Antora UI branding.",
-        "resting-lanczos — Repo transferred to dev-centr/resting-lanczos. Live side-by-side comparison on devcentr.org/resting-lanczos (browser bilinear vs Lanczos srcset + transform). Tool overview: resting-lanczos.",
-        "Appearance / code fonts — DevCentr Appearance dialog: Cascadia Mono (default) or JetBrains Mono for terminal and code panels; recommended-tools docs updated.",
-        "Nushell as recommended shell — General-knowledge advocates Nushell as the default cross-platform shell; added Nu vs PowerShell, Nu + AI agents (vs NVIDIA OpenShell), and an NVIDIA OpenShell overview (name collision called out). OpenShellOrg companions: nu-require, nu-emit, shell-architecture.",
-        "Architecture — Subscription management platforms — New explanation page under Architecture: in-app subscription infrastructure (Adapty, RevenueCat, Qonversion, DIY), access levels vs store SKUs, Stripe Customer Portal limits, and web+mobile customer_user_id sync. Cross-linked from general-knowledge Explanation → Architecture."
-      ],
-      "sourceId": "docs-portal",
-      "sourceLabel": "Docs portal",
-      "docsUrl": "https://docs.devcentr.org/home/activity-log.html",
-      "kind": "activity-log"
-    },
-    {
-      "id": "activity-docs-portal-2026-06",
-      "date": "2026-06-01",
-      "title": "June 2026",
-      "bullets": [
-        "Antora UI branding (docs playbook) — Dropped the local header-content.hbs override; valentus-theme v1.1.0+ resolves the header logo via site.keys.header_logo and supplemental img/ assets. Added Antora UI branding under Software publishing."
-      ],
-      "sourceId": "docs-portal",
-      "sourceLabel": "Docs portal",
-      "docsUrl": "https://docs.devcentr.org/home/activity-log.html",
-      "kind": "activity-log"
-    },
-    {
-      "id": "activity-docs-portal-2026-05",
-      "date": "2026-05-01",
-      "title": "May 2026",
-      "bullets": [
-        "Architecture — UI-heavy web applications — New explanation page in the docs playbook (home component): Bonsai versus Leptos versus vibe.d, client/server split for database and authentication, creative stack interop (Three.js, smooth scroll, Pretext-style text layout), and notes on perceived performance in large integrated mail clients (illustrative case shapes, not vendor internals)."
-      ],
-      "sourceId": "docs-portal",
-      "sourceLabel": "Docs portal",
-      "docsUrl": "https://docs.devcentr.org/home/activity-log.html",
-      "kind": "activity-log"
-    },
-    {
       "id": "devcentr-2026-03-27-dynamic-agent-preamble-specification",
       "date": "2026-03-27",
       "title": "Dynamic Agent Preamble specification",
@@ -1681,33 +2059,6 @@
       "sourceLabel": "DevCentr",
       "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
       "kind": "changelog"
-    },
-    {
-      "id": "activity-docs-portal-2025-03",
-      "date": "2025-03-01",
-      "title": "March 2025",
-      "bullets": [
-        "Central Todo & Roadmap and Activity log — Moved org-wide roadmap and activity log into the docs repository so they live in one place for the aggregated site (docs.devcentr.org). Added \"Where documentation lives\" to explain the doc structure. DevCentr repo keeps its own task-level Todo & Roadmap for app work.",
-        "Secrets Manager documentation (DevCentr) — Full module: overview, architecture, .env patterns, back-end providers (Bitwarden), SSH Manager spec, WSL and virtual environments, proxy-in-GUI guidance. Todo & Roadmap and Activity log added to DevCentr docs (and now mirrored/centralized here)."
-      ],
-      "sourceId": "docs-portal",
-      "sourceLabel": "Docs portal",
-      "docsUrl": "https://docs.devcentr.org/home/activity-log.html",
-      "kind": "activity-log"
-    },
-    {
-      "id": "activity-docs-portal-2025-01",
-      "date": "2025-01-01",
-      "title": "Earlier 2025",
-      "bullets": [
-        "Project vision and specs (DevCentr) — UI specification and roadmap, environment navigator concept, component specs.",
-        "Knowledge base and publishing (DevCentr) — SSH keys, Git, workspace organization, Antora deployment, upstream contributions.",
-        "Portal and tools (docs repo) — Home portal linking DevCentr, Templates, MSI Generator; tool overviews for code-d, dprint, dlangui."
-      ],
-      "sourceId": "docs-portal",
-      "sourceLabel": "Docs portal",
-      "docsUrl": "https://docs.devcentr.org/home/activity-log.html",
-      "kind": "activity-log"
     }
   ]
 }

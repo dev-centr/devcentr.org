@@ -4,8 +4,35 @@
   <link href="https://devcentr.org/news" rel="alternate"/>
   <link href="https://devcentr.org/news/atom.xml" rel="self"/>
   <id>https://devcentr.org/news</id>
-  <updated>2026-08-30T12:00:00Z</updated>
+  <updated>2026-09-03T12:00:00Z</updated>
   <subtitle>News and engineering blog posts from Dev-Centr.</subtitle>
+  <entry>
+    <title>MarkView for reading Markdown on disk</title>
+    <link href="https://devcentr.org/news/2026-09-03-markview-for-reading-markdown-on-disk" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-09-03-markview-for-reading-markdown-on-disk</id>
+    <updated>2026-09-03T12:00:00Z</updated>
+    <summary>Dev-Centr recommends MarkView as a free local Markdown viewer (no editing) for machines outside the product; DevCentr apps keep in-house rendering.</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
+  <entry>
+    <title>SoloMD for Markdown on disk</title>
+    <link href="https://devcentr.org/news/2026-09-02-solomd-for-markdown-on-disk" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-09-02-solomd-for-markdown-on-disk</id>
+    <updated>2026-09-02T12:00:00Z</updated>
+    <summary>Dev-Centr recommends SoloMD for local Markdown README and project-doc workflows, and points its AI surface at the Open Provider Registry idea.</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
+  <entry>
+    <title>One registration protocol for model runners</title>
+    <link href="https://devcentr.org/news/2026-09-02-one-registration-protocol-for-model-runners" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-09-02-one-registration-protocol-for-model-runners</id>
+    <updated>2026-09-02T12:00:00Z</updated>
+    <summary>Why competing unilayer discovery formats punish offline model runners — and why Open Provider Registry (OPR) should be a shared protocol, not a product brand war.</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
   <entry>
     <title>When Auto-mode math meets a local router</title>
     <link href="https://devcentr.org/news/2026-08-30-when-auto-mode-math-meets-a-local-router" rel="alternate"/>
@@ -183,6 +210,15 @@
     <id>https://devcentr.org/news/2026-07-24-brand-motion</id>
     <updated>2026-07-24T12:00:00Z</updated>
     <summary>Why DevCentr&apos;s new mark stays in SVG—and why we&apos;re cautious about Rive as a default for open brands.</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
+  <entry>
+    <title>Provider search and consumer mirror backups</title>
+    <link href="https://devcentr.org/news/2026-09-02-provider-search-and-mirror-backups" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-09-02-provider-search-and-mirror-backups</id>
+    <updated>T12:00:00Z</updated>
+    <summary>Vision for provider-native search APIs and API-compatible backups, with a near-term forge archive wedge.</summary>
     <category term="blog"/>
     <category term="news"/>
   </entry>
