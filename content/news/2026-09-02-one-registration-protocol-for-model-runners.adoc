@@ -21,7 +21,7 @@ Spec: https://github.com/dev-centr/uniprovider/blob/main/spec/opr.md[`spec/opr.m
 Repo: https://github.com/dev-centr/uniprovider[dev-centr/uniprovider].
 Encyclopedia: https://docs.devcentr.org/general-knowledge/explanation/infrastructure/uniprovider.html[UniProvider and OPR].
 
-Routing which model to use for a job stays elsewhere — Hornet’s Mixr, an editor’s UI, a user’s pick.
+Routing which model to use for a job stays elsewhere — the harness’s Mixr, an editor’s UI, a user’s pick.
 OPR only answers what exists on the machine and how to reach it.
 Markdown editors that already speak OpenAI-compatible HTTP (including SoloMD’s compat slot) can consume discovery without rewriting their stack in D; localhost HTTP is the bridge of first resort.
 
