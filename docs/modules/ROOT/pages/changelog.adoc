@@ -2,6 +2,12 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-09-08 — Themed PlayTime news diagrams
+
+* Ten PlayTime diagrams now retain adaptive public image URLs while progressively upgrading to sanitized, host-themed SVGs.
+* Pinned provenance and deterministic checks keep the published adaptive, host, and fixed files byte-identical to their canonical General Knowledge commit.
+* See xref:changelog-details/2026-09-08 - themed-playtime-news-diagrams.adoc[Detailed changelog].
+
 == 2026-09-02 — Provider mirror backups idea + news
 
 * Apps catalog / idea: `/ideas/provider-mirror-backups` (vision service).
