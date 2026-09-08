@@ -162,6 +162,17 @@ function hostState() {
   };
 }
 
+function semanticFill() {
+  const element = [...document.querySelectorAll("themed-svg")].find((candidate) =>
+    candidate.getAttribute("src")?.endsWith("/toolchain-architecture.host.svg"),
+  );
+  const svg = element?.shadowRoot
+    ?.querySelector('[part="themed-svg-container"]')
+    ?.shadowRoot?.querySelector("svg");
+  const node = svg?.querySelector(".node rect");
+  return node ? getComputedStyle(node).fill : "";
+}
+
 try {
   const adaptive = await browser.newPage();
   await adaptive.emulateMedia({ colorScheme: "light" });
@@ -219,6 +230,39 @@ try {
   });
   await host.close();
 
+  const semantic = await browser.newPage();
+  await semantic.goto(`${base}/`);
+  await semantic.waitForFunction(() => {
+    const element = [...document.querySelectorAll("themed-svg")].find((candidate) =>
+      candidate.getAttribute("src")?.endsWith("/toolchain-architecture.host.svg"),
+    );
+    return Boolean(
+      element?.shadowRoot
+        ?.querySelector('[part="themed-svg-container"]')
+        ?.shadowRoot?.querySelector(".node rect"),
+    );
+  });
+  await semantic.evaluate(() => {
+    document.documentElement.classList.remove("dark");
+    document.documentElement.dataset.kbTheme = "light";
+  });
+  const semanticLight = await semantic.evaluate(semanticFill);
+  await semantic.evaluate(() => {
+    document.documentElement.classList.add("dark");
+    document.documentElement.dataset.kbTheme = "dark";
+  });
+  await semantic.waitForFunction((previous) => {
+    const element = [...document.querySelectorAll("themed-svg")].find((candidate) =>
+      candidate.getAttribute("src")?.endsWith("/toolchain-architecture.host.svg"),
+    );
+    const node = element?.shadowRoot
+      ?.querySelector('[part="themed-svg-container"]')
+      ?.shadowRoot?.querySelector(".node rect");
+    return node && getComputedStyle(node).fill !== previous;
+  }, semanticLight);
+  assert.notEqual(semanticLight, await semantic.evaluate(semanticFill), "semantic host diagram must follow manual mode");
+  await semantic.close();
+
   const failure = await browser.newPage();
   await failure.route("**/playtime-layers.host.svg", (route) =>
     route.fulfill({ status: 500, contentType: "text/plain", body: "intentional test failure" }),
@@ -235,7 +279,7 @@ try {
   assert.equal(failed.fallbackConnected, true, "adaptive fallback remains connected after failure");
   await failure.close();
 
-  console.log("Verified adaptive light/dark, manual host modes, reconnect, and failure fallback in Chromium.");
+  console.log("Verified adaptive light/dark, PlayTime and semantic manual modes, reconnect, and failure fallback in Chromium.");
 } finally {
   await browser.close();
   await new Promise((resolveClose) => server.close(resolveClose));
