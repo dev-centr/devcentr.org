@@ -39,6 +39,7 @@ jobs:
         with:
           repository: dev-centr/general-knowledge
           path: general-knowledge
+          fetch-depth: 0
 
       - name: Checkout DevCentr app docs (changelog ingest)
         uses: actions/checkout@v4
@@ -66,6 +67,12 @@ jobs:
       - name: Install dependencies
         run: pnpm install --no-frozen-lockfile
 
+      - name: Install diagram test browser
+        run: pnpm exec playwright install --with-deps chromium
+
+      - name: Verify pinned PlayTime diagram artifacts
+        run: node scripts/sync-playtime-diagrams.mjs --require-source
+
       - name: Sync advisor catalog into public/
         run: node scripts/sync-advisor-catalog.mjs
 
@@ -77,6 +84,9 @@ jobs:
 
       - name: Build
         run: pnpm run build
+
+      - name: Test PlayTime diagram delivery
+        run: pnpm run news:diagrams:test -- --browser
 
       - name: Verify stack-advisor route artifacts
         run: |

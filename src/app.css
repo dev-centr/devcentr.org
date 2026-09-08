@@ -138,6 +138,20 @@
     --diagram-ok-soft: hsl(168 35% 90%);
     --diagram-font: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
 
+    /* Canonical diagram roles consumed by @dev-centr/themed-svg host output. */
+    --themed-svg-diagram-color-canvas: hsl(var(--background));
+    --themed-svg-diagram-color-surface-primary: hsl(var(--card));
+    --themed-svg-diagram-color-surface-secondary: hsl(var(--accent));
+    --themed-svg-diagram-color-text-primary: hsl(var(--foreground));
+    --themed-svg-diagram-color-border-primary: hsl(var(--border));
+    --themed-svg-diagram-color-edge: hsl(var(--muted-foreground));
+    --themed-svg-diagram-color-accent-primary: hsl(var(--primary));
+    --themed-svg-diagram-color-accent-on-primary: hsl(var(--primary-foreground));
+    --themed-svg-diagram-color-status-warning: hsl(var(--secondary));
+    --themed-svg-diagram-color-status-warning-border: hsl(var(--muted-foreground));
+    --themed-svg-diagram-color-status-danger: hsl(var(--destructive) / 0.16);
+    --themed-svg-diagram-color-status-danger-border: hsl(var(--destructive));
+
     color-scheme: light;
   }
 
@@ -175,6 +189,19 @@
     --diagram-accent-soft: hsl(168 40% 14%);
     --diagram-ok: hsl(168 70% 55%);
     --diagram-ok-soft: hsl(168 35% 14%);
+
+    --themed-svg-diagram-color-canvas: hsl(var(--background));
+    --themed-svg-diagram-color-surface-primary: hsl(var(--card));
+    --themed-svg-diagram-color-surface-secondary: hsl(var(--accent));
+    --themed-svg-diagram-color-text-primary: hsl(var(--foreground));
+    --themed-svg-diagram-color-border-primary: hsl(var(--border));
+    --themed-svg-diagram-color-edge: hsl(var(--muted-foreground));
+    --themed-svg-diagram-color-accent-primary: hsl(var(--primary));
+    --themed-svg-diagram-color-accent-on-primary: hsl(var(--primary-foreground));
+    --themed-svg-diagram-color-status-warning: hsl(var(--secondary));
+    --themed-svg-diagram-color-status-warning-border: hsl(var(--muted-foreground));
+    --themed-svg-diagram-color-status-danger: hsl(var(--destructive) / 0.2);
+    --themed-svg-diagram-color-status-danger-border: hsl(var(--destructive));
 
     color-scheme: dark;
   }
@@ -449,6 +476,16 @@
 
   .diagram-svg {
     @apply h-auto w-full max-w-full;
+  }
+
+  themed-svg {
+    display: block;
+    width: 100%;
+  }
+
+  themed-svg::part(themed-svg-container) {
+    display: block;
+    width: 100%;
   }
 
   .diagram-caption {

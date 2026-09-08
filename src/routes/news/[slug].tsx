@@ -5,6 +5,7 @@ import { Meta, Title } from "@solidjs/meta";
 import { PageTrail } from "~/components/page-trail";
 import { SiblingOwnershipDiagram } from "~/components/sibling-ownership-diagram";
 import { SiteFooter } from "~/components/site-footer";
+import { ThemedNewsContent } from "~/components/themed-news-content";
 import { ToolchainArchitectureDiagram } from "~/components/toolchain-architecture-diagram";
 import { getPost } from "~/lib/news";
 
@@ -48,7 +49,7 @@ export default function NewsPostPage() {
               <Show when={p.description}>
                 <p class="mt-4 text-lg leading-relaxed text-muted-foreground">{p.description}</p>
               </Show>
-              <div class="news-prose mt-10" innerHTML={p.html} />
+              <ThemedNewsContent html={p.html} />
               <Show when={showToolchainDiagrams()}>
                 <div class="mt-12 space-y-10">
                   <ToolchainArchitectureDiagram />

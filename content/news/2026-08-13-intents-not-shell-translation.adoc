@@ -14,6 +14,7 @@ We are not building a shell compiler. We do not have one. We should not pretend 
 **Write what you want.** At play time, the machine binds *how* for this computer.
 
 .Cookbook, kitchen, waiter
+[.themed-svg]
 image::https://devcentr.org/news/media/playtime-layers.svg[alt="Three layers: CentrMark the book, PlayTime the stage, Scriptbook the app"]
 
 Call the file format **CentrMark** (`.cmk`). It is only writing. A playbook directive means nothing until a profile gives it a job.
@@ -40,6 +41,7 @@ image::https://devcentr.org/news/media/playtime-wrong-translator.svg[alt="A Linu
 `winget install GitHub.cli` is not a bash program. It is not a pwsh program. It is **argv**: a program name and some arguments. Spawn it with no shell, the way a GUI button would. Then you do not need three "equivalent" rows for three coats.
 
 .One suitcase, no costumes
+[.themed-svg]
 image::https://devcentr.org/news/media/playtime-argv.svg[alt="argv box for winget install; dashed bash, pwsh, and nu coats are not needed"]
 
 Shell still exists. Scriptbook's `shell=` is for glue cells -- `echo`, a Nushell helper, the verify step that is already portable. Catalog rows stay `runtime argv` unless the method really is `curl | bash`. That is a constraint ("this host must have bash"), not a dimension we multiply by format.
@@ -60,6 +62,7 @@ Sometimes the *method* grows extra steps that hang off the acquire node. AppImag
 Ask only the overlap: this tool's methods on this host. If the overlap is one method, do not ask.
 
 .Ask only the overlap
+[.themed-svg]
 image::https://devcentr.org/news/media/playtime-venn.svg[alt="Two circles: catalog methods and host capabilities; ask only in the overlap"]
 
 GPU drivers and "tray app vs Windows service" are the exceptions. Do not force one graph there. Do not make the exception the engine.
@@ -77,6 +80,7 @@ PlayTime is a compiled program. It already knows NT vs not. It probes PATH witho
 `os.version` as a *later* playbook step is an ordinary dereference: print the version string, filtered by the snapshot you already have. PowerShell-on-Linux does not save the first step. `$IsLinux` only works if you are already inside pwsh. PlayTime is not.
 
 .Snapshot, then dereference
+[.themed-svg]
 image::https://devcentr.org/news/media/playtime-bootstrap.svg[alt="Deadlock cycle crossed out; snapshot then bind"]
 
 Call the bootstrap contract **Host Awareness**. There is no vendor `get_os()`. There are cousins: `uname`, `/etc/os-release`, `RtlGetVersion`, `sw_vers`. We sit on those. A hobby kernel can fill the record. Microsoft will not file a PR; we still bake a Windows probe.
@@ -92,16 +96,19 @@ Humans register probe rows and intents in shared rules. CI runs Equivalence Engi
 That is a **ratchet**, not a deadlock. Catalogs get richer. PlayTime wakes up on more machines. People write more playbooks. They register more intents. The next bake is richer.
 
 .Ratchet at build time
+[.themed-svg]
 image::https://devcentr.org/news/media/playtime-growth-ratchet.svg[alt="Rules to CI bake to shipped PlayTime to more playbooks back to new catalog rows"]
 
 You live in the attic. You write `install gh`. The basement is argv. When winget flags change, you rewrite the basement. The book does not move. Because that is cheap, you write more abstract scripts instead of more shell. Vocabulary grows up. Realizations stay down.
 
 .Attic intents, basement argv
+[.themed-svg]
 image::https://devcentr.org/news/media/playtime-attic-basement.svg[alt="House: intents in the attic, PlayTime stairs, catalog in the basement"]
 
 PlayTime *sounds* like an OpenShellOrg concern: argv honesty, host identity, not lying about which process you spawned. It might belong there someday. It is being built in `scriptbook` right now. We are not relocating the kitchen mid-service.
 
 .Aligned, not moved
+[.themed-svg]
 image::https://devcentr.org/news/media/playtime-sibling-home.svg[alt="PlayTime in the Dev-Centr workshop; dotted maybe-later path to OpenShellOrg"]
 
 The details -- directives, sidecar fields, probe kinds, `--to` must stay a host alias -- live in the docs. This page is the orientation: **intents, not shell translation**. Same book. This computer fills in the verbs.
