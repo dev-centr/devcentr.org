@@ -1,7 +1,7 @@
 = When Auto-mode math meets a local router
-:description: Why raw frontier APIs blow past a sixty-dollar IDE plan, and how Hornet Mixr plus a local classify model change the spend curve without shipping Python glue.
+:description: Why raw frontier APIs blow past a sixty-dollar IDE plan, and how harness routing plus a local classify model change the spend curve without shipping Python glue.
 :revdate: 2026-08-30
-:keywords: blog, hornet, mixr, routing, cost, t3code, harness
+:keywords: blog, harness, mixr, routing, cost, t3code
 
 The first time you point an agentic editor at Claude for every turn, the invoice feels like a dare.
 You already paid for a fixed IDE plan.
@@ -31,7 +31,7 @@ The Gemini thread kept nominating RouteLLM and BERT classifiers.
 The useful part is the *idea*: a small model decides the route before the heavy model spends.
 The unusable part is shipping PyTorch and a Python proxy into the agent loop.
 
-Hornet's default is boring on purpose: Mixr POSTs a short classify call to a local OpenAI-compatible server.
+The harness default is boring on purpose: Mixr POSTs a short classify call to a local OpenAI-compatible server.
 If the machine is low on RAM or the server is down, we fall back.
 Weights can come from anywhere — convert them to whatever your runner already speaks.
 Glue stays out.
@@ -46,7 +46,7 @@ Speculative edits land in copy-on-write buffers; one LSP process sees synthetic 
 == Borrow the remote UI while the harness grows
 
 t3code already registers machines so a laptop can see conversations on a desktop.
-Hornet does not need to reinvent that pairing story this season.
-It needs to be a **provider** that t3code can drive — session and turn over `hornet serve` — while Mixr and the node graph grow teeth.
+The harness does not need to reinvent that pairing story this season.
+It needs to be a **provider** that t3code can drive — session and turn over `harness serve` — while Mixr and the node graph grow teeth.
 
 That is the bargain: spend like Auto without the IDE tax, suppress the models that never justify themselves, keep the router local, and let a mature remote surface babysit the harness until the desk is ready.
