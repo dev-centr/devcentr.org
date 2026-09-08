@@ -5,9 +5,22 @@
       "date": "2026-09-08",
       "title": "Adaptive PlayTime diagrams",
       "bullets": [
-        "The specifications component now carries synchronized standalone-adaptive and host variants for the ten canonical PlayTime diagrams while retaining the existing public image paths.",
-        "Diagram image blocks are marked for the shared docs-hub runtime.",
+        "Synchronized Scriptbook 9753437 standalone-adaptive and host variants for all twelve PlayTime diagrams while retaining their public image paths and former hand-authored fixed assets.",
+        "Recorded pinned provenance and added a deterministic freshness check that does not require a sibling clone or duplicate Mermaid sources and theme manifests.",
         "See Detailed changelog."
+      ],
+      "sourceId": "devcentr",
+      "sourceLabel": "DevCentr",
+      "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "devcentr-2026-09-08-aggregate-docs-source-guard",
+      "date": "2026-09-08",
+      "title": "Aggregate docs source guard",
+      "bullets": [
+        "Removed the unpublished toolchain-framework Antora source from the production and local-example playbooks so aggregate builds use only published components.",
+        "The source should be restored after toolchain-framework publishes its docs/antora.yml component descriptor."
       ],
       "sourceId": "devcentr",
       "sourceLabel": "DevCentr",
@@ -19,8 +32,9 @@
       "date": "2026-09-08",
       "title": "Canonical themed diagram sources",
       "bullets": [
-        "Nineteen diagrams now keep Mermaid source, explicit Themed SVG manifests, standalone adaptive SVGs, host-controlled SVGs, and preserved fixed originals.",
+        "All 19 current non-PlayTime diagrams now keep Mermaid source, explicit Themed SVG manifests, standalone adaptive SVGs, host-controlled SVGs, and preserved fixed originals (29 canonical diagrams total).",
         "Mermaid 11 renders text as SVG text, while the versioned theme bindings provide complete light and dark palettes without foreignObject.",
+        "AsciiDoc image blocks carry the themed-svg role so sites can progressively upgrade the portable image without passthrough HTML.",
         "See Detailed changelog."
       ],
       "sourceId": "general-knowledge",
@@ -360,6 +374,36 @@
       "sourceLabel": "DevCentr",
       "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
       "kind": "changelog"
+    },
+    {
+      "id": "activity-docs-portal-2026-09",
+      "date": "2026-09-01",
+      "title": "September 2026",
+      "bullets": [
+        "2026-09-08 — Nav typology themed diagram — Migrated the documentation diagram to deterministic Mermaid source and a Themed SVG v1 manifest. The hub serves a standalone adaptive fallback and progressively upgrades the role-marked image to the sanitized same-origin host SVG; the original fixed diagram remains available for comparison.",
+        "2026-09-03 — Internet Reliability diagram SVG encoding — Live <img> and _images/ 200 were fine after alt quoting; the SVG itself declared UTF-8 but used latin-1 0xB7 middots, so browsers hit XML *Encoding error* and showed a broken figure. Rewrote to ASCII; renamed published file to three-altitudes-diagram.svg to bust CDN cache on the old path; also fixed rename mockup + curated-watching SVG. Hub redeploy refreshes _images/. Internet Reliability.",
+        "2026-09-03 — Internet Reliability diagram alt — Quote commas in the three-altitudes.svg image alt on the Reliability index so AsciiDoc no longer emits height=\"internet\" (asset was already at _images/). Hub redeploy picks up general-knowledge. Internet Reliability.",
+        "2026-09-03 — MarkView Markdown viewer — Recommended MarkView (markview.io) as free local Markdown *viewer only* (no edit) for end-user machines; DevCentr keeps Antora / in-app rendering. Screenshot of Biome Extension README. Markdown editors · news.",
+        "2026-09-02 — Provider search and mirror backups — Encyclopedia vision: provider-native fuzzy/vector search + API-compatible consumer mirrors; near-term wedge .issues + Issues Browser; gh --attach filing skills. HCI *Host-held history*. Idea catalog /ideas/provider-mirror-backups. Encyclopedia · Issues Browser · catalog · HCI.",
+        "2026-09-02 — SoloMD + OPR / UniProvider — Recommended SoloMD for Markdown-on-disk; Open Provider Registry draft + UniProvider PoC; tentative online directory skeleton opr-directory (providers.devcentr.org unset). Prior art: OpenAI-compat wire ≠ registration; OpenRouter/LiteLLM/Olla/UPP do not retire a neutral runner self-registration format. Markdown editors · OPR · portal · directory · catalog.",
+        "2026-09-01 — DevCentr Activity Log retired — Removed duplicate DevCentr component activity log from nav; stub redirects here (org-wide) and DevCentr Changelog. Timelines documents the split.",
+        "2026-09-01 — Activity log search keywords — Home activity log: :keywords: for changelog-style Lunr queries; intro clarifies org-wide changelog vs per-component changelogs.",
+        "2026-09-01 — Diátaxis nav typology (inheritance + detection fix) — URL path wins over title prefix (Reference reliability under /explanation/ no longer gets reference icon). Unlinked section headers inherit parent Diátaxis typology; sidebar labels nowrap with horizontal scroll; icons top-align to first line. Hub supplemental + @antora-supplemental/nav-typology v0.1.3.",
+        "2026-09-01 — Diátaxis nav typology icons (fix) — Hub supplemental helpers now detect Diátaxis buckets from URL paths unconditionally (/tutorials/, /how-to/, …), honor build-time navTypology when present, and render SVG sprites via helpers so uiRootPath resolves correctly (inline uiRootPath partial had been emitting broken /img/… hrefs). Playbook site.keys.nav_typology_diataxis set explicitly.",
+        "2026-09-01 — Nav typology label cleanup — DevCentr nav partials: drop .Label dotted lines (rendered as literal .Features / .Reference in sidebar); use plain unlinked parents + SVG typology icons. Secrets Manager: Overview and Architecture as direct links (no .Overview & design wrapper). Hub supplemental: typology helpers tolerate legacy leading-dot labels; strip helper removes nav dot prefix.",
+        "2026-09-01 — Changelog nav typology — @antora-supplemental/nav-typology v0.1.2: changelog / activity-log icon + auto-hoist to second slot in each nav branch; hub supplemental UI + DevCentr nav source updated.",
+        "2026-09-01 — Nav typology icons extension — New @antora-supplemental/nav-typology (+ optional nav-typology-diataxis) enriches sidebar nav with uniform SVG typology icons; integrated on docs hub playbook and Facto fragment. general-knowledge: removed structural emoji from Diátaxis nav/H1s. site-nav-tree README: multi-nav concatenation vs include::. essential extensions entry.",
+        "2026-09-01 — DevCentr nav consolidation + doc UX — DevCentr component: single ROOT nav with include:: for specifications / secrets-manager / publishing / upstream-contributions (fixes parallel-tree swap and Secrets Manager sections appearing as DevCentr IA). Toolchain lifecycle group; specifications Components / Features / Reference. Hub: home component title Home (was Project Portal); site-doc-nav.js crossfade + scroll preservation; site-nav-tree-current.js keeps component branches expanded; multi-nav vs include + nav-typology.svg. Scaffold d-emoji (Diátaxis glyph constants for D UI).",
+        "2026-09-01 — Diátaxis grid table cells (a|) — general-knowledge start page used plain | cells so [.text-center] and === printed literally; fixed to a| (commit b695417). Hive-wide Antora audit found no other live .adoc instances; corrected the same example in the historical cursor_knowledge_base_module_organization.md dump so it is not re-copied wrong.",
+        "2026-09-01 — Component nav: logos not typology icons (fix) — Hub supplemental helpers now skip component-root typology sprites on site-nav-tree roots (chevron-only when no logo). Wired nav-component-logo.js for DevCentr App and devcentr.org (img/nav-logos/ from canonical brand marks). Deeper rows still use Diátaxis / spec / changelog typology icons.",
+        "2026-09-01 — Component nav: chevrons not typology icons — Hub sidebar: drop component-root typology sprite on site-nav-tree roots (accent expand chevron marks components instead). Optional app logos via nav-component-logo.js + img/nav-logos/; typology icons remain for Diátaxis, spec groupings, and changelog deeper in the tree. Antora UI branding.",
+        "2026-09-01 — Nav-tree expand chevrons — Valentus 2.0.15+antora.3 adds --adt-nav-item-toggle / --adt-nav-item-toggle-hover; hub devcentr-brand.css tints only component-root chevrons (data-depth=\"0\") with brand accent — nested nav children keep Valentus muted ink. Antora UI branding.",
+        "2026-09-01 — Breadcrumb mast UX — Home icon links to site root (not component index). Component picker hidden when site-nav-tree is active (sidebar already lists components). Implicit version kicker shows Version / Default instead of raw default. Shipped in valentus-theme 2.0.14+antora.3; hub supplemental keeps curated component list + in-site-nav-tree helper. Dropped interim .adt-doc-mast z-index override from brand CSS (fixed upstream in 2.0.14)."
+      ],
+      "sourceId": "docs-portal",
+      "sourceLabel": "Docs portal",
+      "docsUrl": "https://docs.devcentr.org/home/activity-log.html",
+      "kind": "activity-log"
     },
     {
       "id": "general-knowledge-2026-09-01-aspect-oriented-programming",
@@ -1477,6 +1521,68 @@
       "kind": "changelog"
     },
     {
+      "id": "activity-docs-portal-2026-08",
+      "date": "2026-08-01",
+      "title": "August 2026",
+      "bullets": [
+        "2026-08-30 — Site-wide component nav tree — Hub playbooks enable @antora-supplemental/site-nav-tree: every component appears as a root in the sidebar forest; stock nav-tree expand/collapse stays (no navigator wipe). Companion Valentus nav-menu partial drops the redundant current-component title. Antora essential extensions · site-nav-tree.",
+        "2026-08-30 — site-nav-tree unwrap + current-page fix — Flatten anonymous Antora nav wrappers; unwrap Component > Component start-page duplicates; companion JS prefers deepest is-current-page so start-page clicks keep children visible.",
+        "2026-08-30 — Curated site-nav-tree forest — Hub uses site-nav-tree include allowlist (home, general-knowledge, business-bootstrap, agent-rules, DevCentr, templates, devcentr-org). Content source ≠ sidebar root; breadcrumb picker shares curation via site.keys.site_nav_tree_*. Product stubs stay reachable by URL/home tools portal.",
+        "Linked parent section landings — Drop .Section + Overview. Nav uses a linked parent whose text equals the landing H1 (Email, Org infra, …); file stays index.adoc; folder URLs via urls.html_extension_style: indexify.",
+        "Folder URLs (indexify) — Hub playbooks set urls.html_extension_style: indexify so landings at …/index.adoc publish as folder paths (…/email/, not …/email/index.html). Canonical and sitemap follow Antora page URLs. Do not invent overview.adoc; do not advertise index.html.",
+        "valentus-theme FOUC paint-hold — Synced supplemental head-meta.hbs with Valentus interim paint-hold (adt-fouc-pending): hide until layered CSS, preference attrs, and web fonts apply; release via document.fonts.ready (3s fallback). Brand CSS stays in the stylesheet stack before the release script. Antora UI branding.",
+        "Internet Architecture / Internet Reliability — Peer home-nav group (body in general-knowledge): systems altitude for reference durability and usability of the internet; deep-links HCI *Labels versus wires* + connectome-fs. Build-time Mermaid + PlantUML via Kroki (asciidoctor-kroki); how-to Antora diagram formats. Compose pack scaffold antora-supplemental/antora-facto (Valentus stays lean). Internet Reliability.",
+        "Spatial web windows — multi-window desktop web UX for UI-heavy and WASM apps: lite palettes, SharedWorker hubs, intent routing. HCI Nerdz essay When the browser flattens working memory; docs Spatial web windows; demo desk. Developer notes: Spatial windows and lite palettes. Browser fork: Desktop-Tooling/spatial-browser.",
+        "Graphics rendering engines — general-knowledge explanation for desktop UI stacks, large-document patterns, and post-Skia pipelines (Graphite, Impeller, Vello). Essay: After Skia: where rendering is headed. Wired into DevCentr toolchain advisor and docs nav. Explanation.",
+        "Fonts / Appearance — DevCentr can pick and install five OS coding fonts for *this app* (Cascadia Mono default). Project Fontsource lock is later; a Suitcase-style manager is a different product -- recorded, not forgotten. Public spec: Appearance (code font). Member orientation: team-docs *Font lock*.",
+        "Toolchain Framework (TCF) — Practice kit (schemas, adapters, validators) wired into this hub. CI used to fail because pnpm/action-setup duplicated package.json packageManager. portal · component.",
+        "RepoLab — Dev-Centr product under the RepoLabs org (RepoLab-dev): one browser frontend for GitHub, other git hosts, and other VCS backends. Product site repolab.dev; docs docs.repolab.dev. portal · devcentr.org catalog.",
+        "UniConfig Config Panel -- Schema-driven desktop panel for other people's config files (INI, YAML, TOML, SDLang, tfvars). Engine uniconfig-core; app uniconfig. Wired into this hub. portal · component.",
+        "devcentr.org on this hub -- Marketing site Antora component (devcentr-org): architecture, news/changelog pipelines, Toolchain Advisor, agent skills. Registered in the playbooks. devcentr.org · live devcentr.org.",
+        "Fast org bootstrap -- GitHub org identity (About, public .github profile, site, docs hub) as a Cursor skill, named SDLang profiles (SolidStart static + solid-ui defaults), and a Business Bootstrap tutorial. Capability-area literature (email, vault, chat, infra) is unchanged. Fast org bootstrap · skill bootstrap-org in dev-centr/agent-rules.",
+        "Abstract playbooks / PlayTime -- Write intents, not a bash-to-PowerShell blender. Scriptbook + Equivalence Engine wired into this hub. Encyclopedia Abstract playbooks. Essay: Intents, not shell translation. OpenShellOrg cousins on docs.opensh.org. PlayTime stays in scriptbook while it is built.",
+        "AsciiDoc image alts + SVG encoding + mock chrome — Unquoted alts became HTML width/height; SVG/adoc mojibake and Encoding errors were agent transcode bugs (not Antora). Mocks now use a single fill-only chrome path (breadcrumb no longer struck through). Org skill fix-docs-encoding checks/fixes. Hub redeploy required for _images/. Access how-to.",
+        "Access Finish setup + multi-org consent — Cloudflare dashboard first, GitHub unlocked in the same browser; Authorize listing other orgs does not widen Access. Finish setup · Other orgs · portal.",
+        "Language recommendations — Small-set suggestions (D, Rust, TypeScript, Julia, Lisp/Haskell) plus reconstructed C/D, C++/D, Julia/D/Java, and D/Rust comparisons (dead Gemini shares). Recommendations.",
+        "Finish GitHub IdP setup — API enterprise-setup URLs can 500; use Zero Trust → Identity providers → GitHub → Finish setup, then Test. How-to · portal.",
+        "Access setup order and API credentials — GitHub OAuth App is UI-only; team domain is the OAuth callback host; do not attach Access apps before the IdP (deny by default). Pages-scoped tokens 403 on identity providers; use Global API Key / Access-scoped token. Order · What agents cannot automate · portal.",
+        "How Access learns GitHub org membership — Cloudflare asks GitHub at login (OAuth + GET /user/orgs); it does not scrape the org. Explanation + how-to now have a flow diagram and simplified mocks (OAuth app, consent, IdP, Allow policy, login). How it works · How-to · portal.",
+        "Access in front of static sites — Member-only Antora stays static; Cloudflare Access on the hostname (and *.pages.dev). Reader accounts = GitHub org invite / Google / email PIN, not Cloudflare dashboard users. Explanation · How-to · portal · Org infra.",
+        "Transparent fund ask — Donation-supported orgs should show balance + floor/goal on their own donate page (Transparency HOA Analyze Queue as the exhibit). Canonical guide: Nonprofit Resources · Donate page as a ledger. DevCentr pointer + ideas stubs: Donation ask ideas. Hub copy clarifies Business Bootstrap is organization ops; repo name unchanged.",
+        "Context7 setup + AI docs writing + nav prune — Restored missing how-to/explanation pages; pruned general-knowledge nav entries that pointed at never-authored pages. Context7 · Writing clear docs with AI.",
+        "Vibe coding bootstrap (Cursor skills) — Documented AI-studio setup under Vibe coding → Bootstrap (not Business Bootstrap): operator configures *or* drops a recipe into a permissive agent. How-to for personal Cursor skills + worked example writing-news-vs-blog. In-repo shop: agent-rules/skills/BOOTSTRAP.md. BB hub / stage defaults / stack map / Chat now Related-link it so founders do not miss the sibling path while walking org IT bootstrap. Explanation · How-to · Catalog.",
+        "Business Bootstrap — OSS funding landscape — New Funding area: fiscal hosts (Open Collective / OSC), public grants (Sovereign Tech Fund, NLnet, …), Sponsors, Tidelift, thanks.dev, bounties, credits. Deep directory: OSS.Fund. Landscape · Funding.",
+        "Business Bootstrap — Pulumi Cloud org model — Free Individual = no invites; Organizations need Team / OSS Team / self-managed state. Org model · State backup (export + Drive offline copies; RepoDrive ≠ Google Drive).",
+        "connectome-fs org + forge ontology notes — Substrate moved to connectome-fs/connectome-fs (own org; removed from docs hub Antora sources). Site: connectome-fs.github.io. Practitioner essays stay in general-knowledge. Forge schema essay: HCI · DevCentr News. Portal stub: connectome-fs.",
+        "Git's file-shaped change model — Essays on why Git feels hard when features aren't files: practitioner · canonical.",
+        "Business Bootstrap — Chat / Mattermost — New Chat capability area with Mattermost self-host (hosting matrix, Linear/Composio, R2/B2 offload). Defaults by org stage subdivided by business phase so self-host chat is not day-one. Portal stub Mattermost.",
+        "Business Bootstrap hub — Restructured into capability areas (Email · Scheduling · Design · Vault · Org infra) with stack map and articles for Cal.com / Cal.diy, Penpot, Bitwarden / Vaultwarden. Hub stubs under Tools; FoodTruckNerdz links the same stack.",
+        "Studio MCP install strategies — Documented Composio’s Cursor install ladder (marketplace plugin, deeplink, mcp.json, skills, thin/fat MCP) as a reusable option for AI-studio tooling; master list AI studio tooling catalog. Wired into DevCentr AI Config / AI Workflow Arrangement specs. Explanation.",
+        "Composio MCP — Connector plane for Cursor/CLI agents (Gmail, GitHub, Vercel, …). How-to + stack explanation in general-knowledge; hub stub under Tools. Setup · Stack placement · portal.",
+        "Software Product Essentials — auxiliary templates — general-knowledge gained desktop/web/mobile auxiliary feature matrices (Help, About, updates, diagnostics, connectivity, privacy) plus macOS/Linux update apply guidance (quit/replace, package timers, AppImage). Auxiliary features · Delivery classes · Unix/macOS auto-updates.",
+        "Rules Manager — Compose/watch daemon + tray for agent-rules (dev-centr/rules-manager); Antora component on the hub. Rules Manager docs · portal · https://docs.devcentr.org/rules-manager/",
+        "Admonition TIP Antora green — DevCentr no longer remaps tip to brand teal; TIP pill + card stay on --tip-color / --adt-admonition-tip (Antora #41af46). Tip inline code keeps charcoal/coral with a rounded gray border.",
+        "Admonition TIP one green — TIP pill and card tint both follow --adt-admonition-tip (no second emerald on the body). Brand overlay clears stale cell washes; Valentus / antora-dark-mode ship the token wiring.",
+        "Admonition TIP card — TIP/NOTE label now sits *inside* the bordered card (table chrome). Prior overlay/fix only cleared the green wash and left the border on the body.",
+        "Theme toggle timing — Light↔dark animation was uneven: View Transitions (0.28s) raced Valentus --adt-transition paint rules (0.2s). Fixed upstream in antora-dark-mode (html.adt-theme-vt + :active-view-transition); docs brand overlay uses the CSS-only suppress until rolling v2 updates.",
+        "Admonition dark TIP wash — Earlier fix cleared type-tint wash on the TIP label cell (antora-dark-mode 1.4.1 / valentus-theme 2.0.6); superseded by the card-wrap fix above.",
+        "RepoDrive — Standalone forge virtual drive (dev-centr/repo-drive): GUI + tray, sparse mount, Ibex installers; wired into Antora hub. RepoDrive docs · portal · https://docs.devcentr.org/repo-drive/",
+        "Switchyard — New Windows file-association switchyard (dev-centr/switchyard): snapshot open/icon tracks, planned icon lock; Antora component on the hub. Switchyard docs · portal.",
+        "agent-rules, ver, issues-browser — Registered three Antora components on the hub (PR #1): Agent Rules, Ver, and Issues Browser (renamed from issue-tracker; redirect stub retained). Playbooks point at the three repos.",
+        "valentus-theme head-meta sync — Restored font-size FOUC + site-font-size.css in the supplemental head-meta.hbs overlay (was missing after brand fork). Condensed A/A/A control hides on desktop again and scales doc text on mobile. Playbooks already use rolling v2.",
+        "valentus-theme product topic — This repo (and other Valentus playbooks) tagged with GitHub topic valentus-theme for dependency rediscovery; convention documented upstream.",
+        "DOS naming — Public category stays Development Orchestration Suite; DevOps framed as one facet of the suite; *Dev OS* as quiet mental model only. Sites + DevCentr vision/capabilities docs updated.",
+        "Ibex — Rebrand of Easy Installer (ibex CLI): Install Builder EXtension. winget DevCentr.Ibex, Homebrew tap, Scoop. Ibex docs · portal.",
+        "Easy Installer CI emit — emit-ci / ci-runner.sdl writes GitHub Actions, GitLab, Azure, Jenkins, CircleCI, and Bitbucket workflows plus CI-INSTALLER.adoc without a local package build. DevCentr: --mode=emit-ci and New Installer CI pipeline menu. How-to: emit CI.",
+        "Easy Installer — Host for in-place PATH, installer.kdl projects, plugin backends (zip/NSIS/Inno/MSI/MSIX/AppImage), and file-manager menus (now Ibex). Ibex docs · portal.",
+        "msi-generator v0.2 — Real OLE2 CFB, uncompressed CAB, and core MSI tables; multi-file MSIX with placeholder assets. MSI Generator docs."
+      ],
+      "sourceId": "docs-portal",
+      "sourceLabel": "Docs portal",
+      "docsUrl": "https://docs.devcentr.org/home/activity-log.html",
+      "kind": "activity-log"
+    },
+    {
       "id": "general-knowledge-2026-07-31-github-pages-custom-domain-cloudflare-https",
       "date": "2026-07-31",
       "title": "GitHub Pages custom domain + Cloudflare HTTPS",
@@ -1803,6 +1909,47 @@
       "kind": "changelog"
     },
     {
+      "id": "activity-docs-portal-2026-07",
+      "date": "2026-07-01",
+      "title": "July 2026",
+      "bullets": [
+        "fixnow-dev — Repo transferred to dev-centr/fixnow-dev. Antora component added (Introduction, Getting Started, AI Evaluation, API, Security) and registered on the hub. FixNow docs.",
+        "valentus-theme 2.0.3 — Playbooks pin rolling v2 UI bundle (tool-band search, read-width, condensed font-size switcher, Plus Jakarta Sans visual redesign). Dropped the local header-content.hbs override; brand CSS is now accent-token-only. See Antora UI branding.",
+        "resting-lanczos — Repo transferred to dev-centr/resting-lanczos. Live side-by-side comparison on devcentr.org/resting-lanczos (browser bilinear vs Lanczos srcset + transform). Tool overview: resting-lanczos.",
+        "Appearance / code fonts — DevCentr Appearance dialog: Cascadia Mono (default) or JetBrains Mono for terminal and code panels; recommended-tools docs updated.",
+        "Nushell as recommended shell — General-knowledge advocates Nushell as the default cross-platform shell; added Nu vs PowerShell, Nu + AI agents (vs NVIDIA OpenShell), and an NVIDIA OpenShell overview (name collision called out). OpenShellOrg companions: nu-require, nu-emit, shell-architecture.",
+        "Architecture — Subscription management platforms — New explanation page under Architecture: in-app subscription infrastructure (Adapty, RevenueCat, Qonversion, DIY), access levels vs store SKUs, Stripe Customer Portal limits, and web+mobile customer_user_id sync. Cross-linked from general-knowledge Explanation → Architecture."
+      ],
+      "sourceId": "docs-portal",
+      "sourceLabel": "Docs portal",
+      "docsUrl": "https://docs.devcentr.org/home/activity-log.html",
+      "kind": "activity-log"
+    },
+    {
+      "id": "activity-docs-portal-2026-06",
+      "date": "2026-06-01",
+      "title": "June 2026",
+      "bullets": [
+        "Antora UI branding (docs playbook) — Dropped the local header-content.hbs override; valentus-theme v1.1.0+ resolves the header logo via site.keys.header_logo and supplemental img/ assets. Added Antora UI branding under Software publishing."
+      ],
+      "sourceId": "docs-portal",
+      "sourceLabel": "Docs portal",
+      "docsUrl": "https://docs.devcentr.org/home/activity-log.html",
+      "kind": "activity-log"
+    },
+    {
+      "id": "activity-docs-portal-2026-05",
+      "date": "2026-05-01",
+      "title": "May 2026",
+      "bullets": [
+        "Architecture — UI-heavy web applications — New explanation page in the docs playbook (home component): Bonsai versus Leptos versus vibe.d, client/server split for database and authentication, creative stack interop (Three.js, smooth scroll, Pretext-style text layout), and notes on perceived performance in large integrated mail clients (illustrative case shapes, not vendor internals)."
+      ],
+      "sourceId": "docs-portal",
+      "sourceLabel": "Docs portal",
+      "docsUrl": "https://docs.devcentr.org/home/activity-log.html",
+      "kind": "activity-log"
+    },
+    {
       "id": "devcentr-2026-03-27-dynamic-agent-preamble-specification",
       "date": "2026-03-27",
       "title": "Dynamic Agent Preamble specification",
@@ -2059,6 +2206,33 @@
       "sourceLabel": "DevCentr",
       "docsUrl": "https://docs.devcentr.org/devcentr/latest/changelog.html",
       "kind": "changelog"
+    },
+    {
+      "id": "activity-docs-portal-2025-03",
+      "date": "2025-03-01",
+      "title": "March 2025",
+      "bullets": [
+        "Central Todo & Roadmap and Activity log — Moved org-wide roadmap and activity log into the docs repository so they live in one place for the aggregated site (docs.devcentr.org). Added \"Where documentation lives\" to explain the doc structure. DevCentr repo keeps its own task-level Todo & Roadmap for app work.",
+        "Secrets Manager documentation (DevCentr) — Full module: overview, architecture, .env patterns, back-end providers (Bitwarden), SSH Manager spec, WSL and virtual environments, proxy-in-GUI guidance. Todo & Roadmap and Activity log added to DevCentr docs (and now mirrored/centralized here)."
+      ],
+      "sourceId": "docs-portal",
+      "sourceLabel": "Docs portal",
+      "docsUrl": "https://docs.devcentr.org/home/activity-log.html",
+      "kind": "activity-log"
+    },
+    {
+      "id": "activity-docs-portal-2025-01",
+      "date": "2025-01-01",
+      "title": "Earlier 2025",
+      "bullets": [
+        "Project vision and specs (DevCentr) — UI specification and roadmap, environment navigator concept, component specs.",
+        "Knowledge base and publishing (DevCentr) — SSH keys, Git, workspace organization, Antora deployment, upstream contributions.",
+        "Portal and tools (docs repo) — Home portal linking DevCentr, Templates, MSI Generator; tool overviews for code-d, dprint, dlangui."
+      ],
+      "sourceId": "docs-portal",
+      "sourceLabel": "Docs portal",
+      "docsUrl": "https://docs.devcentr.org/home/activity-log.html",
+      "kind": "activity-log"
     }
   ]
 }

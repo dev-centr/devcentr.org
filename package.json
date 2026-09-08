@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "vinxi dev",
-    "prebuild": "node scripts/sync-playtime-diagrams.mjs && node scripts/sync-advisor-catalog.mjs && node scripts/sync-bootstrap-profiles.mjs && node scripts/build-news.mjs",
+    "prebuild": "node scripts/sync-playtime-diagrams.mjs && node scripts/sync-semantic-diagrams.mjs && node scripts/sync-advisor-catalog.mjs && node scripts/sync-bootstrap-profiles.mjs && node scripts/build-news.mjs",
     "build": "vinxi build",
     "postbuild": "node scripts/spa-fallback.mjs",
     "start": "vinxi start",
@@ -13,6 +13,8 @@
     "news:diagrams:sync": "node scripts/sync-playtime-diagrams.mjs --sync",
     "news:diagrams:check": "node scripts/sync-playtime-diagrams.mjs",
     "news:diagrams:test": "node scripts/test-playtime-diagrams.mjs",
+    "semantic:diagrams:sync": "node scripts/sync-semantic-diagrams.mjs --sync",
+    "semantic:diagrams:check": "node scripts/sync-semantic-diagrams.mjs",
     "blog:build": "node scripts/build-news.mjs",
     "brand:raster": "node scripts/rasterize-logo.mjs",
     "predev": "node scripts/build-news.mjs && node scripts/sync-advisor-catalog.mjs && node scripts/sync-bootstrap-profiles.mjs"

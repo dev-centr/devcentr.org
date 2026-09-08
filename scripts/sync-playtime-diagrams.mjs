@@ -6,8 +6,8 @@ import { execFileSync } from "node:child_process";
 const root = resolve(import.meta.dirname, "..");
 const mediaDirectory = join(root, "public", "news", "media");
 const provenancePath = join(mediaDirectory, "playtime-diagrams.provenance.json");
-const sourceCommit = "137492ea980910d1286663654948bd82d2d5ac4b";
-const sourceRepository = "https://github.com/dev-centr/general-knowledge";
+const sourceCommit = "97534371f0da8d81e495cb4cc069704902dbdd69";
+const sourceRepository = "https://github.com/dev-centr/scriptbook";
 const names = [
   "playtime-argv",
   "playtime-attic-basement",
@@ -18,12 +18,14 @@ const names = [
   "playtime-layers",
   "playtime-overlays",
   "playtime-sibling-home",
+  "playtime-two-doors",
   "playtime-venn",
+  "playtime-wrong-translator",
 ];
 const variants = [
-  { kind: "standalone-adaptive", suffix: ".svg" },
-  { kind: "host", suffix: ".host.svg" },
-  { kind: "fixed", suffix: ".fixed.svg" },
+  { kind: "standalone-adaptive", suffix: ".svg", source: (name) => `spec/images/${name}.svg` },
+  { kind: "host", suffix: ".host.svg", source: (name) => `spec/images/${name}.host.svg` },
+  { kind: "fixed", suffix: ".fixed.svg", source: (name) => `spec/images/fixed/${name}.svg` },
 ];
 const sync = process.argv.includes("--sync");
 const requireSource = process.argv.includes("--require-source");
@@ -41,13 +43,13 @@ function git(args, cwd) {
 
 function sourceCandidates() {
   const candidates = [
-    process.env.GENERAL_KNOWLEDGE_REPO,
-    join(root, "general-knowledge"),
-    join(root, "..", "general-knowledge"),
+    process.env.SCRIPTBOOK_REPO,
+    join(root, "scriptbook"),
+    join(root, "..", "scriptbook"),
   ];
   try {
     const commonDirectory = String(git(["rev-parse", "--path-format=absolute", "--git-common-dir"], root)).trim();
-    candidates.push(join(dirname(dirname(commonDirectory)), "general-knowledge"));
+    candidates.push(join(dirname(dirname(commonDirectory)), "scriptbook"));
   } catch {
     // Hash-only checks still work outside a Git checkout.
   }
@@ -67,39 +69,35 @@ function findSourceRepository() {
   return undefined;
 }
 
-function canonicalPath(name, suffix) {
-  return `docs/modules/ROOT/images/${name}${suffix}`;
-}
-
 function targetPath(name, suffix) {
   return join(mediaDirectory, `${name}${suffix}`);
 }
 
 function canonicalArtifact(source, name, variant) {
-  return git(["show", `${sourceCommit}:${canonicalPath(name, variant.suffix)}`], source);
+  return git(["show", `${sourceCommit}:${variant.source(name)}`], source);
 }
 
 const source = findSourceRepository();
 if (sync && !source) {
   throw new Error(
-    "Cannot sync PlayTime diagrams: set GENERAL_KNOWLEDGE_REPO to a clone containing the pinned commit.",
+    "Cannot sync PlayTime diagrams: set SCRIPTBOOK_REPO to a clone containing the pinned commit.",
   );
 }
 if (requireSource && !source) {
-  throw new Error("The pinned General Knowledge source commit is required but was not found.");
+  throw new Error("The pinned Scriptbook source commit is required but was not found.");
 }
 
 if (sync) {
   const artifacts = [];
   for (const name of names) {
     for (const variant of variants) {
-      const content = canonicalArtifact(source, name, variant);
       const target = targetPath(name, variant.suffix);
+      const content = canonicalArtifact(source, name, variant);
       writeFileSync(target, content);
       artifacts.push({
         name,
         variant: variant.kind,
-        sourcePath: canonicalPath(name, variant.suffix),
+        sourcePath: variant.source(name),
         publicPath: relative(root, target).replaceAll("\\", "/"),
         sha256: sha256(content),
       });
@@ -109,10 +107,8 @@ if (sync) {
     schemaVersion: 1,
     sourceRepository,
     sourceCommit,
-    canonicalOwnership: [
-      "docs/modules/ROOT/images/playtime-*.mmd",
-      "docs/modules/ROOT/images/playtime-*.theme.json",
-    ],
+    canonicalOwnership: ["spec/diagrams/playtime-*.mmd", "spec/diagrams/playtime-*.theme.json"],
+    fixedAssetPolicy: "Original fixed artwork is pinned from Scriptbook's fixed delivery directory.",
     artifacts,
   };
   writeFileSync(provenancePath, `${JSON.stringify(provenance, null, 2)}\n`, "utf8");

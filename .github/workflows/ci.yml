@@ -71,7 +71,10 @@ jobs:
         run: pnpm exec playwright install --with-deps chromium
 
       - name: Verify pinned PlayTime diagram artifacts
-        run: node scripts/sync-playtime-diagrams.mjs --require-source
+        run: node scripts/sync-playtime-diagrams.mjs
+
+      - name: Verify pinned semantic diagram artifacts
+        run: node scripts/sync-semantic-diagrams.mjs
 
       - name: Sync advisor catalog into public/
         run: node scripts/sync-advisor-catalog.mjs

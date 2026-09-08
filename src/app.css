@@ -151,6 +151,11 @@
     --themed-svg-diagram-color-status-warning-border: hsl(var(--muted-foreground));
     --themed-svg-diagram-color-status-danger: hsl(var(--destructive) / 0.16);
     --themed-svg-diagram-color-status-danger-border: hsl(var(--destructive));
+    --themed-svg-openshell-diagram-color-surface-primary: var(--diagram-surface);
+    --themed-svg-openshell-diagram-color-surface-secondary: var(--diagram-card);
+    --themed-svg-openshell-diagram-color-text-primary: var(--diagram-ink);
+    --themed-svg-openshell-diagram-color-border-primary: var(--diagram-border);
+    --themed-svg-openshell-diagram-color-edge: var(--diagram-edge);
 
     color-scheme: light;
   }

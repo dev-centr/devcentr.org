@@ -8,6 +8,9 @@ const root = resolve(import.meta.dirname, "..");
 const output = join(root, ".output", "public");
 const media = join(root, "public", "news", "media");
 const provenance = JSON.parse(readFileSync(join(media, "playtime-diagrams.provenance.json"), "utf8"));
+const semanticProvenance = JSON.parse(
+  readFileSync(join(root, "public", "media", "diagrams", "canonical.provenance.json"), "utf8"),
+);
 const source = readFileSync(
   join(root, "content", "news", "2026-08-13-intents-not-shell-translation.adoc"),
   "utf8",
@@ -21,7 +24,9 @@ const migratedReferences = [
   "playtime-growth-ratchet",
   "playtime-layers",
   "playtime-sibling-home",
+  "playtime-two-doors",
   "playtime-venn",
+  "playtime-wrong-translator",
 ];
 
 function validateSvg(artifact) {
@@ -53,26 +58,26 @@ function validateSvg(artifact) {
     }
   } else if (artifact.variant === "host") {
     assert.doesNotMatch(text, /prefers-color-scheme/, `${artifact.publicPath}: host owns mode`);
-    assert.match(text, /var\(--themed-svg-diagram-/, `${artifact.publicPath}: semantic host variables`);
+    assert.match(text, /var\(--themed-svg-[\w-]+-color-/, `${artifact.publicPath}: semantic host variables`);
   } else {
     assert.doesNotMatch(text, /var\(|@media/, `${artifact.publicPath}: resolved fixed output`);
   }
 }
 
-assert.equal(provenance.artifacts.length, 30, "ten diagrams must each have three variants");
+assert.equal(provenance.artifacts.length, 36, "twelve diagrams must each have three variants");
 for (const artifact of provenance.artifacts) validateSvg(artifact);
+assert.equal(semanticProvenance.artifacts.length, 4, "two semantic diagrams must each have two variants");
+for (const artifact of semanticProvenance.artifacts) {
+  validateSvg({
+    publicPath: artifact.path,
+    variant: artifact.path.endsWith(".host.svg") ? "host" : "standalone-adaptive",
+  });
+}
 for (const name of migratedReferences) {
   assert.match(
     source,
     new RegExp(`\\[\\.themed-svg\\]\\r?\\nimage::https://devcentr\\.org/news/media/${name}\\.svg\\[`),
     `${name}: source marker`,
-  );
-}
-for (const unchanged of ["playtime-wrong-translator", "playtime-two-doors"]) {
-  assert.doesNotMatch(
-    source,
-    new RegExp(`\\[\\.themed-svg\\]\\r?\\nimage::https://devcentr\\.org/news/media/${unchanged}\\.svg\\[`),
-    `${unchanged}: must not be runtime-upgraded`,
   );
 }
 for (const forbidden of [".mmd", ".theme.json"]) {
@@ -98,7 +103,19 @@ for (const role of [
 ]) {
   assert.match(siteCss, new RegExp(`--themed-svg-diagram-color-${role}:`), `${role}: host palette mapping`);
 }
-console.log("Validated XML, accessibility, safety, variants, and source markers for 30 artifacts.");
+for (const role of ["surface-primary", "surface-secondary", "text-primary", "border-primary", "edge"]) {
+  assert.match(
+    siteCss,
+    new RegExp(`--themed-svg-openshell-diagram-color-${role}:`),
+    `${role}: OpenShell host palette mapping`,
+  );
+}
+for (const component of ["toolchain-architecture-diagram.tsx", "sibling-ownership-diagram.tsx"]) {
+  const text = readFileSync(join(root, "src", "components", component), "utf8");
+  assert.doesNotMatch(text, /<svg\b/, `${component}: no inline SVG rendering`);
+  assert.match(text, /<ProgressiveDiagram\b/, `${component}: progressive image component`);
+}
+console.log("Validated XML, accessibility, safety, variants, provenance, and progressive components.");
 
 if (!process.argv.includes("--browser")) process.exit(0);
 assert.ok(existsSync(output), "Run the site build before browser diagram tests.");

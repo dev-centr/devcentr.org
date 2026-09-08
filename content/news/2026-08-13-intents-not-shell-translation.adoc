@@ -36,6 +36,7 @@ Equivalence Engine already has two machines. People mash them together because t
 If we stuffed `format` and `shell` into that path -- `windows/winget/pwsh/msi` -- we would tensor two independent facts into nodes. The lattice would eat the engine. That is the hairy version. We did not take it.
 
 .Do not put a bash script through a blender
+[.themed-svg]
 image::https://devcentr.org/news/media/playtime-wrong-translator.svg[alt="A Linux apt script enters a hot-replace grinder and comes out as broken Windows commands"]
 
 `winget install GitHub.cli` is not a bash program. It is not a pwsh program. It is **argv**: a program name and some arguments. Spawn it with no shell, the way a GUI button would. Then you do not need three "equivalent" rows for three coats.
@@ -49,6 +50,7 @@ Shell still exists. Scriptbook's `shell=` is for glue cells -- `echo`, a Nushell
 The student asked: MSI or bash?
 
 .Two doors is not a questionnaire
+[.themed-svg]
 image::https://devcentr.org/news/media/playtime-two-doors.svg[alt="Two doors labeled MSI and bash; that is not a choice"]
 
 The teacher did not open either door. That is not a choice.

@@ -1,39 +1,22 @@
-= 2026-09-08 — Themed PlayTime news diagrams
-:navtitle: 2026-09-08 Themed PlayTime diagrams
+= 2026-09-08 — Progressive canonical diagrams
+:navtitle: 2026-09-08 Progressive diagrams
 :page-audience: DevCentr site maintainers
-:page-usage-context: Maintaining published news diagrams
+:page-usage-context: Maintaining published diagrams
 :page-orig-author: Auto on behalf of Ryan Johnson
 :page-last-author: Auto on behalf of Ryan Johnson
 
-== Summary
+== PlayTime delivery
 
-The ten canonical PlayTime diagrams from `dev-centr/general-knowledge` commit
-`137492ea980910d1286663654948bd82d2d5ac4b` now publish as adaptive, host, and
-fixed artifacts under the existing `/news/media/` URLs.
+All twelve PlayTime diagrams from `dev-centr/scriptbook` commit `97534371f0da8d81e495cb4cc069704902dbdd69` now publish as standalone-adaptive and host artifacts under the existing `/news/media/` URLs. The former hand-authored copies remain available as `.fixed.svg` assets.
 
-The editable Mermaid sources and theme manifests remain canonical in General
-Knowledge. This site stores only the delivery artifacts and a provenance record.
+Source-marked AsciiDoc images progressively load their sanitized `.host.svg` siblings through `@dev-centr/themed-svg` 0.1.1. The host SVGs inherit the site's existing manual light/dark palette; adaptive images remain as direct-navigation, disabled-JavaScript, and load-failure fallbacks.
 
-== Site delivery
+== Semantic architecture diagrams
 
-* Existing `.svg` URLs remain standalone-adaptive images for direct navigation,
-  disabled JavaScript, and runtime failures.
-* Source-marked migrated images progressively load sibling `.host.svg` files
-  through `@dev-centr/themed-svg` 0.1.1.
-* Host SVG semantic roles inherit the DevCentr light/dark palette, including the
-  manual `data-kb-theme` mode.
-* `.fixed.svg` files provide deterministic fixed-color consumers.
-* `playtime-wrong-translator.svg` and `playtime-two-doors.svg` are unchanged and
-  are not runtime-upgraded.
+The toolchain architecture and sibling ownership TSX components no longer maintain separate inline SVG drawings. They progressively render adaptive and host artifacts copied from `openshellorg/shell-architecture` commit `f93e6b1835d013f3b909c1502ada175a65565ca6`.
 
 == Provenance and verification
 
-`public/news/media/playtime-diagrams.provenance.json` records the canonical
-repository, exact commit, source paths, public paths, variants, and SHA-256
-digests.
+Committed provenance records pin source paths, commits, and SHA-256 digests. Ordinary checks and CI validate local bytes without requiring sibling clones; explicit sync commands use local source clones. Tests cover XML structure, accessibility metadata, unsafe content, adaptive/host contracts, manual theme palette mappings, progressive fallback behavior, and copied-artifact drift.
 
-Run `pnpm news:diagrams:sync` with `GENERAL_KNOWLEDGE_REPO` pointing to the
-canonical clone to refresh from the pinned commit. Run
-`pnpm news:diagrams:check` to detect local drift. CI additionally compares every
-artifact byte-for-byte with the pinned commit, validates XML/accessibility and
-safety contracts, and exercises adaptive and host modes in Chromium.
+Editable Mermaid sources and theme manifests remain only in their canonical repositories.

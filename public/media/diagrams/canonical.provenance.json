@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "sourceRepository": "https://github.com/openshellorg/shell-architecture",
+  "sourceCommit": "f93e6b1835d013f3b909c1502ada175a65565ca6",
+  "artifacts": [
+    {
+      "path": "public/media/diagrams/toolchain-architecture.svg",
+      "sourcePath": "docs/modules/ROOT/images/toolchain-architecture.svg",
+      "sha256": "504211726038e6e7b74a6de5e3e9dd750a7b45764af712118de95f63690eb2c2"
+    },
+    {
+      "path": "public/media/diagrams/toolchain-architecture.host.svg",
+      "sourcePath": "docs/modules/ROOT/images/toolchain-architecture.host.svg",
+      "sha256": "f61b8ecf57560d10a03294914b9d18b9ff07dd6106a1a64a622c7b59037ed82d"
+    },
+    {
+      "path": "public/media/diagrams/sibling-ownership.svg",
+      "sourcePath": "docs/modules/ROOT/images/sibling-ownership.svg",
+      "sha256": "f90facc038e87e68108abe8e425aeefafad691c51e035c401a7cfdcc09fdf7ee"
+    },
+    {
+      "path": "public/media/diagrams/sibling-ownership.host.svg",
+      "sourcePath": "docs/modules/ROOT/images/sibling-ownership.host.svg",
+      "sha256": "ce60c9c258a0c47adb29e8c912f8775abae83afb7e6be564837d49808c13b1bf"
+    }
+  ]
+}
