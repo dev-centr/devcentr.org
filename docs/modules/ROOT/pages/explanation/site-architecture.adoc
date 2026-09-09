@@ -47,6 +47,9 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 
 | `/resting-lanczos`
 | Image resampling comparison demo. Access trail is Apps / Products / resting-lanczos; “Tooling · Image pipeline” is a topic tag, not a crumb.
+
+| `/themed-svg-studio`
+| Themed SVG Studio concept demo — semantic tokens, presentation bindings, host/adaptive/fixed preview modes. Access trail is Apps / Products / Themed SVG Studio. See xref:explanation/themed-svg-studio.adoc[Themed SVG Studio].
 |===
 
 Catalogue and nested article pages (`PageTrail`) show the access path as `Section / Child / Current`. Topic tags stay *below* that trail, in the eyebrow style. Outbound links (repo, docs) sit after the intro, not in the trail.

@@ -1,0 +1,67 @@
+= Themed SVG Studio
+:navtitle: Themed SVG Studio
+:description: Public concept demo for semantic SVG theming on devcentr.org — tokens, bindings, and host/adaptive/fixed preview modes.
+:page-audience: Developers evaluating themed SVG workflows
+:page-usage-context: Understanding the public product concept
+:page-orig-author: Auto on behalf of Ryan Johnson
+:page-last-author: Auto on behalf of Ryan Johnson
+
+`/themed-svg-studio` is a **concept demo** for the desktop product at https://github.com/dev-centr/themed-svg-studio[dev-centr/themed-svg-studio].
+It shows the intended authoring workflow without editing paths or geometry.
+Export and desktop editing are not implemented on this site.
+
+The Products catalog lists **Themed SVG Studio** with its approved light/dark path mark (`public/apps/logos/themed-svg-studio.svg`).
+Access trail: Apps / Products / Themed SVG Studio.
+Topic tag: Tooling · SVG · Theming.
+
+== Workflow
+
+The page walks four steps that mirror the planned desktop editor:
+
+. **Define** — five semantic tokens (`diagram.color.canvas`, `surface`, `ink`, `accent`, `edge`) each with light and dark hex values.
+. **Bind** — presentation properties on fixed sample geometry map fills and strokes to those roles (no path edits).
+. **Review** — diagnostics confirm bindings, palette completeness, and export constraints.
+. **Export** — artifact summary names the output file, theme source, binding count, and notes that geometry is unchanged.
+
+Interactive controls affect theme values and preview behavior only.
+The sample diagram geometry is fixed in `src/routes/themed-svg-studio.tsx`.
+
+== Preview modes
+
+[cols="1,2",options="header"]
+|===
+| Mode | Behavior
+
+| **Host**
+| Uses site CSS variables (`--background`, `--card`, `--foreground`, `--primary`, `--muted-foreground`).
+Exported artifacts would keep host variables unresolved.
+
+| **Adaptive**
+| Embeds separate light and dark palettes; `prefers-color-scheme` (via the site appearance toggle) selects which palette renders.
+
+| **Fixed**
+| Single portable palette using the light values shown in the token table.
+|===
+
+Host and Adaptive previews follow the site light/dark toggle (`@kobalte/core` color mode).
+Fixed mode ignores the toggle and always shows light values.
+
+== Relationship to site diagrams
+
+News and architecture diagrams on devcentr.org use `@dev-centr/themed-svg` for progressive host/adaptive delivery (see xref:changelog-details/2026-09-08 - themed-playtime-news-diagrams.adoc[2026-09-08 themed PlayTime diagrams]).
+Themed SVG Studio is the **authoring** surface for that class of artifact — binding existing SVG presentation properties to semantic tokens before export.
+
+== Build and deploy
+
+* Page: `src/routes/themed-svg-studio.tsx`
+* Catalog entry: `src/lib/apps-catalog.ts` (`themed-svg-studio` product)
+* SPA fallback: `scripts/spa-fallback.mjs` copies `index.html` to `.output/public/themed-svg-studio/` for GitHub Pages client routing
+* Prerender: `app.config.ts` includes `/themed-svg-studio` in the static route list
+
+No sibling-repo checkout is required; the demo is self-contained in this repository.
+
+== See also
+
+* Product repository: https://github.com/dev-centr/themed-svg-studio
+* xref:explanation/site-architecture.adoc[Site architecture] — route table and SPA fallback pipeline
+* xref:changelog-details/2026-09-09 - themed-svg-studio-site.adoc[2026-09-09 changelog entry]

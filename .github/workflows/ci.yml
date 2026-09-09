@@ -96,6 +96,7 @@ jobs:
           test -f .output/public/stack-advisor/index.html
           test -f .output/public/toolchain-browser/index.html
           test -f .output/public/toolchain-advisor/index.html
+          test -f .output/public/themed-svg-studio/index.html
 
       - name: Verify agent skills artifact
         run: |

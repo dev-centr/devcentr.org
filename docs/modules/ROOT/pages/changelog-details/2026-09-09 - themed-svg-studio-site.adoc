@@ -18,3 +18,8 @@ The sample's geometry is deliberately fixed. Interactive controls affect theme v
 == Delivery
 
 The route includes page metadata, responsive and keyboard-accessible controls, reduced-motion-safe styling inherited from the site, and a generated GitHub Pages SPA fallback.
+
+== Documented
+
+* xref:explanation/themed-svg-studio.adoc[Themed SVG Studio] — workflow, preview modes, and relationship to `@dev-centr/themed-svg` site diagrams.
+* xref:explanation/site-architecture.adoc[Site architecture] — `/themed-svg-studio` route table entry.
