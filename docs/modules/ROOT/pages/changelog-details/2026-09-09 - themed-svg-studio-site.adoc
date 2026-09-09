@@ -1,0 +1,25 @@
+= 2026-09-09 — Themed SVG Studio site concept
+:navtitle: 2026-09-09 Themed SVG Studio
+:page-audience: Developers evaluating themed SVG workflows
+:page-usage-context: Understanding the public product concept
+:page-orig-author: Auto on behalf of Ryan Johnson
+:page-last-author: Auto on behalf of Ryan Johnson
+
+== Product catalog
+
+The Products catalog now includes **Themed SVG Studio** with its approved light/dark path mark. The entry opens a public concept route and identifies the product as tooling for semantic SVG theming.
+
+== Interactive workflow
+
+The `/themed-svg-studio` route demonstrates the intended sequence without pretending to be the desktop editor: preview an existing sample SVG, define semantic light and dark values, review presentation-property bindings, compare host-controlled, adaptive, and fixed output modes, inspect diagnostics, and read an export artifact summary.
+
+The sample's geometry is deliberately fixed. Interactive controls affect theme values and output behavior only, and the page links to the canonical `dev-centr/themed-svg-studio` repository for product implementation.
+
+== Delivery
+
+The route includes page metadata, responsive and keyboard-accessible controls, reduced-motion-safe styling inherited from the site, and a generated GitHub Pages SPA fallback.
+
+== Documented
+
+* xref:explanation/themed-svg-studio.adoc[Themed SVG Studio] — workflow, preview modes, and relationship to `@dev-centr/themed-svg` site diagrams.
+* xref:explanation/site-architecture.adoc[Site architecture] — `/themed-svg-studio` route table entry.

@@ -16,7 +16,7 @@ https://devcentr.org
 * **News** (`/news`, SEO alias `/blog`) — Narrative AsciiDoc posts from `content/news/`.
 * **Changelog** (`/changelog`) — Mirror index of Antora changelogs from sibling repos (built at CI time).
 * **Community** — Help hub (`/help`), status probes (`/status`), and toolchain surfaces.
-* **Public tools** — Stack Advisor (`/stack-advisor`; `/toolchain-browser` and `/toolchain-advisor` redirect), agent skills (`/skills`), resting-lanczos demo (`/resting-lanczos`), and apps catalogue (`/apps`).
+* **Public tools** — Stack Advisor (`/stack-advisor`; `/toolchain-browser` and `/toolchain-advisor` redirect), agent skills (`/skills`), resting-lanczos demo (`/resting-lanczos`), Themed SVG Studio concept (`/themed-svg-studio`), and apps catalogue (`/apps`).
 
 == Documentation map
 
@@ -35,6 +35,9 @@ https://devcentr.org
 
 | SDL catalog sync and `/stack-advisor`
 | xref:explanation/stack-advisor.adoc[Stack Advisor]
+
+| Semantic SVG theming concept (`/themed-svg-studio`)
+| xref:explanation/themed-svg-studio.adoc[Themed SVG Studio]
 
 | Agent skills catalog (`/skills`; `/templates` redirects)
 | xref:explanation/bootstrap-templates.adoc[Agent skills]

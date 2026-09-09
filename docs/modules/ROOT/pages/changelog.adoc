@@ -2,6 +2,13 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-09-09 — Themed SVG Studio site concept
+
+* Products lists **Themed SVG Studio** with its approved light/dark path mark and links to a public `/themed-svg-studio` concept demo.
+* The demo covers semantic light/dark tokens, presentation bindings, host/adaptive/fixed preview modes, diagnostics, and export summary while leaving SVG geometry unchanged.
+* Antora maintainer guide: xref:explanation/themed-svg-studio.adoc[Themed SVG Studio].
+* See xref:changelog-details/2026-09-09 - themed-svg-studio-site.adoc[Detailed changelog].
+
 == 2026-09-08 — Themed PlayTime news diagrams
 
 * All twelve PlayTime diagrams retain adaptive public image URLs, preserve former artwork as fixed assets, and progressively upgrade to sanitized host SVGs from Scriptbook `9753437`.
