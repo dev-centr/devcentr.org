@@ -65,6 +65,7 @@ export default defineConfig({
         "/stack-advisor",
         "/toolchain-browser",
         "/toolchain-advisor",
+        "/themed-svg-studio",
         "/skills",
         "/templates",
         "/news",

@@ -18,6 +18,7 @@ function ensureSpa(dir) {
 ensureSpa(join(pub, "stack-advisor"));
 ensureSpa(join(pub, "toolchain-browser"));
 ensureSpa(join(pub, "toolchain-advisor"));
+ensureSpa(join(pub, "themed-svg-studio"));
 ensureSpa(join(pub, "skills"));
 ensureSpa(join(pub, "templates"));
 ensureSpa(join(pub, "news"));
