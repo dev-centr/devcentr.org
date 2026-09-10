@@ -2,6 +2,11 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-09-10 — Public crawlability
+
+* Publish `/robots.txt` and generate `/sitemap.xml` from the shared prerender route list in postbuild (`spa-fallback`).
+* Sitemap omits `/health`, `/status`, and `/blog` aliases of `/news`.
+
 == 2026-09-08 — Themed PlayTime news diagrams
 
 * All twelve PlayTime diagrams retain adaptive public image URLs, preserve former artwork as fixed assets, and progressively upgrade to sanitized host SVGs from Scriptbook `9753437`.
