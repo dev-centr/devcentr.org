@@ -1,6 +1,8 @@
-import { existsSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
+import { getPrerenderRoutes } from "./site-routes.mjs";
+import { injectHtmlFallback, writeCrawlability } from "./write-crawlability.mjs";
 
 const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const pub = join(root, ".output", "public");
@@ -15,46 +17,21 @@ function ensureSpa(dir) {
   }
 }
 
-ensureSpa(join(pub, "stack-advisor"));
-ensureSpa(join(pub, "toolchain-browser"));
-ensureSpa(join(pub, "toolchain-advisor"));
-ensureSpa(join(pub, "skills"));
-ensureSpa(join(pub, "templates"));
-ensureSpa(join(pub, "news"));
-ensureSpa(join(pub, "blog"));
-ensureSpa(join(pub, "changelog"));
-ensureSpa(join(pub, "health"));
-ensureSpa(join(pub, "help"));
-ensureSpa(join(pub, "support"));
-ensureSpa(join(pub, "status"));
-ensureSpa(join(pub, "apps"));
-ensureSpa(join(pub, "apps", "products"));
-ensureSpa(join(pub, "apps", "services"));
-ensureSpa(join(pub, "apps", "standards"));
-ensureSpa(join(pub, "ideas", "equivalence-engine"));
-{
-  const catalog = join(root, "src", "lib", "apps-catalog.ts");
-  if (existsSync(catalog)) {
-    const text = readFileSync(catalog, "utf8");
-    const slugs = [...text.matchAll(/slug:\s*"([^"]+)"/g)].map((m) => m[1]);
-    for (const slug of new Set(slugs)) {
-      ensureSpa(join(pub, "ideas", slug));
-    }
-  }
-}
-
-const generated = join(root, "src", "lib", "news-posts.generated.json");
-if (existsSync(generated)) {
-  try {
-    const data = JSON.parse(readFileSync(generated, "utf8"));
-    for (const post of data.posts || []) {
-      if (!post?.slug) continue;
-      ensureSpa(join(pub, "news", post.slug));
-      ensureSpa(join(pub, "blog", post.slug));
-    }
-  } catch {
-    /* ignore */
-  }
+for (const route of getPrerenderRoutes()) {
+  if (route === "/") continue;
+  const parts = route.replace(/^\//, "").split("/").filter(Boolean);
+  ensureSpa(join(pub, ...parts));
 }
 
 writeFileSync(join(pub, "404.html"), html);
+writeCrawlability(pub);
+injectHtmlFallback(indexHtml);
+// Re-copy fallback-enhanced index into SPA shells that were copied earlier
+const enhanced = readFileSync(indexHtml, "utf8");
+for (const route of getPrerenderRoutes()) {
+  if (route === "/") continue;
+  const parts = route.replace(/^\//, "").split("/").filter(Boolean);
+  const target = join(pub, ...parts, "index.html");
+  if (existsSync(target)) writeFileSync(target, enhanced);
+}
+writeFileSync(join(pub, "404.html"), enhanced);

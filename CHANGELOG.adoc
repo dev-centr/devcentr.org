@@ -1,0 +1,6 @@
+﻿= Changelog
+
+== 2026-09-10 -- Public crawlability
+
+* Publish `/robots.txt` and a build-generated `/sitemap.xml` from the shared prerender route list.
+* Inject no-JS title, description, and noscript fallback into the static app shell after build.
