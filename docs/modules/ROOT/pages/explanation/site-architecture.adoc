@@ -57,7 +57,46 @@ Catalogue and nested article pages (`PageTrail`) show the access path as `Sectio
 
 . `prebuild` — `scripts/sync-advisor-catalog.mjs`, `scripts/sync-bootstrap-profiles.mjs`, then `scripts/build-news.mjs`
 . `vinxi build` — static route artifacts
-. `postbuild` — `scripts/spa-fallback.mjs` for client-side routing on Pages
+. `postbuild` — `scripts/spa-fallback.mjs` for client-side routing on Pages, crawl files, and no-JS shell metadata
+
+[[public-crawlability]]
+== Public crawlability
+
+Indexable URLs share one list: `getPrerenderRoutes()` in `scripts/site-routes.mjs`.
+
+[cols="1,2",options="header"]
+|===
+| Consumer | Role
+
+| `app.config.ts` `router.prerender.routes`
+| Static HTML per path from Vinxi
+
+| `scripts/spa-fallback.mjs`
+| Copy SPA shell into each route directory on GitHub Pages
+
+| `scripts/write-crawlability.mjs`
+| Emit `robots.txt` and `sitemap.xml` under `.output/public`
+|===
+
+The sitemap uses `https://devcentr.org` and lists prerender paths except `/health`, `/status`, and `/blog` (and `/blog/:slug`) aliases of `/news`.
+
+`injectHtmlFallback()` adds title, description, and a `<noscript>` crawl block to `index.html` when the build shell is sparse.
+
+Add a new marketing or idea route by extending `STATIC_ROUTES` or the news/apps catalog sources in `site-routes.mjs` — do not edit sitemap XML by hand.
+
+See xref:changelog-details/2026-09-10 - public-crawlability.adoc[2026-09-10 crawlability changelog] for the full pipeline.
+
+[[progressive-diagrams]]
+== Progressive themed SVGs
+
+News diagrams and the home toolchain diagrams ship as pinned SVG artifacts, not inline drawings in TSX.
+
+* **PlayTime (news)** — `public/news/media/`; sync via `pnpm news:diagrams:sync`, verify with `pnpm news:diagrams:check` and `pnpm news:diagrams:test`. AsciiDoc uses `[.themed-svg]` blocks; runtime upgrade via `@dev-centr/themed-svg` in `src/components/themed-news-content.tsx`.
+* **Semantic architecture (home)** — `public/media/diagrams/`; sync via `pnpm semantic:diagrams:sync`, verify with `pnpm semantic:diagrams:check`. Components: `src/components/progressive-diagram.tsx`.
+
+Provenance JSON beside each artifact set records upstream repo, commit, and SHA-256. CI runs check scripts without sibling clones.
+
+xref:changelog-details/2026-09-08 - themed-playtime-news-diagrams.adoc[2026-09-08 progressive diagrams changelog] covers the migration from hand-authored SVGs.
 
 CI (`.github/workflows/ci.yml`) additionally checks out sibling repos into the workspace root before `build-news.mjs`:
 
@@ -80,4 +119,4 @@ Custom domain `devcentr.org` is configured in the repository's Pages settings.
 * `src/lib/` — catalog data, changelog loader, theme reveal, site links
 * `content/news/` — authored news (see xref:explanation/news-and-changelog.adoc[News & changelog pipeline])
 * `public/brand/` — SVG logo marks (canonical org assets live in `.github` profile repos)
-* `scripts/` — news/changelog build, advisor and bootstrap-profile sync, SPA fallback, logo rasterize
+* `scripts/` — news/changelog build, advisor and bootstrap-profile sync, SPA fallback and crawlability (`site-routes.mjs`, `write-crawlability.mjs`), diagram sync, logo rasterize

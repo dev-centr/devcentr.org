@@ -65,7 +65,15 @@ Without siblings, news still builds; changelog ingest logs `changelog skip (miss
 
 | `pnpm brand:raster`
 | Rasterize SVG logos to PNG sizes under `public/brand/`
+
+| `pnpm news:diagrams:sync` / `pnpm news:diagrams:check`
+| Refresh or verify pinned PlayTime news SVGs (`scripts/sync-playtime-diagrams.mjs`)
+
+| `pnpm semantic:diagrams:sync` / `pnpm semantic:diagrams:check`
+| Refresh or verify home semantic architecture SVGs (`scripts/sync-semantic-diagrams.mjs`)
 |===
+
+After `pnpm build`, inspect `.output/public/sitemap.xml` and `.output/public/robots.txt` (written in postbuild). New public routes must be added through `scripts/site-routes.mjs` — see xref:explanation/site-architecture.adoc#public-crawlability[Public crawlability].
 
 == Editor setup
 

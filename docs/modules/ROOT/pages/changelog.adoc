@@ -2,10 +2,17 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-09-14 — Crawlability maintainer docs
+
+* Antora: xref:explanation/site-architecture.adoc#public-crawlability[Public crawlability] on the site architecture page; diagram sync notes on the same page.
+* Detailed changelog for the 2026-09-10 ship: xref:changelog-details/2026-09-10 - public-crawlability.adoc[Public crawlability].
+* CI verifies `sitemap.xml` and `robots.txt` after postbuild.
+
 == 2026-09-10 — Public crawlability
 
 * Publish `/robots.txt` and generate `/sitemap.xml` from the shared prerender route list in postbuild (`spa-fallback`).
 * Sitemap omits `/health`, `/status`, and `/blog` aliases of `/news`.
+* See xref:changelog-details/2026-09-10 - public-crawlability.adoc[Detailed changelog].
 
 == 2026-09-08 — Themed PlayTime news diagrams
 
