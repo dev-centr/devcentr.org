@@ -124,6 +124,12 @@ jobs:
           test -f .output/public/help/index.html
           test -f .output/public/support/index.html
 
+      - name: Verify crawlability artifacts
+        run: |
+          test -f .output/public/sitemap.xml
+          test -f .output/public/robots.txt
+          grep -q 'https://devcentr.org/sitemap.xml' .output/public/robots.txt
+
       - name: Add .nojekyll for GitHub Pages
         run: touch .output/public/.nojekyll
 
