@@ -1,0 +1,57 @@
+= 2026-09-10 — Public crawlability
+:navtitle: 2026-09-10 Public crawlability
+:page-audience: DevCentr site maintainers
+:page-usage-context: SEO, GitHub Pages deploy, and route additions
+:page-orig-author: Auto on behalf of Ryan Johnson
+:page-last-author: Auto on behalf of Ryan Johnson
+
+== Summary
+
+Search engines and link previews now get a consistent route list, `robots.txt`, `sitemap.xml`, and a no-JavaScript HTML fallback on the static app shell.
+
+== Single route list
+
+`scripts/site-routes.mjs` exports `getPrerenderRoutes()` — the only list of indexable paths.
+
+It is consumed by:
+
+* `app.config.ts` — Vinxi `router.prerender.routes` (static HTML per path)
+* `scripts/spa-fallback.mjs` — copies the built SPA shell into each prerender directory on GitHub Pages
+* `scripts/write-crawlability.mjs` — writes crawl files after postbuild
+
+`STATIC_ROUTES` covers marketing pages and redirects. News slugs come from `src/lib/news-posts.generated.json` (or `content/news/` before build). Idea slugs are parsed from `src/lib/apps-catalog.ts`.
+
+When you add a public route, update `STATIC_ROUTES` or the catalog/news sources above — do not maintain a second sitemap list.
+
+== Crawl files (postbuild)
+
+`scripts/spa-fallback.mjs` (npm `postbuild`) calls `writeCrawlability()` on `.output/public`:
+
+* `robots.txt` — `Allow: /` and a `Sitemap:` line pointing at `https://devcentr.org/sitemap.xml`
+* `sitemap.xml` — one `<loc>` per prerender route at `SITE_ORIGIN` (`https://devcentr.org`)
+
+Excluded from the sitemap (still prerendered for humans and probes):
+
+* `/health`, `/status` — operational probes
+* `/blog` and `/blog/:slug` — SEO aliases of `/news` (canonical URLs use `/news`)
+
+A committed `public/robots.txt` documents the policy for local preview; production values are regenerated on every build.
+
+== No-JS fallback
+
+`injectHtmlFallback()` ensures prerendered `index.html` has:
+
+* `<title>` and `<meta name="description">` when the Vinxi shell omits them
+* A `<noscript id="crawl-fallback">` block with heading and purpose copy from `HTML_FALLBACK` in `site-routes.mjs`
+
+After injection, postbuild re-copies the enhanced shell into every SPA fallback directory and `404.html`.
+
+== Verification
+
+CI builds the site and checks that `.output/public/sitemap.xml` and `.output/public/robots.txt` exist after postbuild.
+
+== Knowledge gaps addressed
+
+* Where to edit routes when shipping a new marketing page or idea slug
+* Why `/blog` URLs are prerendered but omitted from the sitemap
+* How crawl metadata relates to the SPA fallback pass

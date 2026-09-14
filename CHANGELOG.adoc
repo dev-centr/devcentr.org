@@ -1,5 +1,10 @@
 ﻿= Changelog
 
+== 2026-09-14 -- Crawlability maintainer docs
+
+* Antora site architecture and local development pages document `site-routes.mjs`, postbuild crawl files, and progressive diagram sync scripts.
+* Detailed Antora changelog for 2026-09-10 public crawlability; CI checks `sitemap.xml` and `robots.txt` after build.
+
 == 2026-09-10 -- Public crawlability
 
 * Publish `/robots.txt` and a build-generated `/sitemap.xml` from the shared prerender route list.
