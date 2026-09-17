@@ -1,6 +1,5 @@
-name: devcentr-org
-title: devcentr.org
+name: platforms
+title: Platforms
 version: ~
-start_page: ROOT:index.adoc
 nav:
-  - modules/ROOT/nav.adoc
+- modules/devcentr-org/nav.adoc

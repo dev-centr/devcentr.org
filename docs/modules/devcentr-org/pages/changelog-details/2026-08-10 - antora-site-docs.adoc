@@ -30,7 +30,7 @@ First-class Antora documentation for the devcentr.org marketing site, covering a
 
 === README
 
-* Docs badge → `https://docs.devcentr.org/devcentr-org/`
+* Docs badge → `https://docs.devcentr.org/platforms/devcentr-org/`
 * CI badge → GitHub Actions workflow status.
 
 == Cross-repo
