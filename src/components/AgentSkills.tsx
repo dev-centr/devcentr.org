@@ -1,14 +1,38 @@
-import { A, useSearchParams } from "@solidjs/router";
-import { createEffect, createMemo, createSignal, For, Show, type Component } from "solid-js";
+import {
+  createEffect,
+  createMemo,
+  createSignal,
+  For,
+  onCleanup,
+  onMount,
+  Show,
+  type Component,
+} from "solid-js";
 import { Button } from "~/components/ui/button";
 import { BootstrapProfiles } from "~/components/BootstrapProfiles";
 import {
   SKILL_CATEGORIES,
   parseSkillCategory,
   skillsInCategory,
+  type SkillCategoryId,
   type SkillEntry,
 } from "~/lib/agent-skills";
 import "../toolchain-advisor.css";
+
+function readCatFromUrl(): SkillCategoryId {
+  if (typeof window === "undefined") return "all";
+  return parseSkillCategory(new URL(window.location.href).searchParams.get("cat") ?? undefined);
+}
+
+function writeCatToUrl(id: SkillCategoryId) {
+  if (typeof window === "undefined") return;
+  const url = new URL(window.location.href);
+  if (id === "all") url.searchParams.delete("cat");
+  else url.searchParams.set("cat", id);
+  const next = `${url.pathname}${url.search}${url.hash}`;
+  const cur = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+  if (next !== cur) window.history.replaceState(window.history.state, "", next);
+}
 
 const SkillList: Component<{ entries: SkillEntry[] }> = (props) => {
   const [selectedId, setSelectedId] = createSignal(props.entries[0]?.id ?? "");
@@ -33,11 +57,14 @@ const SkillList: Component<{ entries: SkillEntry[] }> = (props) => {
   };
 
   return (
-    <div class="advisor-split">
+    <>
       <div class="advisor-flow tpl-flow" role="listbox" aria-label="Skills">
         <div class="advisor-step advisor-step-focused tpl-list">
           <h3>Skills</h3>
-          <p class="advisor-hint">Select a skill to inspect the harness inventory record. Copy only if you need to name it explicitly in a prompt.</p>
+          <p class="advisor-hint">
+            Select a skill to inspect the harness inventory record. Copy only if you need to name it
+            explicitly in a prompt.
+          </p>
           <ul class="advisor-options tpl-options">
             <For each={props.entries}>
               {(s) => (
@@ -80,20 +107,77 @@ const SkillList: Component<{ entries: SkillEntry[] }> = (props) => {
               <Show when={s().id === "bootstrap-org"}>
                 <p class="advisor-meta tpl-prompt">
                   Open the{" "}
-                  <A href="/skills?cat=bootstrap">Bootstrap skills</A> selector to copy a profile name.
+                  <button
+                    type="button"
+                    class="skill-inline-link"
+                    onClick={() => {
+                      writeCatToUrl("bootstrap");
+                      window.dispatchEvent(new CustomEvent("devcentr:skills-cat", { detail: "bootstrap" }));
+                    }}
+                  >
+                    Bootstrap skills
+                  </button>{" "}
+                  selector to copy a profile name.
                 </p>
               </Show>
             </>
           )}
         </Show>
       </aside>
-    </div>
+    </>
   );
 };
 
+const EmptyCategory: Component<{ message: string }> = (props) => (
+  <>
+    <div class="advisor-flow tpl-flow">
+      <div class="advisor-step tpl-list">
+        <h3>Skills</h3>
+        <p class="advisor-hint">This category has no published skills yet.</p>
+        <ul class="advisor-options tpl-options skill-empty-list" aria-hidden="true">
+          <li>
+            <span class="advisor-option skill-option-ghost">—</span>
+          </li>
+          <li>
+            <span class="advisor-option skill-option-ghost">—</span>
+          </li>
+          <li>
+            <span class="advisor-option skill-option-ghost">—</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <aside class="advisor-context">
+      <p class="skill-empty-label">No published skills</p>
+      <p class="skill-empty">{props.message}</p>
+    </aside>
+  </>
+);
+
 export function AgentSkills() {
-  const [params, setParams] = useSearchParams();
-  const category = createMemo(() => parseSkillCategory(params.cat));
+  const [category, setCategory] = createSignal<SkillCategoryId>("all");
+
+  onMount(() => {
+    setCategory(readCatFromUrl());
+    const onPop = () => setCategory(readCatFromUrl());
+    const onCustom = (e: Event) => {
+      const id = (e as CustomEvent<string>).detail;
+      setCategory(parseSkillCategory(id));
+      writeCatToUrl(parseSkillCategory(id));
+    };
+    window.addEventListener("popstate", onPop);
+    window.addEventListener("devcentr:skills-cat", onCustom);
+    onCleanup(() => {
+      window.removeEventListener("popstate", onPop);
+      window.removeEventListener("devcentr:skills-cat", onCustom);
+    });
+  });
+
+  const selectCategory = (id: SkillCategoryId) => {
+    setCategory(id);
+    writeCatToUrl(id);
+  };
+
   const catMeta = createMemo(
     () => SKILL_CATEGORIES.find((c) => c.id === category()) ?? SKILL_CATEGORIES[0],
   );
@@ -102,7 +186,7 @@ export function AgentSkills() {
   return (
     <div class="advisor-root">
       <div class="skill-cats" role="tablist" aria-label="Skill categories">
-                <For each={SKILL_CATEGORIES}>
+        <For each={SKILL_CATEGORIES}>
           {(c) => (
             <button
               type="button"
@@ -110,7 +194,7 @@ export function AgentSkills() {
               aria-selected={category() === c.id}
               class="skill-cat"
               classList={{ "is-active": category() === c.id }}
-              onClick={() => setParams({ cat: c.id === "all" ? "" : c.id })}
+              onClick={() => selectCategory(c.id)}
             >
               {c.label}
             </button>
@@ -122,19 +206,20 @@ export function AgentSkills() {
         <Show when={category() === "bootstrap"}>
           <BootstrapProfiles />
         </Show>
-        <Show when={category() !== "bootstrap" && entries().length > 0}>
-          <SkillList entries={entries()} />
-        </Show>
-        <Show when={category() !== "bootstrap" && entries().length === 0}>
-          <div class="skill-empty-panel">
-            <p class="skill-empty-label">No published skills</p>
-            <p class="skill-empty">{catMeta().empty ?? "Nothing published in this category yet."}</p>
+        <Show when={category() !== "bootstrap"}>
+          <div class="advisor-split skill-stage-frame">
+            <Show
+              when={entries().length > 0}
+              fallback={<EmptyCategory message={catMeta().empty ?? "Nothing published in this category yet."} />}
+            >
+              <SkillList entries={entries()} />
+            </Show>
           </div>
         </Show>
       </div>
 
       <p class="skill-source">
-        Source SDL ·{" "}
+        Source ·{" "}
         <a href={catMeta().sourceUrl} target="_blank" rel="noopener noreferrer">
           {category() === "all" ? "agent-rules / skills" : catMeta().label}
         </a>

@@ -428,11 +428,13 @@
 
 /* Skills page: keep category switches from resizing the page chrome */
 .skill-stage {
+  display: block;
   width: 100%;
   min-height: 28rem;
   max-width: 100%;
   min-width: 0;
   box-sizing: border-box;
+  overflow: hidden;
 }
 
 .skill-empty-panel {
@@ -483,3 +485,50 @@
     max-width: none;
   }
 }
+
+
+.skill-stage-frame {
+  width: 100%;
+  max-width: 100%;
+  min-height: 28rem;
+  box-sizing: border-box;
+}
+
+.skill-option-ghost {
+  opacity: 0.25;
+  pointer-events: none;
+  cursor: default;
+}
+
+.skill-empty-list {
+  min-height: 8rem;
+}
+
+.skill-inline-link {
+  border: none;
+  background: none;
+  padding: 0;
+  color: hsl(var(--primary));
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  font: inherit;
+}
+
+.skill-inline-link:hover {
+  color: hsl(var(--foreground));
+}
+
+@media (min-width: 900px) {
+  .skill-stage .advisor-split,
+  .skill-stage-frame {
+    display: grid;
+    grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
+
+.bootstrap-profiles { width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; }
+.bootstrap-profiles .advisor-split { width: 100%; max-width: 100%; }
