@@ -112,7 +112,7 @@ const BootstrapProfiles: Component = () => {
           <div class="advisor-flow tpl-flow" role="listbox" aria-label="Bootstrap skills">
             <div class="advisor-step advisor-step-focused tpl-list">
               <h3>Skills</h3>
-              <p class="advisor-hint">Select a profile to inspect its record. Copy is optional — only when you intend to load it in Cursor.</p>
+              <p class="advisor-hint">Select a profile to inspect the harness inventory record. Copy only if you need to name it explicitly in a prompt.</p>
               <input
                 type="search"
                 class="advisor-search"

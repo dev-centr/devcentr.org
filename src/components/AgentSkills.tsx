@@ -37,7 +37,7 @@ const SkillList: Component<{ entries: SkillEntry[] }> = (props) => {
       <div class="advisor-flow tpl-flow" role="listbox" aria-label="Skills">
         <div class="advisor-step advisor-step-focused tpl-list">
           <h3>Skills</h3>
-          <p class="advisor-hint">Select a skill to inspect its record. Copy is optional — only when you intend to load it in Cursor.</p>
+          <p class="advisor-hint">Select a skill to inspect the harness inventory record. Copy only if you need to name it explicitly in a prompt.</p>
           <ul class="advisor-options tpl-options">
             <For each={props.entries}>
               {(s) => (
