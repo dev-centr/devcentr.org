@@ -15,8 +15,6 @@ mkdirSync(brandDir, { recursive: true });
 
 const SIZE = 128;
 const FAVICON_INSET = 8;
-const TILE_RX = 24;
-const TILE_FILL = "#0A0E14";
 const TRANSPARENT = { r: 0, g: 0, b: 0, alpha: 0 };
 
 const require = createRequire(import.meta.url);
@@ -107,7 +105,7 @@ async function packFavicon(sharp, sourceSvg) {
     .join("\n");
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${SIZE} ${SIZE}" role="img" aria-label="DevCentr">
   <title>DevCentr</title>
-  <rect width="${SIZE}" height="${SIZE}" rx="${TILE_RX}" fill="${TILE_FILL}"/>
+  <rect width="${SIZE}" height="${SIZE}" fill="none"/>
   <g transform="${tf}">
 ${inner}
   </g>
@@ -134,7 +132,7 @@ if (!raster.sharp) {
   throw new Error("sharp is required to pack the favicon from the orbital mark");
 }
 
-const faviconSvg = await packFavicon(raster.sharp, join(brandDir, "logo-on-dark.svg"));
+const faviconSvg = await packFavicon(raster.sharp, join(brandDir, "logo.svg"));
 const faviconSvgPath = join(brandDir, "favicon.svg");
 writeFileSync(faviconSvgPath, faviconSvg);
 copyFileSync(faviconSvgPath, join(publicDir, "favicon.svg"));
