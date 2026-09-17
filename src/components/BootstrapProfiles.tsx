@@ -7,6 +7,8 @@ import {
   type Component,
 } from "solid-js";
 import { Button } from "~/components/ui/button";
+import { CopyInstallSnippet } from "~/components/CopyInstallSnippet";
+import { bootstrapProfilePrompt } from "~/lib/agent-skills";
 import "../toolchain-advisor.css";
 
 export type BootstrapProfile = {
@@ -52,7 +54,6 @@ const BootstrapProfiles: Component = () => {
   const [query, setQuery] = createSignal("");
   const [error, setError] = createSignal<string | null>(null);
   const [loading, setLoading] = createSignal(true);
-  const [copied, setCopied] = createSignal(false);
 
   const reload = async () => {
     setLoading(true);
@@ -86,15 +87,6 @@ const BootstrapProfiles: Component = () => {
     () => catalog()?.profiles.find((p) => p.id === selectedId()) ?? visible()[0] ?? null,
   );
 
-  const copyName = async (id: string) => {
-    try {
-      await navigator.clipboard.writeText(id);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 1600);
-    } catch {
-      setCopied(false);
-    }
-  };
 
   return (
     <div class="bootstrap-profiles">
@@ -112,7 +104,7 @@ const BootstrapProfiles: Component = () => {
           <div class="advisor-flow tpl-flow" role="listbox" aria-label="Bootstrap skills">
             <div class="advisor-step advisor-step-focused tpl-list">
               <h3>Skills</h3>
-              <p class="advisor-hint">Select a profile to inspect the harness inventory record. Copy only if you need to name it explicitly in a prompt.</p>
+              <p class="advisor-hint">Select a profile to inspect the harness inventory record. Copy the agent prompt when you want bootstrap steps dropped into a coding agent.</p>
               <input
                 type="search"
                 class="advisor-search"
@@ -161,15 +153,10 @@ const BootstrapProfiles: Component = () => {
                       {scalar((p().merged.site as Record<string, unknown>).ui)}
                     </Show>
                   </p>
-                  <div class="tpl-copy-row">
-                    <Button
-                      variant="outline"
-                      class="rounded-md font-mono text-xs uppercase tracking-[0.16em]"
-                      onClick={() => void copyName(p().id)}
-                    >
-                      {copied() ? "Copied" : "Copy name"}
-                    </Button>
-                  </div>
+                  <CopyInstallSnippet
+                    label="Agent prompt"
+                    text={bootstrapProfilePrompt(p().id)}
+                  />
                   <h3>Overview</h3>
                   <p class="advisor-overview">{p().summary}</p>
                   <Show when={p().useWhen.length > 0}>

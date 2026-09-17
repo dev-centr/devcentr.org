@@ -110,3 +110,22 @@ export function skillsInCategory(id: SkillCategoryId): SkillEntry[] {
   if (id === "all") return SKILL_ENTRIES.filter((s) => s.status === "active");
   return SKILL_ENTRIES.filter((s) => s.category === id);
 }
+
+
+/** Plain-English lines to paste into a coding agent / harness (not a shell installer). */
+export function skillAgentPrompt(id: string, sourceUrl?: string): string {
+  const url = sourceUrl ?? `https://github.com/dev-centr/agent-rules/tree/main/skills/${id}`;
+  return [
+    `Use the \`${id}\` skill from DevCentr agent-rules for this task.`,
+    `Skill path: ${url}`,
+    "If that skill is not loaded in this session, sync agent-rules from https://github.com/dev-centr/agent-rules and continue.",
+  ].join("\n");
+}
+
+export function bootstrapProfilePrompt(profileId: string): string {
+  return [
+    `Bootstrap this repository with the \`${profileId}\` profile using the DevCentr bootstrap-org skill.`,
+    "Profiles live under agent-rules skills/bootstrap-org.",
+    "If bootstrap-org is not loaded in this session, sync agent-rules from https://github.com/dev-centr/agent-rules and continue.",
+  ].join("\n");
+}

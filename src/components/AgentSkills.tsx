@@ -8,11 +8,12 @@ import {
   Show,
   type Component,
 } from "solid-js";
-import { Button } from "~/components/ui/button";
+import { CopyInstallSnippet } from "~/components/CopyInstallSnippet";
 import { BootstrapProfiles } from "~/components/BootstrapProfiles";
 import {
   SKILL_CATEGORIES,
   parseSkillCategory,
+  skillAgentPrompt,
   skillsInCategory,
   type SkillCategoryId,
   type SkillEntry,
@@ -36,7 +37,6 @@ function writeCatToUrl(id: SkillCategoryId) {
 
 const SkillList: Component<{ entries: SkillEntry[] }> = (props) => {
   const [selectedId, setSelectedId] = createSignal(props.entries[0]?.id ?? "");
-  const [copied, setCopied] = createSignal(false);
 
   createEffect(() => {
     const ids = props.entries.map((s) => s.id);
@@ -46,24 +46,14 @@ const SkillList: Component<{ entries: SkillEntry[] }> = (props) => {
     () => props.entries.find((s) => s.id === selectedId()) ?? props.entries[0] ?? null,
   );
 
-  const copyName = async (id: string) => {
-    try {
-      await navigator.clipboard.writeText(id);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 1600);
-    } catch {
-      setCopied(false);
-    }
-  };
-
   return (
     <>
       <div class="advisor-flow tpl-flow" role="listbox" aria-label="Skills">
         <div class="advisor-step advisor-step-focused tpl-list">
           <h3>Skills</h3>
           <p class="advisor-hint">
-            Select a skill to inspect the harness inventory record. Copy only if you need to name it
-            explicitly in a prompt.
+            Select a skill to inspect the harness inventory record. Copy the agent prompt when you
+            want setup steps dropped into a coding agent.
           </p>
           <ul class="advisor-options tpl-options">
             <For each={props.entries}>
@@ -93,17 +83,12 @@ const SkillList: Component<{ entries: SkillEntry[] }> = (props) => {
               <h2>
                 <code class="tpl-name">{s().id}</code>
               </h2>
-              <div class="tpl-copy-row">
-                <Button
-                  variant="outline"
-                  class="rounded-md font-mono text-xs uppercase tracking-[0.16em]"
-                  onClick={() => void copyName(s().id)}
-                >
-                  {copied() ? "Copied" : "Copy name"}
-                </Button>
-              </div>
               <h3>Overview</h3>
               <p class="advisor-overview">{s().summary}</p>
+              <CopyInstallSnippet
+                label="Agent prompt"
+                text={skillAgentPrompt(s().id, s().sourceUrl)}
+              />
               <Show when={s().id === "bootstrap-org"}>
                 <p class="advisor-meta tpl-prompt">
                   Open the{" "}
@@ -117,7 +102,7 @@ const SkillList: Component<{ entries: SkillEntry[] }> = (props) => {
                   >
                     Bootstrap skills
                   </button>{" "}
-                  selector to copy a profile name.
+                  selector for a profile-specific agent prompt.
                 </p>
               </Show>
             </>
@@ -136,13 +121,13 @@ const EmptyCategory: Component<{ message: string }> = (props) => (
         <p class="advisor-hint">This category has no published skills yet.</p>
         <ul class="advisor-options tpl-options skill-empty-list" aria-hidden="true">
           <li>
-            <span class="advisor-option skill-option-ghost">—</span>
+            <span class="advisor-option skill-option-ghost">&nbsp;</span>
           </li>
           <li>
-            <span class="advisor-option skill-option-ghost">—</span>
+            <span class="advisor-option skill-option-ghost">&nbsp;</span>
           </li>
           <li>
-            <span class="advisor-option skill-option-ghost">—</span>
+            <span class="advisor-option skill-option-ghost">&nbsp;</span>
           </li>
         </ul>
       </div>

@@ -532,3 +532,41 @@
 
 .bootstrap-profiles { width: 100%; max-width: 100%; min-width: 0; box-sizing: border-box; }
 .bootstrap-profiles .advisor-split { width: 100%; max-width: 100%; }
+
+.install-snippet {
+  margin: 0.85rem 0 1rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: 10px;
+  background: hsl(var(--muted) / 0.35);
+  overflow: hidden;
+  max-width: 100%;
+}
+.install-snippet-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.45rem 0.65rem;
+  border-bottom: 1px solid hsl(var(--border));
+}
+.install-snippet-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+}
+.install-snippet-body {
+  margin: 0;
+  padding: 0.75rem 0.85rem;
+  overflow-x: auto;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: hsl(var(--foreground));
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+.install-snippet-body code {
+  font: inherit;
+}
