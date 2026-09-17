@@ -1,5 +1,5 @@
 /**
- * Rasterize brand SVGs to PNG (1024 + 256) and pack a square favicon from the mark.
+ * Rasterize brand SVGs to PNG (1024 + 256) and pack favicon from logo-favicon.svg (concentric hub + satellite dots).
  * Uses sharp when available; falls back to @resvg/resvg-js for the PNG sizes.
  */
 import { copyFileSync, existsSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
@@ -14,7 +14,7 @@ const profileDir = join(__dirname, "../../.github/profile");
 mkdirSync(brandDir, { recursive: true });
 
 const SIZE = 128;
-const FAVICON_INSET = 8;
+const FAVICON_INSET = 4;
 const TRANSPARENT = { r: 0, g: 0, b: 0, alpha: 0 };
 
 const require = createRequire(import.meta.url);
@@ -129,10 +129,11 @@ for (const t of targets) {
 }
 
 if (!raster.sharp) {
-  throw new Error("sharp is required to pack the favicon from the orbital mark");
+  throw new Error("sharp is required to pack the favicon from logo-favicon.svg");
 }
 
-const faviconSvg = await packFavicon(raster.sharp, join(brandDir, "logo.svg"));
+const faviconSource = join(brandDir, "logo-favicon.svg");
+const faviconSvg = readFileSync(faviconSource, "utf8");
 const faviconSvgPath = join(brandDir, "favicon.svg");
 writeFileSync(faviconSvgPath, faviconSvg);
 copyFileSync(faviconSvgPath, join(publicDir, "favicon.svg"));
@@ -141,7 +142,7 @@ await raster.sharp(Buffer.from(faviconSvg)).resize(SIZE, SIZE).png().toFile(join
 await raster.sharp(Buffer.from(faviconSvg)).resize(32, 32).png().toFile(join(publicDir, "favicon-32.png"));
 const icoPng = await raster.sharp(Buffer.from(faviconSvg)).resize(32, 32).png().toBuffer();
 writeFileSync(join(publicDir, "favicon.ico"), pngToIco(icoPng, 32));
-console.log(`Wrote favicon.svg / favicon.ico (mark packed into ${SIZE}px tile, inset ${FAVICON_INSET})`);
+console.log(`Wrote favicon.svg / favicon.ico from logo-favicon.svg (${SIZE}px / 32px)`);
 
 if (existsSync(profileDir)) {
   copyFileSync(faviconSvgPath, join(profileDir, "favicon.svg"));
