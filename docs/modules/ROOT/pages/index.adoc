@@ -52,5 +52,5 @@ https://devcentr.org
 == Related docs
 
 * xref:home::where-docs-live.adoc[Where documentation lives] — org-wide docs portal map
-* xref:devcentr::index.adoc[DevCentr app docs] — flagship Development Orchestration Suite
+* xref:DevCentr::index.adoc[DevCentr app docs] — flagship Development Orchestration Suite
 * link:https://docs.devcentr.org[docs.devcentr.org] — aggregated Antora site

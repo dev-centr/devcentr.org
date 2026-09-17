@@ -113,9 +113,9 @@ Timeline of notable documentation and site changes in the devcentr.org repositor
 * `content/news/README.adoc` — clarified news vs changelog voice; scene-driven writing checklist.
 * News post on API keys vs tokens (narrative; canonical explanation lives in general-knowledge).
 
-== 2026-08-08 — Business Bootstrap support-systems hub (news)
+== 2026-08-08 — Business Bootstrap guide additions (news)
 
-* News post announcing Business Bootstrap capability areas on docs.devcentr.org.
+* News post on new Scheduling, Design, and Vault areas in the Business Bootstrap guide.
 
 == 2026-08-06 — Theme reveal stabilization
 
