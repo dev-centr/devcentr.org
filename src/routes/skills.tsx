@@ -8,7 +8,7 @@ export default function SkillsPage() {
       <Title>Agent skills · DevCentr</Title>
       <Meta
         name="description"
-        content="See which DevCentr agent skills the harness auto-loads and keeps current — an inventory of agent-rules curricula, not a storefront."
+        content="Inventory of DevCentr agent skills from agent-rules. The harness auto-loads and keeps them current; the corpus is designed to work together even if you only adopt pieces."
       />
       <div class="mx-auto max-w-7xl px-6 pb-12 pt-2 md:px-10">
         <header class="mb-10 md:mb-12">
@@ -20,8 +20,9 @@ export default function SkillsPage() {
             AI-assisted coding and vibe coding workflows in DevCentr load agent skills through the harness —
             pulled from agent-rules, kept current, and applied without a manual shopping trip. This page is that
             inventory made visible: what exists by category, what each skill covers, and which slots are still
-            empty. Browse to understand the set the harness already carries; copy a name only if you need to
-            call one out explicitly. Bootstrap lists org and project profiles.
+            empty. You can adopt pieces without taking every harness tweak, but the corpus is designed to work
+            together in sum — browsing here is how you see the whole set, not a menu of one-offs. Copy a name
+            only if you need to call one out explicitly. Bootstrap lists org and project profiles.
           </p>
         </header>
         <AgentSkills />
