@@ -1,15 +1,21 @@
 .advisor-root {
   width: 100%;
-  max-width: 1280px;
+  max-width: min(1280px, 100%);
   margin: 0 auto;
+  box-sizing: border-box;
+  min-width: 0;
 }
 
 .advisor-split {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: stretch;
   gap: 1.25rem;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
 }
 
 .advisor-flow {
@@ -80,6 +86,8 @@
 .advisor-option {
   display: block;
   width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
   text-align: left;
   padding: 0.45rem 0.5rem;
   margin-bottom: 2px;
@@ -127,14 +135,18 @@
 }
 
 .advisor-context {
-  flex: 0 0 min(380px, 40vw);
+  flex: 1 1 280px;
+  min-width: 0;
+  max-width: 100%;
   max-height: 70vh;
+  overflow-x: hidden;
   overflow-y: auto;
   background: hsl(var(--card));
   border: 1px solid hsl(var(--border));
   border-radius: 12px;
   padding: 1.25rem;
   text-align: left;
+  box-sizing: border-box;
 }
 
 .advisor-context h2 {
@@ -294,12 +306,17 @@
 }
 
 .tpl-flow {
+  flex: 1 1 260px;
   flex-direction: column;
-  overflow-x: visible;
+  overflow-x: hidden;
+  min-width: 0;
+  max-width: 100%;
 }
 
 .tpl-list {
-  width: min(320px, 100%);
+  width: 100%;
+  max-width: min(320px, 100%);
+  box-sizing: border-box;
 }
 
 .tpl-options {
@@ -309,6 +326,8 @@
 .tpl-id {
   font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
   font-size: 0.82rem;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 .tpl-name {
@@ -350,6 +369,8 @@
   flex-wrap: wrap;
   gap: 0.4rem;
   margin: 0 0 1.5rem;
+  max-width: 100%;
+  min-width: 0;
 }
 
 .skill-cat {
@@ -402,4 +423,63 @@
   color: hsl(var(--muted-foreground));
   font-size: 0.9rem;
   line-height: 1.45;
+}
+
+
+/* Skills page: keep category switches from resizing the page chrome */
+.skill-stage {
+  width: 100%;
+  min-height: 28rem;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.skill-empty-panel {
+  width: 100%;
+  min-height: 28rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1.5rem 1.25rem;
+  background: hsl(var(--card));
+  border: 1px dashed hsl(var(--border));
+  border-radius: 12px;
+}
+
+.skill-empty-label {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: hsl(var(--muted-foreground));
+}
+
+.advisor-split {
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 900px) {
+  .advisor-split {
+    display: grid;
+    grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+    flex-wrap: nowrap;
+    align-items: stretch;
+  }
+
+  .advisor-split > .advisor-flow,
+  .advisor-split > .tpl-flow {
+    width: auto;
+    max-width: none;
+  }
+
+  .advisor-split > .advisor-context {
+    flex: none;
+    width: auto;
+    max-width: none;
+  }
 }

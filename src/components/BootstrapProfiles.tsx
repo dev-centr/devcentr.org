@@ -97,7 +97,7 @@ const BootstrapProfiles: Component = () => {
   };
 
   return (
-    <div class="advisor-root">
+    <div class="bootstrap-profiles">
       <Show when={loading()}>
         <p class="advisor-status">Loading skills from agent-rules…</p>
       </Show>
@@ -112,7 +112,7 @@ const BootstrapProfiles: Component = () => {
           <div class="advisor-flow tpl-flow" role="listbox" aria-label="Bootstrap skills">
             <div class="advisor-step advisor-step-focused tpl-list">
               <h3>Skills</h3>
-              <p class="advisor-hint">Click a name to inspect it. Copy pastes the id into a Cursor prompt.</p>
+              <p class="advisor-hint">Select a profile to inspect its record. Copy is optional — only when you intend to load it in Cursor.</p>
               <input
                 type="search"
                 class="advisor-search"

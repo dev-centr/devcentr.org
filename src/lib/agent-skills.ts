@@ -66,7 +66,7 @@ export const SKILL_ENTRIES: SkillEntry[] = [
   {
     id: "bootstrap-org",
     category: "bootstrap",
-    summary: "Stand up a GitHub org or a library/CLI/desktop/web app from a named SDL profile.",
+    summary: "Stands up a GitHub org or a library/CLI/desktop/web app from a named SDL profile.",
     sourceUrl: `${SKILLS_ROOT}/bootstrap-org`,
     status: "active",
   },

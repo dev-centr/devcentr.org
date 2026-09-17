@@ -37,7 +37,7 @@ const SkillList: Component<{ entries: SkillEntry[] }> = (props) => {
       <div class="advisor-flow tpl-flow" role="listbox" aria-label="Skills">
         <div class="advisor-step advisor-step-focused tpl-list">
           <h3>Skills</h3>
-          <p class="advisor-hint">Click a name to inspect it. Copy pastes the id into a Cursor prompt.</p>
+          <p class="advisor-hint">Select a skill to inspect its record. Copy is optional — only when you intend to load it in Cursor.</p>
           <ul class="advisor-options tpl-options">
             <For each={props.entries}>
               {(s) => (
@@ -118,15 +118,20 @@ export function AgentSkills() {
         </For>
       </div>
 
-      <Show when={category() === "bootstrap"}>
-        <BootstrapProfiles />
-      </Show>
-      <Show when={category() !== "bootstrap" && entries().length > 0}>
-        <SkillList entries={entries()} />
-      </Show>
-      <Show when={category() !== "bootstrap" && entries().length === 0}>
-        <p class="skill-empty">{catMeta().empty ?? "Nothing published in this category yet."}</p>
-      </Show>
+      <div class="skill-stage" aria-live="polite">
+        <Show when={category() === "bootstrap"}>
+          <BootstrapProfiles />
+        </Show>
+        <Show when={category() !== "bootstrap" && entries().length > 0}>
+          <SkillList entries={entries()} />
+        </Show>
+        <Show when={category() !== "bootstrap" && entries().length === 0}>
+          <div class="skill-empty-panel">
+            <p class="skill-empty-label">No published skills</p>
+            <p class="skill-empty">{catMeta().empty ?? "Nothing published in this category yet."}</p>
+          </div>
+        </Show>
+      </div>
 
       <p class="skill-source">
         Source SDL ·{" "}
