@@ -2,6 +2,7 @@
   <title>DevCentr</title>
   <!-- Small-icon mark: concentric hub + satellite ring. Two-tone for tab contrast. -->
   <!-- Bright = hub / mid satellites; deep teal = alternating satellites. -->
+  <!-- Hub matches satellite radius so the mark reads as a ring, not a triangle. -->
   <defs>
     <linearGradient id="hub" x1="36" y1="36" x2="92" y2="92" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#5EEAD4"/>
@@ -10,13 +11,13 @@
   </defs>
   <!-- Orbit guide: light stroke so it does not muddy 16px -->
   <circle cx="64" cy="64" r="40" fill="none" stroke="#0F766E" stroke-width="4" opacity="0.4"/>
-  <!-- Six large satellites (r=12): alternate bright / deep -->
+  <!-- Six satellites (r=12): alternate bright / deep -->
   <circle cx="64" cy="20" r="12" fill="#2DD4BF"/>
   <circle cx="98.78" cy="42" r="12" fill="#0F766E"/>
   <circle cx="98.78" cy="86" r="12" fill="#2DD4BF"/>
   <circle cx="64" cy="108" r="12" fill="#0F766E"/>
   <circle cx="29.22" cy="86" r="12" fill="#2DD4BF"/>
   <circle cx="29.22" cy="42" r="12" fill="#0F766E"/>
-  <!-- Center hub: clearly larger than peripherals -->
-  <circle cx="64" cy="64" r="26" fill="url(#hub)"/>
+  <!-- Center hub: same radius as peripherals -->
+  <circle cx="64" cy="64" r="12" fill="url(#hub)"/>
 </svg>
