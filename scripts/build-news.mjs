@@ -52,6 +52,17 @@ const changelogSources = [
   },
 ];
 
+function decodeHtmlEntities(s) {
+  return String(s)
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, h) => String.fromCodePoint(parseInt(h, 16)))
+    .replace(/&#(\d+);/g, (_, n) => String.fromCodePoint(Number(n)))
+    .replace(/&apos;/g, "'")
+    .replace(/&quot;/g, '"')
+    .replace(/&lt;/g, "<")
+    .replace(/&gt;/g, ">")
+    .replace(/&amp;/g, "&");
+}
+
 function escapeXml(s) {
   return String(s)
     .replaceAll("&", "&amp;")
@@ -190,8 +201,8 @@ async function loadAuthoredPosts() {
     const tags = [...new Set([...keywords, "news", "blog"])];
     posts.push({
       slug,
-      title: doc.getTitle() || slug,
-      description: doc.getAttribute("description") || "",
+      title: decodeHtmlEntities(doc.getTitle() || slug),
+      description: decodeHtmlEntities(doc.getAttribute("description") || ""),
       date: doc.getAttribute("revdate") || "",
       tags,
       html: await doc.convert(),

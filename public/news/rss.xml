@@ -133,16 +133,16 @@
     <category>news</category>
   </item>
   <item>
-    <title>Business Bootstrap becomes a support-systems hub</title>
+    <title>New additions to the Business Bootstrap guide</title>
     <link>https://devcentr.org/news/2026-08-08-support-systems-hub</link>
     <guid isPermaLink="true">https://devcentr.org/news/2026-08-08-support-systems-hub</guid>
     <pubDate>Sat, 08 Aug 2026 12:00:00 GMT</pubDate>
-    <description>Founder ops docs grow past email—scheduling, design, and vaults get their own capability areas on docs.devcentr.org.</description>
+    <description>Scheduling, design, and vault capability areas land in Business Bootstrap on docs.devcentr.org — growth in the same support-systems guide.</description>
     <category>blog</category>
     <category>news</category>
   </item>
   <item>
-    <title>MSI tables land in the generator</title>
+    <title>MSI-generator v0.2 released</title>
     <link>https://devcentr.org/news/2026-08-06-msi-tables-land</link>
     <guid isPermaLink="true">https://devcentr.org/news/2026-08-06-msi-tables-land</guid>
     <pubDate>Thu, 06 Aug 2026 12:00:00 GMT</pubDate>
@@ -151,34 +151,16 @@
     <category>news</category>
   </item>
   <item>
-    <title>Easy Installer becomes Ibex</title>
-    <link>https://devcentr.org/news/2026-08-06-ibex-rebrand</link>
-    <guid isPermaLink="true">https://devcentr.org/news/2026-08-06-ibex-rebrand</guid>
-    <pubDate>Thu, 06 Aug 2026 12:00:00 GMT</pubDate>
-    <description>Install Builder EXtension — new name, logo, and OS package registries for the installer-authoring CLI.</description>
-    <category>blog</category>
-    <category>news</category>
-  </item>
-  <item>
-    <title>Easy Installer ships</title>
+    <title>DevCentr’s new install tool, Ibex, released</title>
     <link>https://devcentr.org/news/2026-08-06-easy-installer-ships</link>
     <guid isPermaLink="true">https://devcentr.org/news/2026-08-06-easy-installer-ships</guid>
     <pubDate>Thu, 06 Aug 2026 12:00:00 GMT</pubDate>
-    <description>A CLI and Explorer menu for installer projects and Install in-place PATH — without waiting on a full MSI every time you want a tool on PATH.</description>
+    <description>Ibex (Install Builder EXtension) — CLI and Explorer actions for installer projects, in-place PATH installs, and CI pipeline emit.</description>
     <category>blog</category>
     <category>news</category>
   </item>
   <item>
-    <title>Easy Installer emits CI pipelines</title>
-    <link>https://devcentr.org/news/2026-08-06-easy-installer-ci-emit</link>
-    <guid isPermaLink="true">https://devcentr.org/news/2026-08-06-easy-installer-ci-emit</guid>
-    <pubDate>Thu, 06 Aug 2026 12:00:00 GMT</pubDate>
-    <description>Scaffold GitHub Actions, GitLab CI, Azure Pipelines, Jenkins, CircleCI, or Bitbucket workflows for installer builds — without packaging on your laptop.</description>
-    <category>blog</category>
-    <category>news</category>
-  </item>
-  <item>
-    <title>We&amp;#8217;re partnering with OpenShellOrg (on purpose)</title>
+    <title>We’re partnering with OpenShellOrg (on purpose)</title>
     <link>https://devcentr.org/news/2026-07-28-partnering-with-openshellorg</link>
     <guid isPermaLink="true">https://devcentr.org/news/2026-07-28-partnering-with-openshellorg</guid>
     <pubDate>Tue, 28 Jul 2026 12:00:00 GMT</pubDate>
@@ -187,7 +169,7 @@
     <category>news</category>
   </item>
   <item>
-    <title>We&amp;#8217;re opening a News desk</title>
+    <title>We’re opening a News desk</title>
     <link>https://devcentr.org/news/2026-07-24-welcome</link>
     <guid isPermaLink="true">https://devcentr.org/news/2026-07-24-welcome</guid>
     <pubDate>Fri, 24 Jul 2026 12:00:00 GMT</pubDate>
@@ -205,7 +187,7 @@
     <category>news</category>
   </item>
   <item>
-    <title>Our logo shouldn&amp;#8217;t need a proprietary player</title>
+    <title>Our logo shouldn’t need a proprietary player</title>
     <link>https://devcentr.org/news/2026-07-24-brand-motion</link>
     <guid isPermaLink="true">https://devcentr.org/news/2026-07-24-brand-motion</guid>
     <pubDate>Fri, 24 Jul 2026 12:00:00 GMT</pubDate>

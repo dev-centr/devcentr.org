@@ -133,16 +133,16 @@
     <category term="news"/>
   </entry>
   <entry>
-    <title>Business Bootstrap becomes a support-systems hub</title>
+    <title>New additions to the Business Bootstrap guide</title>
     <link href="https://devcentr.org/news/2026-08-08-support-systems-hub" rel="alternate"/>
     <id>https://devcentr.org/news/2026-08-08-support-systems-hub</id>
     <updated>2026-08-08T12:00:00Z</updated>
-    <summary>Founder ops docs grow past email—scheduling, design, and vaults get their own capability areas on docs.devcentr.org.</summary>
+    <summary>Scheduling, design, and vault capability areas land in Business Bootstrap on docs.devcentr.org — growth in the same support-systems guide.</summary>
     <category term="blog"/>
     <category term="news"/>
   </entry>
   <entry>
-    <title>MSI tables land in the generator</title>
+    <title>MSI-generator v0.2 released</title>
     <link href="https://devcentr.org/news/2026-08-06-msi-tables-land" rel="alternate"/>
     <id>https://devcentr.org/news/2026-08-06-msi-tables-land</id>
     <updated>2026-08-06T12:00:00Z</updated>
@@ -151,34 +151,16 @@
     <category term="news"/>
   </entry>
   <entry>
-    <title>Easy Installer becomes Ibex</title>
-    <link href="https://devcentr.org/news/2026-08-06-ibex-rebrand" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-08-06-ibex-rebrand</id>
-    <updated>2026-08-06T12:00:00Z</updated>
-    <summary>Install Builder EXtension — new name, logo, and OS package registries for the installer-authoring CLI.</summary>
-    <category term="blog"/>
-    <category term="news"/>
-  </entry>
-  <entry>
-    <title>Easy Installer ships</title>
+    <title>DevCentr’s new install tool, Ibex, released</title>
     <link href="https://devcentr.org/news/2026-08-06-easy-installer-ships" rel="alternate"/>
     <id>https://devcentr.org/news/2026-08-06-easy-installer-ships</id>
     <updated>2026-08-06T12:00:00Z</updated>
-    <summary>A CLI and Explorer menu for installer projects and Install in-place PATH — without waiting on a full MSI every time you want a tool on PATH.</summary>
+    <summary>Ibex (Install Builder EXtension) — CLI and Explorer actions for installer projects, in-place PATH installs, and CI pipeline emit.</summary>
     <category term="blog"/>
     <category term="news"/>
   </entry>
   <entry>
-    <title>Easy Installer emits CI pipelines</title>
-    <link href="https://devcentr.org/news/2026-08-06-easy-installer-ci-emit" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-08-06-easy-installer-ci-emit</id>
-    <updated>2026-08-06T12:00:00Z</updated>
-    <summary>Scaffold GitHub Actions, GitLab CI, Azure Pipelines, Jenkins, CircleCI, or Bitbucket workflows for installer builds — without packaging on your laptop.</summary>
-    <category term="blog"/>
-    <category term="news"/>
-  </entry>
-  <entry>
-    <title>We&amp;#8217;re partnering with OpenShellOrg (on purpose)</title>
+    <title>We’re partnering with OpenShellOrg (on purpose)</title>
     <link href="https://devcentr.org/news/2026-07-28-partnering-with-openshellorg" rel="alternate"/>
     <id>https://devcentr.org/news/2026-07-28-partnering-with-openshellorg</id>
     <updated>2026-07-28T12:00:00Z</updated>
@@ -187,7 +169,7 @@
     <category term="news"/>
   </entry>
   <entry>
-    <title>We&amp;#8217;re opening a News desk</title>
+    <title>We’re opening a News desk</title>
     <link href="https://devcentr.org/news/2026-07-24-welcome" rel="alternate"/>
     <id>https://devcentr.org/news/2026-07-24-welcome</id>
     <updated>2026-07-24T12:00:00Z</updated>
@@ -205,7 +187,7 @@
     <category term="news"/>
   </entry>
   <entry>
-    <title>Our logo shouldn&amp;#8217;t need a proprietary player</title>
+    <title>Our logo shouldn’t need a proprietary player</title>
     <link href="https://devcentr.org/news/2026-07-24-brand-motion" rel="alternate"/>
     <id>https://devcentr.org/news/2026-07-24-brand-motion</id>
     <updated>2026-07-24T12:00:00Z</updated>
