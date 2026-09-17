@@ -29,11 +29,6 @@ const secondary = [
     label: "Discussions",
     detail: "Questions and community Q&A",
   },
-  {
-    href: "mailto:support@devcentr.org",
-    label: "support@devcentr.org",
-    detail: "Email us directly for now",
-  },
 ] as const;
 
 export default function HelpPage() {
@@ -81,20 +76,34 @@ export default function HelpPage() {
               </a>
             </li>
             <li id="support">
-              <div class="flex flex-col gap-2 py-8 sm:flex-row sm:items-baseline sm:justify-between sm:gap-10">
+              <div class="group flex flex-col gap-2 py-8 sm:flex-row sm:items-baseline sm:justify-between sm:gap-10">
                 <div class="min-w-0">
                   <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">Support</p>
                   <p class="mt-2 font-display text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-                    Contact support
+                    <a
+                      href="mailto:support@devcentr.org"
+                      class="text-foreground no-underline transition-colors hover:text-primary"
+                    >
+                      Contact support
+                    </a>
                   </p>
                   <p class="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
-                    A dedicated support system (tickets and assisted help) is coming soon. Until then, email us or
-                    use the links below.
+                    Email{" "}
+                    <a
+                      href="mailto:support@devcentr.org"
+                      class="font-medium text-foreground underline decoration-primary/50 underline-offset-4 transition-colors hover:text-primary hover:decoration-primary"
+                    >
+                      support@devcentr.org
+                    </a>{" "}
+                    for now. A dedicated support system (tickets and assisted help) is coming later.
                   </p>
                 </div>
-                <span class="shrink-0 rounded-md border border-border/70 px-3 py-1.5 font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                  Coming soon
-                </span>
+                <a
+                  href="mailto:support@devcentr.org"
+                  class="shrink-0 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground no-underline transition-colors hover:text-primary"
+                >
+                  support@devcentr.org
+                </a>
               </div>
             </li>
           </ul>

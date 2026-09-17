@@ -1,6 +1,89 @@
 {
   "entries": [
     {
+      "id": "general-knowledge-2026-09-15-actor-stick-figures-follow-edge-paints",
+      "date": "2026-09-15",
+      "title": "Actor stick figures follow edge paints",
+      "bullets": [
+        "Bumped @dev-centr/plantuml-svg-css-vars to v0.1.2, rebuilt label-as-wire-break, and extended Mermaid sequence bindings for .actor-man so stick figures stay visible in host dark mode.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-15-plantuml-sequence-dark-mode-paint-fix",
+      "date": "2026-09-15",
+      "title": "PlantUML sequence dark-mode paint fix",
+      "bullets": [
+        "Bumped @dev-centr/plantuml-svg-css-vars to v0.1.1 and rebuilt label-as-wire-break so sequence child shapes, notes, and dividers follow host dark mode.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-15-plantuml-themed-svg-ci-path",
+      "date": "2026-09-15",
+      "title": "PlantUML Themed SVG CI path",
+      "bullets": [
+        "Added @dev-centr/plantuml-svg-css-vars and scripts/build-plantuml-diagrams.mjs (Kroki → adaptive/host).",
+        "label-as-wire-break now builds from .puml through that pipeline (Mermaid .mmd removed for this stem).",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-14-reliability-kroki-diagrams-themed-svg",
+      "date": "2026-09-14",
+      "title": "Reliability Kroki diagrams → Themed SVG",
+      "bullets": [
+        "Replaced remaining PlantUML/Kroki and one inline Mermaid figure on Internet Reliability pages with canonical Mermaid + Themed SVG adaptive/host outputs so manual dark mode keeps readable fills.",
+        "New stems: label-as-wire-break, identity-stack-flowchart, identity-stack-planes, ndn-delivery-vs-app-labels.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-10-themed-svg-0-2-3-dark-mode-box-fills",
+      "date": "2026-09-10",
+      "title": "Themed SVG 0.2.3 dark-mode box fills",
+      "bullets": [
+        "Regenerated Mermaid adaptive and host SVGs with @dev-centr/themed-svg 0.2.3 so node fill/stroke !important values become var(--themed-svg-diagram-…) custom properties (and sibling Mermaid classDef rules stay intact).",
+        "Diagram toolchain pins @dev-centr/themed-svg 0.2.3 and @dev-centr/mermaid-svg-css-vars 0.1.3 from the registry.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
+      "id": "general-knowledge-2026-09-09-seo-explanation-and-next-js-listing-tutorial",
+      "date": "2026-09-09",
+      "title": "SEO explanation and Next.js listing tutorial",
+      "bullets": [
+        "Added What SEO does for a public website, covering discoverability, crawlable HTML, metadata, internal links, sitemap and robots rules, structured data, performance, Search Console, and the limits of automated Google sitelinks.",
+        "Added Build a search-ready Next.js listing site, a complete App Router path from canonical listing records through production raw-HTML checks.",
+        "Added a reusable themed diagram of the discovery and improvement loop, and wired both pages into the Diátaxis navigation and landing pages.",
+        "See Detailed changelog."
+      ],
+      "sourceId": "general-knowledge",
+      "sourceLabel": "General Knowledge",
+      "docsUrl": "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+      "kind": "changelog"
+    },
+    {
       "id": "devcentr-2026-09-08-adaptive-playtime-diagrams",
       "date": "2026-09-08",
       "title": "Adaptive PlayTime diagrams",
@@ -380,6 +463,18 @@
       "date": "2026-09-01",
       "title": "September 2026",
       "bullets": [
+        "2026-09-15 — Breadcrumb trail drops foreign Home crumb — Hub supplemental adt-bc-trail-crumbs strips leading Home / foreign component-root crumbs under site-nav-tree so trails like Reference reliability read Internet Architecture / Reference reliability (house icon still covers site home). Reference reliability.",
+        "2026-09-15 — Actor stick figures follow edge paints — @dev-centr/plantuml-svg-css-vars v0.1.2 binds stick-figure strokes to color.edge (host borders are often near-invisible hairlines); Mermaid sequence builds gain .actor-man circle/line bindings. Rebuilt label-as-wire-break (+ access-github-membership-flow manifest). Hub redeploy refreshes _images/. Reference reliability · v0.1.2.",
+        "2026-09-15 — Mast version dropdown shows ~ — Hub supplemental breadcrumbs / adt-version-label still remapped Antora’s unversioned version to Default after Valentus switched dropdown rows to literal ~ (button stays Version). Aligned the override with valentus-theme so docs.devcentr.org matches HCI-Nerdz.",
+        "2026-09-15 — PlantUML sequence dark-mode paint — @dev-centr/plantuml-svg-css-vars v0.1.1 binds painted sequence descendants and classifies note/divider fills; rebuilt label-as-wire-break. Hub redeploy refreshes _images/. npm Trusted Publisher for the package name still pending. Reference reliability · plantuml-svg-css-vars.",
+        "2026-09-15 — PlantUML Themed SVG adapter — Published dev-centr/plantuml-svg-css-vars (git tag v0.1.0; npm registry awaits Trusted Publisher registration for the new package name). Facto docs recommend Mermaid + PlantUML adapters as compose, not forks. Hub diagram formats page documents the pipeline; general-knowledge builds label-as-wire-break from PlantUML via Kroki → adapter. Antora diagram formats · plantuml-svg-css-vars.",
+        "2026-09-14 — Reliability PlantUML → Themed SVG — Kroki PlantUML (and one inline Mermaid) on Reference reliability / Identity stack / NDN and friends stayed light under the site dark toggle. Migrated to Mermaid + Themed SVG adaptive/host assets; hub redeploy refreshes _images/. Reference reliability.",
+        "2026-09-10 — Nav expand/collapse + Valentus 2.0.30 top-level inset — Replaced hub site-nav-tree-current.js with @antora-supplemental/site-nav-tree companion (deepest current page, ancestry-only is-current-path, sessionStorage expand retention). Rebuild against Valentus 2.0.30 drops redundant top-level .nav-list left margin. v2.0.30.",
+        "2026-09-10 — Valentus 2.0.27 / 2.0.28 breadcrumb mast — Rebuild against rolling v2: trail segments (links, folder nodes, current page) use accent + underline; Version/component kickers drop resting underline; copyable / path separators; keep component kicker with conjoined ~ version menu under site-nav-tree. v2.0.28 · v2.0.27.",
+        "2026-09-10 — Themed SVG host palettes (all hub namespaces) — Host-mode figures fell back to light after runtime upgrade when brand CSS only mapped nav-typology. Mapped diagram, rules-geography, agent-cli-auth, uniconfig-layers, and uniconfig-schema-minus-instance to Valentus light/dark so manual dark mode keeps the dark palette. SEO explanation.",
+        "2026-09-10 — Valentus 2.0.26 flat dark rail + hidden nav scrollbars — Rebuild against rolling v2 after valentus-theme 2.0.25 / 2.0.26: dark side-rail wash opt-in only (adt-side-panels); tree-nav scrollbars hidden while edge fades remain. v2.0.26.",
+        "2026-09-10 — Valentus 2.0.24 tree-nav width containment — Rebuild against rolling v2 after valentus-theme 2.0.24+antora.3: elevated nav.nav-menu stays inside the fixed --adt-nav-width column so long nowrap labels scroll horizontally and edge fades no longer paint over article content. v2.0.24.",
+        "2026-09-09 — SEO explanation, Next.js listing tutorial, and hub robots.txt — Published a concept guide to discoverability, crawlability, metadata, internal links, sitemap/robots, structured data, performance, Search Console, and automated Google sitelinks; paired it with a task-oriented App Router listing-site build and raw-HTML verification. The hub now publishes robots.txt with its production sitemap URL. Explanation · Tutorial.",
         "2026-09-08 — Nav typology themed diagram — Migrated the documentation diagram to deterministic Mermaid source and a Themed SVG v1 manifest. The hub serves a standalone adaptive fallback and progressively upgrades the role-marked image to the sanitized same-origin host SVG; the original fixed diagram remains available for comparison.",
         "2026-09-03 — Internet Reliability diagram SVG encoding — Live <img> and _images/ 200 were fine after alt quoting; the SVG itself declared UTF-8 but used latin-1 0xB7 middots, so browsers hit XML *Encoding error* and showed a broken figure. Rewrote to ASCII; renamed published file to three-altitudes-diagram.svg to bust CDN cache on the old path; also fixed rename mockup + curated-watching SVG. Hub redeploy refreshes _images/. Internet Reliability.",
         "2026-09-03 — Internet Reliability diagram alt — Quote commas in the three-altitudes.svg image alt on the Reliability index so AsciiDoc no longer emits height=\"internet\" (asset was already at _images/). Hub redeploy picks up general-knowledge. Internet Reliability.",

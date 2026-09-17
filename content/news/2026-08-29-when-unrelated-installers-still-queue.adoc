@@ -7,7 +7,7 @@ You double-click an installer. Nothing happens for a few seconds. You double-cli
 
 That moment is the whole argument in miniature. The tooling around Windows installation is good at finishing a single job and bad at explaining the queue.
 
-We have been circling this problem while building packaging pieces in-house — link:https://github.com/dev-centr/easy-installer[Easy Installer] as a host, link:https://github.com/dev-centr/msi-generator[msi-generator] as an engine, NSIS and Inno as optional backends. This post is not a roadmap. It is the line of questioning that made us look twice at what "installer builder" even means on Windows in 2026.
+We have been circling this problem while building packaging pieces in-house — link:https://github.com/dev-centr/ibex-install-builder[Ibex] as a host, link:https://github.com/dev-centr/msi-generator[msi-generator] as an engine, NSIS and Inno as optional backends. This post is not a roadmap. It is the line of questioning that made us look twice at what "installer builder" even means on Windows in 2026.
 
 == The free tools are not missing features. They are missing a decade.
 
@@ -111,5 +111,5 @@ This article freezes a working theory. The next passes will be narrower: which o
 
 If you have war stories — double-click deadlocks, bootstrapper chains that stall on 1618, Inno mutexes you did not know you shipped — they belong in the investigation. We may revise this page or split a follow-up once the design stops being a question and starts being a spec.
 
-* Related shipping context: link:https://devcentr.org/news/2026-08-06-easy-installer-ships[Easy Installer ships] · link:https://devcentr.org/news/2026-08-06-msi-tables-land[MSI tables land in the generator]
+* Related shipping context: link:https://devcentr.org/news/2026-08-06-easy-installer-ships[DevCentr's new install tool, Ibex, released] · link:https://devcentr.org/news/2026-08-06-msi-tables-land[MSI tables land in the generator]
 * Microsoft reference: link:https://learn.microsoft.com/en-us/windows/win32/msi/-msiexecute-mutex[\_MSIExecute Mutex]

@@ -551,11 +551,6 @@
     animation: solsys-halo-undulate 1.7s ease-in-out infinite;
   }
 
-  .solsys-star:hover .solsys-label,
-  .solsys-star:focus-visible .solsys-label {
-    opacity: 1;
-  }
-
   .solsys-star:focus-visible {
     outline: none;
   }
@@ -606,26 +601,34 @@
     position: absolute;
     inset: 0;
     z-index: 2;
-    display: grid;
-    place-items: center;
-    font-family: var(--font-mono);
-    font-size: clamp(0.52rem, 1.55vw, 0.78rem);
-    font-weight: 500;
-    letter-spacing: 0.11em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.12em;
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: hsl(174 16% 34%);
-    text-shadow:
-      0 1px 0 hsl(170 40% 100% / 0.55),
-      0 1px 4px hsl(174 28% 12% / 0.45);
+    /* Sun core is always a light teal disc — keep ink dark in both themes. */
+    color: hsl(174 35% 14%);
+    text-shadow: 0 1px 0 hsl(170 40% 100% / 0.45);
+    line-height: 1.05;
+    text-align: center;
+    pointer-events: none;
+  }
+
+  .solsys-star-name {
+    font-size: clamp(0.48rem, 1.35vw, 0.72rem);
     white-space: nowrap;
   }
 
-  .dark .solsys-star-label,
-  [data-kb-theme="dark"] .solsys-star-label {
-    color: hsl(170 14% 78%);
-    text-shadow:
-      0 1px 0 hsl(174 40% 8% / 0.55),
-      0 0 8px hsl(174 30% 10% / 0.5);
+  .solsys-star-role {
+    font-size: clamp(0.4rem, 1.1vw, 0.58rem);
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    opacity: 0.85;
+    white-space: nowrap;
   }
 
   .solsys-planet {
@@ -708,7 +711,7 @@
     letter-spacing: -0.02em;
     color: hsl(var(--foreground));
     white-space: nowrap;
-    opacity: 0;
+    opacity: 1;
     pointer-events: none;
     text-shadow: 0 1px 8px hsl(var(--background) / 0.9);
     transition: opacity 0.18s ease;
@@ -722,11 +725,6 @@
 
   .solsys-planet:hover .solsys-globe,
   .solsys-planet:focus-visible .solsys-globe {
-    opacity: 1;
-  }
-
-  .solsys-planet:hover .solsys-label,
-  .solsys-planet:focus-visible .solsys-label {
     opacity: 1;
   }
 }

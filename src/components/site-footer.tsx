@@ -39,6 +39,9 @@ export function SiteFooter() {
             <a href="/help" class={footLink}>
               Help
             </a>
+            <a href="mailto:support@devcentr.org" class={footLink}>
+              support@devcentr.org
+            </a>
             <a href="/status" class={footLink}>
               Status
             </a>

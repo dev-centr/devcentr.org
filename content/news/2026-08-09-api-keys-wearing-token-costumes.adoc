@@ -13,7 +13,7 @@ We are done pretending the costume is the thing.
 Dev-Centr's docs and Secrets Manager now name credentials by what they *do*, not by what the vendor's UI whispered while you were trying to ship.
 
 Practitioner lock (use this in reviews and agent prompts): link:https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/api-key-vs-token.html[API key vs token].
-Product enforcement: link:https://docs.devcentr.org/devcentr/latest/secrets-manager/explanation/api-key-vs-token.html[Secrets Manager vocabulary].
+Product enforcement: link:https://docs.devcentr.org/platforms/devcentr/latest/secrets-manager/explanation/api-key-vs-token.html[Secrets Manager vocabulary].
 
 == A scene from every onboarding
 

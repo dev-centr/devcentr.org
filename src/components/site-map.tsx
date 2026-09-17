@@ -231,8 +231,10 @@ export function SiteMap() {
       >
         <span class="solsys-star-halo" aria-hidden="true" />
         <span class="solsys-star-core" />
-        <span class="solsys-star-label">DEVCENTR</span>
-        <span class="solsys-label">App</span>
+        <span class="solsys-star-label">
+          <span class="solsys-star-name">DevCentr</span>
+          <span class="solsys-star-role">App</span>
+        </span>
       </a>
 
       {PLANETS.map((p, i) => (
