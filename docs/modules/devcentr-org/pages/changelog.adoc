@@ -2,6 +2,10 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-09-18 — Installation norms and UIL
+
+* News: Authoritative installation norms guide and Unity Install Layout (UIL) proposal; links the general-knowledge installation architecture cluster to Ibex, Install Coordinator, OpenShellOrg, and connectome-fs.
+
 == 2026-09-10 — Public crawlability
 
 * Publish `/robots.txt` and generate `/sitemap.xml` from the shared prerender route list in postbuild (`spa-fallback`).

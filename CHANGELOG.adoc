@@ -1,5 +1,9 @@
 ﻿= Changelog
 
+== 2026-09-18 -- Installation norms and UIL
+
+* News post announces the general-knowledge installation norms guide and UIL proposal (`content/news/2026-09-18-installation-norms-and-uil.adoc`).
+
 == 2026-09-10 -- Public crawlability
 
 * Publish `/robots.txt` and a build-generated `/sitemap.xml` from the shared prerender route list.
