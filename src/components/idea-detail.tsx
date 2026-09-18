@@ -15,7 +15,7 @@ export function IdeaDetail(props: { slug: string }) {
           when={idea()}
           fallback={
             <div>
-              <PageTrail crumbs={[{ label: "Apps", href: "/apps" }, { label: "Not found" }]} />
+              <PageTrail crumbs={[{ label: "Assets", href: "/assets" }, { label: "Apps", href: "/apps" }, { label: "Not found" }]} />
               <h1 class="mt-4 font-display text-3xl font-semibold">Idea not found</h1>
               <p class="mt-4 text-muted-foreground">
                 <a href="/apps" class="text-primary underline-offset-4 hover:underline">
@@ -29,10 +29,14 @@ export function IdeaDetail(props: { slug: string }) {
             <>
               <PageTrail
                 crumbs={[
+                  { label: "Assets", href: "/assets" },
                   { label: "Apps", href: "/apps" },
                   {
                     label: categoryLabel[i().category],
-                    href: `/apps/${i().category}`,
+                    href:
+                      i().category === "standards"
+                        ? "/assets/standards"
+                        : `/apps/${i().category}`,
                   },
                   { label: i().title },
                 ]}

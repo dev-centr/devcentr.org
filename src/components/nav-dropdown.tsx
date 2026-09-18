@@ -1,4 +1,4 @@
-import { For } from "solid-js";
+import { For, Show } from "solid-js";
 
 import { Button } from "~/components/ui/button";
 import {
@@ -20,6 +20,10 @@ export type NavDropdownLink = {
   href: string;
   label: string;
   external?: boolean;
+  /** 0 = root, 1 = child under the tree, Ã¢â‚¬Â¦ */
+  depth?: number;
+  /** When depth > 0, last child gets a corner; others get a tee. */
+  treeEnd?: boolean;
 };
 
 function openLink(href: string, external?: boolean) {
@@ -28,6 +32,16 @@ function openLink(href: string, external?: boolean) {
     return;
   }
   window.location.assign(href);
+}
+
+function treePrefix(depth: number, treeEnd?: boolean) {
+  if (depth <= 0) return null;
+  const branch = treeEnd ? 'L- ' : '|- ';
+  return (
+    <span class="mr-1.5 inline-block w-4 text-muted-foreground/70" aria-hidden="true">
+      {branch}
+    </span>
+  );
 }
 
 export function NavDropdown(props: {
@@ -60,7 +74,7 @@ export function NavDropdown(props: {
           <path d="M6 9l6 6l6 -6" />
         </svg>
       </DropdownMenuTrigger>
-      <DropdownMenuContent class="min-w-44 border-border/70 bg-popover/95 backdrop-blur-sm">
+      <DropdownMenuContent class="min-w-48 border-border/70 bg-popover/95 backdrop-blur-sm">
         <DropdownMenuLabel class="font-mono text-[10px] uppercase tracking-[0.2em] text-muted-foreground">
           {props.menuLabel ?? props.label}
         </DropdownMenuLabel>
@@ -69,8 +83,13 @@ export function NavDropdown(props: {
           {(link) => (
             <DropdownMenuItem
               class={itemClass}
+              classList={{
+                "pl-2": (link.depth ?? 0) === 0,
+                "pl-3": (link.depth ?? 0) > 0,
+              }}
               onSelect={() => openLink(link.href, link.external)}
             >
+              <Show when={(link.depth ?? 0) > 0}>{treePrefix(link.depth ?? 0, link.treeEnd)}</Show>
               {link.label}
             </DropdownMenuItem>
           )}

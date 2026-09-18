@@ -1,4 +1,4 @@
-# CI for devcentr.org — build; deploy to GitHub Pages on push to main
+# CI for devcentr.org â€” build; deploy to GitHub Pages on push to main
 name: CI
 
 on:
@@ -105,6 +105,8 @@ jobs:
 
       - name: Verify apps catalogue artifacts
         run: |
+          test -f .output/public/assets/index.html
+          test -f .output/public/assets/standards/index.html
           test -f .output/public/apps/index.html
           test -f .output/public/apps/products/index.html
           test -f .output/public/apps/services/index.html
@@ -115,7 +117,7 @@ jobs:
       - name: Verify news, changelog, and feed artifacts
         run: |
           test -f .output/public/news/index.html
-          test -f .output/public/news/2026-07-24-welcome/index.html
+          test -f .output/public/news/2026-07-24-news-desk-opens/index.html
           test -f .output/public/news/rss.xml
           test -f .output/public/news/atom.xml
           test -f .output/public/changelog/index.html

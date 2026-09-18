@@ -53,7 +53,7 @@ export default function RestingLanczosDemoPage() {
       <main class="mx-auto max-w-6xl px-6 pb-16 pt-6 md:px-10 md:pb-24 md:pt-10">
         <PageTrail
           crumbs={[
-            { label: "Apps", href: "/apps" },
+            { label: "Assets", href: "/assets" }, { label: "Apps", href: "/apps" },
             { label: categoryLabel.products, href: "/apps/products" },
             { label: "resting-lanczos" },
           ]}

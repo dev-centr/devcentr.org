@@ -8,6 +8,11 @@ export default function ServicesCatalog() {
       eyebrow="Services"
       intro="Hosted experiences. PackageHub is the public browse face; pkgpublish is the publisher console. They stay separate on purpose."
       items={services}
+      trail={[
+        { label: "Assets", href: "/assets" },
+        { label: "Apps", href: "/apps" },
+        { label: "Services" },
+      ]}
     />
   );
 }

@@ -1,14 +1,14 @@
 import { ModeToggle } from "~/components/mode-toggle";
 import { HelpNav } from "~/components/help-nav";
+import { LinksNav } from "~/components/links-nav";
 import { LogoMark } from "~/components/logo-mark";
 import { NavDropdown } from "~/components/nav-dropdown";
 
-const linkClass =
-  "hidden font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:text-foreground sm:inline";
-
-const appsLinks = [
-  { href: "/apps", label: "Apps" },
-  { href: "/skills", label: "Skills" },
+const assetsLinks = [
+  { href: "/assets", label: "Assets", depth: 0 },
+  { href: "/apps", label: "Apps", depth: 1 },
+  { href: "/skills", label: "Skills", depth: 1 },
+  { href: "/assets/standards", label: "Standards", depth: 1, treeEnd: true },
 ] as const;
 
 const updatesLinks = [
@@ -26,12 +26,10 @@ export function SiteHeader() {
         <span class="font-display text-lg font-semibold tracking-tight">DevCentr</span>
       </a>
       <nav class="flex items-center gap-2 md:gap-3">
-        <NavDropdown label="Apps" menuLabel="Apps" links={[...appsLinks]} />
+        <NavDropdown label="Assets" menuLabel="Assets" links={[...assetsLinks]} />
         <NavDropdown label="Updates" menuLabel="Updates" links={[...updatesLinks]} />
         <HelpNav />
-        <a href="https://github.com/dev-centr" class={linkClass}>
-          GitHub
-        </a>
+        <LinksNav />
         <ModeToggle />
       </nav>
     </header>

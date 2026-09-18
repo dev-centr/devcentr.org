@@ -8,6 +8,11 @@ export default function ProductsCatalog() {
       eyebrow="Products"
       intro="Installable and shippable tools. Each entry links to its product site or idea page when several repos share one story."
       items={products}
+      trail={[
+        { label: "Assets", href: "/assets" },
+        { label: "Apps", href: "/apps" },
+        { label: "Products" },
+      ]}
     />
   );
 }

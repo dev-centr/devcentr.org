@@ -4,16 +4,26 @@ import type { CatalogItem } from "~/lib/apps-catalog";
 import { PageTrail } from "~/components/page-trail";
 import { SiteFooter } from "~/components/site-footer";
 
+export type CatalogTrailCrumb = { label: string; href?: string };
+
 export function CatalogPage(props: {
   title: string;
   eyebrow: string;
   intro: string;
   items: CatalogItem[];
+  trail?: CatalogTrailCrumb[];
 }) {
+  const crumbs = () =>
+    props.trail ?? [
+      { label: "Assets", href: "/assets" },
+      { label: "Apps", href: "/apps" },
+      { label: props.eyebrow },
+    ];
+
   return (
     <>
       <main class="mx-auto max-w-6xl px-6 pb-20 pt-6 md:px-10 md:pb-28">
-        <PageTrail crumbs={[{ label: "Apps", href: "/apps" }, { label: props.eyebrow }]} />
+        <PageTrail crumbs={crumbs()} />
         <h1 class="mt-4 font-display text-4xl font-semibold tracking-tight md:text-5xl">{props.title}</h1>
         <p class="mt-4 max-w-2xl text-muted-foreground">{props.intro}</p>
 
@@ -44,8 +54,7 @@ export function CatalogPage(props: {
                     </div>
                   </div>
                   <span class="shrink-0 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
-                    {item.ideaSlug ? "Idea page" : item.external ? "Open" : "View"} →
-                  </span>
+                    {item.ideaSlug ? "Idea page" : item.external ? "Open" : "View"} ->
                 </a>
               </li>
             )}

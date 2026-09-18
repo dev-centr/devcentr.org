@@ -20,7 +20,7 @@ const SIN_PITCH = Math.sin(VIEW_PITCH);
 const COS_PITCH = Math.cos(VIEW_PITCH);
 
 const PLANETS: PlanetDef[] = [
-  { id: "apps", label: "Apps", href: "/apps", radius: 0.4, incl: -0.12, node: 1.1, period: 24_000, phase: 0.31, fill: "hsl(210 22% 28%)" },
+  { id: "assets", label: "Assets", href: "/assets", radius: 0.4, incl: -0.12, node: 1.1, period: 24_000, phase: 0.31, fill: "hsl(210 22% 28%)" },
   { id: "docs", label: "Docs", href: "https://docs.devcentr.org", radius: 0.52, incl: 0.32, node: 2.2, period: 32_000, phase: 0.57, fill: "hsl(198 38% 30%)" },
   { id: "news", label: "News", href: "/news", radius: 0.62, incl: -0.22, node: 3.6, period: 28_000, phase: 0.14, fill: "hsl(168 42% 26%)" },
   { id: "blog", label: "Blog", href: "/blog", radius: 0.68, incl: -0.18, node: 3.4, period: 31_000, phase: 0.15, fill: "hsl(198 38% 28%)" },
@@ -41,7 +41,7 @@ function Icon(props: { id: string }): JSX.Element {
     "aria-hidden": "true" as const,
   };
   switch (props.id) {
-    case "apps":
+    case "assets":
       return (
         <svg {...common}>
           <rect x="4.5" y="4.5" width="6" height="6" rx="1.2" />

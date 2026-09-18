@@ -15,6 +15,12 @@ export function SiteFooter() {
         <div class="flex flex-wrap gap-x-10 gap-y-6 font-mono text-[10px] uppercase tracking-[0.22em]">
           <nav class="flex flex-col gap-2" aria-label="Product">
             <span class="text-muted-foreground/70">Product</span>
+            <a href="/assets" class={footLink}>
+              Assets
+            </a>
+            <a href="/apps" class={footLink}>
+              Apps
+            </a>
             <a href="/news" class={footLink}>
               News
             </a>
