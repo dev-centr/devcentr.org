@@ -32,6 +32,8 @@ Each post should set:
 
 Voice and checklist: see `content/news/README.adoc` in the repository (conversational, scene-driven; changelog bullets belong elsewhere).
 
+Recent inward craft example: link:https://devcentr.org/news/2026-09-18-what-a-good-install-actually-is[What a good install actually is] (installation norms / UIL essay; changelog xref in this component).
+
 === Build output
 
 `scripts/build-news.mjs` (also `predev` / `prebuild`) writes:
