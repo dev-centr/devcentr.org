@@ -2,6 +2,11 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-09-18 — Installation craft essay
+
+* News: What a good install actually is — craft frame behind installation norms and UIL (links to general-knowledge cluster and Ibex / Install Coordinator).
+* See xref:changelog-details/2026-09-18 - installation-craft-essay.adoc[Detailed changelog].
+
 == 2026-09-10 — Public crawlability
 
 * Publish `/robots.txt` and generate `/sitemap.xml` from the shared prerender route list in postbuild (`spa-fallback`).

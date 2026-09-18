@@ -1,0 +1,5 @@
+= 2026-09-18 — Installation craft essay
+
+* Inward essay on `/news`: install contracts vs layout theater, FHS cargo-cult, Windows MSI context, Linux pluralism, UIL dual-mode (classic vs connectome), OpenShellOrg shell visibility, and tooling as hypothesis (Install Coordinator, Ibex).
+* Cross-links to general-knowledge installation architecture cluster (UIL, norms, good vs bad patterns) and prior news on MSI queue behavior.
+* Syndication: `public/news/rss.xml`, `public/news/atom.xml`, and `src/lib/news-posts.generated.json` updated by `pnpm news:build`.
