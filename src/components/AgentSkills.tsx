@@ -97,7 +97,9 @@ const SkillList: Component<{ entries: SkillEntry[] }> = (props) => {
                     class="skill-inline-link"
                     onClick={() => {
                       writeCatToUrl("bootstrap");
-                      window.dispatchEvent(new CustomEvent("devcentr:skills-cat", { detail: "bootstrap" }));
+                      window.dispatchEvent(
+                        new CustomEvent("devcentr:skills-cat", { detail: "bootstrap" }),
+                      );
                     }}
                   >
                     Bootstrap skills
@@ -167,9 +169,10 @@ export function AgentSkills() {
     () => SKILL_CATEGORIES.find((c) => c.id === category()) ?? SKILL_CATEGORIES[0],
   );
   const entries = createMemo(() => skillsInCategory(category()));
+  const isBootstrap = createMemo(() => category() === "bootstrap");
 
   return (
-    <div class="advisor-root">
+    <div class="advisor-root skills-cage">
       <div class="skill-cats" role="tablist" aria-label="Skill categories">
         <For each={SKILL_CATEGORIES}>
           {(c) => (
@@ -188,19 +191,29 @@ export function AgentSkills() {
       </div>
 
       <div class="skill-stage" aria-live="polite">
-        <Show when={category() === "bootstrap"}>
+        <div
+          class="advisor-split skill-stage-frame"
+          hidden={isBootstrap()}
+          aria-hidden={isBootstrap()}
+        >
+          <Show
+            when={entries().length > 0}
+            fallback={
+              <EmptyCategory
+                message={catMeta().empty ?? "Nothing published in this category yet."}
+              />
+            }
+          >
+            <SkillList entries={entries()} />
+          </Show>
+        </div>
+        <div
+          class="skill-stage-frame bootstrap-host"
+          hidden={!isBootstrap()}
+          aria-hidden={!isBootstrap()}
+        >
           <BootstrapProfiles />
-        </Show>
-        <Show when={category() !== "bootstrap"}>
-          <div class="advisor-split skill-stage-frame">
-            <Show
-              when={entries().length > 0}
-              fallback={<EmptyCategory message={catMeta().empty ?? "Nothing published in this category yet."} />}
-            >
-              <SkillList entries={entries()} />
-            </Show>
-          </div>
-        </Show>
+        </div>
       </div>
 
       <p class="skill-source">

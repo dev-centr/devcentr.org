@@ -48,6 +48,7 @@ function scalar(v: unknown): string {
   return String(v);
 }
 
+/** Always paints the same two-column cage as other skill tabs (no loading-only layout). */
 const BootstrapProfiles: Component = () => {
   const [catalog, setCatalog] = createSignal<BootstrapProfileCatalog | null>(null);
   const [selectedId, setSelectedId] = createSignal("");
@@ -87,32 +88,41 @@ const BootstrapProfiles: Component = () => {
     () => catalog()?.profiles.find((p) => p.id === selectedId()) ?? visible()[0] ?? null,
   );
 
-
   return (
     <div class="bootstrap-profiles">
-      <Show when={loading()}>
-        <p class="advisor-status">Loading skills from agent-rules…</p>
-      </Show>
-      <Show when={error()}>
-        <p class="advisor-error">{error()}</p>
-        <Button variant="outline" class="mt-2 rounded-sm" onClick={() => void reload()}>
-          Retry
-        </Button>
-      </Show>
-      <Show when={catalog() && !loading() && !error()}>
-        <div class="advisor-split">
-          <div class="advisor-flow tpl-flow" role="listbox" aria-label="Bootstrap skills">
-            <div class="advisor-step advisor-step-focused tpl-list">
-              <h3>Skills</h3>
-              <p class="advisor-hint">Select a profile to inspect the harness inventory record. Copy the agent prompt when you want bootstrap steps dropped into a coding agent.</p>
-              <input
-                type="search"
-                class="advisor-search"
-                placeholder="Search…"
-                value={query()}
-                onInput={(e) => setQuery(e.currentTarget.value)}
-              />
-              <ul class="advisor-options tpl-options">
+      <div class="advisor-split">
+        <div class="advisor-flow tpl-flow" role="listbox" aria-label="Bootstrap skills">
+          <div class="advisor-step advisor-step-focused tpl-list">
+            <h3>Skills</h3>
+            <p class="advisor-hint">
+              Select a profile to inspect the harness inventory record. Copy the agent prompt when
+              you want bootstrap steps dropped into a coding agent.
+            </p>
+            <input
+              type="search"
+              class="advisor-search"
+              placeholder="Search…"
+              value={query()}
+              onInput={(e) => setQuery(e.currentTarget.value)}
+              disabled={loading() && !catalog()}
+            />
+            <ul class="advisor-options tpl-options">
+              <Show
+                when={!loading() || (catalog()?.profiles.length ?? 0) > 0}
+                fallback={
+                  <>
+                    <li>
+                      <span class="advisor-option skill-option-ghost">&nbsp;</span>
+                    </li>
+                    <li>
+                      <span class="advisor-option skill-option-ghost">&nbsp;</span>
+                    </li>
+                    <li>
+                      <span class="advisor-option skill-option-ghost">&nbsp;</span>
+                    </li>
+                  </>
+                }
+              >
                 <For each={visible()}>
                   {(p) => (
                     <li>
@@ -130,27 +140,46 @@ const BootstrapProfiles: Component = () => {
                     </li>
                   )}
                 </For>
-              </ul>
-            </div>
+              </Show>
+            </ul>
           </div>
-          <aside class="advisor-context">
-            <Show
-              when={selected()}
-              fallback={<p class="advisor-status">Select a skill.</p>}
-            >
-              {(p) => (
+        </div>
+        <aside class="advisor-context">
+          <Show when={error()}>
+            {(err) => (
+              <>
+                <p class="advisor-error">{err()}</p>
+                <Button variant="outline" class="mt-2 rounded-sm" onClick={() => void reload()}>
+                  Retry
+                </Button>
+              </>
+            )}
+          </Show>
+          <Show when={!error() && loading() && !selected()}>
+            <p class="advisor-status">Loading bootstrap profiles…</p>
+          </Show>
+          <Show when={!error() && selected()}>
+            {(p) => {
+              const site = () => {
+                const m = p().merged.site;
+                return m && typeof m === "object" ? (m as Record<string, unknown>) : null;
+              };
+              return (
                 <>
                   <h2>
                     <code class="tpl-name">{p().id}</code>
                   </h2>
                   <p class="advisor-era-line">
                     {p().kind}
-                    <Show when={p().merged.site && typeof p().merged.site === "object"}>
-                      {" · "}
-                      {scalar((p().merged.site as Record<string, unknown>).framework)}{" "}
-                      {scalar((p().merged.site as Record<string, unknown>).preset)}
-                      {" + "}
-                      {scalar((p().merged.site as Record<string, unknown>).ui)}
+                    <Show when={site()}>
+                      {(s) => (
+                        <>
+                          {" · "}
+                          {scalar(s().framework)} {scalar(s().preset)}
+                          {" + "}
+                          {scalar(s().ui)}
+                        </>
+                      )}
                     </Show>
                   </p>
                   <CopyInstallSnippet
@@ -175,16 +204,17 @@ const BootstrapProfiles: Component = () => {
                   </Show>
                   <p class="advisor-meta tpl-prompt">
                     Prompt:{" "}
-                    <code>
-                      bootstrap with the {p().id} profile
-                    </code>
+                    <code>bootstrap with the {p().id} profile</code>
                   </p>
                 </>
-              )}
-            </Show>
-          </aside>
-        </div>
-      </Show>
+              );
+            }}
+          </Show>
+          <Show when={!error() && !loading() && !selected()}>
+            <p class="advisor-status">Select a skill.</p>
+          </Show>
+        </aside>
+      </div>
     </div>
   );
 };

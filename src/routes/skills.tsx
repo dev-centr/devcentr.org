@@ -10,7 +10,7 @@ export default function SkillsPage() {
         name="description"
         content="Inventory of DevCentr agent skills from agent-rules. The harness auto-loads and keeps them current; the corpus is designed to work together even if you only adopt pieces."
       />
-      <div class="mx-auto max-w-7xl px-6 pb-12 pt-2 md:px-10">
+      <div class="mx-auto max-w-[56rem] px-6 pb-12 pt-2 md:px-10">
         <header class="mb-10 md:mb-12">
           <p class="eyebrow mb-3 text-primary">Skills · harness inventory</p>
           <h1 class="font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">

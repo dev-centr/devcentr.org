@@ -6,6 +6,13 @@
   min-width: 0;
 }
 
+/* Skills browser: one fixed cage for every category (narrower than the old stretch). */
+.advisor-root.skills-cage {
+  width: 100%;
+  max-width: 56rem; /* 896px — holds list + context together */
+  margin-inline: auto;
+}
+
 .advisor-split {
   display: flex;
   flex-direction: row;
@@ -78,9 +85,11 @@
 .advisor-options {
   list-style: none;
   margin: 0;
-  padding: 0;
+  padding: 0.35rem; /* room so selected borders aren't clipped by overflow */
   max-height: 200px;
+  overflow-x: hidden;
   overflow-y: auto;
+  box-sizing: border-box;
 }
 
 .advisor-option {
@@ -91,12 +100,13 @@
   text-align: left;
   padding: 0.45rem 0.5rem;
   margin-bottom: 2px;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 4px;
   background: transparent;
   color: hsl(var(--foreground));
   font-size: 0.8rem;
   cursor: pointer;
+  outline: none;
 }
 
 .advisor-option:hover {
@@ -106,7 +116,8 @@
 .advisor-option.selected {
   background: hsl(var(--primary) / 0.16);
   color: hsl(var(--foreground));
-  outline: 1px solid hsl(var(--primary));
+  border-color: hsl(var(--primary));
+  outline: none;
 }
 
 .advisor-connector {
@@ -321,6 +332,8 @@
 
 .tpl-options {
   max-height: min(420px, 55vh);
+  padding: 0.35rem;
+  box-sizing: border-box;
 }
 
 .tpl-id {
@@ -434,7 +447,8 @@
   max-width: 100%;
   min-width: 0;
   box-sizing: border-box;
-  overflow: hidden;
+  overflow: visible;
+  position: relative;
 }
 
 .skill-empty-panel {
@@ -468,7 +482,7 @@
 @media (min-width: 900px) {
   .advisor-split {
     display: grid;
-    grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+    grid-template-columns: minmax(240px, 280px) minmax(0, 1fr);
     flex-wrap: nowrap;
     align-items: stretch;
   }
@@ -523,10 +537,17 @@
   .skill-stage .advisor-split,
   .skill-stage-frame {
     display: grid;
-    grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 17.5rem) minmax(0, 1fr);
     width: 100%;
     max-width: 100%;
-    overflow: hidden;
+    overflow: visible;
+    align-items: stretch;
+  }
+
+  /* Shrink the context aside by holding the cage fixed (skills-cage max-width). */
+  .skills-cage .advisor-context {
+    max-width: 100%;
+    min-width: 0;
   }
 }
 
@@ -569,4 +590,40 @@
 }
 .install-snippet-body code {
   font: inherit;
+}
+
+
+/* Skills cage: bootstrap host shares the same frame geometry */
+.skills-cage .bootstrap-host {
+  width: 100%;
+  min-height: 28rem;
+  box-sizing: border-box;
+}
+
+.skills-cage .bootstrap-host[hidden],
+.skills-cage .skill-stage-frame[hidden] {
+  display: none !important;
+}
+
+.skills-cage .bootstrap-profiles {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.skills-cage .bootstrap-profiles > .advisor-split {
+  width: 100%;
+  min-height: 28rem;
+}
+
+/* List buttons: never let the step card clip horizontal borders */
+.skills-cage .tpl-list,
+.skills-cage .advisor-step {
+  overflow: visible;
+}
+
+.skills-cage .advisor-options li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
