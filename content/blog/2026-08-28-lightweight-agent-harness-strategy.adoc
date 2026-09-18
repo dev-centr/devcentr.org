@@ -1,9 +1,9 @@
-= A harness that does not own the rules
-:description: Direction notes for a T3code-weight local agent runtime — not a News-desk release.
+= Lightweight agent harness strategy
+:description: Direction notes for a T3code-weight local agent runtime — strategy, not a News-desk release.
 :revdate: 2026-08-28
 :keywords: blog, agents, harness, direction
 
-A lightweight agent harness is in progress — direction and design, not a News-desk release.
+DevCentr's lightweight agent harness strategy is direction and design, not a News-desk release.
 
 The sketch is a T3code-weight local agent runtime on dlang-supplemental infrastructure: harness-neutral rules, ecosystem specialization, token provenance as a first UX contract.
 

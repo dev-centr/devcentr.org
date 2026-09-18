@@ -1,9 +1,9 @@
-= What a good install actually is
+= Installation nightmares, and how to avoid them
 :description: Installation norms as craft — FHS cargo-cult, Windows honest writes, and a dual-mode layout that might survive connectome-fs.
 :revdate: 2026-09-18
 :keywords: blog, install, craft, Unity Install Layout
 
-A good install is a craft problem, not a packaging trivia contest.
+A good install is a craft problem, not a packaging trivia contest — and most install nightmares start when that craft is skipped.
 
 This essay argues why FHS cargo-cult breaks, why Windows direct-to-disk honesty is a requirement set, and how a dual-mode layout might survive connectome-fs — philosophy first, tooling second.
 
@@ -48,7 +48,7 @@ That judgment skips the platform's requirement set.
 MSI is a transactional, serialized mutation engine with a global lock and shared component bookkeeping.
 It exists because IT needed pessimistic safety more than parallel indie installs.
 The `_MSIExecute` mutex is not stupidity; it is a coarse gate chosen before your package's file list is known.
-We wrote about that feeling—double-click, silence, *Another installation is already in progress*—in link:https://devcentr.org/blog/2026-08-29-why-installers-wait-in-line[When unrelated installers still queue].
+We wrote about that feeling—double-click, silence, *Another installation is already in progress*—in link:https://devcentr.org/blog/2026-08-29-why-do-installers-wait-in-line-a-design-failure-study[When unrelated installers still queue].
 
 So Windows tools often **write where you point them** or **append PATH in place with a ledger** because the alternative is pretending every dev iteration is an enterprise MSI.
 That is not avoiding adulthood.

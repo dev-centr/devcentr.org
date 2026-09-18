@@ -1,8 +1,0 @@
-= One download, every kernel
-:description: A lab note on single-download packs of native OS/arch slices — not a release announcement.
-:revdate: 2026-08-18
-:keywords: blog, distribution, binaries, investigation
-
-Unified binary distribution is under investigation — a working direction, not a shipped product line.
-
-The sketch is a single-download pack of native OS/arch slices, with Binary Tailor stripping foreign headers on delivery. Treat this as a lab note until News records a release.

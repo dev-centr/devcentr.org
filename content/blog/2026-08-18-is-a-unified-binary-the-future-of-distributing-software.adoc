@@ -1,0 +1,8 @@
+= Is a Unified binary the future of distributing software?
+:description: A lab note on single-download packs of native OS/arch slices and on-delivery stripping — not a release announcement.
+:revdate: 2026-08-18
+:keywords: blog, distribution, binaries, investigation
+
+Unified binary distribution is still a lab direction, not a shipped product line.
+
+The sketch is a single-download pack of native OS/arch slices, with Binary Tailor stripping foreign headers on delivery. Consumer-facing companion: link:/blog/2026-08-18-is-it-possible-to-ship-just-one-download[Is it possible to ship just one download?].

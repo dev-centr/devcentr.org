@@ -7,9 +7,9 @@
   <language>en-us</language>
   <lastBuildDate>Fri, 18 Sep 2026 12:00:00 GMT</lastBuildDate>
   <item>
-    <title>What a good install actually is</title>
-    <link>https://devcentr.org/blog/2026-09-18-what-a-good-install-actually-is</link>
-    <guid isPermaLink="true">https://devcentr.org/blog/2026-09-18-what-a-good-install-actually-is</guid>
+    <title>Installation nightmares, and how to avoid them</title>
+    <link>https://devcentr.org/blog/2026-09-18-installation-nightmares-and-how-to-avoid-them</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-09-18-installation-nightmares-and-how-to-avoid-them</guid>
     <pubDate>Fri, 18 Sep 2026 12:00:00 GMT</pubDate>
     <description>Installation norms as craft — FHS cargo-cult, Windows honest writes, and a dual-mode layout that might survive connectome-fs.</description>
     <category>blog</category>
@@ -47,19 +47,19 @@
     <category>blog</category>
   </item>
   <item>
-    <title>Why installers wait in line</title>
-    <link>https://devcentr.org/blog/2026-08-29-why-installers-wait-in-line</link>
-    <guid isPermaLink="true">https://devcentr.org/blog/2026-08-29-why-installers-wait-in-line</guid>
+    <title>Why do installers wait in line? A design failure study</title>
+    <link>https://devcentr.org/blog/2026-08-29-why-do-installers-wait-in-line-a-design-failure-study</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-08-29-why-do-installers-wait-in-line-a-design-failure-study</guid>
     <pubDate>Sat, 29 Aug 2026 12:00:00 GMT</pubDate>
     <description>Open-source Windows installer tooling copies files well and stalls everywhere else. The global MSI lock is coarse on purpose.</description>
     <category>blog</category>
   </item>
   <item>
-    <title>A harness that does not own the rules</title>
-    <link>https://devcentr.org/blog/2026-08-28-a-harness-that-does-not-own-the-rules</link>
-    <guid isPermaLink="true">https://devcentr.org/blog/2026-08-28-a-harness-that-does-not-own-the-rules</guid>
+    <title>Lightweight agent harness strategy</title>
+    <link>https://devcentr.org/blog/2026-08-28-lightweight-agent-harness-strategy</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-08-28-lightweight-agent-harness-strategy</guid>
     <pubDate>Fri, 28 Aug 2026 12:00:00 GMT</pubDate>
-    <description>Direction notes for a T3code-weight local agent runtime — not a News-desk release.</description>
+    <description>Direction notes for a T3code-weight local agent runtime — strategy, not a News-desk release.</description>
     <category>blog</category>
   </item>
   <item>
@@ -79,19 +79,19 @@
     <category>blog</category>
   </item>
   <item>
-    <title>One download, every kernel</title>
-    <link>https://devcentr.org/blog/2026-08-18-one-download-every-kernel</link>
-    <guid isPermaLink="true">https://devcentr.org/blog/2026-08-18-one-download-every-kernel</guid>
+    <title>Is it possible to ship just one download?</title>
+    <link>https://devcentr.org/blog/2026-08-18-is-it-possible-to-ship-just-one-download</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-08-18-is-it-possible-to-ship-just-one-download</guid>
     <pubDate>Tue, 18 Aug 2026 12:00:00 GMT</pubDate>
-    <description>A lab note on single-download packs of native OS/arch slices — not a release announcement.</description>
+    <description>Most programs still ship as one OS and one CPU. The download page is the scar — and the consumer question is whether one file can cover the rest.</description>
     <category>blog</category>
   </item>
   <item>
-    <title>Download pages are a design failure</title>
-    <link>https://devcentr.org/blog/2026-08-18-download-pages-are-a-design-failure</link>
-    <guid isPermaLink="true">https://devcentr.org/blog/2026-08-18-download-pages-are-a-design-failure</guid>
+    <title>Is a Unified binary the future of distributing software?</title>
+    <link>https://devcentr.org/blog/2026-08-18-is-a-unified-binary-the-future-of-distributing-software</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-08-18-is-a-unified-binary-the-future-of-distributing-software</guid>
     <pubDate>Tue, 18 Aug 2026 12:00:00 GMT</pubDate>
-    <description>Almost every compiled program encodes one OS and one CPU. The download page is the scar.</description>
+    <description>A lab note on single-download packs of native OS/arch slices and on-delivery stripping — not a release announcement.</description>
     <category>blog</category>
   </item>
   <item>
@@ -119,11 +119,11 @@
     <category>blog</category>
   </item>
   <item>
-    <title>Search the provider, not the scrape</title>
-    <link>https://devcentr.org/blog/2026-09-02-search-the-provider-not-the-scrape</link>
-    <guid isPermaLink="true">https://devcentr.org/blog/2026-09-02-search-the-provider-not-the-scrape</guid>
+    <title>Search and back up from the source</title>
+    <link>https://devcentr.org/blog/2026-09-02-search-and-back-up-from-the-source</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-09-02-search-and-back-up-from-the-source</guid>
     <pubDate>Invalid Date</pubDate>
-    <description>Vision for provider-native search APIs and API-compatible backups — with a near-term forge archive wedge.</description>
+    <description>Why catalogs and backups should come from the place that hosts the software — not from a scrape of its website.</description>
     <category>blog</category>
   </item>
 </channel>

@@ -1,9 +1,0 @@
-= Search the provider, not the scrape
-:description: Vision for provider-native search APIs and API-compatible backups — with a near-term forge archive wedge.
-:keywords: blog, providers, search, backups
-:date: 2026-09-02
-:categories: architecture, data, tooling
-
-Provider-native search APIs and API-compatible consumer backups are still a vision with a near-term forge archive wedge — not a launched service.
-
-Use this as orientation for the problem space while the implementation catches up.

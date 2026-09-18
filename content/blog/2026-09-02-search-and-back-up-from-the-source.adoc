@@ -1,0 +1,9 @@
+= Search and back up from the source
+:description: Why catalogs and backups should come from the place that hosts the software — not from a scrape of its website.
+:keywords: blog, providers, search, backups
+:date: 2026-09-02
+:categories: architecture, data, tooling
+
+If you want to find a project or keep a copy of it, the honest place to ask is the host that already has it — the forge, the registry, the provider — not a third-party scrape of HTML.
+
+This is still a vision with a near-term archive wedge, not a launched service. Treat it as orientation for the problem while the implementation catches up.

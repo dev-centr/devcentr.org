@@ -1,8 +1,0 @@
-= Download pages are a design failure
-:description: Almost every compiled program encodes one OS and one CPU. The download page is the scar.
-:revdate: 2026-08-18
-:keywords: blog, binaries, portability, craft
-
-Almost every compiled program encodes one OS and one CPU. That is a local accident, and the download page is the scar.
-
-Companion thinking to the distribution investigation: why "pick your platform" became normal — and what would have to change for it not to be.

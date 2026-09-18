@@ -1,9 +1,9 @@
-= Why installers wait in line
+= Why do installers wait in line? A design failure study
 :description: Open-source Windows installer tooling copies files well and stalls everywhere else. The global MSI lock is coarse on purpose.
 :revdate: 2026-08-29
 :keywords: blog, installers, MSI, Windows
 
-Open-source Windows installer tooling is mature at copying files and stale everywhere else. The global MSI lock is coarse on purpose — and that is a design gap worth naming.
+Open-source Windows installer tooling is mature at copying files and stale everywhere else. The global MSI lock is coarse on purpose — and that is a design gap worth studying.
 
 This essay sits beside install-coordinator work; it is not a ship note.
 

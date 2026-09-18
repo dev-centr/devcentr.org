@@ -1,0 +1,8 @@
+= Is it possible to ship just one download?
+:description: Most programs still ship as one OS and one CPU. The download page is the scar — and the consumer question is whether one file can cover the rest.
+:revdate: 2026-08-18
+:keywords: blog, binaries, portability, craft
+
+Most people meet this problem on a download page: Windows or Mac, Intel or ARM, maybe a mystery `.tar.gz`.
+
+The deeper engineering scar is that almost every compiled program encodes one OS and one CPU. This essay is the consumer-facing half of a pair — companion lab note: link:/blog/2026-08-18-is-a-unified-binary-the-future-of-distributing-software[Is a Unified binary the future of distributing software?].
