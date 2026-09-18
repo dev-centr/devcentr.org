@@ -1,18 +1,13 @@
 import { Meta, Title } from "@solidjs/meta";
 
 import { SiteFooter } from "~/components/site-footer";
-import { SLACK_INVITE_URL, STATUS_MONITOR_URL } from "~/lib/site-links";
+import { SLACK_INVITE_URL } from "~/lib/site-links";
 
 const secondary = [
   {
     href: "/status",
     label: "Status",
     detail: "Live probes of public services",
-  },
-  {
-    href: STATUS_MONITOR_URL,
-    label: "Uptime monitor",
-    detail: "Incidents & history · status.devcentr.org",
   },
   {
     href: SLACK_INVITE_URL,
@@ -25,7 +20,7 @@ const secondary = [
     detail: "Bugs and feature requests",
   },
   {
-    href: "https://github.com/dev-centr/devcentr/discussions",
+    href: "https://github.com/orgs/dev-centr/discussions",
     label: "Discussions",
     detail: "Questions and community Q&A",
   },

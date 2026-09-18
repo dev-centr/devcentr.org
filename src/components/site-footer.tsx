@@ -37,8 +37,8 @@ export function SiteFooter() {
               GitHub
             </a>
           </nav>
-          <nav class="flex flex-col gap-2" aria-label="Community">
-            <span class="text-muted-foreground/70">Community</span>
+          <nav class="flex flex-col gap-2" aria-label="Help">
+            <span class="text-muted-foreground/70">Help</span>
             <a href="/help" class={footLink}>
               Help
             </a>

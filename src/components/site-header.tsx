@@ -1,9 +1,22 @@
 import { ModeToggle } from "~/components/mode-toggle";
-import { CommunityNav } from "~/components/community-nav";
+import { HelpNav } from "~/components/help-nav";
 import { LogoMark } from "~/components/logo-mark";
+import { NavDropdown } from "~/components/nav-dropdown";
 
 const linkClass =
   "hidden font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:text-foreground sm:inline";
+
+const appsLinks = [
+  { href: "/apps", label: "Apps" },
+  { href: "/skills", label: "Skills" },
+] as const;
+
+const updatesLinks = [
+  { href: "/news", label: "News" },
+  { href: "/blog", label: "Blog" },
+  { href: "/changelog", label: "Changelog" },
+  { href: "https://docs.devcentr.org", label: "Docs", external: true },
+] as const;
 
 export function SiteHeader() {
   return (
@@ -13,25 +26,9 @@ export function SiteHeader() {
         <span class="font-display text-lg font-semibold tracking-tight">DevCentr</span>
       </a>
       <nav class="flex items-center gap-2 md:gap-3">
-        <a href="/apps" class={linkClass}>
-          Apps
-        </a>
-        <a href="/skills" class={linkClass}>
-          Skills
-        </a>
-        <a href="/news" class={linkClass}>
-          News
-        </a>
-        <a href="/blog" class={linkClass}>
-          Blog
-        </a>
-        <a href="/changelog" class={linkClass}>
-          Changelog
-        </a>
-        <a href="https://docs.devcentr.org" class={linkClass}>
-          Docs
-        </a>
-        <CommunityNav />
+        <NavDropdown label="Apps" menuLabel="Apps" links={[...appsLinks]} />
+        <NavDropdown label="Updates" menuLabel="Updates" links={[...updatesLinks]} />
+        <HelpNav />
         <a href="https://github.com/dev-centr" class={linkClass}>
           GitHub
         </a>
