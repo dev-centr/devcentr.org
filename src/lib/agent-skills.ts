@@ -30,7 +30,7 @@ export const SKILL_CATEGORIES: {
   },
   {
     id: "bootstrap",
-    label: "Bootstrap skills",
+    label: "Bootstrap",
     sourceUrl: `${SKILLS_ROOT}/bootstrap-org/profiles`,
   },
   {

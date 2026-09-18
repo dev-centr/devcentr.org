@@ -208,7 +208,7 @@ export function AgentSkills() {
           </Show>
         </div>
         <div
-          class="skill-stage-frame bootstrap-host"
+          class="bootstrap-host"
           hidden={!isBootstrap()}
           aria-hidden={!isBootstrap()}
         >

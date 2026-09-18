@@ -90,8 +90,8 @@ const BootstrapProfiles: Component = () => {
 
   return (
     <div class="bootstrap-profiles">
-      <div class="advisor-split">
-        <div class="advisor-flow tpl-flow" role="listbox" aria-label="Bootstrap skills">
+      <div class="advisor-split skill-stage-frame">
+        <div class="advisor-flow tpl-flow" role="listbox" aria-label="Bootstrap">
           <div class="advisor-step advisor-step-focused tpl-list">
             <h3>Skills</h3>
             <p class="advisor-hint">

@@ -593,9 +593,14 @@
 }
 
 
-/* Skills cage: bootstrap host shares the same frame geometry */
+/* Skills cage: bootstrap host is a full-width pass-through (not a nested grid).
+   The grid lives on .advisor-split.skill-stage-frame inside BootstrapProfiles,
+   same as every other category. */
 .skills-cage .bootstrap-host {
+  display: block;
   width: 100%;
+  max-width: 100%;
+  min-width: 0;
   min-height: 28rem;
   box-sizing: border-box;
 }
@@ -606,14 +611,17 @@
 }
 
 .skills-cage .bootstrap-profiles {
+  display: block;
   width: 100%;
   max-width: 100%;
   min-width: 0;
 }
 
-.skills-cage .bootstrap-profiles > .advisor-split {
+.skills-cage .bootstrap-profiles > .advisor-split.skill-stage-frame {
   width: 100%;
+  max-width: 100%;
   min-height: 28rem;
+  box-sizing: border-box;
 }
 
 /* List buttons: never let the step card clip horizontal borders */
