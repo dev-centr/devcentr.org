@@ -5,7 +5,16 @@
   <link>https://devcentr.org/news</link>
   <description>News and engineering blog posts from Dev-Centr.</description>
   <language>en-us</language>
-  <lastBuildDate>Thu, 03 Sep 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 18 Sep 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>What a good install actually is</title>
+    <link>https://devcentr.org/news/2026-09-18-what-a-good-install-actually-is</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-09-18-what-a-good-install-actually-is</guid>
+    <pubDate>Fri, 18 Sep 2026 12:00:00 GMT</pubDate>
+    <description>Installation norms as craft — why FHS cargo-cult breaks, why Windows honest writes are a requirement set, and how a dual-mode layout might survive connectome-fs.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
   <item>
     <title>MarkView for reading Markdown on disk</title>
     <link>https://devcentr.org/news/2026-09-03-markview-for-reading-markdown-on-disk</link>

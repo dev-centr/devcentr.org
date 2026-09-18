@@ -4,8 +4,17 @@
   <link href="https://devcentr.org/news" rel="alternate"/>
   <link href="https://devcentr.org/news/atom.xml" rel="self"/>
   <id>https://devcentr.org/news</id>
-  <updated>2026-09-03T12:00:00Z</updated>
+  <updated>2026-09-18T12:00:00Z</updated>
   <subtitle>News and engineering blog posts from Dev-Centr.</subtitle>
+  <entry>
+    <title>What a good install actually is</title>
+    <link href="https://devcentr.org/news/2026-09-18-what-a-good-install-actually-is" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-09-18-what-a-good-install-actually-is</id>
+    <updated>2026-09-18T12:00:00Z</updated>
+    <summary>Installation norms as craft — why FHS cargo-cult breaks, why Windows honest writes are a requirement set, and how a dual-mode layout might survive connectome-fs.</summary>
+    <category term="blog"/>
+    <category term="news"/>
+  </entry>
   <entry>
     <title>MarkView for reading Markdown on disk</title>
     <link href="https://devcentr.org/news/2026-09-03-markview-for-reading-markdown-on-disk" rel="alternate"/>
