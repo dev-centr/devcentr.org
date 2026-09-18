@@ -1,0 +1,90 @@
+= Beyond FHS: installation norms that survive Windows, Linux, and connectome-fs
+:description: DevCentr publishes an authoritative installation norms guide and the Unity Install Layout (UIL) proposal — good patterns vs cargo-cult FHS, Windows honesty, and a dual-mode path toward connectome-fs.
+:revdate: 2026-09-18
+:keywords: news, blog, installation, FHS, UIL, Ibex, Install Coordinator, OpenShellOrg, connectome-fs, DevCentr
+
+If you ship desktop tools or CLIs, you have probably argued about install paths at 2 a.m.
+Linux people quote FHS like scripture.
+Windows people copy into `Program Files` because MSI taught them to, or they skip the ritual and drop a folder on disk because that is what actually ships.
+macOS people pretend `/Applications` is universal while Homebrew lives in `/opt` and your user runs `~/.local/bin` anyway.
+None of those stories is wrong in isolation.
+Together they are why "just follow the standard" keeps failing across machines.
+
+We wrote the guide we wished existed when we started Ibex and the MSI work: **what a good install actually is**, written for engineers who are tired of cargo-cult layout and Windows exceptions treated as shameful hacks.
+
+== Good installs vs layout theater
+
+A **bad** install pattern hides assumptions: copy files somewhere "standard," mutate global `PATH` without a ledger, treat `/usr/local` as a junk drawer, or wrap every CLI in an MSI because IT once asked for one.
+The user cannot tell what changed, cannot undo cleanly, and cannot point a shell or a future graph store at the result.
+
+A **good** install pattern **declares** what it owns: directories, registry keys, services, well-known names.
+It separates **machine-wide** from **per-user** scope on purpose.
+It keeps a **reversible** record when it touches shared environment (especially `PATH`).
+It chooses **in-place** or **copy-out** based on the job — iterating on a dev build is not the same contract as shipping to a locked-down laptop.
+It stays honest when the platform has no real standard (user-local CLI on Linux is the classic gap).
+
+The new encyclopedia cluster states those norms explicitly and names the anti-patterns we see in the wild — not to scold, but so installer authors stop re-learning the same bruises.
+
+== Why Windows often writes straight to disk
+
+Windows is not "broken"; it optimized for a different failure mode.
+MSI's global `_MSIExecute` lock, transactional commit/rollback, and shared component ref-counting reward careful, serialized system mutation — and punish casual parallel installs with opaque dialogs.
+That is why so many developer tools on Windows **write where you point them** or **append PATH in place** instead of pretending every build is an enterprise MSI.
+
+We already named the orchestration gap in link:https://devcentr.org/news/2026-08-29-when-unrelated-installers-still-queue[When unrelated installers still queue].
+The norms guide connects that essay to day-to-day choices: when MSI/MSIX is the right export, when a portable tree plus ledgered PATH is healthier, and why "just use WiX" is not a lifecycle strategy.
+
+== POSIX, SUS, and the Linux variance problem
+
+FHS and friends describe **conventions**, not enforceable law.
+POSIX and SUS tell you a lot about process and file semantics; they do **not** give you one blessed answer for "where does this CLI live for one user on Fedora vs Ubuntu vs a corporate image."
+XDG helps for config and data; tool binaries still sprawl across `/usr/bin`, `/usr/local/bin`, `~/.local/bin`, Snap flat mounts, and vendor trees.
+
+Pretending one layout string works everywhere is how you get fragile post-install scripts and broken tab completion.
+The guide treats **variance as input** — document what you need from the host, do not assume the host shares your distro wiki habits.
+
+== Unity Install Layout (UIL): classic paths today, graph tomorrow
+
+The **Unity Install Layout (UIL)** proposal is the structural half of the same story.
+UIL is a **dual-mode** contract:
+
+* **Classic mode** — layouts that work on today's OS trees: explicit roots, versioned side-by-side installs, well-known entrypoint names, ledgers for environment mutation.
+* **Connectome mode** — the same install expressed as **addressable content** on a connectome-fs graph: editions, dependencies, and rollback as graph operations instead of only directory deletes.
+
+We are not claiming connectome-fs replaces `/usr` tomorrow.
+We **are** claiming that if your install story cannot map to both a conventional path **and** a stable content graph, you will rewrite everything when graph-native storage stops being a research slide.
+
+connectome-fs (link:https://connectome-fs.github.io/[connectome-fs.github.io]) is the sibling org exploring that substrate; general-knowledge cross-links the practitioner essays without overselling readiness.
+
+== Why OpenShellOrg cares about shell-visible installs
+
+link:https://openshellorg.github.io/[OpenShellOrg] lives at the shell boundary: entrypoint dispatch, pins, and re-exec when the wrong binary answered.
+That only works if installs are **visible** — on `PATH`, registered honestly, discoverable without spelunking `Program Files` or a random `~/go/bin`.
+
+We partner with OpenShellOrg (see link:https://devcentr.org/news/2026-07-28-partnering-with-openshellorg[We're partnering with OpenShellOrg (on purpose)]): DevCentr owns toolchain lifecycle orchestration; they refuse to let the shell lie about which host runs.
+UIL and the norms guide encode the install side of that handshake — where files land, how entrypoints register, how undo works.
+
+== DevCentr tooling: Install Coordinator + Ibex
+
+Docs are the spec; tools are how we eat our own cooking.
+
+* link:https://github.com/dev-centr/install-coordinator[install-coordinator] — coordination layer for install claims, queues, and visibility (the direction behind smarter scheduling, not another silent MSI mutex).
+* link:https://github.com/dev-centr/ibex-install-builder[ibex-install-builder] — **Ibex**: `installer.kdl`, in-place PATH with ledger, Explorer and file-manager actions, CI emit, and plugin backends (portable zip, NSIS, Inno, MSI via msi-generator, and friends).
+
+Ibex shipped in link:https://devcentr.org/news/2026-08-06-easy-installer-ships[August]; the norms guide explains *why* those verbs exist instead of treating them as Windows-only shortcuts.
+
+== Read next (general-knowledge installation cluster)
+
+The Antora component is `general-knowledge`; URLs follow the installation architecture cluster (rolling out on docs.devcentr.org):
+
+* link:https://docs.devcentr.org/general-knowledge/explanation/architecture/installation/[Installation architecture hub]
+* link:https://docs.devcentr.org/general-knowledge/explanation/architecture/installation/installation-norms.html[Installation norms — authoritative guide]
+* link:https://docs.devcentr.org/general-knowledge/explanation/architecture/installation/unity-install-layout.html[Unity Install Layout (UIL) proposal]
+* link:https://docs.devcentr.org/general-knowledge/explanation/architecture/installation/good-vs-bad-patterns.html[Good vs bad install patterns]
+* link:https://docs.devcentr.org/tools/ibex/latest/index.html[Ibex tool docs]
+
+If you maintain an installer, skim the norms page before the next path debate.
+If you are designing storage or shell entrypoints, read UIL alongside connectome-fs and OpenShellOrg's dispatch essays — same problem, three altitudes.
+
+We will revise the cluster as Install Coordinator hardens and UIL stops being a proposal slide.
+War stories welcome; the guide is meant to change when the field teaches us something new.

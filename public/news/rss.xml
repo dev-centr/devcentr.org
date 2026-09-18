@@ -5,7 +5,16 @@
   <link>https://devcentr.org/news</link>
   <description>News and engineering blog posts from Dev-Centr.</description>
   <language>en-us</language>
-  <lastBuildDate>Thu, 03 Sep 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Fri, 18 Sep 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Beyond FHS: installation norms that survive Windows, Linux, and connectome-fs</title>
+    <link>https://devcentr.org/news/2026-09-18-installation-norms-and-uil</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-09-18-installation-norms-and-uil</guid>
+    <pubDate>Fri, 18 Sep 2026 12:00:00 GMT</pubDate>
+    <description>DevCentr publishes an authoritative installation norms guide and the Unity Install Layout (UIL) proposal — good patterns vs cargo-cult FHS, Windows honesty, and a dual-mode path toward connectome-fs.</description>
+    <category>blog</category>
+    <category>news</category>
+  </item>
   <item>
     <title>MarkView for reading Markdown on disk</title>
     <link>https://devcentr.org/news/2026-09-03-markview-for-reading-markdown-on-disk</link>
