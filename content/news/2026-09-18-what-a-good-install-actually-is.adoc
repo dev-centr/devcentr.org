@@ -1,0 +1,131 @@
+= What a good install actually is
+:description: Installation norms as craft — why FHS cargo-cult breaks, why Windows honest writes are a requirement set, and how a dual-mode layout might survive connectome-fs.
+:revdate: 2026-09-18
+:keywords: blog, installation, FHS, UIL, POSIX, Windows, connectome-fs, OpenShellOrg, Ibex, Install Coordinator, DevCentr
+
+You know the argument.
+Someone pastes the FHS paragraph about `/usr/local` and declares victory.
+Someone else points at `%ProgramFiles%` and mutters about MSI like it is a moral failing.
+A third person lives in `~/.local/bin` and refuses to explain why that is different from the first two.
+Everyone is half right.
+Everyone is also performing a standard they never read end-to-end.
+
+I keep coming back to installs because they are where philosophy meets disk: what you claim to own, what you leave reversible, and what a shell—or a graph store five years from now—can still find without archaeology.
+
+This essay is not a shipping notice.
+It is the craft frame behind an installation norms guide and a layout proposal (UIL) we are writing into general-knowledge.
+Read those pages when you want checklists and diagrams.
+Stay here if you want the *why*.
+
+== Layout theater vs an install contract
+
+A **bad** install, in the sense that keeps hurting users, is not always a buggy script.
+Often it is an **unstated contract**: files copied because "that is where things go," global environment mutated without a ledger, uninstall that deletes a folder but not the PATH entry that outlived it, upgrade that assumes only one version may exist because the author never side-by-side'd anything.
+
+A **good** install **names its claims** before it writes.
+Machine scope vs user scope is a design choice, not a default.
+Side-by-side versions are a feature when your CLI promises semver.
+Rollback is not magic—it is knowing which registry keys, which services, which well-known names you touched.
+
+That sounds obvious written down.
+It is rarely how installer templates behave, because templates optimize for the demo machine where `/usr/local` was empty and PATH was short.
+
+The norms guide we are assembling tries to say the quiet part out loud: **separate "where files land" from "what the install promises to the rest of the system."**
+Land files in a tree that matches your support story.
+Promise the environment in a record something else can read—future you, a coordinator, a shell pin resolver.
+
+== FHS, SUS, and the cargo-cult trap
+
+The Filesystem Hierarchy Standard is useful the way a city map is useful: it orients newcomers.
+It is not a runtime API.
+Nothing in the kernel rejects your binary because you chose `opt/myvendor` instead of a wiki's favorite spelling.
+
+POSIX and the Single UNIX Specification are deeper—they stabilize behavior engineers can rely on across systems.
+They still do **not** answer the question that burns CLI authors: *where does this tool live for one user on one laptop when the distro package manager, the language ecosystem, and the vendor tarball all disagree?*
+
+Cargo-cult FHS is the habit of quoting hierarchy documents without naming **claims**.
+You see it in post-install scripts that `chmod +x` into system directories "because Linux," in Docker images that mimic a full FHS tree for a single static binary, in debates that treat `/usr/local` as sin or sacrament without asking who shares that prefix on the host.
+
+Craft means treating variance as input.
+Fedora's packaging norms, Ubuntu's Snaps, a corporate golden image, and your own `~/.local` habit are different hosts.
+A layout that works is one whose **assumptions are explicit**—and whose undo path does not require guessing which of three PATH edits was yours.
+
+== Windows: direct-to-disk is not cheating
+
+Linux people sometimes treat Windows "portable folder plus PATH" installs as immature.
+That judgment skips the platform's requirement set.
+
+MSI is a transactional, serialized mutation engine with a global lock and shared component bookkeeping.
+It exists because IT needed pessimistic safety more than parallel indie installs.
+The `_MSIExecute` mutex is not stupidity; it is a coarse gate chosen before your package's file list is known.
+We wrote about that feeling—double-click, silence, *Another installation is already in progress*—in link:https://devcentr.org/news/2026-08-29-when-unrelated-installers-still-queue[When unrelated installers still queue].
+
+So Windows tools often **write where you point them** or **append PATH in place with a ledger** because the alternative is pretending every dev iteration is an enterprise MSI.
+That is not avoiding adulthood.
+It is matching the job: iterative CLI work wants reversibility and visibility, not a ref-count graph for a redistributable you never shared.
+
+Craft on Windows still means the same contract: declare claims, keep undo honest, export MSI/MSIX when the deployment story requires tables and GPO—not because MSI is the only moral installer.
+
+== Linux variance without pretending one `/usr`
+
+On Linux the pain is pluralism, not absence of standards.
+XDG gives config and data homes; binaries still scatter.
+Distro packages, language-specific shims, and vendor tarballs coexist on one `$PATH`, and tab completion breaks in proportion to how many silent mutators ran before login.
+
+Good craft here looks like **well-known entrypoint names**, **versioned install roots**, and **environment mutation you can enumerate**.
+Bad craft looks like "we picked `/usr/local/bin` because the README said so" with no story for Nix users, container bind mounts, or a user who cannot sudo.
+
+The encyclopedia cluster under link:https://docs.devcentr.org/general-knowledge/explanation/architecture/installation/[installation architecture] names patterns and anti-patterns so authors stop re-deriving this thread from first principles on every new tool.
+
+== UIL: one layout, two futures
+
+The **Unity Install Layout (UIL)** proposal is the structural bet I want to be wrong about in the details but right about in shape.
+
+**Classic mode** is today: explicit roots, side-by-side versions, ledgers for PATH and registry, entrypoints a shell can see.
+
+**Connectome mode** is tomorrow's graph: the same install as **addressable content**—editions, dependencies, rollback as graph operations, not only `rm -rf` and hope.
+
+connectome-fs (link:https://connectome-fs.github.io/[connectome-fs.github.io]) is the sibling org exploring that substrate—content-addressed storage where dependency edges can be first-class.
+I am not claiming your next laptop boots into a graph filesystem.
+I am claiming that if your install story **only** maps to a directory tree, you will rewrite it when graph-native storage stops being a research slide.
+
+UIL is dual-mode so we do not fork the mental model: the manifest you author for classic paths should have a straight mapping to connectome editions.
+If that mapping is painful, the manifest is lying about what an install *is*.
+
+Proposal write-up: link:https://docs.devcentr.org/general-knowledge/explanation/architecture/installation/unity-install-layout.html[Unity Install Layout (UIL)].
+Norms checklist: link:https://docs.devcentr.org/general-knowledge/explanation/architecture/installation/installation-norms.html[Installation norms].
+
+== Shell visibility (why OpenShellOrg is in this essay)
+
+link:https://openshellorg.github.io/[OpenShellOrg] cares about entrypoint dispatch—pins, re-exec, refusing to let the wrong Node answer when the pin said otherwise.
+That work only succeeds when installs are **honest on the shell boundary**: binaries and shims on `PATH`, registrations that match what landed on disk, undo that does not leave a stale shim pointing at a deleted tree.
+
+DevCentr's toolchain lifecycle story and OpenShellOrg's shell-boundary story are siblings, not duplicates.
+We orchestrate pins and health; they stress-test whether the shell can trust what it launches.
+An install layout that hides binaries deep in `%ProgramFiles%` without a stable entrypoint is not "more secure"—it is **invisible**, which makes dispatch guesses and user hacks more likely, not fewer.
+
+If you care about structured shells, treat **shell-visible installs** as a first-class layout requirement, not a packaging afterthought.
+
+== Tooling as hypothesis, not billboard
+
+Docs should lead; tools should falsify the docs.
+
+We are exploring link:https://github.com/dev-centr/install-coordinator[Install Coordinator] because orchestration—claims, queues, visible waits—is the gap behind pretty wizards and ugly mutex dialogs.
+link:https://github.com/dev-centr/ibex-install-builder[Ibex] is the host we use to try in-place PATH with ledgers, file-manager actions, and `installer.kdl` backends without pretending every artifact is MSI.
+Neither repo is the essay's punchline.
+They are where we test whether the norms survive contact with Windows Explorer and CI emit.
+
+Ibex tool docs: link:https://docs.devcentr.org/tools/ibex/latest/index.html[Ibex].
+Pattern comparison: link:https://docs.devcentr.org/general-knowledge/explanation/architecture/installation/good-vs-bad-patterns.html[Good vs bad install patterns].
+
+== What I want you to take away
+
+Stop asking "where does FHS say?" as the first question.
+Ask **what this install claims**, **who shares those resources**, **how undo works**, and **whether a shell or a graph can find the entrypoint without spelunking**.
+
+If you maintain an installer, write those answers down before the next path flamewar.
+If you are designing storage or dispatch, read UIL alongside connectome-fs and OpenShellOrg's essays—same human problem, different altitude.
+
+The guide will change when the field teaches us something new.
+So will this page.
+That is the point of inner-thought writing: the layout is a craft, not a press release.
