@@ -20,6 +20,14 @@ import {
 } from "~/lib/agent-skills";
 import "../toolchain-advisor.css";
 
+
+const HARNESS_INSTALL_PROMPT = [
+  "Sync DevCentr agent-rules from https://github.com/dev-centr/agent-rules.",
+  "Enable skill discovery for this harness so inventory skills under agent-rules/skills auto-load and stay current.",
+  "Prefer the project harness.md / AGENT_RULES_PATH wiring over pasting skill bodies into always-on rules.",
+].join("\n");
+
+
 function readCatFromUrl(): SkillCategoryId {
   if (typeof window === "undefined") return "all";
   return parseSkillCategory(new URL(window.location.href).searchParams.get("cat") ?? undefined);
@@ -173,6 +181,61 @@ export function AgentSkills() {
 
   return (
     <div class="advisor-root skills-cage">
+
+      <section class="skills-howto" aria-labelledby="skills-howto-title">
+        <h2 id="skills-howto-title" class="skills-howto-title">
+          How to use these skills
+        </h2>
+        <p class="skills-howto-lead">
+          Skills can be used one of two ways:
+        </p>
+        <div class="skills-howto-grid">
+          <article class="skills-howto-card">
+            <h3 class="skills-howto-card-title">One-off</h3>
+            <p class="skills-howto-card-body">
+              Paste the agent prompt for a skill into your coding agent for this task only.
+              No repo install required. If that skill is not on disk yet, tell the agent to pull
+              it from{" "}
+              <a
+                href="https://github.com/dev-centr/agent-rules"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                dev-centr/agent-rules
+              </a>
+              .
+            </p>
+          </article>
+          <article class="skills-howto-card">
+            <h3 class="skills-howto-card-title">Harness install</h3>
+            <p class="skills-howto-card-body">
+              Clone or sync{" "}
+              <a
+                href="https://github.com/dev-centr/agent-rules"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                agent-rules
+              </a>{" "}
+              and enable skill discovery in your harness. Skills then auto-load with this
+              inventory and stay current when you pull. Setup guide:{" "}
+              <a
+                href="https://docs.devcentr.org/agent-rules/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                docs.devcentr.org/agent-rules
+              </a>
+              .
+            </p>
+          </article>
+        </div>
+        <CopyInstallSnippet
+          label="Agent prompt · harness install"
+          text={HARNESS_INSTALL_PROMPT}
+        />
+      </section>
+
       <div class="skill-cats" role="tablist" aria-label="Skill categories">
         <For each={SKILL_CATEGORIES}>
           {(c) => (

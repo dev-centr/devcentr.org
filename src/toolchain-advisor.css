@@ -635,3 +635,63 @@
   padding: 0;
   list-style: none;
 }
+
+/* Skills page: install / usage explainer above category tabs */
+.skills-howto {
+  margin: 0 0 1.5rem;
+  padding: 1.1rem 1.15rem 1.15rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  background: hsl(var(--card));
+  box-sizing: border-box;
+  max-width: 100%;
+}
+.skills-howto-title {
+  margin: 0 0 0.35rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: hsl(var(--foreground));
+}
+.skills-howto-lead {
+  margin: 0 0 0.85rem;
+  font-size: 0.9rem;
+  color: hsl(var(--muted-foreground));
+}
+.skills-howto-grid {
+  display: grid;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+@media (min-width: 720px) {
+  .skills-howto-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+.skills-howto-card {
+  padding: 0.75rem 0.85rem;
+  border: 1px solid hsl(var(--border));
+  border-radius: 10px;
+  background: hsl(var(--background) / 0.55);
+  min-width: 0;
+}
+.skills-howto-card-title {
+  margin: 0 0 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: hsl(var(--primary));
+}
+.skills-howto-card-body {
+  margin: 0;
+  font-size: 0.82rem;
+  line-height: 1.45;
+  color: hsl(var(--foreground) / 0.9);
+}
+.skills-howto-card-body a {
+  color: hsl(var(--primary));
+  text-underline-offset: 3px;
+}
+.skills-howto .install-snippet {
+  margin-bottom: 0;
+}
