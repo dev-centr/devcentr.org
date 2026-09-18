@@ -1,7 +1,7 @@
-= After Skia: rendering for documents that grow
-:description: Electron wins until the document grows. Then the renderer — not the feature list — decides whether the app survives.
+= After Skia: modern 2D rendering engine with Vello
+:description: After Skia, Vello-style GPU compute is the bet for documents that grow past what Electron can carry.
 :revdate: 2026-08-19
-:keywords: blog, Skia, rendering, Electron
+:keywords: blog, Skia, Vello, rendering, Electron
 
 Electron wins the ecosystem until the document grows. Then the renderer — not the feature list — decides whether an app survives two gigabytes of chat.
 

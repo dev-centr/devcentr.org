@@ -93,8 +93,8 @@
       "channel": "blog"
     },
     {
-      "slug": "2026-08-28-lightweight-agent-harness-strategy",
-      "title": "Lightweight agent harness strategy",
+      "slug": "2026-08-28-our-ai-agent-harness-strategy",
+      "title": "Our AI agent harness strategy",
       "description": "Direction notes for a T3code-weight local agent runtime — strategy, not a News-desk release.",
       "date": "2026-08-28",
       "tags": [
@@ -123,13 +123,14 @@
       "channel": "blog"
     },
     {
-      "slug": "2026-08-19-after-skia-rendering-for-documents-that-grow",
-      "title": "After Skia: rendering for documents that grow",
-      "description": "Electron wins until the document grows. Then the renderer — not the feature list — decides whether the app survives.",
+      "slug": "2026-08-19-after-skia-modern-2d-rendering-engine-with-vello",
+      "title": "After Skia: modern 2D rendering engine with Vello",
+      "description": "After Skia, Vello-style GPU compute is the bet for documents that grow past what Electron can carry.",
       "date": "2026-08-19",
       "tags": [
         "blog",
         "Skia",
+        "Vello",
         "rendering",
         "Electron"
       ],
@@ -198,8 +199,8 @@
       "channel": "blog"
     },
     {
-      "slug": "2026-08-09-your-api-key-is-not-a-token",
-      "title": "Your API key is not a token",
+      "slug": "2026-08-09-api-key-vs-api-token-an-explainer",
+      "title": "API key vs API token, an explainer",
       "description": "Dashboard secrets keep getting sold as tokens. The wrong word keeps failing security reviews.",
       "date": "2026-08-09",
       "tags": [

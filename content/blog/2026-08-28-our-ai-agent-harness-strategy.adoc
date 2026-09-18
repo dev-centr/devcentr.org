@@ -1,4 +1,4 @@
-= Lightweight agent harness strategy
+= Our AI agent harness strategy
 :description: Direction notes for a T3code-weight local agent runtime — strategy, not a News-desk release.
 :revdate: 2026-08-28
 :keywords: blog, agents, harness, direction
