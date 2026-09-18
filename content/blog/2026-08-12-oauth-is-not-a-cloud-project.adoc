@@ -1,0 +1,8 @@
+= OAuth is not a Cloud project
+:description: Personal OAuth does not belong in a Project-shaped box. Consent, quotas, and API enablement are the wrong boundaries.
+:revdate: 2026-08-12
+:keywords: blog, Google Cloud, OAuth, mental model
+
+Google Cloud forces personal OAuth into Project-shaped boxes — consent, quotas, and API enablement included.
+
+When a Cloud project pretends to be an app, operators inherit the wrong boundaries. Here is the mental model DevCentr documents instead.

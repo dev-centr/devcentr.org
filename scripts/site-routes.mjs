@@ -1,6 +1,5 @@
 /**
  * Canonical indexable routes for prerender + sitemap.
- * Keep this the single route list — do not duplicate elsewhere.
  */
 import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { dirname, join } from "node:path";
@@ -32,8 +31,8 @@ const STATIC_ROUTES = [
   "/ideas/uniconfig",
 ];
 
-function collectNewsSlugs() {
-  const generated = join(rootDir, "src", "lib", "news-posts.generated.json");
+function collectSlugs(generatedRel, contentRel) {
+  const generated = join(rootDir, ...generatedRel);
   if (existsSync(generated)) {
     try {
       const data = JSON.parse(readFileSync(generated, "utf8"));
@@ -44,9 +43,9 @@ function collectNewsSlugs() {
       /* fall through */
     }
   }
-  const newsDir = join(rootDir, "content", "news");
-  if (!existsSync(newsDir)) return [];
-  return readdirSync(newsDir)
+  const dir = join(rootDir, ...contentRel);
+  if (!existsSync(dir)) return [];
+  return readdirSync(dir)
     .filter((f) => f.endsWith(".adoc") && f !== "README.adoc")
     .map((f) => f.replace(/\.adoc$/i, ""));
 }
@@ -60,14 +59,18 @@ function collectIdeaSlugs() {
 
 /** @returns {string[]} */
 export function getPrerenderRoutes() {
-  const newsSlugs = collectNewsSlugs();
-  const newsRoutes = newsSlugs.flatMap((slug) => [`/news/${slug}`, `/blog/${slug}`]);
+  const newsRoutes = collectSlugs(["src", "lib", "news-posts.generated.json"], ["content", "news"]).map(
+    (slug) => `/news/${slug}`,
+  );
+  const blogRoutes = collectSlugs(["src", "lib", "blog-posts.generated.json"], ["content", "blog"]).map(
+    (slug) => `/blog/${slug}`,
+  );
   const ideaRoutes = collectIdeaSlugs().map((slug) => `/ideas/${slug}`);
-  return [...new Set([...STATIC_ROUTES, ...newsRoutes, ...ideaRoutes])];
+  return [...new Set([...STATIC_ROUTES, ...newsRoutes, ...blogRoutes, ...ideaRoutes])];
 }
 
 export const HTML_FALLBACK = {
-  title: "DevCentr — Developer Ecosystem and Support",
+  title: "DevCentr - Developer Ecosystem and Support",
   description:
     "Tools, resources, and support so developers can go from 0 to pro: learn and manage workflows with the Development Orchestration Suite.",
   heading: "DevCentr",

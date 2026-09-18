@@ -1,12 +1,11 @@
-= Agent rules without the harness baked in
-:description: Forkable agent-rules templates should not assume Cursor—or any single AI harness. Machine facts belong in HARNESS.md and MEMORIES.md; illustrated architecture now on docs.devcentr.org.
+= Architecting your agent rules
+:description: How to structure agent rules so harness quirks stay on the machine — and the templates stay forkable.
 :revdate: 2026-08-19
-:keywords: blog, news, agent-rules, harness, cursor, ai, templates, dev-centr
+:keywords: blog, agents, rules, harness
 
-You copy the team rules into a new harness—Hermes on Tuesday, Cursor on Wednesday, something else next month—and within a week the template has your drive letter, your username, and a paragraph that only makes sense if the agent lives inside one vendor's settings panel.
+Most teams already have agent rules. The hard part is structuring them so they still make sense on the next machine, the next harness, and the next teammate's checkout.
 
-That is not a portability problem.
-It is a **layering** mistake wearing a reasonable filename.
+This piece is an architecture pass: what belongs in forkable templates, what belongs in harness config, and what belongs in workstation memory — so Cursor quirks stop leaking into the shared rules.
 
 == The moment the template stops being forkable
 

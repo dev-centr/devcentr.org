@@ -1,9 +1,11 @@
-= Lightweight agent harness direction
-:description: DevCentr is building a T3code-weight local agent runtime on dlang-supplemental infrastructure — harness-neutral rules, ecosystem specialization, token provenance as first UX contract.
+= A harness that does not own the rules
+:description: Direction notes for a T3code-weight local agent runtime — not a News-desk release.
 :revdate: 2026-08-28
-:keywords: news, agent-rules, harness, t3code, dlang-supplemental, token-provenance, dev-centr
+:keywords: blog, agents, harness, direction
 
-DevCentr is officially pursuing a **lightweight agent harness** — not a Cursor-scale IDE, but a local runtime that runs the same harness-neutral rules stack while delegating native work to **dlang-supplemental**.
+A lightweight agent harness is in progress — direction and design, not a News-desk release.
+
+The sketch is a T3code-weight local agent runtime on dlang-supplemental infrastructure: harness-neutral rules, ecosystem specialization, token provenance as a first UX contract.
 
 == Why now
 

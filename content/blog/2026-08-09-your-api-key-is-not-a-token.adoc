@@ -1,19 +1,11 @@
-= When API keys wear token costumes
-:description: Vendors keep labeling long-lived dashboard secrets as tokens. Here is the architectural split Dev-Centr is forcing into docs and Secrets Manager—and why the wrong word keeps breaking security reviews.
+= Your API key is not a token
+:description: Dashboard secrets keep getting sold as tokens. The wrong word keeps failing security reviews.
 :revdate: 2026-08-09
-:keywords: news, blog, api-key, access-token, oauth, pat, secrets, vocabulary, security
+:keywords: blog, security, API keys, tokens
 
-Open almost any developer console and you will find the same soft lie waiting under a friendly button: *Generate your API access token*.
-You click it.
-You get a long string that never expires unless you delete it, that identifies your project or account, and that you will paste into a `.env` file and forget until something leaks.
-That string is not an access token in the OAuth sense.
-It is an **API key** wearing a costume stitched from marketing and Bearer-header habits.
+Vendors keep labeling long-lived dashboard secrets as "tokens." The costume is convenient for marketing and hostile to security reviews.
 
-We are done pretending the costume is the thing.
-Dev-Centr's docs and Secrets Manager now name credentials by what they *do*, not by what the vendor's UI whispered while you were trying to ship.
-
-Practitioner lock (use this in reviews and agent prompts): link:https://docs.devcentr.org/general-knowledge/latest/explanation/infrastructure/api-key-vs-token.html[API key vs token].
-Product enforcement: link:https://docs.devcentr.org/platforms/devcentr/latest/secrets-manager/explanation/api-key-vs-token.html[Secrets Manager vocabulary].
+This essay draws the architectural split DevCentr is forcing into docs and Secrets Manager — and why the wrong word keeps failing audits.
 
 == A scene from every onboarding
 

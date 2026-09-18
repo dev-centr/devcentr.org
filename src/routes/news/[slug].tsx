@@ -13,7 +13,7 @@ export default function NewsPostPage() {
   const params = useParams();
   const post = createMemo(() => getPost(params.slug));
   const showToolchainDiagrams = createMemo(
-    () => params.slug === "2026-07-28-partnering-with-openshellorg",
+    () => params.slug === "2026-07-28-partnership-with-openshellorg",
   );
 
   return (
@@ -23,7 +23,7 @@ export default function NewsPostPage() {
           <>
             <Title>{`${p.title} · DevCentr News`}</Title>
             <Meta name="description" content={p.description || p.title} />
-            <Meta name="keywords" content={[...(p.tags || []), "DevCentr", "news", "blog"].join(", ")} />
+            <Meta name="keywords" content={[...(p.tags || []), "DevCentr", \"news\"].join(", ")} />
           </>
         )}
       </Show>

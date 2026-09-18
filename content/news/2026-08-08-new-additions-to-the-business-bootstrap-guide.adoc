@@ -1,0 +1,8 @@
+= New additions to the Business Bootstrap guide
+:description: Scheduling, design, and vault capability areas land in Business Bootstrap on docs.devcentr.org.
+:revdate: 2026-08-08
+:keywords: news, Business Bootstrap, docs, guide
+
+New additions landed in the Business Bootstrap guide on docs.devcentr.org.
+
+Scheduling, design, and vault capability areas expand the same support-systems guide — growth in place, not a second parallel handbook.

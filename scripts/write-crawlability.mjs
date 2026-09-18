@@ -19,11 +19,10 @@ function toLoc(origin, route) {
   return `${origin}${route}`;
 }
 
-/** Exclude ops probes and /blog aliases of /news from the public sitemap. */
+/** Exclude ops probes from the public sitemap. */
 function sitemapRoutes(routes) {
   return routes.filter((path) => {
     if (path === "/health" || path === "/status") return false;
-    if (path === "/blog" || path.startsWith("/blog/")) return false;
     return true;
   });
 }

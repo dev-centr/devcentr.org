@@ -22,6 +22,9 @@ export function SiteHeader() {
         <a href="/news" class={linkClass}>
           News
         </a>
+        <a href="/blog" class={linkClass}>
+          Blog
+        </a>
         <a href="/changelog" class={linkClass}>
           Changelog
         </a>

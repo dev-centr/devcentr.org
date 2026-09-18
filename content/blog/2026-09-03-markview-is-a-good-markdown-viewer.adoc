@@ -1,0 +1,8 @@
+= MarkView is a good Markdown viewer
+:description: Orientation to MarkView as a free local Markdown viewer (no editing).
+:revdate: 2026-09-03
+:keywords: blog, MarkView, Markdown, viewer, orientation
+
+MarkView is a good Markdown viewer for machines that need to read .md on disk without opening an editor.
+
+It stays view-only on purpose. For editing READMEs and project docs locally, see link:/blog/2026-09-02-solomd-editor-a-new-markdown-tool-to-add-to-your-toolbox[SoloMD editor: a new Markdown tool to add to your toolbox].

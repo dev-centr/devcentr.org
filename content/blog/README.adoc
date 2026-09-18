@@ -1,0 +1,16 @@
+= Authoring DevCentr Blog (CMS)
+:navtitle: Blog CMS
+
+Blog posts are AsciiDoc files in `content/blog/`. Git is the CMS.
+
+== Voice
+
+Blog faces **inward**: ideas, craft, investigations, and orientations that are **not official yet** (or not important enough for News).
+
+* **News vs blog:** news = outward shared record (released / opened / partnered); blog = inner thought, directions in progress, tool orientations.
+* Conversational authority is fine; thesis early.
+* Day-to-day shipping notes belong on `/changelog`.
+
+== Companion orientations
+
+Markdown tool posts should cross-link when they introduce related tools.

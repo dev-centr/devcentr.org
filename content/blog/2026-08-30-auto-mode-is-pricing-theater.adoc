@@ -1,15 +1,11 @@
-= When Auto-mode math meets a local router
-:description: Why raw frontier APIs blow past a sixty-dollar IDE plan, and how harness routing plus a local classify model change the spend curve without shipping Python glue.
+= Auto mode is pricing theater
+:description: Raw frontier APIs blow past a sixty-dollar IDE plan. Harness routing plus a local classify model change the spend curve.
 :revdate: 2026-08-30
-:keywords: blog, harness, mixr, routing, cost, t3code
+:keywords: blog, agents, routing, cost
 
-The first time you point an agentic editor at Claude for every turn, the invoice feels like a dare.
-You already paid for a fixed IDE plan.
-You open a ten-turn debug loop with forty thousand tokens of context and watch the meter treat every replay like a first date.
+Raw frontier APIs blow past a sixty-dollar IDE plan with depressing reliability. Harness routing plus a local classify model change the spend curve without shipping Python glue as the product.
 
-I spent a morning walking that math with an export of open-source Auto-mode alternatives — RouteLLM, Aider's architect/editor split, surplus GPU markets, batch APIs.
-Useful maps.
-Wrong destination if the destination is *our* harness.
+A cost-and-routing essay — not a pricing announcement.
 
 == The spend curve is a routing problem
 

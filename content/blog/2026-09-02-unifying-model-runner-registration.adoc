@@ -1,0 +1,8 @@
+= Unifying model runner registration
+:description: Competing unilayer discovery formats punish offline runners. Open Provider Registry should be a shared protocol, not a brand war.
+:revdate: 2026-09-02
+:keywords: blog, OPR, models, protocol
+
+Competing unilayer discovery formats punish offline model runners. Open Provider Registry (OPR) should be a shared protocol, not a product brand war.
+
+This is advocacy and design framing — News will cover a release if and when one ships.

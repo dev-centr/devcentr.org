@@ -1,0 +1,8 @@
+= News desk opens
+:description: DevCentr opens a public News feed for shipped work and partnerships — not a dump of every docs edit.
+:revdate: 2026-07-24
+:keywords: news, DevCentr, announcements
+
+DevCentr now publishes a public News desk for work that entered the shared record: releases, partnerships, and durable openings.
+
+Day-to-day shipping notes stay on the link:/changelog[Changelog]. Essays and unfinished directions live on the link:/blog[Blog].

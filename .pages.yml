@@ -12,4 +12,14 @@ content:
       - name: body
         label: AsciiDoc body
         type: rich-text
-        # Prefer AsciiDoc syntax; Pages CMS stores the file as .adoc
+  - name: blog
+    label: Blog
+    path: content/blog
+    type: collection
+    extension: adoc
+    format: code
+    create: true
+    fields:
+      - name: body
+        label: AsciiDoc body
+        type: rich-text

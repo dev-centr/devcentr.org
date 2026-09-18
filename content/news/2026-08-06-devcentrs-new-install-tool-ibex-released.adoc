@@ -1,0 +1,13 @@
+= DevCentr's new install tool, Ibex, released
+:description: Ibex (Install Builder EXtension): CLI and Explorer actions for installer projects, in-place PATH installs, and CI pipeline emit.
+:revdate: 2026-08-06
+:keywords: news, Ibex, installer, release
+
+DevCentr's new install tool, Ibex, is released.
+
+Ibex (Install Builder EXtension) covers CLI and Explorer actions for installer projects, in-place PATH installs, and CI pipeline emit — a host for installer work rather than one more one-off script.
+
+image::/news/media/easy-installer-standalone.webp[Ibex frosted-glass project UI with plugin chips and Build]
+
+.DevCentr extension surface
+image::/news/media/easy-installer-devcentr.webp[DevCentr toolbar and context menu for Ibex]

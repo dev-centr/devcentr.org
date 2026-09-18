@@ -23,6 +23,7 @@ const PLANETS: PlanetDef[] = [
   { id: "apps", label: "Apps", href: "/apps", radius: 0.4, incl: -0.12, node: 1.1, period: 24_000, phase: 0.31, fill: "hsl(210 22% 28%)" },
   { id: "docs", label: "Docs", href: "https://docs.devcentr.org", radius: 0.52, incl: 0.32, node: 2.2, period: 32_000, phase: 0.57, fill: "hsl(198 38% 30%)" },
   { id: "news", label: "News", href: "/news", radius: 0.62, incl: -0.22, node: 3.6, period: 28_000, phase: 0.14, fill: "hsl(168 42% 26%)" },
+  { id: "blog", label: "Blog", href: "/blog", radius: 0.68, incl: -0.18, node: 3.4, period: 31_000, phase: 0.15, fill: "hsl(198 38% 28%)" },
   { id: "changelog", label: "Changelog", href: "/changelog", radius: 0.74, incl: 0.08, node: 5.1, period: 40_000, phase: 0.72, fill: "hsl(160 28% 26%)" },
   { id: "skills", label: "Skills", href: "/skills", radius: 0.82, incl: -0.38, node: 0.9, period: -36_000, phase: 0.44, fill: "hsl(186 40% 28%)" },
   { id: "stack", label: "Stack", href: "/stack-advisor", radius: 0.91, incl: 0.28, node: 4.4, period: 46_000, phase: 0.91, fill: "hsl(174 36% 24%)" },

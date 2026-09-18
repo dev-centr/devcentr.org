@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+<channel>
+  <title>DevCentr Blog</title>
+  <link>https://devcentr.org/blog</link>
+  <description>Craft, investigations, and orientations from Dev-Centr.</description>
+  <language>en-us</language>
+  <lastBuildDate>Fri, 18 Sep 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>What a good install actually is</title>
+    <link>https://devcentr.org/blog/2026-09-18-what-a-good-install-actually-is</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-09-18-what-a-good-install-actually-is</guid>
+    <pubDate>Fri, 18 Sep 2026 12:00:00 GMT</pubDate>
+    <description>Installation norms as craft — FHS cargo-cult, Windows honest writes, and a dual-mode layout that might survive connectome-fs.</description>
+    <category>blog</category>
+  </item>
+  <item>
+    <title>MarkView is a good Markdown viewer</title>
+    <link>https://devcentr.org/blog/2026-09-03-markview-is-a-good-markdown-viewer</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-09-03-markview-is-a-good-markdown-viewer</guid>
+    <pubDate>Thu, 03 Sep 2026 12:00:00 GMT</pubDate>
+    <description>Orientation to MarkView as a free local Markdown viewer (no editing).</description>
+    <category>blog</category>
+  </item>
+  <item>
+    <title>Unifying model runner registration</title>
+    <link>https://devcentr.org/blog/2026-09-02-unifying-model-runner-registration</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-09-02-unifying-model-runner-registration</guid>
+    <pubDate>Wed, 02 Sep 2026 12:00:00 GMT</pubDate>
+    <description>Competing unilayer discovery formats punish offline runners. Open Provider Registry should be a shared protocol, not a brand war.</description>
+    <category>blog</category>
+  </item>
+  <item>
+    <title>SoloMD editor: a new Markdown tool to add to your toolbox</title>
+    <link>https://devcentr.org/blog/2026-09-02-solomd-editor-a-new-markdown-tool-to-add-to-your-toolbox</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-09-02-solomd-editor-a-new-markdown-tool-to-add-to-your-toolbox</guid>
+    <pubDate>Wed, 02 Sep 2026 12:00:00 GMT</pubDate>
+    <description>Orientation to SoloMD for local Markdown README and project-doc workflows.</description>
+    <category>blog</category>
+  </item>
+  <item>
+    <title>Auto mode is pricing theater</title>
+    <link>https://devcentr.org/blog/2026-08-30-auto-mode-is-pricing-theater</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-08-30-auto-mode-is-pricing-theater</guid>
+    <pubDate>Sun, 30 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Raw frontier APIs blow past a sixty-dollar IDE plan. Harness routing plus a local classify model change the spend curve.</description>
+    <category>blog</category>
+  </item>
+  <item>
+    <title>Why installers wait in line</title>
+    <link>https://devcentr.org/blog/2026-08-29-why-installers-wait-in-line</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-08-29-why-installers-wait-in-line</guid>
+    <pubDate>Sat, 29 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Open-source Windows installer tooling copies files well and stalls everywhere else. The global MSI lock is coarse on purpose.</description>
+    <category>blog</category>
+  </item>
+  <item>
+    <title>A harness that does not own the rules</title>
+    <link>https://devcentr.org/blog/2026-08-28-a-harness-that-does-not-own-the-rules</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-08-28-a-harness-that-does-not-own-the-rules</guid>
+    <pubDate>Fri, 28 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Direction notes for a T3code-weight local agent runtime — not a News-desk release.</description>
+    <category>blog</category>
+  </item>
+  <item>
+    <title>Architecting your agent rules</title>
+    <link>https://devcentr.org/blog/2026-08-19-architecting-your-agent-rules</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-08-19-architecting-your-agent-rules</guid>
+    <pubDate>Wed, 19 Aug 2026 12:00:00 GMT</pubDate>
+    <description>How to structure agent rules so harness quirks stay on the machine — and the templates stay forkable.</description>
+    <category>blog</category>
+  </item>
+  <item>
+    <title>After Skia: rendering for documents that grow</title>
+    <link>https://devcentr.org/blog/2026-08-19-after-skia-rendering-for-documents-that-grow</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-08-19-after-skia-rendering-for-documents-that-grow</guid>
+    <pubDate>Wed, 19 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Electron wins until the document grows. Then the renderer — not the feature list — decides whether the app survives.</description>
+    <category>blog</category>
+  </item>
+  <item>
+    <title>One download, every kernel</title>
+    <link>https://devcentr.org/blog/2026-08-18-one-download-every-kernel</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-08-18-one-download-every-kernel</guid>
+    <pubDate>Tue, 18 Aug 2026 12:00:00 GMT</pubDate>
+    <description>A lab note on single-download packs of native OS/arch slices — not a release announcement.</description>
+    <category>blog</category>
+  </item>
+  <item>
+    <title>Download pages are a design failure</title>
+    <link>https://devcentr.org/blog/2026-08-18-download-pages-are-a-design-failure</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-08-18-download-pages-are-a-design-failure</guid>
+    <pubDate>Tue, 18 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Almost every compiled program encodes one OS and one CPU. The download page is the scar.</description>
+    <category>blog</category>
+  </item>
+  <item>
+    <title>Stop translating shells</title>
+    <link>https://devcentr.org/blog/2026-08-13-stop-translating-shells</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-08-13-stop-translating-shells</guid>
+    <pubDate>Thu, 13 Aug 2026 12:00:00 GMT</pubDate>
+    <description>A playbook should name the outcome. PlayTime binds how on this machine. Equivalence Engine is a catalog — not a bash-to-PowerShell blender.</description>
+    <category>blog</category>
+  </item>
+  <item>
+    <title>OAuth is not a Cloud project</title>
+    <link>https://devcentr.org/blog/2026-08-12-oauth-is-not-a-cloud-project</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-08-12-oauth-is-not-a-cloud-project</guid>
+    <pubDate>Wed, 12 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Personal OAuth does not belong in a Project-shaped box. Consent, quotas, and API enablement are the wrong boundaries.</description>
+    <category>blog</category>
+  </item>
+  <item>
+    <title>Your API key is not a token</title>
+    <link>https://devcentr.org/blog/2026-08-09-your-api-key-is-not-a-token</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-08-09-your-api-key-is-not-a-token</guid>
+    <pubDate>Sun, 09 Aug 2026 12:00:00 GMT</pubDate>
+    <description>Dashboard secrets keep getting sold as tokens. The wrong word keeps failing security reviews.</description>
+    <category>blog</category>
+  </item>
+  <item>
+    <title>Search the provider, not the scrape</title>
+    <link>https://devcentr.org/blog/2026-09-02-search-the-provider-not-the-scrape</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-09-02-search-the-provider-not-the-scrape</guid>
+    <pubDate>Invalid Date</pubDate>
+    <description>Vision for provider-native search APIs and API-compatible backups — with a near-term forge archive wedge.</description>
+    <category>blog</category>
+  </item>
+</channel>
+</rss>

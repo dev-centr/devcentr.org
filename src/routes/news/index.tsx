@@ -10,18 +10,22 @@ export default function NewsIndex() {
 
   return (
     <>
-      <Title>News · DevCentr</Title>
+      <Title>News — DevCentr</Title>
       <Meta
         name="description"
-        content="DevCentr news and engineering blog — initiatives, direction, and notable shipping moments."
+        content="DevCentr News — releases, partnerships, and openings that entered the shared record."
       />
-      <Meta name="keywords" content="DevCentr, news, blog, chronicle, DOS, developer tooling" />
+      <Meta name="keywords" content="DevCentr, news, release, partnership" />
       <main class="mx-auto max-w-6xl px-6 pb-24 pt-6 md:px-10 md:pt-10">
         <p class="eyebrow text-primary">Updates</p>
         <h1 class="mt-3 font-display text-4xl font-semibold tracking-tight text-foreground md:text-5xl">News</h1>
         <p class="mt-4 max-w-2xl text-muted-foreground">
-          Initiatives, direction changes, and notable moments across Dev-Centr — not a dump of every docs edit.
-          Day-to-day shipping notes live on the{" "}
+          Releases, partnerships, and durable openings — not a dump of every docs edit. Essays and unfinished
+          directions live on the{" "}
+          <a class="text-primary underline-offset-4 hover:underline" href="/blog">
+            Blog
+          </a>
+          . Day-to-day shipping notes live on the{" "}
           <a class="text-primary underline-offset-4 hover:underline" href="/changelog">
             Changelog
           </a>

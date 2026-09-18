@@ -1,13 +1,11 @@
-= After Skia: where rendering is headed
-:description: Electron wins the ecosystem until the document grows. Then the renderer—not the feature list—decides whether your app survives two gigabytes of chat. What comes after Skia on Windows and Linux.
+= After Skia: rendering for documents that grow
+:description: Electron wins until the document grows. Then the renderer — not the feature list — decides whether the app survives.
 :revdate: 2026-08-19
-:keywords: blog, news, rendering, skia, electron, avalonia, vello, desktop, ui
+:keywords: blog, Skia, rendering, Electron
 
-You open the IDE, start a long thread, paste a few stack traces, let the model riff for an hour.
-Everything feels fine until it doesn't—the scroll stutters, the fan spins, the window goes white, and you are staring at a renderer that lost an argument with a two-gigabyte conversation.
+Electron wins the ecosystem until the document grows. Then the renderer — not the feature list — decides whether an app survives two gigabytes of chat.
 
-That moment is not "JavaScript is slow."
-It is a **rendering architecture** problem wearing a familiar logo.
+This is a craft note on what comes after Skia on Windows and Linux, not a product launch.
 
 == The stack you picked before you knew you needed headroom
 

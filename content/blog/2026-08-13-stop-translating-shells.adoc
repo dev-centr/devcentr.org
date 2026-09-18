@@ -1,19 +1,12 @@
-= Intents, not shell translation
-:description: One playbook should name what you want. PlayTime binds how on this computer. Equivalence Engine is a catalog -- not a blender that turns bash into PowerShell.
+= Stop translating shells
+:description: A playbook should name the outcome. PlayTime binds how on this machine. Equivalence Engine is a catalog — not a bash-to-PowerShell blender.
 :revdate: 2026-08-13
-:keywords: news, blog, scriptbook, playtime, equivalence engine, intents, host awareness, openshellorg
+:keywords: blog, PlayTime, intents, shell
 
-You have a setup document that works on your laptop.
+One playbook should name what you want. PlayTime binds how on this computer. Equivalence Engine is a catalog — not a blender that turns bash into PowerShell.
 
-Your teammate opens it on Windows. You start swapping `apt` for `winget`. Quotes explode. Paths lie. `&&` becomes a ghost. You now own two documents that pretend to be the same procedure.
+Shell translation as a product goal trains people to chase syntax. Intent naming trains them to chase outcomes.
 
-That urge is honest. The overall process usually *is* the same: detect, acquire, configure, verify. The trap is treating "the same procedure" as "hot-replace inside a bash file."
-
-We are not building a shell compiler. We do not have one. We should not pretend Equivalence Engine is one.
-
-**Write what you want.** At play time, the machine binds *how* for this computer.
-
-.Cookbook, kitchen, waiter
 [.themed-svg]
 image::https://devcentr.org/news/media/playtime-layers.svg[alt="Three layers: CentrMark the book, PlayTime the stage, Scriptbook the app"]
 

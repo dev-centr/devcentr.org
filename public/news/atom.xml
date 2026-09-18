@@ -4,213 +4,70 @@
   <link href="https://devcentr.org/news" rel="alternate"/>
   <link href="https://devcentr.org/news/atom.xml" rel="self"/>
   <id>https://devcentr.org/news</id>
-  <updated>2026-09-18T12:00:00Z</updated>
-  <subtitle>News and engineering blog posts from Dev-Centr.</subtitle>
+  <updated>2026-08-17T12:00:00Z</updated>
+  <subtitle>Shipped work, partnerships, and openings from Dev-Centr.</subtitle>
   <entry>
-    <title>What a good install actually is</title>
-    <link href="https://devcentr.org/news/2026-09-18-what-a-good-install-actually-is" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-09-18-what-a-good-install-actually-is</id>
-    <updated>2026-09-18T12:00:00Z</updated>
-    <summary>Installation norms as craft — why FHS cargo-cult breaks, why Windows honest writes are a requirement set, and how a dual-mode layout might survive connectome-fs.</summary>
-    <category term="blog"/>
-    <category term="news"/>
-  </entry>
-  <entry>
-    <title>MarkView for reading Markdown on disk</title>
-    <link href="https://devcentr.org/news/2026-09-03-markview-for-reading-markdown-on-disk" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-09-03-markview-for-reading-markdown-on-disk</id>
-    <updated>2026-09-03T12:00:00Z</updated>
-    <summary>Dev-Centr recommends MarkView as a free local Markdown viewer (no editing) for machines outside the product; DevCentr apps keep in-house rendering.</summary>
-    <category term="blog"/>
-    <category term="news"/>
-  </entry>
-  <entry>
-    <title>SoloMD for Markdown on disk</title>
-    <link href="https://devcentr.org/news/2026-09-02-solomd-for-markdown-on-disk" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-09-02-solomd-for-markdown-on-disk</id>
-    <updated>2026-09-02T12:00:00Z</updated>
-    <summary>Dev-Centr recommends SoloMD for local Markdown README and project-doc workflows, and points its AI surface at the Open Provider Registry idea.</summary>
-    <category term="blog"/>
-    <category term="news"/>
-  </entry>
-  <entry>
-    <title>One registration protocol for model runners</title>
-    <link href="https://devcentr.org/news/2026-09-02-one-registration-protocol-for-model-runners" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-09-02-one-registration-protocol-for-model-runners</id>
-    <updated>2026-09-02T12:00:00Z</updated>
-    <summary>Why competing unilayer discovery formats punish offline model runners — and why Open Provider Registry (OPR) should be a shared protocol, not a product brand war.</summary>
-    <category term="blog"/>
-    <category term="news"/>
-  </entry>
-  <entry>
-    <title>When Auto-mode math meets a local router</title>
-    <link href="https://devcentr.org/news/2026-08-30-when-auto-mode-math-meets-a-local-router" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-08-30-when-auto-mode-math-meets-a-local-router</id>
-    <updated>2026-08-30T12:00:00Z</updated>
-    <summary>Why raw frontier APIs blow past a sixty-dollar IDE plan, and how harness routing plus a local classify model change the spend curve without shipping Python glue.</summary>
-    <category term="blog"/>
-    <category term="news"/>
-  </entry>
-  <entry>
-    <title>When unrelated installers still queue</title>
-    <link href="https://devcentr.org/news/2026-08-29-when-unrelated-installers-still-queue" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-08-29-when-unrelated-installers-still-queue</id>
-    <updated>2026-08-29T12:00:00Z</updated>
-    <summary>Open-source Windows installer tooling is mature at copying files and stale everywhere else. The global MSI lock is coarse on purpose — and that is a design gap worth naming.</summary>
-    <category term="blog"/>
-    <category term="news"/>
-  </entry>
-  <entry>
-    <title>Lightweight agent harness direction</title>
-    <link href="https://devcentr.org/news/2026-08-28-lightweight-agent-harness-direction" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-08-28-lightweight-agent-harness-direction</id>
-    <updated>2026-08-28T12:00:00Z</updated>
-    <summary>DevCentr is building a T3code-weight local agent runtime on dlang-supplemental infrastructure — harness-neutral rules, ecosystem specialization, token provenance as first UX contract.</summary>
-    <category term="blog"/>
-    <category term="news"/>
-  </entry>
-  <entry>
-    <title>Agent rules without the harness baked in</title>
-    <link href="https://devcentr.org/news/2026-08-19-agent-rules-without-the-harness-baked-in" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-08-19-agent-rules-without-the-harness-baked-in</id>
-    <updated>2026-08-19T12:00:00Z</updated>
-    <summary>Forkable agent-rules templates should not assume Cursor—or any single AI harness. Machine facts belong in HARNESS.md and MEMORIES.md; illustrated architecture now on docs.devcentr.org.</summary>
-    <category term="blog"/>
-    <category term="news"/>
-  </entry>
-  <entry>
-    <title>After Skia: where rendering is headed</title>
-    <link href="https://devcentr.org/news/2026-08-19-after-skia-where-rendering-is-headed" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-08-19-after-skia-where-rendering-is-headed</id>
-    <updated>2026-08-19T12:00:00Z</updated>
-    <summary>Electron wins the ecosystem until the document grows. Then the renderer—not the feature list—decides whether your app survives two gigabytes of chat. What comes after Skia on Windows and Linux.</summary>
-    <category term="blog"/>
-    <category term="news"/>
-  </entry>
-  <entry>
-    <title>When the binary assumes one kernel</title>
-    <link href="https://devcentr.org/news/2026-08-18-when-the-binary-assumes-one-kernel" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-08-18-when-the-binary-assumes-one-kernel</id>
-    <updated>2026-08-18T12:00:00Z</updated>
-    <summary>Almost every compiled program encodes one OS and one CPU. That is a local accident, and the download page is the scar.</summary>
-    <category term="blog"/>
-    <category term="news"/>
-  </entry>
-  <entry>
-    <title>Unified binary distribution under investigation</title>
-    <link href="https://devcentr.org/news/2026-08-18-unified-binary-distribution-under-investigation" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-08-18-unified-binary-distribution-under-investigation</id>
-    <updated>2026-08-18T12:00:00Z</updated>
-    <summary>Dev-Centr is prototyping a single-download pack of native OS/arch slices, with Binary Tailor stripping foreign headers on delivery.</summary>
-    <category term="blog"/>
-    <category term="news"/>
-  </entry>
-  <entry>
-    <title>Config files get a Control Panel</title>
-    <link href="https://devcentr.org/news/2026-08-17-config-files-get-a-control-panel" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-08-17-config-files-get-a-control-panel</id>
+    <title>A Control Panel for all Config file types</title>
+    <link href="https://devcentr.org/news/2026-08-17-a-control-panel-for-all-config-file-types" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-08-17-a-control-panel-for-all-config-file-types</id>
     <updated>2026-08-17T12:00:00Z</updated>
-    <summary>UniConfig Config Panel opens other people&apos;s INI, YAML, TOML, SDLang, and tfvars with schema-backed settings widgets — including fields the file never mentioned.</summary>
-    <category term="blog"/>
-    <category term="news"/>
-  </entry>
-  <entry>
-    <title>Intents, not shell translation</title>
-    <link href="https://devcentr.org/news/2026-08-13-intents-not-shell-translation" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-08-13-intents-not-shell-translation</id>
-    <updated>2026-08-13T12:00:00Z</updated>
-    <summary>One playbook should name what you want. PlayTime binds how on this computer. Equivalence Engine is a catalog -- not a blender that turns bash into PowerShell.</summary>
-    <category term="blog"/>
-    <category term="news"/>
-  </entry>
-  <entry>
-    <title>When a Cloud project pretends to be an app</title>
-    <link href="https://devcentr.org/news/2026-08-12-when-a-cloud-project-pretends-to-be-an-app" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-08-12-when-a-cloud-project-pretends-to-be-an-app</id>
-    <updated>2026-08-12T12:00:00Z</updated>
-    <summary>Google Cloud forces personal OAuth into Project-shaped boxes—consent, quotas, and API enablement included. Here is the mental model we document instead.</summary>
-    <category term="blog"/>
-    <category term="news"/>
-  </entry>
-  <entry>
-    <title>When API keys wear token costumes</title>
-    <link href="https://devcentr.org/news/2026-08-09-api-keys-wearing-token-costumes" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-08-09-api-keys-wearing-token-costumes</id>
-    <updated>2026-08-09T12:00:00Z</updated>
-    <summary>Vendors keep labeling long-lived dashboard secrets as tokens. Here is the architectural split Dev-Centr is forcing into docs and Secrets Manager—and why the wrong word keeps breaking security reviews.</summary>
-    <category term="blog"/>
+    <summary>UniConfig Config Panel opens INI, YAML, TOML, SDLang, and tfvars with schema-backed settings widgets — including fields the file never mentioned.</summary>
     <category term="news"/>
   </entry>
   <entry>
     <title>New additions to the Business Bootstrap guide</title>
-    <link href="https://devcentr.org/news/2026-08-08-support-systems-hub" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-08-08-support-systems-hub</id>
+    <link href="https://devcentr.org/news/2026-08-08-new-additions-to-the-business-bootstrap-guide" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-08-08-new-additions-to-the-business-bootstrap-guide</id>
     <updated>2026-08-08T12:00:00Z</updated>
-    <summary>Scheduling, design, and vault capability areas land in Business Bootstrap on docs.devcentr.org — growth in the same support-systems guide.</summary>
-    <category term="blog"/>
+    <summary>Scheduling, design, and vault capability areas land in Business Bootstrap on docs.devcentr.org.</summary>
     <category term="news"/>
   </entry>
   <entry>
     <title>MSI-generator v0.2 released</title>
-    <link href="https://devcentr.org/news/2026-08-06-msi-tables-land" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-08-06-msi-tables-land</id>
+    <link href="https://devcentr.org/news/2026-08-06-msi-generator-v0-2-released" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-08-06-msi-generator-v0-2-released</id>
     <updated>2026-08-06T12:00:00Z</updated>
     <summary>msi-generator v0.2 writes real OLE2 compound files, cabinets, and core Windows Installer tables — still unsigned, no longer an empty stub.</summary>
-    <category term="blog"/>
     <category term="news"/>
   </entry>
   <entry>
     <title>DevCentr’s new install tool, Ibex, released</title>
-    <link href="https://devcentr.org/news/2026-08-06-easy-installer-ships" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-08-06-easy-installer-ships</id>
+    <link href="https://devcentr.org/news/2026-08-06-devcentrs-new-install-tool-ibex-released" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-08-06-devcentrs-new-install-tool-ibex-released</id>
     <updated>2026-08-06T12:00:00Z</updated>
-    <summary>Ibex (Install Builder EXtension) — CLI and Explorer actions for installer projects, in-place PATH installs, and CI pipeline emit.</summary>
-    <category term="blog"/>
+    <summary>Ibex (Install Builder EXtension): CLI and Explorer actions for installer projects, in-place PATH installs, and CI pipeline emit.</summary>
     <category term="news"/>
   </entry>
   <entry>
-    <title>We’re partnering with OpenShellOrg (on purpose)</title>
-    <link href="https://devcentr.org/news/2026-07-28-partnering-with-openshellorg" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-07-28-partnering-with-openshellorg</id>
+    <title>Partnership with OpenShellOrg</title>
+    <link href="https://devcentr.org/news/2026-07-28-partnership-with-openshellorg" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-07-28-partnership-with-openshellorg</id>
     <updated>2026-07-28T12:00:00Z</updated>
-    <summary>DevCentr and OpenShellOrg are locking in the sibling story—toolchain ownership on our side, shell entrypoint honesty on theirs.</summary>
-    <category term="blog"/>
+    <summary>DevCentr and OpenShellOrg lock the sibling story: toolchain ownership here, shell entrypoint honesty there.</summary>
     <category term="news"/>
   </entry>
   <entry>
-    <title>We’re opening a News desk</title>
-    <link href="https://devcentr.org/news/2026-07-24-welcome" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-07-24-welcome</id>
+    <title>News desk opens</title>
+    <link href="https://devcentr.org/news/2026-07-24-news-desk-opens" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-07-24-news-desk-opens</id>
     <updated>2026-07-24T12:00:00Z</updated>
-    <summary>Why DevCentr is starting a public News feed—and what you won&apos;t find here.</summary>
-    <category term="blog"/>
+    <summary>DevCentr opens a public News feed for shipped work and partnerships — not a dump of every docs edit.</summary>
     <category term="news"/>
   </entry>
   <entry>
-    <title>Stop dumping people into the docs</title>
-    <link href="https://devcentr.org/news/2026-07-24-help-hub" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-07-24-help-hub</id>
+    <title>Help hub opens beside the docs</title>
+    <link href="https://devcentr.org/news/2026-07-24-help-hub-opens-beside-the-docs" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-07-24-help-hub-opens-beside-the-docs</id>
     <updated>2026-07-24T12:00:00Z</updated>
-    <summary>We built a Help hub so “I need assistance” doesn&apos;t mean “go read the manual.”</summary>
-    <category term="blog"/>
+    <summary>A Help hub lands so &quot;I need assistance&quot; no longer means &quot;go read the manual.&quot;</summary>
     <category term="news"/>
   </entry>
   <entry>
-    <title>Our logo shouldn’t need a proprietary player</title>
-    <link href="https://devcentr.org/news/2026-07-24-brand-motion" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-07-24-brand-motion</id>
+    <title>Brand mark stays in open SVG</title>
+    <link href="https://devcentr.org/news/2026-07-24-brand-mark-stays-in-open-svg" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-07-24-brand-mark-stays-in-open-svg</id>
     <updated>2026-07-24T12:00:00Z</updated>
-    <summary>Why DevCentr&apos;s new mark stays in SVG—and why we&apos;re cautious about Rive as a default for open brands.</summary>
-    <category term="blog"/>
-    <category term="news"/>
-  </entry>
-  <entry>
-    <title>Provider search and consumer mirror backups</title>
-    <link href="https://devcentr.org/news/2026-09-02-provider-search-and-mirror-backups" rel="alternate"/>
-    <id>https://devcentr.org/news/2026-09-02-provider-search-and-mirror-backups</id>
-    <updated>T12:00:00Z</updated>
-    <summary>Vision for provider-native search APIs and API-compatible backups, with a near-term forge archive wedge.</summary>
-    <category term="blog"/>
+    <summary>The DevCentr mark ships as open SVG motion — not a proprietary player dependency for an open brand.</summary>
     <category term="news"/>
   </entry>
 </feed>

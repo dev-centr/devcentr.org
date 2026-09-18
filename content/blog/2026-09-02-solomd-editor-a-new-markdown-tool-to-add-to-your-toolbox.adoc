@@ -1,0 +1,8 @@
+= SoloMD editor: a new Markdown tool to add to your toolbox
+:description: Orientation to SoloMD for local Markdown README and project-doc workflows.
+:revdate: 2026-09-02
+:keywords: blog, SoloMD, Markdown, editor, orientation
+
+SoloMD is a Markdown editor worth adding to a local toolbox when README and project docs live on disk — not only in a web CMS.
+
+This orientation introduces when it fits. For a viewer-only companion, see link:/blog/2026-09-03-markview-is-a-good-markdown-viewer[MarkView is a good Markdown viewer].

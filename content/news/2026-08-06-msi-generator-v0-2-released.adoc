@@ -1,0 +1,8 @@
+= MSI-generator v0.2 released
+:description: msi-generator v0.2 writes real OLE2 compound files, cabinets, and core Windows Installer tables — still unsigned, no longer an empty stub.
+:revdate: 2026-08-06
+:keywords: news, MSI, Windows, release
+
+MSI-generator v0.2 is released.
+
+The tool now writes real OLE2 compound files, cabinets, and core Windows Installer tables. Builds are still unsigned; the empty stub era is over.

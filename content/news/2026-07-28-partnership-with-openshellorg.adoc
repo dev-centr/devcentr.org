@@ -1,0 +1,15 @@
+= Partnership with OpenShellOrg
+:description: DevCentr and OpenShellOrg lock the sibling story: toolchain ownership here, shell entrypoint honesty there.
+:revdate: 2026-07-28
+:keywords: news, OpenShellOrg, partnership, shell
+
+DevCentr and OpenShellOrg formalized a sibling partnership: toolchain ownership on the DevCentr side, shell entrypoint honesty on theirs.
+
+The split keeps install and development tools from pretending to be the user's shell — and keeps the shell from pretending to own the toolchain.
+
+image::/media/diagrams/toolchain-architecture.svg["Official entrypoint owns pin resolve, install, re-exec, and lifecycle"]
+
+.Sibling ownership
+image::/media/diagrams/sibling-ownership.svg["DevCentr lifecycle vs OpenShellOrg entrypoint dispatch"]
+
+Links worth bookmarking: link:https://openshellorg.github.io/[OpenShellOrg], link:https://openshellorg.github.io/open-shell-org/[their docs], link:https://docs.devcentr.org/general-knowledge/explanation/infrastructure/toolchain-management.html[Toolchain Management Pattern], and the alignment page in general-knowledge (Dev-Centr and OpenShellOrg).

@@ -1,0 +1,8 @@
+= Brand mark stays in open SVG
+:description: The DevCentr mark ships as open SVG motion — not a proprietary player dependency for an open brand.
+:revdate: 2026-07-24
+:keywords: news, brand, SVG, design
+
+The DevCentr brand mark stays in open SVG, including motion that does not require a proprietary player.
+
+That choice keeps an open-source org's identity readable in ordinary browsers and docs — without baking a closed runtime into the logo.

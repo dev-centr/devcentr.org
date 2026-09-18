@@ -1,0 +1,10 @@
+= A Control Panel for all Config file types
+:description: UniConfig Config Panel opens INI, YAML, TOML, SDLang, and tfvars with schema-backed settings widgets — including fields the file never mentioned.
+:revdate: 2026-08-17
+:keywords: news, UniConfig, configuration, release
+
+UniConfig's Config Panel opens other people's INI, YAML, TOML, SDLang, and tfvars with schema-backed settings widgets.
+
+Fields the file never mentioned still appear when the schema knows them — a Control Panel posture for config, not a raw text dump.
+
+image::https://devcentr.org/news/media/uniconfig-vocabulary-split.png[alt="Split workbench: sparse config text on the left, schema-backed settings rows on the right"]

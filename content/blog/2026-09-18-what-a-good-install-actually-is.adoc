@@ -1,21 +1,11 @@
 = What a good install actually is
-:description: Installation norms as craft — why FHS cargo-cult breaks, why Windows honest writes are a requirement set, and how a dual-mode layout might survive connectome-fs.
+:description: Installation norms as craft — FHS cargo-cult, Windows honest writes, and a dual-mode layout that might survive connectome-fs.
 :revdate: 2026-09-18
-:keywords: blog, installation, FHS, UIL, POSIX, Windows, connectome-fs, OpenShellOrg, Ibex, Install Coordinator, DevCentr
+:keywords: blog, install, craft, Unity Install Layout
 
-You know the argument.
-Someone pastes the FHS paragraph about `/usr/local` and declares victory.
-Someone else points at `%ProgramFiles%` and mutters about MSI like it is a moral failing.
-A third person lives in `~/.local/bin` and refuses to explain why that is different from the first two.
-Everyone is half right.
-Everyone is also performing a standard they never read end-to-end.
+A good install is a craft problem, not a packaging trivia contest.
 
-I keep coming back to installs because they are where philosophy meets disk: what you claim to own, what you leave reversible, and what a shell—or a graph store five years from now—can still find without archaeology.
-
-This essay is not a shipping notice.
-It is the craft frame behind an installation norms guide and a layout proposal (UIL) we are writing into general-knowledge.
-Read those pages when you want checklists and diagrams.
-Stay here if you want the *why*.
+This essay argues why FHS cargo-cult breaks, why Windows direct-to-disk honesty is a requirement set, and how a dual-mode layout might survive connectome-fs — philosophy first, tooling second.
 
 == Layout theater vs an install contract
 
@@ -58,7 +48,7 @@ That judgment skips the platform's requirement set.
 MSI is a transactional, serialized mutation engine with a global lock and shared component bookkeeping.
 It exists because IT needed pessimistic safety more than parallel indie installs.
 The `_MSIExecute` mutex is not stupidity; it is a coarse gate chosen before your package's file list is known.
-We wrote about that feeling—double-click, silence, *Another installation is already in progress*—in link:https://devcentr.org/news/2026-08-29-when-unrelated-installers-still-queue[When unrelated installers still queue].
+We wrote about that feeling—double-click, silence, *Another installation is already in progress*—in link:https://devcentr.org/blog/2026-08-29-why-installers-wait-in-line[When unrelated installers still queue].
 
 So Windows tools often **write where you point them** or **append PATH in place with a ledger** because the alternative is pretending every dev iteration is an enterprise MSI.
 That is not avoiding adulthood.

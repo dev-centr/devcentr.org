@@ -1,0 +1,8 @@
+= Help hub opens beside the docs
+:description: A Help hub lands so "I need assistance" no longer means "go read the manual."
+:revdate: 2026-07-24
+:keywords: news, help, support, docs
+
+DevCentr opened a Help hub beside the documentation so people who need assistance get a path that is not "start at page one of the manual."
+
+The hub routes common asks — account, install, breakage — without pretending every answer belongs in a reference page.
