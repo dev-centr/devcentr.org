@@ -22,9 +22,9 @@ import "../toolchain-advisor.css";
 
 
 const HARNESS_INSTALL_PROMPT = [
-  "Sync DevCentr agent-rules from https://github.com/dev-centr/agent-rules.",
-  "Enable skill discovery for this harness so inventory skills under agent-rules/skills auto-load and stay current.",
-  "Prefer the project harness.md / AGENT_RULES_PATH wiring over pasting skill bodies into always-on rules.",
+  "Install DevCentr agent-rules from https://github.com/dev-centr/agent-rules as a cohesive unit in this harness.",
+  "Wire skill discovery so the skills inventory auto-loads and stays current (prefer harness.md / AGENT_RULES_PATH over pasting skill bodies into always-on rules).",
+  "Treat the corpus as one preinstalled set designed to work together, not a menu of one-off installs.",
 ].join("\n");
 
 
@@ -193,9 +193,9 @@ export function AgentSkills() {
           <article class="skills-howto-card">
             <h3 class="skills-howto-card-title">One-off</h3>
             <p class="skills-howto-card-body">
-              Paste the agent prompt for a skill into your coding agent for this task only.
-              No repo install required. If that skill is not on disk yet, tell the agent to pull
-              it from{" "}
+              Paste the agent prompt for a single skill into your coding agent for this task.
+              No install required. If that skill is not on disk yet, tell the agent to pull it
+              from{" "}
               <a
                 href="https://github.com/dev-centr/agent-rules"
                 target="_blank"
@@ -207,9 +207,9 @@ export function AgentSkills() {
             </p>
           </article>
           <article class="skills-howto-card">
-            <h3 class="skills-howto-card-title">Harness install</h3>
+            <h3 class="skills-howto-card-title">Cohesive unit</h3>
             <p class="skills-howto-card-body">
-              Clone or sync{" "}
+              Preinstall{" "}
               <a
                 href="https://github.com/dev-centr/agent-rules"
                 target="_blank"
@@ -217,8 +217,8 @@ export function AgentSkills() {
               >
                 agent-rules
               </a>{" "}
-              and enable skill discovery in your harness. Skills then auto-load with this
-              inventory and stay current when you pull. Setup guide:{" "}
+              into your harness so the whole inventory loads as one set and stays current.
+              The corpus is designed to work together. Setup:{" "}
               <a
                 href="https://docs.devcentr.org/agent-rules/"
                 target="_blank"
@@ -231,7 +231,7 @@ export function AgentSkills() {
           </article>
         </div>
         <CopyInstallSnippet
-          label="Agent prompt · harness install"
+          label="Agent prompt · preinstall to harness"
           text={HARNESS_INSTALL_PROMPT}
         />
       </section>
