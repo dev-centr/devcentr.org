@@ -1,5 +1,10 @@
 ﻿= Changelog
 
+== 2026-09-18 -- Installation craft essay
+
+* News: What a good install actually is (installation norms, UIL, platform craft).
+* Antora detail: `docs/modules/devcentr-org/pages/changelog-details/2026-09-18 - installation-craft-essay.adoc`.
+
 == 2026-09-10 -- Public crawlability
 
 * Publish `/robots.txt` and a build-generated `/sitemap.xml` from the shared prerender route list.
