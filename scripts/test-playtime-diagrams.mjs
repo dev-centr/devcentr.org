@@ -12,7 +12,7 @@ const semanticProvenance = JSON.parse(
   readFileSync(join(root, "public", "media", "diagrams", "canonical.provenance.json"), "utf8"),
 );
 const source = readFileSync(
-  join(root, "content", "news", "2026-08-13-intents-not-shell-translation.adoc"),
+  join(root, "content", "blog", "2026-08-13-stop-translating-shells.adoc"),
   "utf8",
 );
 const siteCss = readFileSync(join(root, "src", "app.css"), "utf8");
@@ -185,7 +185,7 @@ try {
   await adaptive.close();
 
   const host = await browser.newPage();
-  await host.goto(`${base}/news/2026-08-13-intents-not-shell-translation/`);
+  await host.goto(`${base}/blog/2026-08-13-stop-translating-shells/`);
   await host.waitForFunction(() => {
     const element = [...document.querySelectorAll("themed-svg")].find((candidate) =>
       candidate.getAttribute("src")?.endsWith("/playtime-layers.host.svg"),
@@ -267,7 +267,7 @@ try {
   await failure.route("**/playtime-layers.host.svg", (route) =>
     route.fulfill({ status: 500, contentType: "text/plain", body: "intentional test failure" }),
   );
-  await failure.goto(`${base}/news/2026-08-13-intents-not-shell-translation/`);
+  await failure.goto(`${base}/blog/2026-08-13-stop-translating-shells/`);
   await failure.waitForFunction(() => {
     const element = [...document.querySelectorAll("themed-svg")].find((candidate) =>
       candidate.getAttribute("src")?.endsWith("/playtime-layers.host.svg"),
