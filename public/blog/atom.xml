@@ -55,9 +55,9 @@
     <category term="blog"/>
   </entry>
   <entry>
-    <title>Lightweight agent harness strategy</title>
-    <link href="https://devcentr.org/blog/2026-08-28-lightweight-agent-harness-strategy" rel="alternate"/>
-    <id>https://devcentr.org/blog/2026-08-28-lightweight-agent-harness-strategy</id>
+    <title>Our AI agent harness strategy</title>
+    <link href="https://devcentr.org/blog/2026-08-28-our-ai-agent-harness-strategy" rel="alternate"/>
+    <id>https://devcentr.org/blog/2026-08-28-our-ai-agent-harness-strategy</id>
     <updated>2026-08-28T12:00:00Z</updated>
     <summary>Direction notes for a T3code-weight local agent runtime — strategy, not a News-desk release.</summary>
     <category term="blog"/>
@@ -71,11 +71,11 @@
     <category term="blog"/>
   </entry>
   <entry>
-    <title>After Skia: rendering for documents that grow</title>
-    <link href="https://devcentr.org/blog/2026-08-19-after-skia-rendering-for-documents-that-grow" rel="alternate"/>
-    <id>https://devcentr.org/blog/2026-08-19-after-skia-rendering-for-documents-that-grow</id>
+    <title>After Skia: modern 2D rendering engine with Vello</title>
+    <link href="https://devcentr.org/blog/2026-08-19-after-skia-modern-2d-rendering-engine-with-vello" rel="alternate"/>
+    <id>https://devcentr.org/blog/2026-08-19-after-skia-modern-2d-rendering-engine-with-vello</id>
     <updated>2026-08-19T12:00:00Z</updated>
-    <summary>Electron wins until the document grows. Then the renderer — not the feature list — decides whether the app survives.</summary>
+    <summary>After Skia, Vello-style GPU compute is the bet for documents that grow past what Electron can carry.</summary>
     <category term="blog"/>
   </entry>
   <entry>
@@ -111,9 +111,9 @@
     <category term="blog"/>
   </entry>
   <entry>
-    <title>Your API key is not a token</title>
-    <link href="https://devcentr.org/blog/2026-08-09-your-api-key-is-not-a-token" rel="alternate"/>
-    <id>https://devcentr.org/blog/2026-08-09-your-api-key-is-not-a-token</id>
+    <title>API key vs API token, an explainer</title>
+    <link href="https://devcentr.org/blog/2026-08-09-api-key-vs-api-token-an-explainer" rel="alternate"/>
+    <id>https://devcentr.org/blog/2026-08-09-api-key-vs-api-token-an-explainer</id>
     <updated>2026-08-09T12:00:00Z</updated>
     <summary>Dashboard secrets keep getting sold as tokens. The wrong word keeps failing security reviews.</summary>
     <category term="blog"/>
