@@ -23,6 +23,8 @@ const STATIC_ROUTES = [
   "/support",
   "/status",
   "/health",
+  "/assets",
+  "/assets/standards",
   "/apps",
   "/apps/products",
   "/apps/services",
