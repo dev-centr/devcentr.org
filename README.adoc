@@ -87,7 +87,7 @@ Site copies live in `public/brand/`. Canonical org-wide assets (including `logo.
 
 * **Probes:** link:https://devcentr.org/status[/status] (`/health` redirects here) — client-side checks of public endpoints
 * **Hosted uptime:** link:https://status.devcentr.org[status.devcentr.org] (Better Stack) — linked from the probe page
-* Community surfaces (Help, Status, Slack, …) live under the header **Community** menu
+* Header **Help** menu: Help desk, Status, GitHub Discussions. **Links** menu: GitHub org and Slack.
 
 === Skills
 
@@ -124,7 +124,8 @@ pnpm dev
 == Project Structure
 
 * `src/` — Source code (scaffolded)
-* `content/news/` — AsciiDoc news / blog posts
+* `content/news/` — Outward news posts (AsciiDoc)
+* `content/blog/` — Inward blog essays (AsciiDoc)
 * `public/` — Static assets (includes generated feeds under `public/news/` and `public/blog/`)
 * `src/lib/news-posts.generated.json` / `changelog-entries.generated.json` — build outputs from `pnpm news:build`
 * `app.config.ts` — SolidStart/Vinxi configuration

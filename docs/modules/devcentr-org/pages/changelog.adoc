@@ -2,10 +2,28 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-09-19 — Assets routes in crawl list
+
+* Add `/assets` and `/assets/standards` to `scripts/site-routes.mjs` so prerender, SPA fallback, and `sitemap.xml` cover the Assets hub and Standards catalogue.
+
+== 2026-09-18 — Blog channel and header navigation
+
+* Split News and Blog into separate channels (`content/blog/`, dedicated feeds and routes).
+* Replace the Community header menu with Assets, Updates, Help, and Links dropdowns; introduce `/assets` gate and `/assets/standards`.
+* Ship installation-norms blog essay; editorial title pass on blog posts.
+* See xref:changelog-details/2026-09-18 - blog-channel-and-header-nav.adoc[Detailed changelog].
+
+== 2026-09-17 — Skills browser, brand, and Antora placement
+
+* Move this component under the shared `platforms` Antora module; repair online xrefs.
+* Surface `support@devcentr.org` on Help and in the footer.
+* Refresh favicon mark; overhaul `/skills` UX (harness framing, agent prompts, client-side category tabs).
+* See xref:changelog-details/2026-09-17 - skills-browser-and-docs-ia.adoc[Detailed changelog].
+
 == 2026-09-10 — Public crawlability
 
 * Publish `/robots.txt` and generate `/sitemap.xml` from the shared prerender route list in postbuild (`spa-fallback`).
-* Sitemap omits `/health`, `/status`, and `/blog` aliases of `/news`.
+* Sitemap omits probe routes `/health` and `/status` only.
 
 == 2026-09-08 — Themed PlayTime news diagrams
 

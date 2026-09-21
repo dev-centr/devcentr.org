@@ -1,5 +1,17 @@
 ﻿= Changelog
 
+== 2026-09-19 -- Assets routes in crawl list
+
+* Index `/assets` and `/assets/standards` in prerender, SPA fallback, and sitemap generation.
+
+== 2026-09-18 -- Blog channel and header navigation
+
+* Separate Blog from News; new header dropdowns (Assets, Updates, Help, Links) and Assets hub routes.
+
+== 2026-09-17 -- Skills browser and docs IA
+
+* Platforms Antora placement, Help contact email, favicon refresh, and `/skills` harness-inventory UX.
+
 == 2026-09-10 -- Public crawlability
 
 * Publish `/robots.txt` and a build-generated `/sitemap.xml` from the shared prerender route list.

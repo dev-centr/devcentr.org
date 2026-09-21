@@ -17,7 +17,7 @@ pnpm install
 pnpm dev
 ----
 
-`predev` runs `scripts/build-news.mjs`, which needs news posts under `content/news/` (always present in the repo).
+`predev` runs `scripts/build-news.mjs`, which compiles news and blog posts under `content/news/` and `content/blog/` (always present in the repo).
 
 Open the URL printed by Vinxi (typically `http://localhost:3000`).
 
@@ -55,7 +55,7 @@ Without siblings, news still builds; changelog ingest logs `changelog skip (miss
 | Production static build to `.output/public`
 
 | `pnpm news:build`
-| Regenerate news JSON, changelog JSON, RSS, and Atom
+| Regenerate news and blog JSON, changelog JSON, RSS, and Atom
 
 | `pnpm sync-advisor`
 | Copy and compile stack-advisor SDL → `public/catalog/`
@@ -74,7 +74,7 @@ See xref:walkthrough-vscode-and-ci.adoc[VS Code & CI walkthrough] for rationale.
 
 == Troubleshooting
 
-* **Stale news or changelog** — run `pnpm news:build` after editing `content/news/` or after pulling sibling changelog files.
+* **Stale news, blog, or changelog** — run `pnpm news:build` after editing `content/news/`, `content/blog/`, or after pulling sibling changelog files.
 * **Advisor page empty** — run `pnpm sync-advisor` with `stack-advisor` checked out; verify `public/catalog/advisor.json` exists.
 * **Skills / bootstrap selector empty** — run `pnpm sync-bootstrap-profiles` with `agent-rules` checked out; verify `public/catalog/bootstrap-profiles.json` exists (gitignored, not committed).
 * **CI fails `skills/index.html`** — Vinxi does not emit a directory index for client-only routes; `scripts/spa-fallback.mjs` must copy the SPA shell into `.output/public/skills/`.
