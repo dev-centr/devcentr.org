@@ -1,0 +1,37 @@
+= 2026-09-18 — Blog channel and header navigation
+:navtitle: 2026-09-18 Blog & nav IA
+:page-audience: DevCentr site maintainers
+:page-usage-context: Authoring updates and adjusting header menus
+:page-orig-author: Auto on behalf of Ryan Johnson
+:page-last-author: Auto on behalf of Ryan Johnson
+
+== News and Blog split
+
+`/blog` is a real channel, not an alias of `/news`:
+
+* Authored AsciiDoc lives in `content/blog/` (essays, investigations, inward craft).
+* `scripts/build-news.mjs` writes `src/lib/blog-posts.generated.json` and syndication feeds under `public/blog/`.
+* Routes live under `src/routes/blog/`; prerender and SPA fallback include `/blog` and each post slug.
+
+News (`content/news/`) remains the outward shared record (releases, partnerships, openings).
+See xref:explanation/news-and-changelog.adoc[News & changelog pipeline].
+
+== Header information architecture
+
+The former single **Community** menu became structured dropdowns:
+
+* **Assets** — tree: Assets hub (`/assets`), Apps (`/apps`), Skills (`/skills`), Standards (`/assets/standards`). Legacy `/apps/standards` redirects to `/assets/standards`.
+* **Updates** — News, Blog, Changelog, and external Docs (`docs.devcentr.org`).
+* **Help** — Help desk (`/help`), Status probes (`/status`), GitHub Discussions.
+* **Links** — GitHub org and Slack (`SLACK_INVITE_URL` in `src/lib/site-links.ts`).
+
+Implementation: `src/components/site-header.tsx`, `help-nav.tsx`, `links-nav.tsx`, `nav-dropdown.tsx`.
+
+== Blog launch content
+
+* New essay: what a good install actually is (installation norms orientation).
+* Editorial title pass on existing blog posts; PlayTime diagram CI test targets the blog article path.
+
+== CI note
+
+Stack Advisor catalog markup and the D language toolchain package name (`dax` replacing deprecated `dax-sh`) were fixed so production builds stay green.

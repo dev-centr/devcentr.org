@@ -18,9 +18,9 @@ Do not make docs the top-level support page. Docs are one choice on `/help`.
 * `/help` landing with docs (live) and contact-support (coming soon).
 * Interim contact: `support@devcentr.org`.
 * Public triage still via GitHub Issues and Discussions.
-* Community menu (header): Help, Status, Better Stack uptime, Slack, Discussions.
-* Live probe page at `/status`; hosted incidents/uptime at `https://status.devcentr.org` (Better Stack).
-* Slack: public invite in `src/lib/site-links.ts` (`SLACK_INVITE_URL`).
+* Header **Help** menu: Help desk (`/help`), Status probes (`/status`), GitHub Discussions.
+* Header **Links** menu: GitHub org and Slack (`SLACK_INVITE_URL`).
+* Hosted uptime and incidents: `https://status.devcentr.org` (Better Stack), linked from `/status`.
 
 == Near-term product goals
 
@@ -58,7 +58,7 @@ When volume or paid plans justify an operator queue:
 
 == Related surfaces
 
-* Site: `src/routes/help.tsx`, `src/routes/support.tsx`, `src/components/community-nav.tsx`
+* Site: `src/routes/help.tsx`, `src/routes/support.tsx`, `src/components/help-nav.tsx`, `src/components/links-nav.tsx`, `src/components/site-header.tsx`
 * Links: `src/lib/site-links.ts`
 * Docs hub: https://docs.devcentr.org
 * Status (probes): `/status`

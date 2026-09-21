@@ -1,0 +1,30 @@
+= 2026-09-17 — Skills browser, brand mark, and Antora placement
+:navtitle: 2026-09-17 Skills & docs IA
+:page-audience: DevCentr site maintainers
+:page-usage-context: Maintaining `/skills` and published Antora pages
+:page-orig-author: Auto on behalf of Ryan Johnson
+:page-last-author: Auto on behalf of Ryan Johnson
+
+== Antora module
+
+This repository's component moved under the shared `platforms` Antora component (`docs/antora.yml`), published at link:https://docs.devcentr.org/platforms/devcentr-org/[docs.devcentr.org/platforms/devcentr-org/].
+Cross-module xrefs were repaired for the online playbook.
+
+== Help contact
+
+`support@devcentr.org` appears on `/help` and in the site footer as the interim assisted-support address.
+
+== Brand favicon
+
+The concentric two-tone favicon mark uses a transparent background (no dark tile) so small sizes stay legible on light and dark browser chrome.
+
+== Skills catalog UX
+
+`/skills` is framed as a *harness inventory*, not a skill storefront:
+
+* Category tabs switch client-side without a full page reload; the selected category syncs to `?cat=` in the URL.
+* Copy actions emit paste-into-agent prompts (including a harness-wide preinstall block), not bare skill names.
+* On-page copy distinguishes one-off skill use from installing `dev-centr/agent-rules` as a cohesive harness unit.
+* Layout fixes: stable stage height, Bootstrap tab label, full-width option cage, and favicon hub/satellite radius parity in the solar diagram.
+
+See xref:explanation/bootstrap-templates.adoc[Agent skills] for data flow and SPA fallback.

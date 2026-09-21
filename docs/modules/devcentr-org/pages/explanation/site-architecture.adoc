@@ -21,11 +21,17 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 | `/`
 | Landing — hero, ecosystem copy, toolchain diagram, apps teaser
 
-| `/news`, `/blog`
-| News index and posts (`/blog` is an SEO alias)
+| `/news`
+| Outward news index and posts (`content/news/`)
+
+| `/blog`
+| Inward blog index and posts (`content/blog/` — not a News alias)
 
 | `/changelog`
 | Changelog mirror from Antora sibling repos
+
+| `/assets`, `/assets/standards`
+| Assets hub; Apps vs Standards entry points (`/apps/standards` redirects to `/assets/standards`)
 
 | `/help`, `/support`
 | Help hub (`/support` redirects to `/help#support`)
@@ -34,7 +40,7 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 | Client-side endpoint probes (`/health` redirects to `/status`)
 
 | `/apps`, `/apps/products`, `/apps/services`, `/apps/standards`
-| Apps catalogue (data in `src/lib/apps-catalog.ts`)
+| Apps catalogue (data in `src/lib/apps-catalog.ts`; `/apps/standards` redirects to `/assets/standards`)
 
 | `/ideas/:slug`
 | Idea pages for catalogue entries with `ideaSlug`
@@ -50,6 +56,17 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 |===
 
 Catalogue and nested article pages (`PageTrail`) show the access path as `Section / Child / Current`. Topic tags stay *below* that trail, in the eyebrow style. Outbound links (repo, docs) sit after the intro, not in the trail.
+
+== Header navigation
+
+Top-level menus in `src/components/site-header.tsx`:
+
+* **Assets** — `/assets` hub, `/apps`, `/skills`, `/assets/standards` (tree layout in the dropdown).
+* **Updates** — `/news`, `/blog`, `/changelog`, plus external Docs.
+* **Help** — `/help`, `/status`, GitHub Discussions (`help-nav.tsx`).
+* **Links** — GitHub org and Slack (`links-nav.tsx`, `SLACK_INVITE_URL`).
+
+The legacy **Community** label was removed; `community-nav.tsx` re-exports `HelpNav` for compatibility.
 
 == Build pipeline
 
@@ -78,6 +95,19 @@ Custom domain `devcentr.org` is configured in the repository's Pages settings.
 * `src/routes/` — page components
 * `src/components/` — shared UI (header, footer, diagrams, toolchain browser widget, agent skills catalog)
 * `src/lib/` — catalog data, changelog loader, theme reveal, site links
-* `content/news/` — authored news (see xref:explanation/news-and-changelog.adoc[News & changelog pipeline])
+* `content/news/` — outward news (`content/blog/` for the blog channel; see xref:explanation/news-and-changelog.adoc[News & changelog pipeline])
 * `public/brand/` — SVG logo marks (canonical org assets live in `.github` profile repos)
 * `scripts/` — news/changelog build, advisor and bootstrap-profile sync, SPA fallback, logo rasterize
+
+== Public crawlability
+
+`scripts/site-routes.mjs` is the single source of indexable paths.
+`getPrerenderRoutes()` feeds:
+
+* Vinxi prerender configuration (static HTML shells where applicable)
+* `scripts/spa-fallback.mjs` — copies the enhanced SPA `index.html` into each route directory under `.output/public`
+* `scripts/write-crawlability.mjs` — writes `sitemap.xml` and `robots.txt` (called from postbuild)
+
+The sitemap excludes operational probe routes `/health` and `/status` only.
+News, blog, changelog, assets, and app routes are included when listed in `site-routes.mjs` or derived from generated post JSON / idea slugs.
+`injectHtmlFallback` adds title, description, and a noscript block to the app shell for crawlers without JavaScript.
