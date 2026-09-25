@@ -4,8 +4,32 @@
   <link href="https://devcentr.org/blog" rel="alternate"/>
   <link href="https://devcentr.org/blog/atom.xml" rel="self"/>
   <id>https://devcentr.org/blog</id>
-  <updated>2026-09-18T12:00:00Z</updated>
+  <updated>2026-09-25T12:00:00Z</updated>
   <subtitle>Craft, investigations, and orientations from Dev-Centr.</subtitle>
+  <entry>
+    <title>Why does git suck?</title>
+    <link href="https://devcentr.org/blog/2026-09-25-why-does-git-suck" rel="alternate"/>
+    <id>https://devcentr.org/blog/2026-09-25-why-does-git-suck</id>
+    <updated>2026-09-25T12:00:00Z</updated>
+    <summary>English intuition vs Git&apos;s vocabulary — commit/push/add are the wrong words — plus a map into worktree essays and mailed UX critiques.</summary>
+    <category term="blog"/>
+  </entry>
+  <entry>
+    <title>Git worktree redesign proposal</title>
+    <link href="https://devcentr.org/blog/2026-09-25-git-worktree-redesign-proposal" rel="alternate"/>
+    <id>https://devcentr.org/blog/2026-09-25-git-worktree-redesign-proposal</id>
+    <updated>2026-09-25T12:00:00Z</updated>
+    <summary>Default repo-local `.worktrees/&lt;purpose&gt;`, `git worktree add --local`, relative paths, no `.git/worktrees/` overload, porcelain discovery, migration from org-scoped hive.</summary>
+    <category term="blog"/>
+  </entry>
+  <entry>
+    <title>Everything wrong with Git worktrees</title>
+    <link href="https://devcentr.org/blog/2026-09-25-everything-wrong-with-git-worktrees" rel="alternate"/>
+    <id>https://devcentr.org/blog/2026-09-25-everything-wrong-with-git-worktrees</id>
+    <updated>2026-09-25T12:00:00Z</updated>
+    <summary>Absolute paths, move breakage, agent layout chaos, sibling clutter, .git/worktrees name collision, IDE indexing, fake clones, fsmonitor orphans, and branch-switch residue.</summary>
+    <category term="blog"/>
+  </entry>
   <entry>
     <title>Installation nightmares, and how to avoid them</title>
     <link href="https://devcentr.org/blog/2026-09-18-installation-nightmares-and-how-to-avoid-them" rel="alternate"/>

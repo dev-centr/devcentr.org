@@ -1,0 +1,106 @@
+= Git worktree redesign proposal
+:description: Default repo-local `.worktrees/<purpose>`, `git worktree add --local`, relative paths, no `.git/worktrees/` overload, porcelain discovery, migration from org-scoped hive.
+:revdate: 2026-09-25
+:keywords: blog, git, worktrees, proposal, agents
+
+Critique without a landing pad is just venting. Here is the constructive redesign — aligned with link:https://docs.devcentr.org/general-knowledge/explanation/infrastructure/git-worktrees-long-range.html[Git worktrees long-range] and reachable from today's link:https://docs.devcentr.org/general-knowledge/how-to/org-scoped-git-worktrees.html[org-scoped hive standard].
+
+Pair essays: link:/blog/2026-09-25-everything-wrong-with-git-worktrees[Everything wrong with Git worktrees], link:/blog/2026-09-25-why-does-git-suck[Why does git suck?].
+
+== Default home: `<repo>/.worktrees/<purpose>`
+
+Ship a **default** that matches how people already want to think:
+
+----
+my-repo/
+  .git/
+  .worktrees/
+    docs-pass/
+    tray-fix/
+  …
+----
+
+Short purpose slugs. Mental association with the repo. Less sibling clutter in the parent folder. Hidden `.worktrees` so casual directory listings stay calm.
+
+This is the UX target. It is not free on Git as shipped today — absolute path encoding still breaks moves even when the tree is nested.
+
+== `git worktree add --local`
+
+Add a first-class mode (name bikesheddable; intent is not):
+
+----
+git worktree add --local <purpose> [-b <branch>] <start-point>
+----
+
+Meaning:
+
+* Place under the repo's local worktree home (default `.worktrees/<purpose>`).
+* Store paths **relatively** when the worktree lives inside the main tree.
+* Wire excludes so `.worktrees/` does not pollute `git status`.
+* Register through the same porcelain every tool already should call.
+
+Manual `git worktree add /abs/path` remains for power users. `--local` is how defaults stop being folklore.
+
+== Relative path storage
+
+When a worktree is inside the main working tree (or another agreed relative root), Git should record **relative** links.
+
+Absolute paths are fine for exotic placements on other volumes. They are a hazard as the only encoding for the common "purpose checkout under this repo" case. Nesting without relative storage is cosplay.
+
+== Do not overload `.git/worktrees/`
+
+`.git/worktrees/` stays **admin metadata**. User checkouts do not live there.
+
+Optional stronger future: first-class checkout homes under `.git/` only with a **new reserved directory** (for example `.git/checkouts/<purpose>/`). New name, new porcelain, same discovery channel. No puns on the metadata path.
+
+== Tool discovery via porcelain
+
+IDEs, agents, and wrappers should discover linked trees through:
+
+----
+git worktree list
+----
+
+(and related plumbing as needed) — not through parallel layout databases, not through guessing sibling names, not through scanning for folders called `worktree` that might be full clones.
+
+If discovery is porcelain-first, placement conventions become teachable without every editor inventing a second schema.
+
+== Auto exclude
+
+Creating a local worktree home should update ignore rules (`info/exclude` or equivalent) so the purpose trees are not perpetual untracked noise. Humans should not hand-maintain that every time an agent adds a checkout.
+
+== Migration from today's org-scoped hive
+
+**Today** (agent compatibility):
+
+----
+$CODE_ROOT/<host>/<owner>/.worktrees/<repo>-<purpose-slug>
+----
+
+Linked only. Forbid `$CODE_ROOT/.worktrees` and `$CODE_ROOT/worktrees`. How-to: link:https://docs.devcentr.org/general-knowledge/how-to/org-scoped-git-worktrees.html[Org-scoped Git worktrees]. Skill / schema live in agent-rules.
+
+**After** relative/`--local` exists upstream (or in a fork that proves it):
+
+. `git worktree list` from each main clone.
+. `git worktree add --local <purpose> …` for active lines of work.
+. `git worktree move` (or remove/re-add with care) from owner-scoped paths into repo-local homes.
+. Prune stale admin entries; confirm monitors are not watching ghosts.
+. Teach agents the new default; keep owner-scoped as a documented escape hatch for a while.
+
+Migration is mechanical if discovery stayed on porcelain. It is archaeology if every agent invented a layout.
+
+== What this does not claim
+
+This proposal does not replace filesystem **editions** (Phase B) — see link:https://docs.devcentr.org/general-knowledge/explanation/infrastructure/vcs-over-fs-editions.html[VCS over FS editions] and link:https://docs.devcentr.org/general-knowledge/explanation/infrastructure/git-concurrency-enshittification.html[Git concurrency enshittification]. Editions aim at stable paths with O(1) forks. Worktree redesign is the userspace bridge that stops bleeding while that matures.
+
+It also does not rename `commit`/`push`/`add`. That is the vocabulary fight in link:/blog/2026-09-25-why-does-git-suck[Why does git suck?] and the `gitu` / git-unfuckified / git-un experiment.
+
+== Success criteria
+
+* Default purpose checkouts live under `<repo>/.worktrees/<purpose>`.
+* `--local` (or equivalent) creates them with relative storage and excludes.
+* `.git/worktrees/` remains metadata-only.
+* Tools discover via `git worktree list`.
+* Hive agents can migrate from owner-scoped without deleting unique work.
+
+Until upstream moves, stay on the org-scoped bridge and keep pressure on the design — not on inventing a fourth folder name overnight.

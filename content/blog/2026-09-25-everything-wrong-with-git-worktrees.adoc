@@ -1,0 +1,73 @@
+= Everything wrong with Git worktrees
+:description: Absolute paths, move breakage, agent layout chaos, sibling clutter, .git/worktrees name collision, IDE indexing, fake clones, fsmonitor orphans, and branch-switch residue.
+:revdate: 2026-09-25
+:keywords: blog, git, worktrees, agents, UX
+
+`git worktree` is the feature teams reach for when one working tree is a lie — and then discover the feature ships without a placement contract.
+
+This is the critique essay. Constructive redesign: link:/blog/2026-09-25-git-worktree-redesign-proposal[Git worktree redesign proposal]. Vocabulary overview: link:/blog/2026-09-25-why-does-git-suck[Why does git suck?].
+
+== Absolute paths are load-bearing — until you move
+
+Linked worktrees record **absolute** paths in the admin metadata under `.git/worktrees/` and in the per-checkout `.git` gitfile.
+
+Rename a parent directory. Relocate the hive. Sync the machine to a different drive letter. The object store is fine; the *links* are not. Nesting the checkout under the main tree does **not** fix that by itself — absolute encoding is still absolute encoding.
+
+You only get out of this class of breakage when Git can store **relative** paths for in-tree (or otherwise relative) worktrees. Until then, "I put it next to the repo" and "I put it inside `.worktrees`" share a fate the day the folder moves.
+
+== Agents invent inconsistent layouts
+
+Give three agents the same prompt — "use a worktree" — and you will get siblings named `repo-feature`, a random directory under `/tmp`, a full clone mislabeled as a worktree, a hive-root `$CODE_ROOT/worktrees`, and a purpose folder inside the main tree that never got excluded.
+
+Without a taught path schema, agents optimize for "the command succeeded," not for "a human can find this next week." That is how you get orphan checkouts, duplicate `node_modules`, and IDEs indexing four nearly identical trees.
+
+Dev-Centr's **today** answer is owner-scoped linked trees — link:https://docs.devcentr.org/general-knowledge/how-to/org-scoped-git-worktrees.html[Org-scoped Git worktrees] — not because it is the aesthetic ideal, but because it is one rule agents can be graded against.
+
+== Sibling clutter vs owner-scoped vs repo-local
+
+**Sibling clutter** (`…/repo`, `…/repo-docs`, `…/repo-fix`) is what file managers make obvious and what directories make ugly. Weak mental association. Easy for humans to create; easy for agents to create *differently*.
+
+**Owner-scoped** (`$CODE_ROOT/<host>/<owner>/.worktrees/<repo>-<purpose>`) gathers every checkout for an org or user into one bucket. Longer leaf names. Not visually "inside" the repo. Compatibility bridge for hive agents. Forbids global `$CODE_ROOT/.worktrees` theater.
+
+**Repo-local** (`<repo>/.worktrees/<purpose>`) is what people actually want to *think*: short purpose names, tight association, less peer forest. It is the long-range ideal — link:https://docs.devcentr.org/general-knowledge/explanation/infrastructure/git-worktrees-long-range.html[Git worktrees long-range] — and it still needs Git features before it is safe as a default.
+
+== `.git/worktrees` is already taken
+
+That path is **admin metadata**: per-worktree gitdirs, HEAD, commondir pointers. It is not a suggestion that your checkout should live there.
+
+Overloading `.git/worktrees/` as a user checkout home collides bookkeeping with content. Tools cannot tell "data about a worktree" from "the worktree." If Git ever wants first-class checkout homes under `.git/`, it needs a **new reserved name** (for example `.git/checkouts/`), not a pun on the metadata directory.
+
+== IDE and agent indexing
+
+Every linked tree is another root for language servers, search indexes, and "open folder" habits. Path-keyed caches fork. Socket paths diverge. You paid for concurrent branches and received concurrent index thrash unless you invest in shared stores and discipline.
+
+Agents that index the hive will happily embed three copies of the same README into context if your layout multiplies trees without a discovery convention (`git worktree list`, not folklore).
+
+== Dirty standalone clones mistaken for linked trees
+
+`git clone` into a folder named `worktrees` produces an independent `.git` directory. It looks like concurrency. It is a second repository — second object store, second remotes story, second chance to diverge history silently.
+
+Linked worktrees share the object store on purpose. Pretend-clones burn disk and burn trust. Any standard that does not **forbid full-clone into `.worktrees`** will be violated by the first hurried agent.
+
+== fsmonitor orphans across sprawl
+
+Many worktrees means many paths for filesystem monitors to watch. Daemons and registries that assume one primary working tree leave **orphans** when trees are removed incompletely or when paths go stale after moves.
+
+I drafted a machine-wide registry angle for `fsmonitor--daemon` (2026-09-15 draft, mailed critique stack summarized in link:/blog/2026-09-25-why-does-git-suck[Why does git suck?]). Sprawl without registry hygiene is how "worktrees fixed my branch switch" becomes "my machine watches ghosts."
+
+== Branch-switch artifacts, incompletely solved
+
+Switching branches in one tree leaves untracked and ignored residue that does not belong to the branch you landed on. Worktrees are the honest fix for "I need two states at once."
+
+They are an **incomplete** fix without placement convention: you trade branch-switch residue for path drift, sibling clutter, and monitor orphans. Personal note (2025-11-02): worktrees are the real direction — not if every tool invents a new home for them.
+
+== Where this sits in the encyclopedia
+
+* link:https://docs.devcentr.org/general-knowledge/explanation/infrastructure/git-concurrency-enshittification.html[Git concurrency enshittification] — why many live states hurt
+* link:https://docs.devcentr.org/general-knowledge/how-to/concurrent-agent-workspaces.html[Concurrent agent workspaces] — worktrees / jj / GitButler tradeoffs
+* link:https://docs.devcentr.org/general-knowledge/how-to/org-scoped-git-worktrees.html[Org-scoped Git worktrees] — today's rule
+* link:https://docs.devcentr.org/general-knowledge/explanation/infrastructure/git-worktrees-long-range.html[Git worktrees long-range] — target design
+
+== Next
+
+Read the pair: link:/blog/2026-09-25-git-worktree-redesign-proposal[Git worktree redesign proposal]. Come back to the vocabulary wound anytime via link:/blog/2026-09-25-why-does-git-suck[Why does git suck?].

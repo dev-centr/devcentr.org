@@ -1,0 +1,129 @@
+= Why does git suck?
+:description: English intuition vs Git's vocabulary — commit/push/add are the wrong words — plus a map into worktree essays and mailed UX critiques.
+:revdate: 2026-09-25
+:keywords: blog, git, UX, naming, gitu, worktrees
+
+Git's command names feel wrong because they are wrong for English-native intuition — and because the product never treated that mismatch as a first-class bug.
+
+This is an overview essay. It opens on vocabulary, then branches into tighter pieces on worktrees and into a stack of critiques I have already mailed to git@vger.kernel.org. Read the worktree pair next if placement is what is burning you today.
+
+== The feely English goop
+
+Linus and Junio are not native English speakers. That is not a gotcha biography line; it is a design constraint you can still see in the CLI.
+
+Commands lack correct nuance. Terms overlap. The vocabulary asks you to accept a private jargon that only sometimes rhymes with ordinary English — then gaslights you when your first guess matches the dictionary and not the man page.
+
+That goopy, ambiguous mess is not "steep learning curve" mystique. It is naming debt.
+
+== Commit, push, add — the words that should have been
+
+**`git commit`** should be what **`git push`** is.
+
+You *commit* changes from your computer to an official record. When you commit a crime, you take personal thoughts and make them part of the world. Your computer is not the world; it is local thoughts and workspace before they are publicized.
+
+In publishing terms, that outward act is closer to **publish**. If the move is specifically local → public hosting service, **upload** is the sharper word. Today's `git commit` should have been **`git save`** — the common meaning of saving a file. A local record is not official.
+
+**`git add`** should have been **`git stage`**.
+
+"Add" sounds like adding to existing history. To add, you have to have something; an empty stage is not something you add *to*. "I'm going to add a prop to the stage" is inaccurate — you put or move a prop onto the stage.
+
+Add's nuance: something need not have existed, or separate entities cease to be separate (cooking: add sauce to the dish, A+B becomes the dish). Indexing existing work is not changing identity through composition. Staging is.
+
+If your fingers still type `git commit` and `git add`, fine — the muscle memory is the ecosystem. The point is the *mental model* Git sold you is lying about English, and that lie costs newcomers and agents alike.
+
+== gitu / git-un / git-unfuckified
+
+I forked Git to experiment with a clearer CLI face.
+
+Historically the fork branding is **git-unfuckified**, with a `gitu` front-end that remaps the verbs. The tree has also been referred to as **git-un**. Same project intent; do not treat the names as three unrelated products.
+
+Rough `gitu` map (from the fork):
+
+[cols="1,1,2", options="header"]
+|===
+| gitu | git today | Intent
+
+| `save`
+| `commit`
+| Local snapshot with a message
+
+| `stage` / `unstage`
+| `add` / `reset HEAD --`
+| Move work onto / off the stage
+
+| `upload`
+| `push`
+| Local → remote hosting
+
+| `download`
+| `pull`
+| Remote → local
+
+| `history`
+| `log --oneline`
+| Read the record
+
+| `discard` / `undo`
+| checkout / soft reset helpers
+| Back out without thesaurus gymnastics
+|===
+
+Aliases do not absolve upstream naming. They prove the rename map is teachable.
+
+== Worktrees: the overview splits here
+
+Vocabulary is one wound. Concurrent checkouts are another.
+
+* Critique: link:/blog/2026-09-25-everything-wrong-with-git-worktrees[Everything wrong with Git worktrees]
+* Proposal: link:/blog/2026-09-25-git-worktree-redesign-proposal[Git worktree redesign proposal]
+* Practitioner how-to (today): link:https://docs.devcentr.org/general-knowledge/how-to/org-scoped-git-worktrees.html[Org-scoped Git worktrees]
+* Long-range strategy: link:https://docs.devcentr.org/general-knowledge/explanation/infrastructure/git-worktrees-long-range.html[Git worktrees long-range]
+
+Related encyclopedia framing already on the docs hub:
+
+* link:https://docs.devcentr.org/general-knowledge/explanation/infrastructure/git-concurrency-enshittification.html[Git concurrency enshittification]
+* link:https://docs.devcentr.org/general-knowledge/explanation/infrastructure/git-semantic-boundaries.html[Git's file-shaped change model]
+* link:https://docs.devcentr.org/general-knowledge/explanation/infrastructure/vcs-over-fs-editions.html[VCS over FS editions]
+* link:https://docs.devcentr.org/general-knowledge/how-to/concurrent-agent-workspaces.html[Concurrent agent workspaces]
+
+== Critiques already mailed (git@vger)
+
+These are **my** mailed critiques and notes to the Git list / personal drafts — subjects and dates, not folklore URLs. Do not treat this as a lore.kernel.org index.
+
+[cols="2,1,3", options="header"]
+|===
+| Subject (approx.) | Date | Point in one line
+
+| git branch empty after init
+| 2026-02-09
+| Fresh repos leave you staring at a branch story that feels unfinished / empty in ways newcomers should not have to research
+
+| SSH auth diagnostics when multiple ssh binaries
+| 2025-12-09
+| Tooling creators own clear diagnostics; "spend a day researching which ssh" is not an acceptable UX tax
+
+| gitignore redesign (.gitignore.local, undot the name, yaml+includes, template link)
+| 2025-11-11
+| Ignore rules need local overlays, honest naming, and composition — not another folklore file
+
+| gitignore include
+| 2025-08-13
+| Includes so shared ignore templates compose instead of copy-paste rotting
+
+| fsmonitor--daemon machine-wide registry for worktree sprawl orphans (draft)
+| 2026-09-15
+| Worktree sprawl leaves monitor/daemon orphans; needs a machine-wide registry story
+
+| Branch switch leaving untracked artifacts → worktrees as the real fix (personal note)
+| 2025-11-02
+| Switching branches scattering untracked junk is incompletely "fixed" by worktrees unless placement is conventional
+|===
+
+== What to read next
+
+. link:/blog/2026-09-25-everything-wrong-with-git-worktrees[Everything wrong with Git worktrees] — the critique essay
+. link:/blog/2026-09-25-git-worktree-redesign-proposal[Git worktree redesign proposal] — the constructive pair
+. link:https://docs.devcentr.org/general-knowledge/explanation/infrastructure/git-worktrees-long-range.html[Git worktrees long-range] — strategy doc
+. link:https://docs.devcentr.org/general-knowledge/how-to/org-scoped-git-worktrees.html[Org-scoped Git worktrees] — today's agent how-to
+
+Naming debt and placement debt are the same family of failure: Git optimized for a small circle that already knew the jargon, then scaled the jargon to the planet and to agents that invent three layouts before breakfast.
