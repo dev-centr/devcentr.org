@@ -2,6 +2,10 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-09-25 - Platforms hub child nav
+
+* Docs nav tree titled `.devcentr.org` with `Home` (was Overview) so the shared Platforms Antora component shows this product as a sibling under `/platforms/`.
+
 == 2026-09-10 — Public crawlability
 
 * Publish `/robots.txt` and generate `/sitemap.xml` from the shared prerender route list in postbuild (`spa-fallback`).
