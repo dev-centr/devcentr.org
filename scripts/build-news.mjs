@@ -27,10 +27,10 @@ const changelogSources = [
     id: "devcentr",
     label: "DevCentr",
     paths: [
-      join(root, "devcentr", "docs", "modules", "ROOT", "pages", "changelog.adoc"),
-      join(root, "..", "devcentr", "docs", "modules", "ROOT", "pages", "changelog.adoc"),
+      join(root, "devcentr", "docs", "modules", "devcentr", "pages", "changelog.adoc"),
+      join(root, "..", "devcentr", "docs", "modules", "devcentr", "pages", "changelog.adoc"),
     ],
-    docsUrl: "https://docs.devcentr.org/devcentr/latest/changelog.html",
+    docsUrl: "https://docs.devcentr.org/platforms/devcentr/changelog/",
   },
   {
     id: "general-knowledge",
@@ -39,7 +39,7 @@ const changelogSources = [
       join(root, "general-knowledge", "docs", "modules", "ROOT", "pages", "changelog.adoc"),
       join(root, "..", "general-knowledge", "docs", "modules", "ROOT", "pages", "changelog.adoc"),
     ],
-    docsUrl: "https://docs.devcentr.org/general-knowledge/latest/changelog.html",
+    docsUrl: "https://docs.devcentr.org/general-knowledge/changelog/",
   },
   {
     id: "docs-portal",
@@ -48,7 +48,7 @@ const changelogSources = [
       join(root, "docs", "docs", "modules", "ROOT", "pages", "activity-log.adoc"),
       join(root, "..", "docs", "docs", "modules", "ROOT", "pages", "activity-log.adoc"),
     ],
-    docsUrl: "https://docs.devcentr.org/home/activity-log.html",
+    docsUrl: "https://docs.devcentr.org/home/activity-log/",
     kind: "activity-log",
   },
 ];

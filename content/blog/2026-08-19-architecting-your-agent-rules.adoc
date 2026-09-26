@@ -86,7 +86,7 @@ It is a terrible place to teach layering.
 
 The full guide—with mermaid diagrams, setup checklist, and Cursor-as-one-example-not-the-template—is on the docs hub:
 
-https://docs.devcentr.org/agent-rules/harness-neutral.html
+https://docs.devcentr.org/tools/agent-rules/harness-neutral/
 
 Start there if you are copying these templates into another harness and want the agent to discover its own variables instead of inheriting ours.
 

@@ -2,6 +2,12 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-09-26 - Retarget docs path cites after Tools / Platforms moves
+
+* Blog posts and Agent Skills point at `/tools/agent-rules/` (was `/agent-rules/`).
+* `scripts/build-news.mjs` reads DevCentr changelog from `modules/devcentr/` and links `/platforms/devcentr/changelog/`; activity-log and GK docsUrls use indexify folder paths.
+* Regenerated blog + changelog catalogs.
+
 == 2026-09-25 - Platforms hub child nav
 
 * Docs nav tree titled `.devcentr.org` with `Home` (was Overview) so the shared Platforms Antora component shows this product as a sibling under `/platforms/`.

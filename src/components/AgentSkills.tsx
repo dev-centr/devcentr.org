@@ -220,11 +220,11 @@ export function AgentSkills() {
               into your harness so the whole inventory loads as one set and stays current.
               The corpus is designed to work together. Setup:{" "}
               <a
-                href="https://docs.devcentr.org/agent-rules/"
+                href="https://docs.devcentr.org/tools/agent-rules/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                docs.devcentr.org/agent-rules
+                docs.devcentr.org/tools/agent-rules
               </a>
               .
             </p>
