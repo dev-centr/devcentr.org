@@ -2,6 +2,10 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-09-26 - Overview sibling (no wrapper)
+
+* `nav.adoc`: articles under `.devcentr.org` are siblings of **Overview**, not children. Forest pattern: platform Overview is a peer start-page leaf (site-nav-tree also unwraps Overview parents defensively).
+
 == 2026-09-26 - Nav Overview label
 
 * Module landing nav label **Overview** (was Home) under Platforms > devcentr.org.
