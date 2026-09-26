@@ -2,6 +2,10 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-09-26 - Nav Overview label
+
+* Module landing nav label **Overview** (was Home) under Platforms > devcentr.org.
+
 == 2026-09-26 - Retarget docs path cites after Tools / Platforms moves
 
 * Blog posts and Agent Skills point at `/tools/agent-rules/` (was `/agent-rules/`).
