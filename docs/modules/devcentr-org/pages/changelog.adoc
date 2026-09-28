@@ -2,6 +2,30 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-09-25 — Blog Git ergonomics essay series
+
+* Overview (`2026-09-25-why-does-git-suck`), worktree critique, and redesign proposal essays in `content/blog/`.
+* Cross-links between the three posts; feeds regenerated after editorial title lock.
+
+== 2026-09-19 — Assets routes in prerender list
+
+* `scripts/site-routes.mjs` includes `/assets` and `/assets/standards` so postbuild SPA shells and `sitemap.xml` cover the Assets hub.
+
+== 2026-09-18 — Header IA (Assets, Updates, Help, Links)
+
+* Site header: **Assets** tree (Assets hub, Apps, Skills, Standards), **Updates** (News, Blog, Changelog, Docs), **Help** (desk, status, Discussions), **Links** (GitHub, Slack).
+* `/assets` gate separates Apps vs Standards; `/assets/standards` for the standards catalogue entry point.
+
+== 2026-09-18 — News and Blog as separate channels
+
+* `/blog` is a real channel (essays in `content/blog/`), not an alias of `/news`.
+* Separate feeds, JSON catalogs, and routes under `src/routes/blog/`.
+* See xref:changelog-details/2026-09-18 - news-blog-split-and-header-ia.adoc[Detailed changelog].
+
+== 2026-09-17 — Agent skills catalog UX
+
+* `/skills` copy clarifies harness-wide install vs one-off skill adoption; Bootstrap tab label and layout cage width fixes; option border clipping and Bootstrap flash on category switch resolved.
+
 == 2026-09-26 - Overview sibling (no wrapper)
 
 * `nav.adoc`: articles under `.devcentr.org` are siblings of **Overview**, not children. Forest pattern: platform Overview is a peer start-page leaf (site-nav-tree also unwraps Overview parents defensively).
@@ -23,7 +47,7 @@ Timeline of notable documentation and site changes in the devcentr.org repositor
 == 2026-09-10 — Public crawlability
 
 * Publish `/robots.txt` and generate `/sitemap.xml` from the shared prerender route list in postbuild (`spa-fallback`).
-* Sitemap omits `/health`, `/status`, and `/blog` aliases of `/news`.
+* Sitemap omits `/health` and `/status` probe routes.
 
 == 2026-09-08 — Themed PlayTime news diagrams
 

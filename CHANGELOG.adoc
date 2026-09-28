@@ -1,5 +1,10 @@
 ﻿= Changelog
 
+== 2026-09-28 -- Maintainer docs for Blog channel and header IA
+
+* Antora changelog backfill (Sep 17–25 site changes); detail page for News/Blog split and header navigation.
+* Updated site architecture and news pipeline pages (crawlability maintainer notes, `/assets` routes, corrected DevCentr changelog ingest path).
+
 == 2026-09-10 -- Public crawlability
 
 * Publish `/robots.txt` and a build-generated `/sitemap.xml` from the shared prerender route list.
