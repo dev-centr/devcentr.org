@@ -1,0 +1,42 @@
+= 2026-09-18 — News/Blog channels and header IA
+:navtitle: 2026-09-18 News, Blog, header IA
+
+== Summary
+
+devcentr.org stopped treating `/blog` as a News alias and gave the marketing shell a clearer top navigation: **Assets**, **Updates**, **Help**, and **Links**.
+
+== News and Blog
+
+* **News** (`/news`) — outward record: releases, partnerships, openings. Source: `content/news/`.
+* **Blog** (`/blog`) — inward craft essays and investigations. Source: `content/blog/`.
+* `scripts/build-news.mjs` emits separate JSON catalogs (`news-posts.generated.json`, `blog-posts.generated.json`) and syndication feeds under `public/news/` and `public/blog/`.
+* Routes live in `src/routes/news/` and `src/routes/blog/` (no cross-redirect between channels).
+
+Voice rules stay in `content/news/README.adoc` (news) and editorial title guidance for blog posts under `content/blog/`.
+
+== Header navigation
+
+Implemented in `src/components/site-header.tsx`:
+
+* **Assets** — tree menu: Assets hub (`/assets`), Apps (`/apps`), Skills (`/skills`), Standards (`/assets/standards`).
+* **Updates** — News, Blog, Changelog, and external Docs (`https://docs.devcentr.org`).
+* **Help** — Help desk (`/help`), Status (`/status`), GitHub Discussions (external).
+* **Links** — GitHub org and Slack invite (`src/lib/site-links.ts`).
+
+The former flat “Community” cluster is folded into **Help**; outbound social links moved to **Links**.
+
+== Assets hub
+
+* `/assets` — gate page (Apps vs Standards panes) via `src/routes/assets/index.tsx`.
+* `/assets/standards` — standards catalogue entry (Apps catalogue routes unchanged under `/apps/*`).
+
+== CI and crawlability
+
+* `scripts/site-routes.mjs` lists `/assets`, `/assets/standards`, `/blog`, and per-post `/blog/{slug}` routes for prerender shells and sitemap generation.
+* PlayTime diagram regression test targets a blog article path after the channel split.
+
+== Knowledge gaps addressed
+
+* Whether blog posts share the news feed (they do not).
+* Where to author inward essays vs outward news.
+* How header menus map to routes after the Apps/Standards split.

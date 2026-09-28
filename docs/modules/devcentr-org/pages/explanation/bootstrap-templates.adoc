@@ -4,6 +4,8 @@
 
 `/skills` is the public catalog of org Cursor skills. Categories are All, Bootstrap skills, Writing, Docs, Publishing, plus Review and Studio placeholders. `/templates` redirects to `/skills?cat=bootstrap`.
 
+The page intro stresses **harness-wide install** (agent-rules as one cohesive unit with discovery wired through `harness.md` / `AGENT_RULES_PATH`) versus treating skills as unrelated one-offs. Copy blocks in `src/components/AgentSkills.tsx` are the source of that framing.
+
 Bootstrap skills reuse the list-and-detail picker for named SDL profiles in `dev-centr/agent-rules` (`skills/bootstrap-org/profiles/`).
 JSON is compiled at site build time. The SDL files in agent-rules stay the source of truth; the site does not hand-maintain a duplicate table.
 

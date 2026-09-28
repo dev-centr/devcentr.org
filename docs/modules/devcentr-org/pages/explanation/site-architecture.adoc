@@ -9,7 +9,7 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 
 * **SolidStart + Vinxi** — file-based routes under `src/routes/`
 * **Tailwind CSS v4** — `src/app.css`, Kobalte primitives for accessible UI
-* **AsciiDoc** — news posts (`content/news/`) compiled with `@asciidoctor/core` at build time
+* **AsciiDoc** — news (`content/news/`) and blog (`content/blog/`) compiled with `@asciidoctor/core` at build time
 * **GitHub Actions** — `.github/workflows/ci.yml` builds and deploys on push to `main`
 
 == Public routes
@@ -21,8 +21,11 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 | `/`
 | Landing — hero, ecosystem copy, toolchain diagram, apps teaser
 
-| `/news`, `/blog`
-| News index and posts (`/blog` is an SEO alias)
+| `/news`
+| Outward news index and posts (`content/news/`)
+
+| `/blog`
+| Inward essays index and posts (`content/blog/`)
 
 | `/changelog`
 | Changelog mirror from Antora sibling repos
@@ -32,6 +35,9 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 
 | `/status`, `/health`
 | Client-side endpoint probes (`/health` redirects to `/status`)
+
+| `/assets`, `/assets/standards`
+| Assets hub gate (Apps vs Standards panes); standards entry point beside `/apps`
 
 | `/apps`, `/apps/products`, `/apps/services`, `/apps/standards`
 | Apps catalogue (data in `src/lib/apps-catalog.ts`)
@@ -51,13 +57,28 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 
 Catalogue and nested article pages (`PageTrail`) show the access path as `Section / Child / Current`. Topic tags stay *below* that trail, in the eyebrow style. Outbound links (repo, docs) sit after the intro, not in the trail.
 
+== Header navigation
+
+Top bar (`src/components/site-header.tsx`):
+
+* **Assets** — `/assets`, `/apps`, `/skills`, `/assets/standards` (tree menu).
+* **Updates** — `/news`, `/blog`, `/changelog`, plus external Docs.
+* **Help** — `/help`, `/status`, GitHub Discussions (`src/components/help-nav.tsx`).
+* **Links** — GitHub org and Slack invite (`src/components/links-nav.tsx`).
+
 == Build pipeline
 
 `pnpm run build` runs, in order:
 
 . `prebuild` — `scripts/sync-advisor-catalog.mjs`, `scripts/sync-bootstrap-profiles.mjs`, then `scripts/build-news.mjs`
 . `vinxi build` — static route artifacts
-. `postbuild` — `scripts/spa-fallback.mjs` for client-side routing on Pages
+. `postbuild` — `scripts/spa-fallback.mjs` copies the SPA shell for every route in `scripts/site-routes.mjs`, writes `robots.txt` and `sitemap.xml`, and injects no-JS crawl fallback into prerendered HTML (`scripts/write-crawlability.mjs`)
+
+== Crawlability
+
+* **Canonical route list** — `getPrerenderRoutes()` in `scripts/site-routes.mjs` (static paths plus news, blog, and idea slugs from generated JSON / `apps-catalog.ts`).
+* **Sitemap** — built in postbuild; excludes `/health` and `/status` probes.
+* **Maintainers** — when adding a new top-level marketing route, append it to `STATIC_ROUTES` in `site-routes.mjs` so GitHub Pages gets an `index.html` shell and the URL appears in `sitemap.xml`.
 
 CI (`.github/workflows/ci.yml`) additionally checks out sibling repos into the workspace root before `build-news.mjs`:
 
@@ -78,6 +99,6 @@ Custom domain `devcentr.org` is configured in the repository's Pages settings.
 * `src/routes/` — page components
 * `src/components/` — shared UI (header, footer, diagrams, toolchain browser widget, agent skills catalog)
 * `src/lib/` — catalog data, changelog loader, theme reveal, site links
-* `content/news/` — authored news (see xref:explanation/news-and-changelog.adoc[News & changelog pipeline])
+* `content/news/`, `content/blog/` — authored news and blog (see xref:explanation/news-and-changelog.adoc[News & changelog pipeline])
 * `public/brand/` — SVG logo marks (canonical org assets live in `.github` profile repos)
 * `scripts/` — news/changelog build, advisor and bootstrap-profile sync, SPA fallback, logo rasterize
