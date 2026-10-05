@@ -87,12 +87,12 @@ Site copies live in `public/brand/`. Canonical org-wide assets (including `logo.
 
 * **Probes:** link:https://devcentr.org/status[/status] (`/health` redirects here) — client-side checks of public endpoints
 * **Hosted uptime:** link:https://status.devcentr.org[status.devcentr.org] (Better Stack) — linked from the probe page
-* Community surfaces (Help, Status, Slack, …) live under the header **Community** menu
+* Header **Help** and **Links** menus surface community shortcuts (Status, Slack, GitHub, …)
 
 === Skills
 
 * **URL:** link:https://devcentr.org/skills[/skills] (`/templates` redirects to `/skills?cat=bootstrap`)
-* Click a category, then a skill, copy the name for a Cursor prompt. Bootstrap skills are the org/project SDL selector.
+* Click a category, then a skill; copy the **Agent prompt** to wire the harness inventory. Bootstrap skills are the org/project SDL selector.
 * SDL source: `dev-centr/agent-rules` (`skills/`); compiled at site build, not duplicated in this repo.
 
 ++++
@@ -124,7 +124,7 @@ pnpm dev
 == Project Structure
 
 * `src/` — Source code (scaffolded)
-* `content/news/` — AsciiDoc news / blog posts
+* `content/news/` — outward news posts; `content/blog/` — inward blog essays
 * `public/` — Static assets (includes generated feeds under `public/news/` and `public/blog/`)
 * `src/lib/news-posts.generated.json` / `changelog-entries.generated.json` — build outputs from `pnpm news:build`
 * `app.config.ts` — SolidStart/Vinxi configuration

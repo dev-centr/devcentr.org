@@ -2,7 +2,12 @@
 :navtitle: Agent skills
 :description: Public Cursor-skill selector on devcentr.org, compiled from agent-rules (bootstrap-org SDL plus a skill inventory).
 
-`/skills` is the public catalog of org Cursor skills. Categories are All, Bootstrap skills, Writing, Docs, Publishing, plus Review and Studio placeholders. `/templates` redirects to `/skills?cat=bootstrap`.
+`/skills` is the public **harness inventory** for org Cursor skills — not a storefront of one-off installs.
+Categories are All, Bootstrap skills, Writing, Docs, Publishing, plus Review and Studio placeholders.
+`/templates` redirects to `/skills?cat=bootstrap`.
+
+The UI frames partial adopters: the corpus works best as a cohesive harness unit (`agent-rules` discovery via `harness.md` / `AGENT_RULES_PATH`).
+Selecting a skill shows the inventory record; **Agent prompt** snippets (via `CopyInstallSnippet`) paste into the agent instead of copying bare skill names.
 
 Bootstrap skills reuse the list-and-detail picker for named SDL profiles in `dev-centr/agent-rules` (`skills/bootstrap-org/profiles/`).
 JSON is compiled at site build time. The SDL files in agent-rules stay the source of truth; the site does not hand-maintain a duplicate table.

@@ -20,10 +20,25 @@ Timeline of notable documentation and site changes in the devcentr.org repositor
 
 * Docs nav tree titled `.devcentr.org` with `Home` (was Overview) so the shared Platforms Antora component shows this product as a sibling under `/platforms/`.
 
+== 2026-09-19 — Assets routes in prerender list
+
+* `scripts/site-routes.mjs` includes `/assets` and `/assets/standards` so Vinxi prerender, SPA fallback shells, and `sitemap.xml` cover the Assets gate.
+
+== 2026-09-18 — News/Blog split and header IA
+
+* `/blog` is a separate inward channel (`content/blog/`, feeds under `public/blog/`).
+* Header: **Assets** (apps, skills, standards), **Updates** (news, blog, changelog, docs), **Help**, **Links**.
+* See xref:changelog-details/2026-09-18 - news-blog-split-and-header-ia.adoc[Detailed changelog].
+
+== 2026-09-17 — Skills harness inventory UX
+
+* `/skills` framed as harness inventory; agent prompt snippets; tab and layout fixes; favicon mark refresh.
+* See xref:changelog-details/2026-09-17 - skills-harness-inventory-ux.adoc[Detailed changelog].
+
 == 2026-09-10 — Public crawlability
 
 * Publish `/robots.txt` and generate `/sitemap.xml` from the shared prerender route list in postbuild (`spa-fallback`).
-* Sitemap omits `/health`, `/status`, and `/blog` aliases of `/news`.
+* Sitemap omits ops probes `/health` and `/status` only; `/news` and `/blog` are both listed.
 
 == 2026-09-08 — Themed PlayTime news diagrams
 

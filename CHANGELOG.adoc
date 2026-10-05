@@ -1,5 +1,10 @@
 ﻿= Changelog
 
+== 2026-09-26 — Documentation sync (automation)
+
+* Antora site architecture, news/blog pipeline, and agent skills pages match the News/Blog split, Assets header IA, and crawlability route list.
+* Changelog index backfill for 2026-09-17 through 2026-09-19 site changes.
+
 == 2026-09-10 -- Public crawlability
 
 * Publish `/robots.txt` and a build-generated `/sitemap.xml` from the shared prerender route list.
