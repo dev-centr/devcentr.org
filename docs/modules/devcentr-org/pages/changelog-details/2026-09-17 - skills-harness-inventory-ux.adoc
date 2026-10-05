@@ -1,0 +1,20 @@
+= 2026-09-17 — Skills harness inventory UX
+:navtitle: 2026-09-17 Skills UX
+
+== Summary
+
+The `/skills` page was reframed and stabilized as a harness inventory rather than a skill storefront.
+
+== UX and copy
+
+* Page copy explains one-off installs vs a cohesive `agent-rules` harness unit.
+* **Agent prompt** paste snippets (`CopyInstallSnippet`) replace copying bare skill names.
+* Client-side category tabs without full page reload; stable layout for empty categories and Bootstrap profile flash fixes.
+
+== Brand
+
+* Concentric two-tone favicon mark for small sizes; transparent favicon without a dark tile.
+
+== Docs
+
+* xref:explanation/bootstrap-templates.adoc[Agent skills] — harness framing and prompt workflow.

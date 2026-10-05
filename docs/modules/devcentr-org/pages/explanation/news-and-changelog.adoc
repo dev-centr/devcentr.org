@@ -2,12 +2,14 @@
 :navtitle: News & changelog
 :description: How authored news posts and mirrored Antora changelogs are built for devcentr.org.
 
-devcentr.org separates **narrative news** from **shipping notes**:
+devcentr.org separates **outward news**, **inward blog**, and **shipping notes**:
 
-* **News** (`/news`) — outward-facing essays and announcements authored in this repo.
+* **News** (`/news`) — outward-facing releases, partnerships, and shared record (`content/news/`).
+* **Blog** (`/blog`) — inward craft, investigations, and orientations (`content/blog/`).
 * **Changelog** (`/changelog`) — day-to-day bullets mirrored from Antora changelogs in sibling repos.
 
-Do not put changelog bullets in news posts, and do not hand-edit the generated JSON catalogs.
+Do not put changelog bullets in news or blog posts, and do not hand-edit the generated JSON catalogs.
+Voice: `content/news/README.adoc` (news vs blog vs changelog).
 
 == News (authored)
 
@@ -39,7 +41,27 @@ Voice and checklist: see `content/news/README.adoc` in the repository (conversat
 * `src/lib/news-posts.generated.json` — post metadata and rendered HTML for Solid routes
 * `public/news/rss.xml` and `public/news/atom.xml` — syndication feeds
 
-Routes: `src/routes/news/` (and `/blog` alias).
+Routes: `src/routes/news/`.
+
+== Blog (authored)
+
+=== Source
+
+AsciiDoc files in `content/blog/YYYY-MM-DD-slug.adoc` with the same front-matter fields as news (`:description:`, `:revdate:`, `:keywords:`).
+
+=== Authoring options
+
+* **Pages CMS** — collection `blog` in `.pages.yml`.
+* **Git / PR** — edit under `content/blog/`, run `pnpm news:build`, open a PR.
+
+=== Build output
+
+`scripts/build-news.mjs` also writes:
+
+* `src/lib/blog-posts.generated.json`
+* `public/blog/rss.xml` and `public/blog/atom.xml`
+
+Routes: `src/routes/blog/`.
 
 == Changelog (mirrored)
 
@@ -78,4 +100,5 @@ Rebuild (or push to `main` and let CI regenerate).
 
 * **Empty `/changelog` locally** — clone `dev-centr/devcentr`, `general-knowledge`, and `docs` as siblings, then `pnpm news:build`.
 * **News post missing** — confirm filename ends in `.adoc`, is not `README.adoc`, and has `:revdate:`.
-* **Feeds stale** — run `pnpm news:build`; feeds are regenerated from the news JSON, not hand-edited.
+* **Feeds stale** — run `pnpm news:build`; feeds are regenerated from the news and blog JSON, not hand-edited.
+* **Blog post missing** — same rules as news; confirm the file lives under `content/blog/`, not `content/news/`.

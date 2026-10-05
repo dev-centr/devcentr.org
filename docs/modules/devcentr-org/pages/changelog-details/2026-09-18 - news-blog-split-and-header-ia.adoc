@@ -1,0 +1,27 @@
+= 2026-09-18 — News/Blog split and header IA
+:navtitle: 2026-09-18 News, Blog, and nav
+
+== Summary
+
+Marketing site channels and primary navigation were realigned so outward news and inward blog are separate surfaces, with catalogue routes grouped under Assets.
+
+== News and Blog
+
+* `/blog` is a first-class channel (`content/blog/`, `blog-posts.generated.json`, `/blog` feeds) — not an alias of `/news`.
+* News remains outward shared record in `content/news/`.
+* Editorial voice rules live in `content/news/README.adoc`.
+
+== Header navigation
+
+* **Assets** dropdown — `/assets` gate, `/apps`, `/skills`, `/assets/standards` (Apps vs Standards split).
+* **Updates** dropdown — `/news`, `/blog`, `/changelog`, external docs hub.
+* **Help** replaces the former Community entry; **Links** holds outbound shortcuts.
+
+== Routes and CI
+
+* `/assets` and `/assets/standards` added to `scripts/site-routes.mjs` for prerender, SPA fallback, and sitemap (2026-09-19 follow-up).
+
+== Docs touchpoints
+
+* xref:explanation/site-architecture.adoc[Site architecture] — public routes and header IA.
+* xref:explanation/news-and-changelog.adoc[News & changelog pipeline] — dual authored channels.
