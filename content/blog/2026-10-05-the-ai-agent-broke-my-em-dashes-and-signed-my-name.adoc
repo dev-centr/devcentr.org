@@ -1,0 +1,110 @@
+= The AI agent broke my em dashes and signed my name
+:description: An agent rewrote a GitHub workflow through Windows PowerShell 5.1, every dash became three characters of garbage, and git blame said I did it. Why legacy shell encoding needs a commit-time guard, not another agent rule.
+:revdate: 2026-10-05
+:keywords: blog, agents, encoding, mojibake, PowerShell, git, CI
+:moji-dash: &#226;&#8364;&#8221;
+
+When an AI agent edits a file through the wrong shell on Windows, every em dash in that file can quietly turn into `{moji-dash}`, and the commit that did it will carry your name, not the agent's.
+I learned both halves of that this week, and I no longer think the answer is a better-worded rule for the agent.
+The answer is a guard that refuses the commit.
+
+== The workflow file GitHub would not read
+
+It started as an ordinary afternoon of shipping.
+An agent had just landed auto-update support for InstaLay, my photo-layout app: a feed, a quit-first updater stub, a Check for updates button.
+The commit went to `main`. Then the web app stopped redeploying.
+
+Two things were wrong.
+The Dart code had a couple of missing semicolons, which is the kind of mistake you expect and `flutter analyze` catches in seconds.
+The other one was stranger: GitHub refused to load `release.yml` at all.
+Not a failed job. A workflow file the platform would not even parse.
+
+Open the file and the reason is sitting in plain sight.
+Where the agent's YAML comments and strings had dashes, there were now little clusters of accented letters and curly quotes.
+One character had become three.
+The next tag would not have published a release.
+
+The fix took one commit.
+The question it raised did not go away that fast.
+
+== What actually happened to the bytes
+
+An em dash in UTF-8 is three bytes.
+Windows-1252, the old "ANSI" code page Windows still treats as the default for a lot of things, reads every byte as its own character.
+So a tool that misreads a UTF-8 file as Windows-1252 sees three characters where there was one.
+If it then saves what it saw as UTF-8, those three characters each become their own UTF-8 sequence.
+The file now permanently says `{moji-dash}`.
+That is mojibake, and it is the most boring bug in computing.
+
+The tool, on my machine, is Windows PowerShell 5.1.
+It is still what you get when you type `powershell`, and it is what agent harnesses tend to land in because it is guaranteed to exist.
+Its `Get-Content` reads files without a byte-order mark as ANSI, and nearly every modern UTF-8 file has no byte-order mark.
+Its `Set-Content` writes ANSI by default; its `>` redirect writes UTF-16.
+PowerShell 7 fixed all of this years ago. The agent was not in PowerShell 7.
+
+The agent did what agents do when they want a quick edit: read the file, replace a string, write it back.
+In that shell, that is a double-encoding machine, and it rewrites every non-ASCII character in the file, not just the line the agent meant to touch.
+
+== git blame says it was me
+
+Once you know the signature, you start seeing it.
+InstaLay's `CHANGELOG` had three old entries with the same garbled dashes.
+Nothing had failed, so nobody had noticed for almost a month.
+Prose does not throw exceptions. It just ships wrong.
+
+I went looking for the culprit.
+`git log` pointed at a commit from September 10.
+The author was me.
+
+It was not me, of course.
+Every agent I run commits with my git identity, because that is how the tooling is set up and because I do want to own what lands in my repositories.
+But it means history cannot answer the obvious question.
+Was it the same assistant that broke `release.yml`? A different one, a month earlier? A script I ran myself in the same shell?
+The only thing I can know for certain is the mechanism.
+
+That is the part of the AI-assisted workflow nobody puts on the slide.
+Agents do not just make mistakes; they make them anonymously, at volume, in files you did not ask them to open, under your signature.
+
+== Why I stopped trusting the rule
+
+My first instinct was the one everyone has: write it down.
+Add a line to the shared agent rules: never rewrite text with PowerShell 5.1 `Get-Content` and `Set-Content` without an explicit UTF-8 encoding; prefer the harness's file-edit tool, or `pwsh`, or a .NET write that does not add a byte-order mark.
+
+That rule now exists, and it should.
+But a rule is a wish.
+It lives in a context window that gets summarised, overridden by a task prompt, or never loaded by the next harness I try.
+Cloud agents, a web edit on GitHub, a second laptop, a teammate's assistant: none of them read my rules file.
+
+Mojibake has one property most quality problems do not.
+It has a byte signature.
+The sequences it produces almost never appear in legitimate text, so a machine can reject them with close to zero false positives.
+That turns a judgment call into a gate.
+
+So the gate goes where every one of those writers has to pass: the commit.
+
+A pre-commit hook, installed once per workstation through `git config --global core.hooksPath`, so it covers every repository on the machine, including the ones I clone next month.
+It chains to each repository's own hooks, because a global hooks path otherwise silently replaces them.
+It rejects the mojibake signatures and UTF-16 files, and it is written in pure ASCII so the bug cannot corrupt its own detector.
+Behind it, a CI check on the forge as a backstop for every commit that never touched my machine, ideally one reusable workflow required across the organisation so a new repository is covered without anyone remembering.
+Intentional garbage, like test fixtures for a repair tool, goes in an explicit allowlist file. Plain-text files do not get a pass; they rot the same way.
+
+The rule lowers how often it happens.
+The hook makes sure it never lands.
+CI makes sure the places without the hook cannot sneak it in.
+
+== The shell is the real bug
+
+It is tempting to file this under "AI is sloppy" and move on.
+I think that lets the shell off too easily.
+
+A shell in 2026 that reads a UTF-8 file as a 1990s code page, without a warning, without an error, without anything a program could detect, is not neutral infrastructure.
+It is a trap that agents fall into far more often than humans did, because agents edit through the shell all day and never glance at the result.
+Humans had the editor as a buffer. Agents have stdout.
+
+That is why this is going into the OpenShellOrg standard work as an AI-compatibility concern, not just into my repositories as a hook. OpenShellOrg makes the shell-side case in link:https://opensh.org/news/agents-trust-the-shell-to-read-a-file-correctly.html[Agents trust the shell to read a file correctly], and the normative text lives in the SOS link:https://docs.opensh.org/open-shell-org/standard-design-considerations/[Design Considerations].
+UTF-8 should be the default for reads, writes, pipes and the console.
+Legacy encodings should be a loud, explicit opt-in.
+And when a decode does go wrong, the shell should say so in a form an agent can parse, instead of handing back garbage that looks like success.
+
+Until shells behave that way, the guard stays on.
+The practical setup, with the hook script and the CI workflow, is in the Dev-Centr guide link:https://docs.devcentr.org/general-knowledge/how-to/prevent-text-encoding-corruption/[Prevent text encoding corruption], and the background is in link:https://docs.devcentr.org/general-knowledge/explanation/infrastructure/text-encoding-and-ai-agents/[Text encoding and AI agents].
