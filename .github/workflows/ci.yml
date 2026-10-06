@@ -20,46 +20,46 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Checkout stack-advisor definitions
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: dev-centr/stack-advisor
           path: stack-advisor
 
       - name: Checkout agent-rules (bootstrap profile SDL)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: dev-centr/agent-rules
           path: agent-rules
 
       - name: Checkout general-knowledge (changelog ingest)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: dev-centr/general-knowledge
           path: general-knowledge
           fetch-depth: 0
 
       - name: Checkout DevCentr app docs (changelog ingest)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: dev-centr/devcentr
           path: devcentr
 
       - name: Checkout docs portal (activity-log ingest)
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         with:
           repository: dev-centr/docs
           path: docs
 
       - name: Setup pnpm
-        uses: pnpm/action-setup@v4
+        uses: pnpm/action-setup@v6
         with:
           version: 9
 
       - name: Setup Node
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v7
         with:
           node-version: "22"
           cache: "pnpm"
@@ -130,7 +130,7 @@ jobs:
         run: touch .output/public/.nojekyll
 
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v5
         with:
           path: .output/public
 
@@ -144,4 +144,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deploy
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
