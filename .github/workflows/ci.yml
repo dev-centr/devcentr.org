@@ -1,4 +1,4 @@
-# CI for devcentr.org â€” build; deploy to GitHub Pages on push to main
+# CI for devcentr.org — build; deploy to GitHub Pages on push to main
 name: CI
 
 on:

@@ -20,7 +20,7 @@ export type NavDropdownLink = {
   href: string;
   label: string;
   external?: boolean;
-  /** 0 = root, 1 = child under the tree, Ã¢â‚¬Â¦ */
+  /** 0 = root, 1 = child under the tree, … */
   depth?: number;
   /** When depth > 0, last child gets a corner; others get a tee. */
   treeEnd?: boolean;
