@@ -1,0 +1,26 @@
+= 2026-10-05 — UTF-8 encoding guard in CI
+:navtitle: 2026-10-05 Encoding guard
+:page-audience: Contributors editing text in this repo
+:page-usage-context: CI and pre-commit hygiene
+:page-orig-author: Auto on behalf of Ryan Johnson
+:page-last-author: Auto on behalf of Ryan Johnson
+
+== Problem
+
+Double-encoded UTF-8 (classic mojibake from Windows PowerShell 5.1 rewrites) can land in tracked text without breaking the build until someone reads the file.
+
+== Guard workflow
+
+`.github/workflows/encoding-guard.yml` reuses `dev-centr/agent-rules/.github/workflows/encoding-guard.yml@main`.
+
+The check fails when tracked text matches known mojibake signatures or UTF-16 text where UTF-8 is expected.
+
+== Opt-outs
+
+* Per-line: `mojibake-guard: allow` in the file
+* Per-path: globs in `.encoding-allow` at the repo root
+
+== Related content
+
+* Blog essay: link:https://devcentr.org/blog/2026-10-05-the-ai-agent-broke-my-em-dashes-and-signed-my-name[The AI agent broke my em dashes and signed my name]
+* Org how-to: link:https://docs.devcentr.org/general-knowledge/how-to/prevent-text-encoding-corruption/[Prevent text encoding corruption]

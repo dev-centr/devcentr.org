@@ -21,8 +21,11 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 | `/`
 | Landing — hero, ecosystem copy, toolchain diagram, apps teaser
 
-| `/news`, `/blog`
-| News index and posts (`/blog` is an SEO alias)
+| `/news`
+| Outward news index and posts (`content/news/`)
+
+| `/blog`
+| Inward blog index and posts (`content/blog/` — separate channel, not a News alias)
 
 | `/changelog`
 | Changelog mirror from Antora sibling repos
@@ -32,6 +35,9 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 
 | `/status`, `/health`
 | Client-side endpoint probes (`/health` redirects to `/status`)
+
+| `/assets`, `/assets/standards`
+| Assets hub (Apps vs Standards gate); standards also listed under `/apps/standards`
 
 | `/apps`, `/apps/products`, `/apps/services`, `/apps/standards`
 | Apps catalogue (data in `src/lib/apps-catalog.ts`)
@@ -51,13 +57,22 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 
 Catalogue and nested article pages (`PageTrail`) show the access path as `Section / Child / Current`. Topic tags stay *below* that trail, in the eyebrow style. Outbound links (repo, docs) sit after the intro, not in the trail.
 
+== Header navigation
+
+`src/components/site-header.tsx` groups the public shell:
+
+* **Assets** — `/assets`, `/apps`, `/skills`, `/assets/standards`
+* **Updates** — `/news`, `/blog`, `/changelog`, external docs portal
+* **Help** — `/help`, `/status`, GitHub Discussions
+* **Links** — org GitHub and Slack (`src/components/links-nav.tsx`)
+
 == Build pipeline
 
 `pnpm run build` runs, in order:
 
 . `prebuild` — `scripts/sync-advisor-catalog.mjs`, `scripts/sync-bootstrap-profiles.mjs`, then `scripts/build-news.mjs`
 . `vinxi build` — static route artifacts
-. `postbuild` — `scripts/spa-fallback.mjs` for client-side routing on Pages
+. `postbuild` — `scripts/spa-fallback.mjs` copies the SPA shell for every route in `scripts/site-routes.mjs`, writes `robots.txt` and `sitemap.xml` via `scripts/write-crawlability.mjs`, and injects no-JS title/description fallbacks into prerendered HTML
 
 CI (`.github/workflows/ci.yml`) additionally checks out sibling repos into the workspace root before `build-news.mjs`:
 
@@ -78,6 +93,7 @@ Custom domain `devcentr.org` is configured in the repository's Pages settings.
 * `src/routes/` — page components
 * `src/components/` — shared UI (header, footer, diagrams, toolchain browser widget, agent skills catalog)
 * `src/lib/` — catalog data, changelog loader, theme reveal, site links
-* `content/news/` — authored news (see xref:explanation/news-and-changelog.adoc[News & changelog pipeline])
+* `content/news/` and `content/blog/` — authored channels (see xref:explanation/news-and-changelog.adoc[News & changelog pipeline])
 * `public/brand/` — SVG logo marks (canonical org assets live in `.github` profile repos)
-* `scripts/` — news/changelog build, advisor and bootstrap-profile sync, SPA fallback, logo rasterize
+* `scripts/` — `site-routes.mjs` (canonical prerender/sitemap list), news/changelog build, advisor and bootstrap-profile sync, SPA fallback, logo rasterize
+* `.github/workflows/encoding-guard.yml` — reusable UTF-8 mojibake check from `dev-centr/agent-rules`
