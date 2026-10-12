@@ -13,10 +13,11 @@ https://devcentr.org
 == What lives here
 
 * **Marketing home** — Developer ecosystem positioning, apps catalogue, and links to the flagship DOS at link:https://devcentr.app[devcentr.app].
-* **News** (`/news`) and **Blog** (`/blog`) — News: narrative AsciiDoc from `content/news/`. Blog: essays from `content/blog/`.
+* **News** (`/news`) and **Blog** (`/blog`) — separate AsciiDoc channels (`content/news/`, `content/blog/`) with distinct feeds.
 * **Changelog** (`/changelog`) — Mirror index of Antora changelogs from sibling repos (built at CI time).
-* **Community** — Help hub (`/help`), status probes (`/status`), and toolchain surfaces.
-* **Public tools** — Stack Advisor (`/stack-advisor`; `/toolchain-browser` and `/toolchain-advisor` redirect), agent skills (`/skills`), resting-lanczos demo (`/resting-lanczos`), and apps catalogue (`/apps`).
+* **Assets** (`/assets`) — Catalogue hub for apps and standards; **Skills** (`/skills`) and **Apps** (`/apps`) also live under the Assets menu.
+* **Help** (`/help`) and **Status** (`/status`) — self-help hub and client-side probes; **Links** menu for GitHub and Slack.
+* **Public tools** — Stack Advisor (`/stack-advisor`; `/toolchain-browser` and `/toolchain-advisor` redirect), resting-lanczos demo (`/resting-lanczos`).
 
 == Documentation map
 

@@ -18,7 +18,9 @@ Do not make docs the top-level support page. Docs are one choice on `/help`.
 * `/help` landing with docs (live) and contact-support (coming soon).
 * Interim contact: `support@devcentr.org`.
 * Public triage still via GitHub Issues and Discussions.
-* Community menu (header): Help, Status, Better Stack uptime, Slack, Discussions.
+* Help menu (header): Help desk (`/help`), Status (`/status`), GitHub Discussions.
+* Links menu (header): org GitHub and Slack invite (`src/lib/site-links.ts`).
+* Better Stack uptime: linked from `/status`, not duplicated in the header.
 * Live probe page at `/status`; hosted incidents/uptime at `https://status.devcentr.org` (Better Stack).
 * Slack: public invite in `src/lib/site-links.ts` (`SLACK_INVITE_URL`).
 

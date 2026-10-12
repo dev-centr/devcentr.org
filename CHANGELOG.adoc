@@ -1,10 +1,30 @@
 ﻿= Changelog
 
+== 2026-10-06 -- GitHub Actions majors and Dependabot
+
+* Bumped Actions to current majors (checkout, setup-node, pnpm, Pages deploy/upload).
+* Added Dependabot grouped updates for `github-actions`.
+
 == 2026-10-06 -- Dependency refresh
 
 * Refreshed deprecated transitive dependencies within existing ranges: `@ungap/structured-clone` 1.4.0 and `@xmldom/xmldom` 0.8.15.
+
+== 2026-10-05 -- Encoding guard and UTF-8 repair
+
+* CI workflow `.github/workflows/encoding-guard.yml` (shared agent-rules guard).
+* Repaired double-encoded UTF-8 in tracked text; blog essay on agent + PowerShell 5.1 mojibake.
+
+== 2026-09-19 -- Assets prerender routes
+
+* `/assets` and `/assets/standards` in `site-routes.mjs` for SPA shells and sitemap.
+
+== 2026-09-18 -- News/Blog split and header IA
+
+* Separate `/blog` channel, feeds, and `content/blog/`.
+* Header dropdowns: Assets, Updates, Help, Links.
 
 == 2026-09-10 -- Public crawlability
 
 * Publish `/robots.txt` and a build-generated `/sitemap.xml` from the shared prerender route list.
 * Inject no-JS title, description, and noscript fallback into the static app shell after build.
+* Sitemap omits `/health` and `/status` only.

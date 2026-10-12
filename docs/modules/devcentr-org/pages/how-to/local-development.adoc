@@ -55,7 +55,7 @@ Without siblings, news still builds; changelog ingest logs `changelog skip (miss
 | Production static build to `.output/public`
 
 | `pnpm news:build`
-| Regenerate news JSON, changelog JSON, RSS, and Atom
+| Regenerate news and blog JSON, changelog JSON, and RSS/Atom for both channels
 
 | `pnpm sync-advisor`
 | Copy and compile stack-advisor SDL → `public/catalog/`
@@ -74,7 +74,8 @@ See xref:walkthrough-vscode-and-ci.adoc[VS Code & CI walkthrough] for rationale.
 
 == Troubleshooting
 
-* **Stale news or changelog** — run `pnpm news:build` after editing `content/news/` or after pulling sibling changelog files.
+* **Stale news, blog, or changelog** — run `pnpm news:build` after editing `content/news/` or `content/blog/`, or after pulling sibling changelog files.
+* **Encoding guard CI failure** — fix mojibake in the reported file or add an allowed path; see xref:changelog-details/2026-10-05 - encoding-guard-ci.adoc[encoding guard changelog].
 * **Advisor page empty** — run `pnpm sync-advisor` with `stack-advisor` checked out; verify `public/catalog/advisor.json` exists.
 * **Skills / bootstrap selector empty** — run `pnpm sync-bootstrap-profiles` with `agent-rules` checked out; verify `public/catalog/bootstrap-profiles.json` exists (gitignored, not committed).
 * **CI fails `skills/index.html`** — Vinxi does not emit a directory index for client-only routes; `scripts/spa-fallback.mjs` must copy the SPA shell into `.output/public/skills/`.
