@@ -18,9 +18,14 @@ const itemClass =
 export type NavTreeChildLink = {
   href: string;
   label: string;
+  external?: boolean;
 };
 
-function openLink(href: string) {
+function openLink(href: string, external?: boolean) {
+  if (external) {
+    window.open(href, "_blank", "noopener,noreferrer");
+    return;
+  }
   window.location.assign(href);
 }
 
@@ -28,7 +33,7 @@ function TreeChildItem(props: { link: NavTreeChildLink; isFirst: boolean; isLast
   return (
     <DropdownMenuItem
       class={cn(itemClass, "relative pl-4")}
-      onSelect={() => openLink(props.link.href)}
+      onSelect={() => openLink(props.link.href, props.link.external)}
     >
       <span
         class={cn(
@@ -80,7 +85,10 @@ export function NavTreeDropdown(props: {
         </svg>
       </DropdownMenuTrigger>
       <DropdownMenuContent class="min-w-48 border-border/70 bg-popover/95 p-1 backdrop-blur-sm">
-        <DropdownMenuItem class={cn(itemClass, "mx-1")} onSelect={() => openLink(props.root.href)}>
+        <DropdownMenuItem
+          class={cn(itemClass, "mx-1")}
+          onSelect={() => openLink(props.root.href, props.root.external)}
+        >
           {props.root.label}
         </DropdownMenuItem>
         <div class="relative mx-1 ml-5">

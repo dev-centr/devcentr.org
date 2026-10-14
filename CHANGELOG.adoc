@@ -1,5 +1,9 @@
 ﻿= Changelog
 
+== 2026-10-13 -- Help menu landing link
+
+* Help dropdown: top item `Help` goes to `/help` (overview of help paths); Status and Discussions nest under it with the same tree styling as Assets.
+
 == 2026-10-13 -- Site header navigation
 
 * Top bar: `Updates` replaced by `Docs` (news, blog, changelog, docs site); `Help` kept for help desk, status, and discussions; `Links` for GitHub and Slack.
