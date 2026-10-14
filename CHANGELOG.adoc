@@ -1,5 +1,11 @@
 ﻿= Changelog
 
+== 2026-10-13 -- Site header navigation
+
+* Top bar: `Updates` replaced by `Docs` (news, blog, changelog, docs site); `Help` kept for help desk, status, and discussions; `Links` for GitHub and Slack.
+* Assets menu: overview landing link plus a CSS tree for Apps, Skills, and Standards (no ASCII rail characters).
+* Dropdown menus no longer repeat the trigger label as an in-panel heading.
+
 == 2026-10-06 -- Dependency refresh
 
 * Refreshed deprecated transitive dependencies within existing ranges: `@ungap/structured-clone` 1.4.0 and `@xmldom/xmldom` 0.8.15.

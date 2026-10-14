@@ -11,12 +11,5 @@ const helpLinks = [
 ] as const;
 
 export function HelpNav() {
-  return (
-    <NavDropdown
-      label="Help"
-      ariaLabel="Help menu"
-      menuLabel="Help"
-      links={[...helpLinks]}
-    />
-  );
+  return <NavDropdown label="Help" ariaLabel="Help menu" links={[...helpLinks]} />;
 }

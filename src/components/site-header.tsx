@@ -1,22 +1,9 @@
-import { ModeToggle } from "~/components/mode-toggle";
+import { AssetsNav } from "~/components/assets-nav";
+import { DocsNav } from "~/components/docs-nav";
 import { HelpNav } from "~/components/help-nav";
 import { LinksNav } from "~/components/links-nav";
+import { ModeToggle } from "~/components/mode-toggle";
 import { LogoMark } from "~/components/logo-mark";
-import { NavDropdown } from "~/components/nav-dropdown";
-
-const assetsLinks = [
-  { href: "/assets", label: "Assets", depth: 0 },
-  { href: "/apps", label: "Apps", depth: 1 },
-  { href: "/skills", label: "Skills", depth: 1 },
-  { href: "/assets/standards", label: "Standards", depth: 1, treeEnd: true },
-] as const;
-
-const updatesLinks = [
-  { href: "/news", label: "News" },
-  { href: "/blog", label: "Blog" },
-  { href: "/changelog", label: "Changelog" },
-  { href: "https://docs.devcentr.org", label: "Docs", external: true },
-] as const;
 
 export function SiteHeader() {
   return (
@@ -26,8 +13,8 @@ export function SiteHeader() {
         <span class="font-display text-lg font-semibold tracking-tight">DevCentr</span>
       </a>
       <nav class="flex items-center gap-2 md:gap-3">
-        <NavDropdown label="Assets" menuLabel="Assets" links={[...assetsLinks]} />
-        <NavDropdown label="Updates" menuLabel="Updates" links={[...updatesLinks]} />
+        <AssetsNav />
+        <DocsNav />
         <HelpNav />
         <LinksNav />
         <ModeToggle />

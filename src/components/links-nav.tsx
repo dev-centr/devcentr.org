@@ -7,12 +7,5 @@ const links = [
 ] as const;
 
 export function LinksNav() {
-  return (
-    <NavDropdown
-      label="Links"
-      ariaLabel="Links menu"
-      menuLabel="Links"
-      links={[...links]}
-    />
-  );
+  return <NavDropdown label="Links" ariaLabel="Links menu" links={[...links]} />;
 }
