@@ -15,11 +15,12 @@ const triggerClass =
 const itemClass =
   "cursor-pointer font-mono text-[11px] uppercase tracking-[0.14em] focus:bg-accent focus:text-accent-foreground";
 
-/** Tree rails — visible on popover in light and dark without reading as heavy chrome. */
 const railClass = "bg-muted-foreground/25 dark:bg-muted-foreground/50";
 
-/** Fixed width for branch glyphs; keeps labels aligned with the root row. */
-const TREE_GUTTER_PX = 20;
+/** Width of the wireframe column; labels start after this gap. */
+const BRANCH_WIDTH_PX = 16;
+/** Short vertical segment connecting the root row to the first branch. */
+const ROOT_STEM_PX = 8;
 
 export type NavTreeChildLink = {
   href: string;
@@ -35,52 +36,77 @@ function openLink(href: string, external?: boolean) {
   window.location.assign(href);
 }
 
-function TreeRail(props: { isFirst: boolean; isLast: boolean }) {
-  const railLeft = `${TREE_GUTTER_PX / 2}px`;
+function TreeBranchColumn(props: { isFirst: boolean; isLast: boolean; onlyChild: boolean }) {
+  const mid = `${BRANCH_WIDTH_PX / 2}px`;
 
   return (
     <div
       class="relative shrink-0 self-stretch"
-      style={{ width: `${TREE_GUTTER_PX}px` }}
+      style={{ width: `${BRANCH_WIDTH_PX}px`, "min-height": "2.25rem" }}
       aria-hidden="true"
     >
       <span
-        class={cn("absolute w-px", railClass)}
-        style={{
-          left: railLeft,
-          top: props.isFirst ? "0" : "-1px",
-          height: props.isLast ? "50%" : "100%",
-        }}
-      />
-      <span
         class={cn("absolute top-1/2 h-px -translate-y-px", railClass)}
-        style={{
-          left: railLeft,
-          width: `${TREE_GUTTER_PX / 2 + 4}px`,
-        }}
+        style={{ left: 0, width: `${BRANCH_WIDTH_PX}px` }}
       />
-      {props.isFirst ? (
-        <span
-          class={cn("absolute w-px", railClass)}
-          style={{
-            left: railLeft,
-            top: "-6px",
-            height: "6px",
-          }}
-        />
-      ) : null}
+      <ShowTreeVertical isFirst={props.isFirst} isLast={props.isLast} onlyChild={props.onlyChild} mid={mid} />
     </div>
   );
 }
 
-function TreeChildItem(props: { link: NavTreeChildLink; isFirst: boolean; isLast: boolean }) {
+function ShowTreeVertical(props: {
+  isFirst: boolean;
+  isLast: boolean;
+  onlyChild: boolean;
+  mid: string;
+}) {
+  if (props.onlyChild) {
+    return (
+      <>
+        <span
+          class={cn("absolute w-px", railClass)}
+          style={{ left: props.mid, top: `-${ROOT_STEM_PX}px`, height: `${ROOT_STEM_PX}px` }}
+        />
+      </>
+    );
+  }
+
+  return (
+    <>
+      {props.isFirst ? (
+        <span
+          class={cn("absolute w-px", railClass)}
+          style={{ left: props.mid, top: `-${ROOT_STEM_PX}px`, height: `${ROOT_STEM_PX}px` }}
+        />
+      ) : null}
+      <span
+        class={cn("absolute w-px", railClass)}
+        style={{
+          left: props.mid,
+          top: props.isFirst ? "0" : "-1px",
+          bottom: props.isLast ? "50%" : "0",
+        }}
+      />
+    </>
+  );
+}
+
+function TreeChildItem(props: {
+  link: NavTreeChildLink;
+  isFirst: boolean;
+  isLast: boolean;
+  onlyChild: boolean;
+}) {
   return (
     <DropdownMenuItem
-      class={cn(itemClass, "mx-1 flex items-stretch gap-0 !p-0 focus:bg-accent")}
+      class={cn(
+        itemClass,
+        "flex items-center gap-2 rounded-sm !py-1.5 !pl-0 !pr-2 focus:bg-accent",
+      )}
       onSelect={() => openLink(props.link.href, props.link.external)}
     >
-      <TreeRail isFirst={props.isFirst} isLast={props.isLast} />
-      <span class="min-w-0 flex-1 py-1.5 pr-2">{props.link.label}</span>
+      <TreeBranchColumn isFirst={props.isFirst} isLast={props.isLast} onlyChild={props.onlyChild} />
+      <span class="min-w-0 flex-1">{props.link.label}</span>
     </DropdownMenuItem>
   );
 }
@@ -119,19 +145,19 @@ export function NavTreeDropdown(props: {
       </DropdownMenuTrigger>
       <DropdownMenuContent class="min-w-48 border-border/70 bg-popover/95 p-1 backdrop-blur-sm">
         <DropdownMenuItem
-          class={cn(itemClass, "mx-1 flex items-stretch gap-0 !p-0")}
+          class={cn(itemClass, "mx-1")}
           onSelect={() => openLink(props.root.href, props.root.external)}
         >
-          <div class="shrink-0" style={{ width: `${TREE_GUTTER_PX}px` }} aria-hidden="true" />
-          <span class="min-w-0 flex-1 py-1.5 pr-2">{props.root.label}</span>
+          {props.root.label}
         </DropdownMenuItem>
-        <div class="relative">
+        <div class="mx-1 pl-4">
           <For each={props.children}>
             {(link, index) => (
               <TreeChildItem
                 link={link}
                 isFirst={index() === 0}
                 isLast={index() === childCount() - 1}
+                onlyChild={childCount() === 1}
               />
             )}
           </For>

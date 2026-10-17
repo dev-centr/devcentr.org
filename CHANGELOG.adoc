@@ -2,7 +2,8 @@
 
 == 2026-10-16 -- Nav tree dropdown rails
 
-* Align Assets/Help menu tree labels with a fixed gutter column; soften rail color in dark mode.
+* Root row stays flush with flat menu items; nested rows indent with a dedicated branch column so labels do not overlap the tree strokes.
+* Softer rail color in dark mode.
 
 == 2026-10-13 -- Help menu landing link
 
