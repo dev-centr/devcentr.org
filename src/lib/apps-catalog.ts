@@ -98,6 +98,15 @@ export const products: CatalogItem[] = [
     tags: "Tooling · Image pipeline",
   },
   {
+    id: "themed-svg-studio",
+    name: "Themed SVG Studio",
+    summary:
+      "Desktop-editor concept for binding existing SVG presentation properties to semantic light, dark, and host-controlled theme tokens.",
+    href: "/themed-svg-studio",
+    logo: "/apps/logos/themed-svg-studio.svg",
+    tags: "Tooling · SVG · Theming",
+  },
+  {
     id: "stack-advisor",
     name: "Stack Advisor",
     summary:
