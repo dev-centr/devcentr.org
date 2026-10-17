@@ -1,5 +1,9 @@
 ﻿= Changelog
 
+== 2026-10-16 -- Nav tree dropdown rails
+
+* Align Assets/Help menu tree labels with a fixed gutter column; soften rail color in dark mode.
+
 == 2026-10-13 -- Help menu landing link
 
 * Help dropdown: top item `Help` goes to `/help` (overview of help paths); Status and Discussions nest under it with the same tree styling as Assets.
