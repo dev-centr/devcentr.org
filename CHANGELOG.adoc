@@ -1,5 +1,9 @@
 ﻿= Changelog
 
+== 2026-10-17 -- Platforms Antora nav
+
+* `docs/antora.yml` drops local `nav:` for the shared `platforms` component; hub `dev-centr/docs` owns the merged tree.
+
 == 2026-10-16 -- Nav tree dropdown rails
 
 * Root row stays flush with flat menu items; nested rows indent with a dedicated branch column so labels do not overlap the tree strokes.
@@ -14,6 +18,11 @@
 * Top bar: `Updates` replaced by `Docs` (news, blog, changelog, docs site); `Help` kept for help desk, status, and discussions; `Links` for GitHub and Slack.
 * Assets menu: overview landing link plus a CSS tree for Apps, Skills, and Standards (no ASCII rail characters).
 * Dropdown menus no longer repeat the trigger label as an in-panel heading.
+
+== 2026-10-06 -- CI encoding guard and Actions majors
+
+* `.github/workflows/encoding-guard.yml` calls the shared agent-rules workflow to reject UTF-8 mojibake in tracked text.
+* GitHub Actions majors updated (`checkout`, `setup-node`, `pnpm/action-setup`, Pages artifacts/deploy). Dependabot groups monthly action updates.
 
 == 2026-10-06 -- Dependency refresh
 

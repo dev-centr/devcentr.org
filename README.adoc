@@ -87,7 +87,7 @@ Site copies live in `public/brand/`. Canonical org-wide assets (including `logo.
 
 * **Probes:** link:https://devcentr.org/status[/status] (`/health` redirects here) — client-side checks of public endpoints
 * **Hosted uptime:** link:https://status.devcentr.org[status.devcentr.org] (Better Stack) — linked from the probe page
-* Community surfaces (Help, Status, Slack, …) live under the header **Community** menu
+* Header menus: **Assets** (catalog hub), **Docs** (News, Blog, Changelog, docs site), **Help** (`/help` + status), **Links** (GitHub, Slack)
 
 === Skills
 

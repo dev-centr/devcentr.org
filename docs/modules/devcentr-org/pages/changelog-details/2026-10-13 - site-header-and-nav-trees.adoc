@@ -1,0 +1,35 @@
+= 2026-10-13 — Site header navigation and tree dropdowns
+:navtitle: 2026-10-13 Header nav
+:page-audience: Developers changing site chrome or catalog IA
+:page-usage-context: Understanding header menus after the October 2026 restructure
+:page-orig-author: Auto on behalf of Ryan Johnson
+:page-last-author: Auto on behalf of Ryan Johnson
+
+== Header menus
+
+The persistent shell (`src/components/site-header.tsx`) exposes four triggers left of the theme toggle:
+
+* **Assets** — tree dropdown (`NavTreeDropdown`) with root link `/assets` (Overview) and children Apps (`/apps`), Skills (`/skills`), Standards (`/assets/standards`).
+* **Docs** — flat dropdown: News, Blog, Changelog, and external docs.devcentr.org.
+* **Help** — tree dropdown with root `/help` and nested Status (`/status`) plus GitHub Discussions (external).
+* **Links** — GitHub org and Slack invite (`src/lib/site-links.ts`).
+
+`Updates` and the old **Community** grouping are retired. Slack moved to **Links**; editorial surfaces moved under **Docs**.
+
+== Tree dropdown UX
+
+`src/components/nav-tree-dropdown.tsx` draws connector rails in CSS (no ASCII tree characters). Dropdown panels no longer repeat the trigger label as an in-panel heading.
+
+October follow-ups:
+
+* **Help landing** — the root row links to `/help` so the menu doubles as a help hub entry point.
+* **Rail layout** — root rows align with flat menu items; nested rows indent in a dedicated branch column so labels do not overlap strokes. Dark mode uses a softer rail color.
+
+== Deprecated export
+
+`src/components/community-nav.tsx` re-exports `HelpNav` as `CommunityNav` for transitional imports only.
+
+== Related routes
+
+* `/apps/standards` redirects client-side to `/assets/standards`.
+* Catalogue breadcrumbs use **Assets** as the top segment (`src/components/catalog-page.tsx`, idea pages).

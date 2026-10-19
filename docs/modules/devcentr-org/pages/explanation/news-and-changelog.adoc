@@ -2,9 +2,10 @@
 :navtitle: News & changelog
 :description: How authored news posts and mirrored Antora changelogs are built for devcentr.org.
 
-devcentr.org separates **narrative news** from **shipping notes**:
+devcentr.org separates **channels** by audience:
 
-* **News** (`/news`) — outward-facing essays and announcements authored in this repo.
+* **News** (`/news`) — outward-facing announcements authored in `content/news/`.
+* **Blog** (`/blog`) — inward craft, investigations, and orientations in `content/blog/`.
 * **Changelog** (`/changelog`) — day-to-day bullets mirrored from Antora changelogs in sibling repos.
 
 Do not put changelog bullets in news posts, and do not hand-edit the generated JSON catalogs.
@@ -39,7 +40,22 @@ Voice and checklist: see `content/news/README.adoc` in the repository (conversat
 * `src/lib/news-posts.generated.json` — post metadata and rendered HTML for Solid routes
 * `public/news/rss.xml` and `public/news/atom.xml` — syndication feeds
 
-Routes: `src/routes/news/` (and `/blog` alias).
+Routes: `src/routes/news/`.
+
+== Blog (authored)
+
+=== Source
+
+AsciiDoc files in `content/blog/YYYY-MM-DD-slug.adoc` with the same front-matter conventions as news (`:description:`, `:revdate:`, `:keywords:` including `blog`).
+
+=== Build output
+
+`scripts/build-news.mjs` also writes:
+
+* `src/lib/blog-posts.generated.json`
+* `public/blog/rss.xml` and `public/blog/atom.xml`
+
+Routes: `src/routes/blog/`. The header **Docs** menu links here alongside News and Changelog.
 
 == Changelog (mirrored)
 

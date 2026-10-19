@@ -15,8 +15,8 @@ https://devcentr.org
 * **Marketing home** — Developer ecosystem positioning, apps catalogue, and links to the flagship DOS at link:https://devcentr.app[devcentr.app].
 * **News** (`/news`) and **Blog** (`/blog`) — News: narrative AsciiDoc from `content/news/`. Blog: essays from `content/blog/`.
 * **Changelog** (`/changelog`) — Mirror index of Antora changelogs from sibling repos (built at CI time).
-* **Community** — Help hub (`/help`), status probes (`/status`), and toolchain surfaces.
-* **Public tools** — Stack Advisor (`/stack-advisor`; `/toolchain-browser` and `/toolchain-advisor` redirect), agent skills (`/skills`), resting-lanczos demo (`/resting-lanczos`), and apps catalogue (`/apps`).
+* **Header chrome** — Assets (catalog hub), Docs (News, Blog, Changelog, docs site), Help (`/help` + status), and Links (GitHub, Slack). See xref:explanation/site-architecture.adoc#site-chrome[Site architecture — site chrome].
+* **Public tools** — Stack Advisor (`/stack-advisor`; `/toolchain-browser` and `/toolchain-advisor` redirect), agent skills (`/skills`), Themed SVG Studio concept (`/themed-svg-studio`), resting-lanczos demo (`/resting-lanczos`), and apps catalogue under `/apps` (Assets hub at `/assets`).
 
 == Documentation map
 
@@ -35,6 +35,9 @@ https://devcentr.org
 
 | SDL catalog sync and `/stack-advisor`
 | xref:explanation/stack-advisor.adoc[Stack Advisor]
+
+| `/themed-svg-studio` concept demo
+| xref:explanation/themed-svg-studio-concept.adoc[Themed SVG Studio concept]
 
 | Agent skills catalog (`/skills`; `/templates` redirects)
 | xref:explanation/bootstrap-templates.adoc[Agent skills]

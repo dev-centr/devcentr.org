@@ -4,6 +4,7 @@
 * xref:explanation/news-and-changelog.adoc[News & changelog pipeline]
 * xref:explanation/theme-reveal.adoc[Theme reveal]
 * xref:explanation/stack-advisor.adoc[Stack Advisor]
+* xref:explanation/themed-svg-studio-concept.adoc[Themed SVG Studio concept]
 * xref:explanation/bootstrap-templates.adoc[Agent skills]
 * xref:how-to/local-development.adoc[Local development]
 * xref:help-and-support-plans.adoc[Help & support plans]
