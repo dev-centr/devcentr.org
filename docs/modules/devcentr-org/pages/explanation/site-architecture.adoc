@@ -9,7 +9,7 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 
 * **SolidStart + Vinxi** — file-based routes under `src/routes/`
 * **Tailwind CSS v4** — `src/app.css`, Kobalte primitives for accessible UI
-* **AsciiDoc** — news posts (`content/news/`) compiled with `@asciidoctor/core` at build time
+* **AsciiDoc** — news (`content/news/`) and blog (`content/blog/`) compiled with `@asciidoctor/core` at build time
 * **GitHub Actions** — `.github/workflows/ci.yml` builds and deploys on push to `main`
 
 == Public routes
@@ -21,8 +21,11 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 | `/`
 | Landing — hero, ecosystem copy, toolchain diagram, apps teaser
 
-| `/news`, `/blog`
-| News index and posts (`/blog` is an SEO alias)
+| `/news`
+| News index and posts (`content/news/`)
+
+| `/blog`
+| Blog index and essays (`content/blog/` — separate channel and feeds)
 
 | `/changelog`
 | Changelog mirror from Antora sibling repos
@@ -33,7 +36,10 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 | `/status`, `/health`
 | Client-side endpoint probes (`/health` redirects to `/status`)
 
-| `/apps`, `/apps/products`, `/apps/services`, `/apps/standards`
+| `/assets`, `/assets/standards`
+| Assets hub and standards pane (`/apps/standards` redirects to `/assets/standards`)
+
+| `/apps`, `/apps/products`, `/apps/services`
 | Apps catalogue (data in `src/lib/apps-catalog.ts`)
 
 | `/ideas/:slug`
@@ -45,11 +51,41 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 | `/skills`
 | Agent skills catalog (bootstrap-org SDL plus shipped skill inventory). `/templates` redirects here.
 
+| `/themed-svg-studio`
+| Themed SVG Studio **concept** demo (semantic tokens and output modes). See xref:explanation/themed-svg-studio-concept.adoc[Themed SVG Studio concept].
+
 | `/resting-lanczos`
-| Image resampling comparison demo. Access trail is Apps / Products / resting-lanczos; “Tooling · Image pipeline” is a topic tag, not a crumb.
+| Image resampling comparison demo. Access trail is Assets / Apps / Products / resting-lanczos; “Tooling · Image pipeline” is a topic tag, not a crumb.
 |===
 
 Catalogue and nested article pages (`PageTrail`) show the access path as `Section / Child / Current`. Topic tags stay *below* that trail, in the eyebrow style. Outbound links (repo, docs) sit after the intro, not in the trail.
+
+[[site-chrome]]
+== Site chrome (header)
+
+The header mounts once outside route `Suspense` so logo motion survives client navigations (`src/app.tsx`).
+
+[cols="1,2",options="header"]
+|===
+| Menu | Contents
+
+| Assets
+| Tree dropdown — Overview (`/assets`), Apps, Skills, Standards (`src/components/assets-nav.tsx`)
+
+| Docs
+| News, Blog, Changelog, external docs hub (`src/components/docs-nav.tsx`)
+
+| Help
+| Tree dropdown — `/help` root, Status, GitHub Discussions (`src/components/help-nav.tsx`)
+
+| Links
+| GitHub org, Slack invite (`src/components/links-nav.tsx`)
+
+| (toggle)
+| Light/dark mode with View Transition reveal (`src/components/mode-toggle.tsx`, xref:explanation/theme-reveal.adoc[Theme reveal])
+|===
+
+Tree menus use `src/components/nav-tree-dropdown.tsx` (CSS rails, no ASCII connectors). Flat menus use `src/components/nav-dropdown.tsx`.
 
 == Build pipeline
 
@@ -76,7 +112,7 @@ Custom domain `devcentr.org` is configured in the repository's Pages settings.
 == Key source locations
 
 * `src/routes/` — page components
-* `src/components/` — shared UI (header, footer, diagrams, toolchain browser widget, agent skills catalog)
+* `src/components/` — shared UI (header and nav dropdowns, footer, diagrams, toolchain browser widget, agent skills catalog)
 * `src/lib/` — catalog data, changelog loader, theme reveal, site links
 * `content/news/` — authored news (see xref:explanation/news-and-changelog.adoc[News & changelog pipeline])
 * `public/brand/` — SVG logo marks (canonical org assets live in `.github` profile repos)

@@ -1,0 +1,23 @@
+= Themed SVG Studio (site concept)
+:navtitle: Themed SVG Studio concept
+:description: Public `/themed-svg-studio` concept demo — semantic tokens, host/adaptive/fixed modes, and product boundaries.
+
+The marketing site hosts a **concept demo** for link:https://github.com/dev-centr/themed-svg-studio[themed-svg-studio] — not the desktop editor.
+
+== Route
+
+* **URL:** `/themed-svg-studio` (prerendered; listed in `scripts/site-routes.mjs`)
+* **Catalog:** Products entry in `src/lib/apps-catalog.ts` with mark under `public/apps/logos/themed-svg-studio.svg`
+* **Implementation:** `src/routes/themed-svg-studio.tsx`
+
+== What the demo proves
+
+Visitors walk through a fixed sample SVG geometry while changing **semantic light/dark values**, **presentation-property bindings**, and **output mode** (host-controlled, adaptive, fixed). Diagnostics and an export summary explain what would ship without mutating paths in the sample.
+
+Runtime theming on other pages uses `@dev-centr/themed-svg` (see `src/app.css` host palette variables and PlayTime diagram tests in `scripts/test-playtime-diagrams.mjs`).
+
+== Boundaries
+
+* Geometry in the demo is intentionally static; controls affect theme and rendering behavior only.
+* Product implementation and packaging live in the `themed-svg-studio` repository.
+* Shipping notes: xref:changelog-details/2026-09-09 - themed-svg-studio-site.adoc[2026-09-09 changelog entry].
