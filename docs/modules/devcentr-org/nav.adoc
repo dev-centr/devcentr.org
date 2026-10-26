@@ -1,6 +1,7 @@
 .devcentr.org
 * xref:index.adoc[Overview]
 * xref:explanation/site-architecture.adoc[Site architecture]
+* xref:explanation/site-header-navigation.adoc[Header navigation]
 * xref:explanation/news-and-changelog.adoc[News & changelog pipeline]
 * xref:explanation/theme-reveal.adoc[Theme reveal]
 * xref:explanation/stack-advisor.adoc[Stack Advisor]

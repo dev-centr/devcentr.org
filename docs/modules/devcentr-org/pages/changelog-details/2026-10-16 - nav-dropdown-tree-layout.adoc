@@ -1,0 +1,16 @@
+= 2026-10-16 — Nav dropdown tree layout
+:navtitle: 2026-10-16 Tree layout
+
+== Summary
+
+Polished the CSS tree rails in header dropdowns so hierarchy reads clearly in both themes and labels never collide with connector lines.
+
+== Shipped
+
+* Root tree rows stay flush with flat menu items (no faux heading indent).
+* Nested rows use a fixed branch column (`BRANCH_WIDTH_PX` in `nav-tree-dropdown.tsx`) so text starts after the rail geometry.
+* Dark mode rail color softened (`dark:bg-muted-foreground/50`) for contrast on the site shell.
+
+== Documentation
+
+* xref:explanation/site-header-navigation.adoc[Header navigation] — tree vs flat behavior.

@@ -52,7 +52,7 @@ At build time, `build-news.mjs` ingests Antora timeline files from sibling check
 | Source ID | Antora file
 
 | `devcentr`
-| `devcentr/docs/modules/ROOT/pages/changelog.adoc`
+| `devcentr/docs/modules/devcentr/pages/changelog.adoc`
 
 | `general-knowledge`
 | `general-knowledge/docs/modules/ROOT/pages/changelog.adoc`

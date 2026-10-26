@@ -1,5 +1,9 @@
 ﻿= Changelog
 
+== 2026-10-17 -- Platforms nav owned by docs hub
+
+* Documented Antora nav ownership: `dev-centr/docs` platforms hub merges nav; local `docs/antora.yml` avoids clobbering sibling platform trees.
+
 == 2026-10-16 -- Nav tree dropdown rails
 
 * Root row stays flush with flat menu items; nested rows indent with a dedicated branch column so labels do not overlap the tree strokes.
@@ -15,9 +19,18 @@
 * Assets menu: overview landing link plus a CSS tree for Apps, Skills, and Standards (no ASCII rail characters).
 * Dropdown menus no longer repeat the trigger label as an in-panel heading.
 
+== 2026-10-06 -- GitHub Actions majors and Dependabot
+
+* Updated GitHub Actions to current majors (`checkout`, `setup-node`, `pnpm/action-setup`, Pages deploy). Node runtime in CI stays 22.
+* Added `.github/dependabot.yml` for grouped monthly `github-actions` updates.
+
 == 2026-10-06 -- Dependency refresh
 
 * Refreshed deprecated transitive dependencies within existing ranges: `@ungap/structured-clone` 1.4.0 and `@xmldom/xmldom` 0.8.15.
+
+== 2026-10-05 -- UTF-8 encoding guard
+
+* `.github/workflows/encoding-guard.yml` on push and pull_request; fixed double-encoded UTF-8 in tracked text.
 
 == 2026-09-10 -- Public crawlability
 

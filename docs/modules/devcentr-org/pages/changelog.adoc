@@ -2,6 +2,40 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-10-17 - Platforms nav owned by hub
+
+* `docs/antora.yml` comment: Platforms navigation is merged from `dev-centr/docs` (`platforms-docs`); no local `nav:` key on the shared component name.
+* See xref:changelog-details/2026-10-17 - platforms-nav-hub.adoc[Detailed changelog].
+
+== 2026-10-16 - Nav dropdown tree layout
+
+* Flush root rows; branch column for nested items; softer dark-mode rails.
+* See xref:changelog-details/2026-10-16 - nav-dropdown-tree-layout.adoc[Detailed changelog].
+
+== 2026-10-13 - Help menu landing link
+
+* Help dropdown root links to `/help`; Status and Discussions nest under the tree.
+* See xref:changelog-details/2026-10-13 - help-menu-landing-link.adoc[Detailed changelog].
+
+== 2026-10-13 - Site header navigation
+
+* **Docs**, **Help**, **Assets**, and **Links** menus replace **Updates** / Community clustering.
+* See xref:changelog-details/2026-10-13 - site-header-navigation.adoc[Detailed changelog].
+
+== 2026-10-06 - GitHub Actions majors and Dependabot
+
+* Bumped `actions/checkout`, `pnpm/action-setup`, `actions/setup-node`, Pages deploy actions to current majors (Node **runtime** remains 22 per `package.json` engines).
+* `.github/dependabot.yml` — grouped monthly updates for GitHub Actions.
+
+== 2026-10-06 - Dependency refresh
+
+* Refreshed deprecated transitive packages: `@ungap/structured-clone` 1.4.0, `@xmldom/xmldom` 0.8.15.
+
+== 2026-10-05 - UTF-8 encoding guard
+
+* CI encoding guard workflow; repaired double-encoded UTF-8 in site copy.
+* See xref:changelog-details/2026-10-05 - utf-8-encoding-guard.adoc[Detailed changelog].
+
 == 2026-09-26 - Overview sibling (no wrapper)
 
 * `nav.adoc`: articles under `.devcentr.org` are siblings of **Overview**, not children. Forest pattern: platform Overview is a peer start-page leaf (site-nav-tree also unwraps Overview parents defensively).

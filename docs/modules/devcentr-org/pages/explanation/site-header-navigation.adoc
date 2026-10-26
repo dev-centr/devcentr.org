@@ -1,0 +1,47 @@
+= Site header navigation
+:navtitle: Header navigation
+:description: Top-bar menus (Assets, Docs, Help, Links) and CSS tree dropdowns on devcentr.org.
+
+The global header (`src/components/site-header.tsx`) groups outbound and on-site destinations into four menus plus the light/dark mode toggle.
+
+== Menu map
+
+[cols="1,2",options="header"]
+|===
+| Trigger | Contents
+
+| **Assets**
+| Tree dropdown: `Overview` → `/assets`, then branches to `/apps`, `/skills`, and `/assets/standards`.
+
+| **Docs**
+| Flat dropdown: `/news`, `/blog`, `/changelog`, and the external docs hub (`https://docs.devcentr.org`).
+
+| **Help**
+| Tree dropdown: root `Help` → `/help`, then `Status` (`/status`) and GitHub Discussions (external).
+
+| **Links**
+| Flat dropdown: Dev-Centr GitHub org and the public Slack invite (`src/lib/site-links.ts`).
+|===
+
+`Updates` and the old **Community** label are retired. `src/components/community-nav.tsx` re-exports `HelpNav` for backward-compatible imports only.
+
+== Tree vs flat dropdowns
+
+* Flat menus use `NavDropdown` (`src/components/nav-dropdown.tsx`) — a simple link list with no in-panel title duplicate of the trigger.
+* Tree menus use `NavTreeDropdown` (`src/components/nav-tree-dropdown.tsx`):
+** A **root row** links to the section landing page and stays flush with top-level items (no extra heading inside the panel).
+** **Child rows** indent in a dedicated branch column (`BRANCH_WIDTH_PX`) so labels never overlap the CSS rail strokes.
+** Rails use `bg-muted-foreground/25` in light mode and a softer `dark:bg-muted-foreground/50` in dark mode.
+
+External links open in a new tab with `noopener,noreferrer`.
+
+== Related routes
+
+* `/assets` — assets hub (overview copy for Apps, Skills, Standards).
+* `/assets/standards` — standards catalogue slice (Apps menu still deep-links individual apps).
+
+== Source files
+
+* `src/components/assets-nav.tsx`, `docs-nav.tsx`, `help-nav.tsx`, `links-nav.tsx` — menu definitions.
+* `src/components/nav-tree-dropdown.tsx` — shared tree layout and styling.
+* xref:help-and-support-plans.adoc[Help & support plans] — product intent for `/help` vs docs.
