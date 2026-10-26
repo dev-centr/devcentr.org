@@ -1,0 +1,100 @@
+= Virtual environments are neither virtual nor temporary
+:author: Ryan Johnson
+:description: A Python venv is a folder that outlives your shell, a container can vanish on exit, and Windows Sandbox is a VM that forgets everything. The names we use for isolation describe none of that. A proposal for names that say what is separated, how long it lasts, and what it applies to.
+:revdate: 2026-10-26
+:keywords: blog, shells, python, venv, containers, virtual machines, sandboxes, naming, proposal
+
+Close the terminal after `source .venv/bin/activate` and the virtual environment is still there.
+Open a new shell, run `.venv/bin/python`, and every package you installed is waiting for you.
+The thing that died with the window was never the environment. It was a few edited variables.
+I used to say "virtual environments are temporary and containers are permanent," and I was wrong on both counts in a way that shows how bad the names are.
+
+== The folder that outlives the shell
+
+Here is what `python -m venv .venv` actually makes: a folder with a `pyvenv.cfg` file, a link to (or copy of) an interpreter, and its own `site-packages`.
+It is a plain directory on disk. It lasts until you delete it.
+
+The part that feels temporary is `activate`.
+That script prepends the venv's `bin` folder to `PATH`, sets `VIRTUAL_ENV`, and changes your prompt, all inside the current shell session.
+Close the session and those edits are gone. The folder is not.
+Activation is not even required; calling the venv's interpreter by its path works the same.
+
+And what does a venv isolate? Only Python's import path.
+Your files, your network, your processes, your other tools: all shared.
+It is not virtual in any sense a hardware person would recognise, and it is not an environment in any sense an operating-system person would.
+
+`nvm use 22` is the same shape. The Node versions live in folders that persist; `use` edits `PATH` for this session.
+asdf, mise and direnv move the switch from the session to the folder: the pin is a file in your project, and the effect follows you as you `cd`.
+
+== The container that disappears
+
+Now the other half of my old sentence.
+A container image is persistent and immutable. A container is an instance of it with a writable layer on top, and that layer lasts until the container is removed.
+Run it with `--rm` and it is removed the moment it exits.
+So a "container" can be the most short-lived thing on your machine.
+
+Containers are isolated by kernel namespaces and cgroups; they get their own view of files, processes and network, but they share the host's kernel.
+A virtual machine gets its own kernel on virtual hardware, and its disk persists.
+Windows Sandbox is a virtual machine too, and it throws everything away when you close it.
+
+Line those up and the vocabulary falls apart.
+"Virtual" is applied to the weakest form of isolation (a venv) and the strongest (a VM).
+"Container" is used for something that can last a second.
+Everything contains something and virtualizes something, so the words carry no information.
+
+== Three things wearing one name
+
+The real problem is that "environment" names three different things at once:
+
+* the *recipe*: `requirements.txt`, a `Dockerfile`, a `flake.nix`, a `.nvmrc` - a description of what you want;
+* the *artifact*: the venv folder, the image, the VM disk - what was built from the recipe and stored;
+* the *attachment*: this shell session, this process, or this folder is currently using that artifact.
+
+Lifetime belongs to the artifact and the attachment separately.
+A venv is a long-lived artifact with a session-long attachment.
+A `--rm` container is a short-lived attachment to a long-lived image.
+Once you see the split, the question "is it temporary?" always needs a follow-up: which part?
+
+== Names that answer three questions
+
+I want every name to answer three questions: what is separated, how long it lasts, and what it applies to.
+
+*What is separated* - four levels, weakest to strongest:
+
+overlay:: Only how names are looked up changes: `PATH`, environment variables, import paths. Everything else is shared. Venvs, nvm, mise, direnv and Nix dev shells are overlays.
+fence:: Same view of the operating system, fewer permissions. seccomp, Landlock, AppArmor, the macOS sandbox and Windows AppContainer are fences.
+partition:: Its own view of files, processes and network, on a shared kernel. Containers, FreeBSD jails and systemd-nspawn are partitions.
+guest:: Its own kernel on virtual hardware. VMs, microVMs, WSL2 and Windows Sandbox are guests.
+
+*How long it lasts* - three words: *run* (ends with the command), *session* (ends with the shell session), *kept* (lasts until deleted).
+
+*What it applies to*: a process, a session, a folder, a user, or the whole machine.
+
+Put together, the names say what the old ones hid.
+An activated venv is a kept overlay attached to one session.
+A mise pin is a kept overlay attached to a folder.
+`docker run --rm` is a run partition.
+A named container is a kept partition.
+Windows Sandbox is a run guest. A Hyper-V VM is a kept guest.
+
+None of this replaces product names. Docker stays Docker. The terms describe; they do not rebrand.
+
+== Where these ideas already exist
+
+I did not invent the split between recipe, artifact and attachment.
+Docker already distinguishes images from containers.
+Nix separates the expression, the store path it builds, and the shell or profile that uses it, more rigorously than anyone.
+What is missing is one vocabulary that works across every level, so that a venv, a container and a VM can be listed in one table with three columns that mean the same thing in every row.
+
+== Why a shell cares
+
+I am working on this because of a shell.
+In the OpenShellOrg design, commands register into a hierarchical namespace instead of being found on `PATH`, and a session can add a layer on top of that namespace.
+That layer is an overlay in exactly the sense above, and its lifetime is a choice you make out loud: this command, this session, this folder, kept.
+When the shell shows what is attached, it should say "kept overlay: .venv, attached to this session", not "(venv)".
+
+The same vocabulary can drive a single front door - one command that lists and attaches overlays, partitions and guests across every backend, and tells you in these words what it is about to do.
+
+The glossary with all of the terms and the mechanics behind each is at link:https://docs.devcentr.org/general-knowledge/reference/shells/isolation-levels.html[Isolation levels].
+The shell side is at link:https://docs.opensh.org/open-shell-org/concept-command-namespace.html[Command namespace and context requests].
+I would rather argue about these four words now than keep calling a folder "virtual".
