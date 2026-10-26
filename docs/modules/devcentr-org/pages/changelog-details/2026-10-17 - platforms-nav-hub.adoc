@@ -1,0 +1,14 @@
+= 2026-10-17 — Platforms nav owned by docs hub
+:navtitle: 2026-10-17 Platforms nav
+
+== Summary
+
+Clarified Antora navigation ownership for the shared `platforms` component so devcentr.org docs do not overwrite sibling platform nav trees at publish time.
+
+== Shipped
+
+* `docs/antora.yml` documents that the **platforms-docs** nav list in `dev-centr/docs` owns the merged nav; this repo keeps a local `nav.adoc` for module pages only and omits a conflicting `nav:` key on the component descriptor.
+
+== Rationale
+
+Antora retains only the last nav file when multiple content sources share a component name. Centralizing nav in the docs hub keeps every platform sibling visible under `/platforms/`.

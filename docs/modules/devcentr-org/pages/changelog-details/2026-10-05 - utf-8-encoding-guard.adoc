@@ -1,0 +1,17 @@
+= 2026-10-05 — UTF-8 encoding guard
+:navtitle: 2026-10-05 Encoding guard
+
+== Summary
+
+Prevented mojibake (double-encoded UTF-8, often from legacy Windows shells) from landing in tracked text again, and repaired existing damage in the site copy.
+
+== Shipped
+
+* `.github/workflows/encoding-guard.yml` — reusable workflow from `dev-centr/agent-rules` on push and pull_request.
+* Content fix: restored proper em dashes and punctuation in affected AsciiDoc and UI strings.
+* Allow-list: `.encoding-allow` for intentional examples; inline `mojibake-guard: allow` escape hatch per agent-rules `general/text-encoding.md`.
+
+== Operator notes
+
+* Failures list offending paths; fix by re-saving as UTF-8 or run the org encoding guard locally before push.
+* CI encoding guard is independent of the main Pages build in `.github/workflows/ci.yml`.

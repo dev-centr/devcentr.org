@@ -47,6 +47,12 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 
 | `/resting-lanczos`
 | Image resampling comparison demo. Access trail is Apps / Products / resting-lanczos; “Tooling · Image pipeline” is a topic tag, not a crumb.
+
+| `/themed-svg-studio`
+| Themed SVG Studio concept demo (semantic tokens, preview modes). Catalogue entry in `src/lib/apps-catalog.ts`.
+
+| `/assets`, `/assets/standards`
+| Assets hub and standards slice; header **Assets** menu links here (see xref:explanation/site-header-navigation.adoc[Header navigation]).
 |===
 
 Catalogue and nested article pages (`PageTrail`) show the access path as `Section / Child / Current`. Topic tags stay *below* that trail, in the eyebrow style. Outbound links (repo, docs) sit after the intro, not in the trail.
@@ -76,7 +82,8 @@ Custom domain `devcentr.org` is configured in the repository's Pages settings.
 == Key source locations
 
 * `src/routes/` — page components
-* `src/components/` — shared UI (header, footer, diagrams, toolchain browser widget, agent skills catalog)
+* `src/components/` — shared UI (header and nav dropdowns, footer, diagrams, stack advisor widget, agent skills catalog)
+* `docs/antora.yml` — Platforms component stub; **navigation for this product is owned by the docs hub** (`dev-centr/docs` `platforms-docs` nav list) so sibling platform trees are not clobbered at Antora merge time
 * `src/lib/` — catalog data, changelog loader, theme reveal, site links
 * `content/news/` — authored news (see xref:explanation/news-and-changelog.adoc[News & changelog pipeline])
 * `public/brand/` — SVG logo marks (canonical org assets live in `.github` profile repos)

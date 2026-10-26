@@ -1,0 +1,12 @@
+= 2026-10-13 — Help menu landing link
+:navtitle: 2026-10-13 Help landing
+
+== Summary
+
+The **Help** header menu now mirrors the **Assets** tree pattern: the first row is a real link to `/help`, with operational destinations nested underneath.
+
+== Shipped
+
+* Root row: **Help** → `/help` (self-help vs support overview).
+* Children: **Status** (`/status`) and **Discussions** (GitHub org discussions, external tab).
+* Same `NavTreeDropdown` component and CSS rail styling as Assets.

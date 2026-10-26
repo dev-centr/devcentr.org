@@ -1,0 +1,18 @@
+= 2026-10-13 — Site header navigation
+:navtitle: 2026-10-13 Header nav
+
+== Summary
+
+Replaced the single **Updates** cluster with focused menus so readers can find narrative content, help paths, and org links without overlapping labels inside dropdown panels.
+
+== Shipped
+
+* **Docs** — `/news`, `/blog`, `/changelog`, plus the external Antora hub.
+* **Help** — tree with `/help` root and nested Status + Discussions (see xref:changelog-details/2026-10-13 - help-menu-landing-link.adoc[Help landing link]).
+* **Assets** — tree with `/assets` overview and branches to Apps, Skills, and Standards.
+* **Links** — GitHub org and Slack invite.
+* Dropdown panels no longer repeat the trigger label as an in-panel heading.
+
+== Documentation
+
+* xref:explanation/site-header-navigation.adoc[Header navigation] explanation page.
