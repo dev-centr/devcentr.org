@@ -1,4 +1,8 @@
-﻿= Changelog
+= Changelog
+
+== 2026-10-26 -- Blog: isolation naming essay
+
+* New essay: Virtual environments are neither virtual nor temporary (proposed names for isolation levels: overlay, fence, partition, guest; lifetimes run, session, kept).
 
 == 2026-10-16 -- Nav tree dropdown rails
 
