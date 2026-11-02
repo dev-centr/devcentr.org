@@ -1,0 +1,20 @@
+= 2026-10-05 — Encoding guard CI
+:navtitle: 2026-10-05 Encoding guard
+:page-audience: Contributors editing AsciiDoc or site copy
+:page-usage-context: Avoiding mojibake in tracked text
+:page-orig-author: Auto on behalf of Ryan Johnson
+:page-last-author: Auto on behalf of Ryan Johnson
+
+== Problem
+
+Windows PowerShell 5.1 and some editors can double-encode UTF-8 (for example an em dash becoming three junk bytes). Those mistakes are easy to merge and hard to spot in review.
+
+== CI backstop
+
+* Workflow: `.github/workflows/encoding-guard.yml` — thin caller for the reusable `dev-centr/agent-rules` encoding-guard job.
+* Policy and hook guidance: `general/text-encoding.md` in agent-rules (machine-wide pre-commit hook is the first line of defense; CI is the backstop).
+* Repo hints: `charset = utf-8` in `.editorconfig`; `.gitattributes` line for text normalization where applicable.
+
+== Allow list
+
+Intentional mojibake examples in docs or tests can opt out per line (`mojibake-guard: allow`) or via globs in `.encoding-allow` (see agent-rules guard script).

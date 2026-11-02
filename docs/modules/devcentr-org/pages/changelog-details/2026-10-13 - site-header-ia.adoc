@@ -1,0 +1,26 @@
+= 2026-10-13 — Site header information architecture
+:navtitle: 2026-10-13 Header IA
+:page-audience: Site contributors and doc authors
+:page-usage-context: Where editorial, assets, and help links live in the chrome
+:page-orig-author: Auto on behalf of Ryan Johnson
+:page-last-author: Auto on behalf of Ryan Johnson
+
+== Top-level menus
+
+The header (`src/components/site-header.tsx`) exposes four dropdowns plus the theme toggle:
+
+* **Assets** — tree menu: Overview (`/assets`), Apps, Skills, Standards (`/assets/standards`). Standards moved out of `/apps`; `/apps/standards` redirects.
+* **Docs** — flat menu: News, Blog, Changelog, external docs site (`docs.devcentr.org`). Replaces the former **Updates** dropdown so editorial channels are grouped under documentation, not mixed with product assets.
+* **Help** — tree menu: Help hub (`/help`), Status (`/status`), GitHub Discussions (external). The first row links to `/help` as the landing overview; nested rows use the same CSS tree styling as Assets.
+* **Links** — GitHub org and Slack invite (`src/lib/site-links.ts`).
+
+The deprecated `CommunityNav` export in `community-nav.tsx` aliases `HelpNav` for any stale imports.
+
+== Tree dropdown component
+
+`NavTreeDropdown` (`src/components/nav-tree-dropdown.tsx`) renders nested items with CSS rails instead of ASCII tree characters. October follow-ups adjusted root-row alignment and dark-mode rail contrast (see xref:changelog-details/2026-10-16 - nav-tree-dropdown-rails.adoc[Nav tree dropdown rails]).
+
+== Documentation
+
+* xref:explanation/site-architecture.adoc[Site architecture] — public routes and build pipeline.
+* xref:help-and-support-plans.adoc[Help & support plans] — `/help` vs assisted support (planning).

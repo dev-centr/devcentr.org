@@ -2,6 +2,51 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-11-02 — Documentation automation sync
+
+* Backfilled Antora changelog through 2026-10-26; added detail pages for encoding guard, header IA, nav tree rails, and CI action majors.
+* xref:explanation/site-architecture.adoc[Site architecture] and xref:explanation/news-and-changelog.adoc[News & changelog pipeline] now describe Blog as a real channel (not a News alias) and document `/assets` routes.
+* xref:help-and-support-plans.adoc[Help & support plans] and xref:index.adoc[Overview] updated for the Help header menu (was Community).
+* xref:walkthrough-vscode-and-ci.adoc[VS Code & CI walkthrough] documents encoding-guard workflow and current Actions majors.
+
+== 2026-10-26 — Blog: virtual environments essay
+
+* New post: *Virtual environments are neither virtual nor temporary* — proposed isolation names (overlay, fence, partition, guest) and lifetimes (run, session, kept).
+
+== 2026-10-17 — Platforms nav owned by hub
+
+* `docs/antora.yml` drops a local `nav:` list so the shared **platforms** component nav is owned by `dev-centr/docs` (`platforms-docs`). Prevents Antora from clobbering sibling platform trees when multiple repos publish the same component name.
+
+== 2026-10-16 — Nav tree dropdown rails
+
+* Flush root row with flat menus; nested branch column; dark-mode rail contrast.
+* See xref:changelog-details/2026-10-16 - nav-tree-dropdown-rails.adoc[Detailed changelog].
+
+== 2026-10-16 — Themed SVG Studio concept route
+
+* Shipped interactive `/themed-svg-studio` demo, apps catalog entry, and prerender route (PR #5).
+* See xref:changelog-details/2026-09-09 - themed-svg-studio-site.adoc[Detailed changelog] (product concept; route implementation landed here).
+
+== 2026-10-13 — Site header IA
+
+* Header: **Assets** (tree), **Docs** (News, Blog, Changelog, docs site), **Help** (tree), **Links** (GitHub, Slack). Replaced **Updates** dropdown; Help dropdown lands on `/help` first.
+* See xref:changelog-details/2026-10-13 - site-header-ia.adoc[Detailed changelog].
+
+== 2026-10-06 — Dependency refresh
+
+* Refreshed deprecated transitive deps within existing ranges: `@ungap/structured-clone` 1.4.0 and `@xmldom/xmldom` 0.8.15.
+
+== 2026-10-06 — GitHub Actions majors and Dependabot
+
+* Bumped Actions to supported majors; added grouped Dependabot for `github-actions`.
+* See xref:changelog-details/2026-10-06 - ci-actions-dependabot.adoc[Detailed changelog].
+
+== 2026-10-05 — Encoding guard CI
+
+* UTF-8 mojibake check on push/PR via reusable agent-rules workflow; `.editorconfig` charset and `.gitattributes` hints.
+* Repaired double-encoded characters in tracked copy.
+* See xref:changelog-details/2026-10-05 - encoding-guard-ci.adoc[Detailed changelog].
+
 == 2026-09-26 - Overview sibling (no wrapper)
 
 * `nav.adoc`: articles under `.devcentr.org` are siblings of **Overview**, not children. Forest pattern: platform Overview is a peer start-page leaf (site-nav-tree also unwraps Overview parents defensively).
@@ -23,7 +68,7 @@ Timeline of notable documentation and site changes in the devcentr.org repositor
 == 2026-09-10 — Public crawlability
 
 * Publish `/robots.txt` and generate `/sitemap.xml` from the shared prerender route list in postbuild (`spa-fallback`).
-* Sitemap omits `/health`, `/status`, and `/blog` aliases of `/news`.
+* Sitemap omits `/health` and `/status` ops probes only; `/news` and `/blog` are separate indexable channels.
 
 == 2026-09-09 — Themed SVG Studio site concept
 

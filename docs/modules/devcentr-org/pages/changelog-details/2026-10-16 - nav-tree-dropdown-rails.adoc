@@ -1,0 +1,16 @@
+= 2026-10-16 — Nav tree dropdown rails
+:navtitle: 2026-10-16 Nav tree rails
+:page-audience: Front-end contributors
+:page-usage-context: Header dropdown layout and accessibility
+:page-orig-author: Auto on behalf of Ryan Johnson
+:page-last-author: Auto on behalf of Ryan Johnson
+
+== Layout
+
+* Root row in `NavTreeDropdown` stays flush with flat menu triggers (Docs, Links).
+* Nested rows indent in a dedicated branch column so labels do not overlap tree stroke graphics.
+* Dark mode uses a softer rail color for contrast against the panel background.
+
+== Scope
+
+Applies to **Assets** and **Help** header menus. Flat **Docs** and **Links** menus are unchanged.

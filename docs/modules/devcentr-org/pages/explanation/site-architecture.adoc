@@ -21,8 +21,11 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 | `/`
 | Landing — hero, ecosystem copy, toolchain diagram, apps teaser
 
-| `/news`, `/blog`
-| News index and posts (`/blog` is an SEO alias)
+| `/news`
+| Outward news index and posts (`content/news/`)
+
+| `/blog`
+| Inward blog index and posts (`content/blog/`) — separate channel with its own feeds, not a News alias
 
 | `/changelog`
 | Changelog mirror from Antora sibling repos
@@ -33,8 +36,11 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 | `/status`, `/health`
 | Client-side endpoint probes (`/health` redirects to `/status`)
 
-| `/apps`, `/apps/products`, `/apps/services`, `/apps/standards`
-| Apps catalogue (data in `src/lib/apps-catalog.ts`)
+| `/assets`, `/assets/standards`
+| Assets hub; standards catalogue ( `/apps/standards` redirects here)
+
+| `/apps`, `/apps/products`, `/apps/services`
+| Apps catalogue (data in `src/lib/apps-catalog.ts`; standards live under Assets)
 
 | `/ideas/:slug`
 | Idea pages for catalogue entries with `ideaSlug`
@@ -45,11 +51,23 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 | `/skills`
 | Agent skills catalog (bootstrap-org SDL plus shipped skill inventory). `/templates` redirects here.
 
+| `/themed-svg-studio`
+| Themed SVG Studio concept demo (semantic light/dark tokens and export preview). See apps catalog entry.
+
 | `/resting-lanczos`
-| Image resampling comparison demo. Access trail is Apps / Products / resting-lanczos; “Tooling · Image pipeline” is a topic tag, not a crumb.
+| Image resampling comparison demo. Access trail is Assets / Apps / resting-lanczos; “Tooling · Image pipeline” is a topic tag, not a crumb.
 |===
 
 Catalogue and nested article pages (`PageTrail`) show the access path as `Section / Child / Current`. Topic tags stay *below* that trail, in the eyebrow style. Outbound links (repo, docs) sit after the intro, not in the trail.
+
+== Header navigation
+
+The site chrome groups destinations into four menus (see xref:changelog-details/2026-10-13 - site-header-ia.adoc[2026-10-13 header IA changelog]):
+
+* **Assets** — `/assets` overview plus Apps, Skills, and Standards in a CSS tree dropdown.
+* **Docs** — News, Blog, Changelog, and the external Antora site.
+* **Help** — `/help` hub, Status, and GitHub Discussions.
+* **Links** — GitHub organization and Slack invite.
 
 == Build pipeline
 
@@ -76,7 +94,7 @@ Custom domain `devcentr.org` is configured in the repository's Pages settings.
 == Key source locations
 
 * `src/routes/` — page components
-* `src/components/` — shared UI (header, footer, diagrams, toolchain browser widget, agent skills catalog)
+* `src/components/` — shared UI (header menus, footer, diagrams, stack advisor widget, agent skills catalog)
 * `src/lib/` — catalog data, changelog loader, theme reveal, site links
 * `content/news/` — authored news (see xref:explanation/news-and-changelog.adoc[News & changelog pipeline])
 * `public/brand/` — SVG logo marks (canonical org assets live in `.github` profile repos)
