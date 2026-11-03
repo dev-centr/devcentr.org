@@ -1,8 +1,20 @@
 = Changelog
 
+== 2026-11-02 -- Documentation automation sync
+
+* Antora changelog backfill through 2026-10-26; site architecture and news pipeline docs aligned with Blog channel and Assets routes.
+
 == 2026-10-26 -- Blog: isolation naming essay
 
 * New essay: Virtual environments are neither virtual nor temporary (proposed names for isolation levels: overlay, fence, partition, guest; lifetimes run, session, kept).
+
+== 2026-10-17 -- Platforms nav hub ownership
+
+* Product `docs/antora.yml` defers nav to dev-centr/docs so sibling platform trees are not clobbered.
+
+== 2026-10-16 -- Themed SVG Studio concept route
+
+* Shipped `/themed-svg-studio` interactive demo and catalog entry (PR #5).
 
 == 2026-10-16 -- Nav tree dropdown rails
 
@@ -19,9 +31,17 @@
 * Assets menu: overview landing link plus a CSS tree for Apps, Skills, and Standards (no ASCII rail characters).
 * Dropdown menus no longer repeat the trigger label as an in-panel heading.
 
+== 2026-10-06 -- GitHub Actions majors and Dependabot
+
+* CI workflow pins supported Actions majors; Dependabot grouped monthly PRs for github-actions.
+
 == 2026-10-06 -- Dependency refresh
 
 * Refreshed deprecated transitive dependencies within existing ranges: `@ungap/structured-clone` 1.4.0 and `@xmldom/xmldom` 0.8.15.
+
+== 2026-10-05 -- Encoding guard CI
+
+* Reusable UTF-8 mojibake workflow on push/PR; editorconfig charset hint.
 
 == 2026-09-10 -- Public crawlability
 

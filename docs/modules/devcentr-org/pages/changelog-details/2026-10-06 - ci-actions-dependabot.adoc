@@ -1,0 +1,22 @@
+= 2026-10-06 — GitHub Actions majors and Dependabot
+:navtitle: 2026-10-06 CI Actions
+:page-audience: Maintainers updating CI
+:page-usage-context: Keeping deploy workflow on supported action majors
+:page-orig-author: Auto on behalf of Ryan Johnson
+:page-last-author: Auto on behalf of Ryan Johnson
+
+== Action major bumps
+
+GitHub deprecated Node 20–based action runners; `.github/workflows/ci.yml` pins verified majors (2026-10-06):
+
+* `actions/checkout@v7`
+* `pnpm/action-setup@v6`
+* `actions/setup-node@v7`
+* `actions/upload-pages-artifact@v5`
+* `actions/deploy-pages@v5`
+
+The build job still uses Node **22** for `pnpm run build` (see xref:walkthrough-vscode-and-ci.adoc[VS Code & CI walkthrough]).
+
+== Dependabot
+
+`.github/dependabot.yml` watches the `github-actions` ecosystem with monthly grouped pull requests for action version bumps.
