@@ -24,7 +24,37 @@ Also new in v0.2.0: `envsafe mcp` runs a Model Context Protocol server over stdi
 
 == Install
 
-Windows users can install the MSI from the link:https://github.com/dev-centr/envsafe/releases/tag/v0.2.0[v0.2.0 release], which puts `envsafe` on `PATH`. The same release has archives for Linux x64, Linux arm64, and macOS arm64, plus SHA-256 checksums.
+Update, v0.2.2: envsafe now ships as native packages for each platform. Every file is on the link:https://github.com/dev-centr/envsafe/releases/tag/v0.2.2[v0.2.2 release], with SHA-256 checksums.
+
+macOS and Linux with Homebrew:
+
+[source,sh]
+----
+brew install dev-centr/tap/envsafe
+----
+
+macOS without Homebrew: the universal (Apple silicon and Intel) installer is `envsafe-0.2.2-macos-universal.pkg`. It is not signed yet, so open it with Control-click, then Open.
+
+Debian and Ubuntu, x64 or arm64:
+
+[source,sh]
+----
+curl -LO https://github.com/dev-centr/envsafe/releases/download/v0.2.2/envsafe_0.2.2_amd64.deb
+sudo apt install ./envsafe_0.2.2_amd64.deb
+----
+
+Fedora, RHEL, and openSUSE:
+
+[source,sh]
+----
+sudo dnf install https://github.com/dev-centr/envsafe/releases/download/v0.2.2/envsafe-0.2.2-1.x86_64.rpm
+----
+
+Use `arm64` or `aarch64` in the file name on Arm machines.
+
+Windows: install `envsafe-0.2.2-windows-x64.msi`, which puts `envsafe` on `PATH`.
+
+Nix: `nix run github:dev-centr/envsafe -- --version`. Arch Linux: the repository has an `envsafe-bin` PKGBUILD under `packaging/aur/`, so `makepkg -si` from there builds it. It is not in the AUR yet. Plain tarballs for Linux and macOS are on the release too.
 
 To register the MCP server in Cursor (`.cursor/mcp.json`):
 
@@ -42,4 +72,4 @@ claude mcp add envsafe -- envsafe mcp
 
 Other MCP clients use the same stdio command, `envsafe mcp`.
 
-envsafe is written in D, is MIT-licensed, and also ships as a library. Source, documentation, and the issue tracker are at link:https://github.com/dev-centr/envsafe[github.com/dev-centr/envsafe]. A `move` command and Windows arm64 builds are not in this release.
+envsafe is written in D, is MIT-licensed, and also ships as a library. Source, documentation, and the issue tracker are at link:https://github.com/dev-centr/envsafe[github.com/dev-centr/envsafe]. A `move` command and Windows arm64 builds are not out yet.
