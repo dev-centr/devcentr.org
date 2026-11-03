@@ -5,7 +5,15 @@
   <link>https://devcentr.org/news</link>
   <description>Shipped work, partnerships, and openings from Dev-Centr.</description>
   <language>en-us</language>
-  <lastBuildDate>Mon, 17 Aug 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Mon, 02 Nov 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>envsafe v0.2 keeps .env secrets out of agent transcripts</title>
+    <link>https://devcentr.org/news/2026-11-02-envsafe-v0-2-keeps-env-secrets-out-of-agent-transcripts</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-11-02-envsafe-v0-2-keeps-env-secrets-out-of-agent-transcripts</guid>
+    <pubDate>Mon, 02 Nov 2026 12:00:00 GMT</pubDate>
+    <description>envsafe v0.2.0, a command-line tool and MCP server, lets AI agents and people edit .env files without secret values ever reaching chat, terminal output, or logs.</description>
+    <category>news</category>
+  </item>
   <item>
     <title>A Control Panel for all Config file types</title>
     <link>https://devcentr.org/news/2026-08-17-a-control-panel-for-all-config-file-types</link>

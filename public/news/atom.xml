@@ -4,8 +4,16 @@
   <link href="https://devcentr.org/news" rel="alternate"/>
   <link href="https://devcentr.org/news/atom.xml" rel="self"/>
   <id>https://devcentr.org/news</id>
-  <updated>2026-08-17T12:00:00Z</updated>
+  <updated>2026-11-02T12:00:00Z</updated>
   <subtitle>Shipped work, partnerships, and openings from Dev-Centr.</subtitle>
+  <entry>
+    <title>envsafe v0.2 keeps .env secrets out of agent transcripts</title>
+    <link href="https://devcentr.org/news/2026-11-02-envsafe-v0-2-keeps-env-secrets-out-of-agent-transcripts" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-11-02-envsafe-v0-2-keeps-env-secrets-out-of-agent-transcripts</id>
+    <updated>2026-11-02T12:00:00Z</updated>
+    <summary>envsafe v0.2.0, a command-line tool and MCP server, lets AI agents and people edit .env files without secret values ever reaching chat, terminal output, or logs.</summary>
+    <category term="news"/>
+  </entry>
   <entry>
     <title>A Control Panel for all Config file types</title>
     <link href="https://devcentr.org/news/2026-08-17-a-control-panel-for-all-config-file-types" rel="alternate"/>
