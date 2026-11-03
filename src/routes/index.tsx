@@ -110,7 +110,7 @@ export default function Home() {
               <span class="font-mono text-sm text-primary">{p.n}</span>
               <div>
                 <h3 class="font-display text-xl font-semibold tracking-tight text-foreground md:text-2xl">
-                  {p.title}
+                  {p.titleHtml ? <span innerHTML={p.titleHtml} /> : p.title}
                 </h3>
                 <p class="mt-2 font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
                   {p.kicker}

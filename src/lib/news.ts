@@ -3,6 +3,8 @@ import catalog from "~/lib/news-posts.generated.json";
 export type NewsPost = {
   slug: string;
   title: string;
+  /** Title with inline markup (e.g. <code>), when the AsciiDoc H1 has any. */
+  titleHtml?: string;
   description: string;
   date: string;
   tags: string[];
@@ -15,6 +17,7 @@ function normalize(p: Record<string, unknown>): NewsPost {
   return {
     slug: String(p.slug ?? ""),
     title: String(p.title ?? ""),
+    titleHtml: p.titleHtml ? String(p.titleHtml) : undefined,
     description: String(p.description ?? p.desc ?? ""),
     date: String(p.date ?? ""),
     tags: (p.tags as string[]) || (p.keywords as string[]) || [],

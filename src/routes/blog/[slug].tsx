@@ -39,7 +39,7 @@ export default function BlogPostPage() {
               <PageTrail crumbs={[{ label: "Blog", href: "/blog" }, { label: p.title }]} />
               <p class="eyebrow mt-3 text-primary">{p.date}</p>
               <h1 class="mt-3 font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-                {p.title}
+                {p.titleHtml ? <span innerHTML={p.titleHtml} /> : p.title}
               </h1>
               <Show when={p.description}>
                 <p class="mt-4 text-lg leading-relaxed text-muted-foreground">{p.description}</p>

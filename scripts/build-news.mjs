@@ -201,9 +201,12 @@ async function loadAuthoredPosts(contentDir, channelTag) {
       .filter(Boolean);
     const other = channelTag === "news" ? "blog" : "news";
     const tags = [...new Set([...keywords.filter((k) => k !== other), channelTag])];
+    const rawTitle = doc.getTitle() || slug;
+    const plainTitle = decodeHtmlEntities(rawTitle.replace(/<[^>]+>/g, ""));
     posts.push({
       slug,
-      title: decodeHtmlEntities(doc.getTitle() || slug),
+      title: plainTitle,
+      ...(/<[^>]+>/.test(rawTitle) ? { titleHtml: rawTitle } : {}),
       description: decodeHtmlEntities(doc.getAttribute("description") || ""),
       date: doc.getAttribute("revdate") || "",
       tags,

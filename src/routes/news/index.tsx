@@ -50,7 +50,7 @@ export default function NewsIndex() {
                 >
                   <div class="min-w-0">
                     <h2 class="font-display text-xl font-semibold tracking-tight text-foreground group-hover:text-primary md:text-2xl">
-                      {post.title}
+                      {post.titleHtml ? <span innerHTML={post.titleHtml} /> : post.title}
                     </h2>
                     <p class="mt-2 max-w-2xl text-sm leading-relaxed text-muted-foreground">{post.description}</p>
                   </div>
