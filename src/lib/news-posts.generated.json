@@ -1,8 +1,9 @@
 {
   "posts": [
     {
-      "slug": "2026-11-02-envsafe-v0-2-keeps-env-secrets-out-of-agent-transcripts",
-      "title": "envsafe v0.2 keeps .env secrets out of agent transcripts",
+      "slug": "2026-11-02-announcing-envsafe-for-agentic-coding",
+      "title": "Announcing envsafe for Agentic coding",
+      "titleHtml": "Announcing <code>envsafe</code> for Agentic coding",
       "description": "envsafe v0.2.0, a command-line tool and MCP server, lets AI agents and people edit .env files without secret values ever reaching chat, terminal output, or logs.",
       "date": "2026-11-02",
       "tags": [

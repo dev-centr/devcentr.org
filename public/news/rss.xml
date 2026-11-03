@@ -7,9 +7,9 @@
   <language>en-us</language>
   <lastBuildDate>Mon, 02 Nov 2026 12:00:00 GMT</lastBuildDate>
   <item>
-    <title>envsafe v0.2 keeps .env secrets out of agent transcripts</title>
-    <link>https://devcentr.org/news/2026-11-02-envsafe-v0-2-keeps-env-secrets-out-of-agent-transcripts</link>
-    <guid isPermaLink="true">https://devcentr.org/news/2026-11-02-envsafe-v0-2-keeps-env-secrets-out-of-agent-transcripts</guid>
+    <title>Announcing envsafe for Agentic coding</title>
+    <link>https://devcentr.org/news/2026-11-02-announcing-envsafe-for-agentic-coding</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-11-02-announcing-envsafe-for-agentic-coding</guid>
     <pubDate>Mon, 02 Nov 2026 12:00:00 GMT</pubDate>
     <description>envsafe v0.2.0, a command-line tool and MCP server, lets AI agents and people edit .env files without secret values ever reaching chat, terminal output, or logs.</description>
     <category>news</category>

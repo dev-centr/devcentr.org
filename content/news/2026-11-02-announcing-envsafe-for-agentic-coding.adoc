@@ -1,4 +1,4 @@
-= envsafe v0.2 keeps .env secrets out of agent transcripts
+= Announcing `envsafe` for Agentic coding
 :description: envsafe v0.2.0, a command-line tool and MCP server, lets AI agents and people edit .env files without secret values ever reaching chat, terminal output, or logs.
 :revdate: 2026-11-02
 :keywords: news, envsafe, dotenv, secrets, AI agents, MCP, release
