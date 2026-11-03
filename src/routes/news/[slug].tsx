@@ -23,7 +23,7 @@ export default function NewsPostPage() {
           <>
             <Title>{`${p.title} · DevCentr News`}</Title>
             <Meta name="description" content={p.description || p.title} />
-            <Meta name="keywords" content={[...(p.tags || []), "DevCentr", \"news\"].join(", ")} />
+            <Meta name="keywords" content={[...(p.tags || []), "DevCentr", "news"].join(", ")} />
           </>
         )}
       </Show>
