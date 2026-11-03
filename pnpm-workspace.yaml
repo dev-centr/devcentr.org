@@ -6,3 +6,6 @@ allowBuilds:
   esbuild: true
 minimumReleaseAgeExclude:
   - '@dev-centr/themed-svg@0.1.1'
+
+overrides:
+  dax-sh: npm:dax@^0.50.0
