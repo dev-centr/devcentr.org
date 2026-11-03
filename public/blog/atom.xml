@@ -4,8 +4,32 @@
   <link href="https://devcentr.org/blog" rel="alternate"/>
   <link href="https://devcentr.org/blog/atom.xml" rel="self"/>
   <id>https://devcentr.org/blog</id>
-  <updated>2026-09-25T12:00:00Z</updated>
+  <updated>2026-11-02T12:00:00Z</updated>
   <subtitle>Craft, investigations, and orientations from Dev-Centr.</subtitle>
+  <entry>
+    <title>The agent never opened the rules folder</title>
+    <link href="https://devcentr.org/blog/2026-11-02-the-agent-never-opened-the-rules-folder" rel="alternate"/>
+    <id>https://devcentr.org/blog/2026-11-02-the-agent-never-opened-the-rules-folder</id>
+    <updated>2026-11-02T12:00:00Z</updated>
+    <summary>A new tool is useless to an AI agent until the agent knows to reach for it. Rules files and skills folders are supposed to teach that, and agents often skip them. A think-piece on a single local &quot;capabilities&quot; MCP server that answers &quot;is there a better tool for this?&quot;, with envsafe as the example and a survey of what already exists.</summary>
+    <category term="blog"/>
+  </entry>
+  <entry>
+    <title>Virtual environments are neither virtual nor temporary</title>
+    <link href="https://devcentr.org/blog/2026-10-26-virtual-environments-are-neither-virtual-nor-temporary" rel="alternate"/>
+    <id>https://devcentr.org/blog/2026-10-26-virtual-environments-are-neither-virtual-nor-temporary</id>
+    <updated>2026-10-26T12:00:00Z</updated>
+    <summary>A Python venv is a folder that outlives your shell, a container can vanish on exit, and Windows Sandbox is a VM that forgets everything. The names we use for isolation describe none of that. A proposal for names that say what is separated, how long it lasts, and what it applies to.</summary>
+    <category term="blog"/>
+  </entry>
+  <entry>
+    <title>The AI agent broke my em dashes and signed my name</title>
+    <link href="https://devcentr.org/blog/2026-10-05-the-ai-agent-broke-my-em-dashes-and-signed-my-name" rel="alternate"/>
+    <id>https://devcentr.org/blog/2026-10-05-the-ai-agent-broke-my-em-dashes-and-signed-my-name</id>
+    <updated>2026-10-05T12:00:00Z</updated>
+    <summary>An agent rewrote a GitHub workflow through Windows PowerShell 5.1, every dash became three characters of garbage, and git blame said I did it. Why legacy shell encoding needs a commit-time guard, not another agent rule.</summary>
+    <category term="blog"/>
+  </entry>
   <entry>
     <title>Why does git suck?</title>
     <link href="https://devcentr.org/blog/2026-09-25-why-does-git-suck" rel="alternate"/>

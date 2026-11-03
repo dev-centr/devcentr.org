@@ -1,0 +1,97 @@
+= The agent never opened the rules folder
+:author: Ryan Johnson
+:description: A new tool is useless to an AI agent until the agent knows to reach for it. Rules files and skills folders are supposed to teach that, and agents often skip them. A think-piece on a single local "capabilities" MCP server that answers "is there a better tool for this?", with envsafe as the example and a survey of what already exists.
+:revdate: 2026-11-02
+:keywords: blog, AI agents, MCP, agent skills, AGENTS.md, tool discovery, envsafe, proposal
+
+Today I shipped link:/news/2026-11-02-announcing-envsafe-for-agentic-coding[`envsafe`], a small tool that lets an AI agent edit a `.env` file without ever printing a secret.
+Tomorrow a fresh agent session will be asked to rotate an API token. It will not know `envsafe` exists.
+It will run `cat .env`, as agents do, and every credential in the file will land in the transcript.
+
+The tool is installed. It is on `PATH`. It is documented in a skill in my rules repository, and the harness's own rules file says, in so many words, "read agent-rules before you start."
+None of that is the problem. The problem is that the agent never opened the folder.
+
+My working theory: *teaching an agent about a tool is a delivery problem, not a documentation problem.*
+Documentation that the agent has to choose to go and read loses to the habit it already has.
+What wins is something already in front of it when it is about to make the mistake.
+
+== Pointers are not context
+
+Every harness has a place for standing instructions now.
+link:https://agents.md/[AGENTS.md] is the closest thing to a shared one: a plain Markdown file for "project-specific instructions, build/test commands, conventions," now stewarded by the Linux Foundation's link:https://www.linuxfoundation.org/press/linux-foundation-announces-the-formation-of-the-agentic-ai-foundation[Agentic AI Foundation] alongside MCP itself.
+link:https://agentskills.io/specification[Agent Skills] standardized the next layer: a folder with a `SKILL.md`, whose `name` and `description` are loaded at startup while the body waits until the agent decides to activate it.
+
+That last clause carries all the weight. The skills spec calls it progressive disclosure, and it is a good design for token budgets: the link:https://agentskills.io/client-implementation/adding-skills-support[client guide] puts the catalog at roughly 50 to 100 tokens per skill, with the full instructions loaded only on demand.
+It also means the agent sees one line about `envsafe` and has to connect "rotate a token" to "secret-safe .env editing" on its own, at the moment it is busy thinking about the token.
+
+And that is when the skill is in the catalog at all.
+A July 2026 survey of harnesses, link:https://yage.ai/share/agent-skills-harness-portability-en-20260720.html[Agent Skills Standardized the File Format, but Each Harness Still Plays by Its Own Rules], found that Codex, Cursor, OpenCode, Gemini CLI and the Antigravity tools all scan a shared project-level `.agents/skills/` directory, while Claude Code looks only in its own `.claude/skills/` and personal directories.
+Activation differs too: one harness asks the user before loading a skill body, another has the model call a `skill` tool, another just reads the file.
+A rule that says "go read agent-rules" is a pointer to a pointer. Each hop is a place to drop the thread.
+
+== Why MCP looks like the answer
+
+An MCP server's tools arrive as part of the agent's tool list, with names and descriptions the model reads when choosing what to call.
+That is a different position from a rules file. A rule is something the agent is told; a tool is something the agent can *do*, and models are trained hard to pick the right tool for the job.
+
+So here is the idea. Each harness installs one local MCP server, once. Call it `capabilities`.
+It does not wrap the world. It reads what this user actually has: their rules repository, their skills folders, and the CLIs installed on this machine.
+It exposes a handful of tools with blunt, searchable names:
+
+* `find_better_tool`: "I am about to do X with Y. Is there a tool here that does it more safely or better?"
+* `cant_do_this`: "I am about to tell the user I can't do X." Before giving up, check whether something installed can.
+* `describe_tool`: the short version of a skill or CLI, with the one command that matters.
+
+Ask `find_better_tool` "edit .env file, set API_TOKEN" and it answers with `envsafe`, the stdin form of `envsafe set`, and the reason: values never print.
+Ask `cant_do_this` "edit a file without exposing its secrets" and it says the same thing.
+Niche domains can ship their own small add-on servers that register with it, so the core stays small.
+
+== Where MCP stops helping
+
+Two things stand between that sketch and a working fix, and both are already visible in the tools that exist.
+
+*Listing is not calling.* An agent can see `find_better_tool` every turn and still never call it, the same way it can see a skill's one-line description and never load the body.
+A tool description is a better position than a rules file, not a guarantee.
+It needs a sharp description that matches the moment ("Call before editing config, secrets, or files you'd otherwise `cat`"), plus a one-line rule in the harness's own instructions: *before you run a shell command on a file type you have not handled today, ask `find_better_tool`.*
+The rule and the tool support each other. Neither works alone.
+
+*The tool list is no longer loaded every turn.* This is the part I had wrong before researching it.
+Large tool sets are expensive, so harnesses have started deferring them.
+Anthropic's link:https://platform.claude.com/docs/en/agents-and-tools/tool-use/tool-search-tool[tool search tool] lets the API withhold tool definitions marked `defer_loading` until the model searches for them; Anthropic's link:https://www.anthropic.com/research/advanced-tool-use[write-up] reports about 72K tokens for 50-plus MCP tools loaded upfront, against about 8.7K with search.
+Claude Code's link:https://code.claude.com/docs/en/agent-sdk/tool-search[tool search docs] say it is on by default: MCP tool definitions are withheld, the agent gets a summary, and it searches when "the task requires a capability not already loaded."
+The same docs advise naming tools so search finds them (`search_slack_messages` over `query_slack`) and adding a system-prompt line listing what kinds of tools exist.
+A per-server `alwaysLoad` setting keeps a server's tools in context; at the time of writing it is link:https://github.com/anthropics/claude-code/issues/54158[tracked as missing from the MCP docs].
+
+So a capabilities server has to be the one thing a harness keeps loaded, and it has to be small enough to deserve that. Three tools, not thirty.
+
+== What already exists
+
+I went looking before building, because this feels like an idea someone has had.
+Pieces of it are everywhere. The whole of it, as far as I found, is not.
+
+*Registries answer "what servers exist," publicly.* The link:https://registry.modelcontextprotocol.io/[official MCP Registry] is a metadata catalog with a REST API, and its link:https://modelcontextprotocol.io/registry/about[about page] says it is meant for downstream aggregators, not for host applications to query directly, and does not hold private servers.
+Smithery, long the best-known catalog, announced that its proxy, API, CLI and Toolbox would stop on October 31, 2026, leaving a public directory (summarized by link:https://stackfor.ai/tools/smithery[StackFor]).
+None of these know what is installed on my machine or what my rules say.
+
+*Gateways answer "too many servers," locally.* link:https://glama.ai/mcp/servers/tsouth89/toolport[Toolport] is one local gateway that every client points at, with lazy discovery and a search tool.
+link:https://github.com/eliavamar/mcp-of-mcps[mcp-of-mcps] describes itself as a meta-server that merges servers into one endpoint with tool discovery and selective schema loading.
+The link:https://awesome-mcp.tools/category/aggregators[aggregators category] of one awesome-list includes MetaMCP, MCPJungle, Lunar's MCPX, and Magg, which lets an assistant discover and install more servers itself.
+These solve routing and context size. They index MCP tools, not my skills or my plain CLIs.
+
+*Skills over MCP is now a standard.* link:https://modelcontextprotocol.io/seps/2640-skills-extension[SEP-2640], the Skills Extension, reached Final status: skills are served as MCP resources under `skill://`, with `skills/list` and `skills/get`, written by the link:https://modelcontextprotocol.io/community/working-groups/skills-over-mcp[Skills Over MCP Working Group].
+Its motivation names my problem from the other side: a server and "the skill that teaches an agent to use it are versioned, discovered, and installed separately."
+Implementations already serve skill folders this way, including link:https://github.com/olaservo/skilljack-mcp/[Skilljack] and link:https://github.com/raymatos/skills-mcp[skills-mcp].
+That is the right transport for the knowledge. It still leaves the agent to decide to look.
+
+The missing piece is narrow: one local server whose index is *this user's* skills, rules and installed CLIs together, and whose interface is a question asked at the moment of doing something, not a catalog to browse.
+Tool search finds tools by keyword. It does not know that `cat .env` is a mistake here.
+
+== Where this goes next
+
+`envsafe` already ships its own MCP server, and that does not solve this.
+Its tools only help an agent that already thought to look for "envsafe."
+The capabilities server would sit one level up and say *use the envsafe tool* to an agent that was about to type `cat`.
+
+What I want to try first is the cheap version: a server with only `find_better_tool`, an index built from `SKILL.md` frontmatter plus a small hand-written map of "instead of this command, use that one," kept always loaded, and one line in each harness's rules.
+Then watch how often agents actually call it before they reach for `cat`.
+If the answer is rarely, the problem was never where the knowledge lives.
