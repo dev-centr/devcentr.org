@@ -1,0 +1,196 @@
+= The Future of the Software Industry
+:author: Ryan Johnson
+:description: Open-source editors alone cannot free us from platforms that hold our collaborators and data. I think the more interesting future is an industry paid for reliable service, not our inability to leave.
+:revdate: 2026-11-08
+:keywords: blog, software industry, open source, interoperability, federation, local-first, network effects, digital commons
+:page-audience: Software users
+:page-usage-context: Thinking-in-public essay on the DevCentr blog
+:page-orig-author: Ryan Johnson
+:page-last-author: Grok Bot on behalf of Ryan Johnson
+:page-last-edited: 2026-11-08
+:page-status: Published
+
+An open-source replacement for a subscription editor sounds like freedom until the rest of the team still works inside the old platform.
+The files might move. The comments, permissions, shared assets, and people might not.
+I think the future worth building is one where software companies can sell us reliable services without owning the conditions under which we can leave.
+
+That is a different ambition from making a free version of an expensive application.
+It asks what a software company is actually for once its customers have a meaningful choice.
+
+== Replacing the editor is only the beginning
+
+Imagine opening a design in a different editor.
+The image looks right. The layers are there. The tools do what you need.
+Then a colleague asks where to leave feedback, and the answer is still a link to the old service.
+
+The replacement works. The departure does not.
+
+This is the part of the open-source-versus-subscription argument that interests me most.
+I am frustrated by the idea of paying indefinitely for permission to run a tool on hardware I already own.
+But replacing the tool does not necessarily replace the arrangement around it.
+If the platform is also where a team keeps its shared work, the decision to switch is no longer mine alone.
+
+I can choose a different brush engine.
+I cannot choose a different set of colleagues.
+
+That gives the platform a reason to make collaboration inseparable from its own application.
+The editor can become replaceable while the workspace becomes harder to leave.
+A cheaper client does not solve that problem, and a beautifully written open-source client does not solve it by itself either.
+
+== The network effect does not have to belong to one company
+
+Social applications make the problem obvious.
+An empty alternative can be better in almost every technical respect and still be useless to someone whose community is elsewhere.
+A shared creative workspace can have the same shape: the value includes who is there and what they have already done together.
+
+My first worry was that this would make the software industry's future even more concentrated.
+If local applications become easier to replace, perhaps companies simply retreat into the parts we cannot reproduce independently: the network, the shared state, the accumulated relationships.
+
+But that assumes the network has to remain inside a single company's boundary.
+I do not want to grant that assumption.
+
+An open-source platform could be hosted by one provider.
+A federated platform could let independently operated services communicate.
+An interchange format could let work move between tools.
+Those are different properties, and none automatically supplies the others.
+Publishing the server's source is not enough if moving away still means abandoning the working relationships stored in it.
+
+The more demanding goal is for different providers to participate in the same useful system.
+Changing the company that hosts a workspace should not require persuading every collaborator to change applications on the same afternoon.
+Changing the editor should not mean starting the project's review history over.
+
+That is not a claim that federation is easy, or that any existing protocol has solved all of this.
+It is the condition I would want to judge a proposed alternative against.
+Can I leave without making everyone else leave with me?
+
+== What would we still pay for?
+
+Suppose we get much further toward that arrangement.
+The clients are open, the formats are usable across applications, and collaboration is not confined to one provider.
+What remains for a software business to sell?
+
+Quite a lot, I think. Just not the same kind of control.
+
+I still want my work available from more than one device.
+I want storage that survives a hardware failure, backups that can actually be restored, and a service that is awake when my own computer is not.
+I may want more compute for a particular job than I can reasonably keep at home.
+I do not want to operate a mini-data-center merely to avoid being trapped in somebody else's product.
+
+Those are services, not failures of independence.
+Paying someone to run them can be a perfectly good trade.
+The important question is whether I can replace that someone without replacing my entire workflow.
+
+[cols="1,2",options="header"]
+|===
+|What I want to keep choosing
+|What I might pay a provider to do
+
+|My applications and usable copies of my work
+|Run reliable storage, backups, and synchronization
+
+|Where a job executes
+|Supply compute when my own hardware is not enough
+
+|Who I communicate and collaborate with
+|Host a service that can communicate with other providers
+
+|Which identities and attestations I trust
+|Manage keys and stand behind clearly defined verification
+
+|How my work reaches people
+|Deliver content quickly and help keep public services available
+|===
+
+This does not make subscriptions inherently bad.
+An ongoing service has ongoing work behind it.
+Neither does it make open-source applications costless to develop or maintain.
+Good tools still need people working on them.
+
+I am trying to distinguish paying for work from paying because the exit is blocked.
+A company can provide the first without arranging the second.
+
+== Trust is a service too, but it needs limits
+
+Identity and authenticity were the other roles I kept coming back to.
+If anyone can run the software or host a service, there is still a question of who is on the other end.
+Someone may want a provider to manage their keys, help recover access, verify an identity, or stand behind a particular claim about a digital asset.
+
+There is useful work there.
+There is also an opportunity to build the next cage.
+
+If every document is portable but one company is the only acceptable way to prove who created it, we have moved the dependency rather than removed it.
+I would want room for different providers, different trust relationships, and people who manage their own identities where that makes sense.
+
+And I would not confuse provenance with truth.
+Evidence that a particular key signed a file does not, by itself, establish that everything in the file is true.
+A useful guarantor has to say what it is guaranteeing, not sell a vague glow of authenticity.
+
+Businesses might also pay for support, operational commitments, or contractual responsibility.
+None of those requires a world in which the editor, the storage provider, and the identity provider must be the same company.
+They might be bundled for convenience.
+I want the bundle to be a choice.
+
+== And yes, CDNs
+
+After thinking through compute, storage, and identity, I remembered content delivery networks.
+Of course those still have a job.
+
+An open protocol does not put a copy of a large file near the person requesting it.
+It does not provide bandwidth, operate distributed caches, or absorb an attack on a small public service.
+Someone still has to run that infrastructure, whether the organization doing it is commercial, cooperative, or publicly supported.
+
+This is where I resist turning an argument for decentralization into an obligation to self-host everything.
+A small independent service should be able to buy delivery and protection without surrendering ownership of its application or community.
+Using a CDN does not have to undo the freedom gained elsewhere.
+
+But infrastructure can concentrate too.
+An open application running on a choice of one practical provider is not the outcome I am hoping for.
+The same question follows us down the stack: how much of the service can I replace, and what do I lose when I try?
+
+== The commons still needs a way to get paid
+
+Earlier in this line of thought, I had been arguing about domain names.
+I was frustrated by useful names being held for speculative resale, and I started asking whether higher holding costs could discourage that behavior.
+Then the question changed: if such a system collected money, why should all of it remain with the businesses collecting it?
+Could some help fund the open-source infrastructure the rest of the web depends on?
+
+I do not have a finished policy for that.
+A rule meant to dislodge a speculator could also hurt a small builder who needs time to finish a project.
+A funding pool needs governance, and a source of revenue is not proof that the money will reach the people maintaining useful software.
+I would not treat a plausible loop on paper as a solved institution.
+
+But the funding question belongs in this picture.
+If open tools make the service market more competitive, the people maintaining those tools should not be an afterthought.
+An industry built on a commons needs a deliberate way to sustain that commons, whether through paid maintenance, sponsorship, shared funding, or mechanisms we still need to work out.
+
+Otherwise we are imagining a healthier market for hosting and leaving the toolmakers to figure it out alone.
+
+== A future to choose, not a forecast to wait for
+
+I do not expect every software company to collapse into a storage utility.
+Craft still matters. So do good interfaces, integration, support, and the willingness to maintain something for years.
+I also do not think incumbents will surrender a profitable captive ecosystem just because an open alternative is imaginable.
+
+This is a direction I want, not an inevitable endpoint I can put a date on.
+
+The stronger version of the open-source future is not simply that someone recreates an expensive application and gives it away.
+It is that we make the surrounding services interchangeable enough for competition to remain possible.
+The editor can improve without taking custody of the team.
+The host can earn money without owning the files' future.
+The identity provider can offer reassurance without becoming the only door through which a person is allowed to exist.
+
+Then software companies still have plenty to do.
+They have to make things people want, run services people rely on, and keep earning the relationship.
+
+I want to pay a provider because it is doing a good job.
+I want leaving to remain an option while it does.
+
+ifndef::page-context-active[]
+[.page-context.page-context-footer]
+****
+Audience role:: {page-audience}
+Original author:: {page-orig-author}
+Latest contributor:: {page-last-author}
+Last updated:: {page-last-edited}
+****
+endif::[]

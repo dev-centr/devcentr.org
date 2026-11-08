@@ -2,6 +2,10 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-11-08 - The future of the software industry
+
+* Add the blog essay link:https://devcentr.org/blog/2026-11-08-the-future-of-the-software-industry[The Future of the Software Industry]: open tools, interoperable collaboration, and paid infrastructure without captive workflows.
+
 == 2026-09-26 - Overview sibling (no wrapper)
 
 * `nav.adoc`: articles under `.devcentr.org` are siblings of **Overview**, not children. Forest pattern: platform Overview is a peer start-page leaf (site-nav-tree also unwraps Overview parents defensively).

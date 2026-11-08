@@ -4,8 +4,16 @@
   <link href="https://devcentr.org/blog" rel="alternate"/>
   <link href="https://devcentr.org/blog/atom.xml" rel="self"/>
   <id>https://devcentr.org/blog</id>
-  <updated>2026-11-02T12:00:00Z</updated>
+  <updated>2026-11-08T12:00:00Z</updated>
   <subtitle>Craft, investigations, and orientations from Dev-Centr.</subtitle>
+  <entry>
+    <title>The Future of the Software Industry</title>
+    <link href="https://devcentr.org/blog/2026-11-08-the-future-of-the-software-industry" rel="alternate"/>
+    <id>https://devcentr.org/blog/2026-11-08-the-future-of-the-software-industry</id>
+    <updated>2026-11-08T12:00:00Z</updated>
+    <summary>Open-source editors alone cannot free us from platforms that hold our collaborators and data. I think the more interesting future is an industry paid for reliable service, not our inability to leave.</summary>
+    <category term="blog"/>
+  </entry>
   <entry>
     <title>The agent never opened the rules folder</title>
     <link href="https://devcentr.org/blog/2026-11-02-the-agent-never-opened-the-rules-folder" rel="alternate"/>

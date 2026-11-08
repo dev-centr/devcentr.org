@@ -5,7 +5,15 @@
   <link>https://devcentr.org/blog</link>
   <description>Craft, investigations, and orientations from Dev-Centr.</description>
   <language>en-us</language>
-  <lastBuildDate>Mon, 02 Nov 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Sun, 08 Nov 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>The Future of the Software Industry</title>
+    <link>https://devcentr.org/blog/2026-11-08-the-future-of-the-software-industry</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-11-08-the-future-of-the-software-industry</guid>
+    <pubDate>Sun, 08 Nov 2026 12:00:00 GMT</pubDate>
+    <description>Open-source editors alone cannot free us from platforms that hold our collaborators and data. I think the more interesting future is an industry paid for reliable service, not our inability to leave.</description>
+    <category>blog</category>
+  </item>
   <item>
     <title>The agent never opened the rules folder</title>
     <link>https://devcentr.org/blog/2026-11-02-the-agent-never-opened-the-rules-folder</link>
