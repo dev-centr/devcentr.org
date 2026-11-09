@@ -5,7 +5,7 @@
 == Prerequisites
 
 * Node.js **22+** (`package.json` `engines`)
-* link:https://pnpm.io/[pnpm] **9** (CI uses `pnpm/action-setup@v4` with version 9)
+* link:https://pnpm.io/[pnpm] **9** on CI (`pnpm/action-setup@v6` pins version 9 in `.github/workflows/ci.yml`). pnpm **11+** locally is supported; dependency `overrides` live in `pnpm-workspace.yaml`.
 
 == Quick start
 
@@ -17,7 +17,7 @@ pnpm install
 pnpm dev
 ----
 
-`predev` runs `scripts/build-news.mjs`, which needs news posts under `content/news/` (always present in the repo).
+`predev` runs `scripts/build-news.mjs`, which compiles `content/news/` and `content/blog/` (always present in the repo).
 
 Open the URL printed by Vinxi (typically `http://localhost:3000`).
 
@@ -55,7 +55,7 @@ Without siblings, news still builds; changelog ingest logs `changelog skip (miss
 | Production static build to `.output/public`
 
 | `pnpm news:build`
-| Regenerate news JSON, changelog JSON, RSS, and Atom
+| Regenerate news and blog JSON, changelog JSON, and RSS/Atom for both channels
 
 | `pnpm sync-advisor`
 | Copy and compile stack-advisor SDL → `public/catalog/`

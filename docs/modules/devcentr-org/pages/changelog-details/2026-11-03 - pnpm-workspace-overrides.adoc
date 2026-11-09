@@ -1,0 +1,17 @@
+= 2026-11-03 — pnpm workspace overrides
+:navtitle: 2026-11-03 pnpm overrides
+:page-audience: Maintainers running installs with pnpm 11+
+:page-usage-context: Where dependency overrides live in this repo
+:page-orig-author: Auto on behalf of Ryan Johnson
+:page-last-author: Auto on behalf of Ryan Johnson
+
+== Change
+
+pnpm 11 reads package overrides from `pnpm-workspace.yaml`, not from root `package.json`.
+
+The `dax-sh` → `npm:dax@^0.50.0` override moved into `pnpm-workspace.yaml` under `overrides:`.
+
+== CI note
+
+`.github/workflows/ci.yml` still pins pnpm **9** via `pnpm/action-setup@v6`.
+Local developers on pnpm 11 should use the workspace file; CI behavior is unchanged until the workflow bumps the pnpm version.
