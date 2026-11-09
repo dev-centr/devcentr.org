@@ -6,6 +6,23 @@ Timeline of notable documentation and site changes in the devcentr.org repositor
 
 * Add the blog essay link:https://devcentr.org/blog/2026-11-08-the-future-of-the-software-industry[The Future of the Software Industry]: open tools, interoperable collaboration, and paid infrastructure without captive workflows.
 
+== 2026-11-03 - pnpm workspace overrides
+
+* Move `dax-sh` → `npm:dax` override into `pnpm-workspace.yaml` for pnpm 11 (removed from root `package.json`).
+* See xref:changelog-details/2026-11-03 - pnpm-workspace-overrides.adoc[Detailed changelog].
+
+== 2026-11-02 - News, blog, and envsafe
+
+* News: link:https://devcentr.org/news/2026-11-02-announcing-envsafe-for-agentic-coding[Announcing envsafe for Agentic coding] (`.env` edits without leaking values; MCP server in v0.2).
+* Blog: link:https://devcentr.org/blog/2026-11-02-the-agent-never-opened-the-rules-folder[The agent never opened the rules folder].
+* Render inline AsciiDoc markup in news and blog titles (`title` vs `titleHtml` in generated JSON).
+* Fix `/news/<slug>/` routes broken by malformed `keywords` meta quotes.
+* See xref:changelog-details/2026-11-02 - news-blog-pipeline.adoc[Detailed changelog].
+
+== 2026-10-26 - Virtual environments essay
+
+* Blog: link:https://devcentr.org/blog/2026-10-26-virtual-environments-are-neither-virtual-nor-temporary[Virtual environments are neither virtual nor temporary] — vocabulary for isolation levels (links General Knowledge reference).
+
 == 2026-09-26 - Overview sibling (no wrapper)
 
 * `nav.adoc`: articles under `.devcentr.org` are siblings of **Overview**, not children. Forest pattern: platform Overview is a peer start-page leaf (site-nav-tree also unwraps Overview parents defensively).
@@ -27,7 +44,7 @@ Timeline of notable documentation and site changes in the devcentr.org repositor
 == 2026-09-10 — Public crawlability
 
 * Publish `/robots.txt` and generate `/sitemap.xml` from the shared prerender route list in postbuild (`spa-fallback`).
-* Sitemap omits `/health`, `/status`, and `/blog` aliases of `/news`.
+* Sitemap omits only `/health` and `/status` (probe routes). News and blog URLs are both listed.
 
 == 2026-09-09 — Themed SVG Studio site concept
 

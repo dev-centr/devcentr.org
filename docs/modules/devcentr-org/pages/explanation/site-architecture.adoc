@@ -9,7 +9,7 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 
 * **SolidStart + Vinxi** — file-based routes under `src/routes/`
 * **Tailwind CSS v4** — `src/app.css`, Kobalte primitives for accessible UI
-* **AsciiDoc** — news posts (`content/news/`) compiled with `@asciidoctor/core` at build time
+* **AsciiDoc** — news and blog posts (`content/news/`, `content/blog/`) compiled with `@asciidoctor/core` in `scripts/build-news.mjs`
 * **GitHub Actions** — `.github/workflows/ci.yml` builds and deploys on push to `main`
 
 == Public routes
@@ -21,8 +21,11 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 | `/`
 | Landing — hero, ecosystem copy, toolchain diagram, apps teaser
 
-| `/news`, `/blog`
-| News index and posts (`/blog` is an SEO alias)
+| `/news`
+| News index and posts (`content/news/` — outward releases and openings)
+
+| `/blog`
+| Blog index and essays (`content/blog/` — inward craft; separate feeds from News)
 
 | `/changelog`
 | Changelog mirror from Antora sibling repos
@@ -78,6 +81,7 @@ Custom domain `devcentr.org` is configured in the repository's Pages settings.
 * `src/routes/` — page components
 * `src/components/` — shared UI (header, footer, diagrams, toolchain browser widget, agent skills catalog)
 * `src/lib/` — catalog data, changelog loader, theme reveal, site links
-* `content/news/` — authored news (see xref:explanation/news-and-changelog.adoc[News & changelog pipeline])
+* `content/news/`, `content/blog/` — authored channels (see xref:explanation/news-and-changelog.adoc[News & changelog pipeline])
+* `pnpm-workspace.yaml` — workspace roots and `overrides` (for example `dax-sh` → `npm:dax` when using pnpm 11+)
 * `public/brand/` — SVG logo marks (canonical org assets live in `.github` profile repos)
 * `scripts/` — news/changelog build, advisor and bootstrap-profile sync, SPA fallback, logo rasterize

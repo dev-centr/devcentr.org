@@ -1,0 +1,31 @@
+= 2026-11-02 — News and blog pipeline fixes
+:navtitle: 2026-11-02 News & blog pipeline
+:page-audience: Contributors editing news or blog posts
+:page-usage-context: Understanding title rendering and route regressions
+:page-orig-author: Auto on behalf of Ryan Johnson
+:page-last-author: Auto on behalf of Ryan Johnson
+
+== Inline markup in titles
+
+Posts whose AsciiDoc titles include inline markup (for example +`envsafe`+ monospace) used to show raw `<code>` tags in page headings.
+
+`scripts/build-news.mjs` now stores:
+
+* `title` — plain text for feeds, meta tags, and JSON-LD (HTML stripped)
+* `titleHtml` — optional rendered title when the source title contains markup
+
+Solid routes in `src/routes/news/` and `src/routes/blog/` prefer `titleHtml` in the visible heading when present.
+
+== News post route regression
+
+A metadata bug in `src/routes/news/[slug].tsx` used backslash-escaped quotes in the `keywords` meta string.
+Vinxi's file router stopped matching individual news slugs, so `/news/<slug>/` rendered blank until the meta values were corrected.
+
+== Envsafe release (news)
+
+News post link:https://devcentr.org/news/2026-11-02-announcing-envsafe-for-agentic-coding[Announcing envsafe for Agentic coding] documents `envsafe` v0.2.x: secret-safe `.env` edits, validation, and the `envsafe mcp` stdio server.
+
+== Related blog posts (same period)
+
+* link:https://devcentr.org/blog/2026-11-02-the-agent-never-opened-the-rules-folder[The agent never opened the rules folder]
+* link:https://devcentr.org/blog/2026-10-26-virtual-environments-are-neither-virtual-nor-temporary[Virtual environments are neither virtual nor temporary]
