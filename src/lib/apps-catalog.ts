@@ -63,6 +63,14 @@ export const products: CatalogItem[] = [
     logo: "/apps/logos/equivalence-engine.svg",
   },
   {
+    id: "ibex",
+    name: "Ibex",
+    summary:
+      "Installer projects that update PATH in place. Source is the easy-installer repo.",
+    href: "https://docs.devcentr.org/tools/ibex/",
+    external: true,
+  },
+  {
     id: "pathman",
     name: "Pathman",
     summary: "Windows PATH management CLI.",

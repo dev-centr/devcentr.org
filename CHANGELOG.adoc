@@ -1,5 +1,9 @@
 = Changelog
 
+== 2026-11-16 -- Ibex on the apps catalog
+
+* Products lists **Ibex**: installer projects that update PATH in place, from the easy-installer repo. The card links to link:https://docs.devcentr.org/tools/ibex/[the Ibex docs].
+
 == 2026-10-26 -- Blog: isolation naming essay
 
 * New essay: Virtual environments are neither virtual nor temporary (proposed names for isolation levels: overlay, fence, partition, guest; lifetimes run, session, kept).
