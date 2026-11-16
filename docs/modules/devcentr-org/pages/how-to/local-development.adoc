@@ -5,7 +5,7 @@
 == Prerequisites
 
 * Node.js **22+** (`package.json` `engines`)
-* link:https://pnpm.io/[pnpm] **9** (CI uses `pnpm/action-setup@v4` with version 9)
+* link:https://pnpm.io/[pnpm] **9 or 11** — CI pins **9** (`.github/workflows/ci.yml` → `pnpm/action-setup@v6`); local **11** is supported when overrides are declared in `pnpm-workspace.yaml` (see <<pnpm-overrides>>).
 
 == Quick start
 
@@ -40,7 +40,15 @@ pnpm sync-bootstrap-profiles
 pnpm dev
 ----
 
-Without siblings, news still builds; changelog ingest logs `changelog skip (missing)` for absent repos; advisor and bootstrap-profile sync warn and exit cleanly if no SDL is found.
+Without siblings, news and blog still build; changelog ingest logs `changelog skip (missing)` for absent repos; advisor and bootstrap-profile sync warn and exit cleanly if no SDL is found.
+
+[[pnpm-overrides]]
+== pnpm overrides
+
+The `dax-sh` → `npm:dax@^0.50.0` dependency alias lives under `overrides:` in link:../../../../../pnpm-workspace.yaml[`pnpm-workspace.yaml`] (not `package.json`).
+pnpm 11 requires workspace-level overrides; pnpm 9 in CI continues to honor the same file.
+
+After changing overrides or `minimumReleaseAgeExclude`, run `pnpm install` and commit an updated `pnpm-lock.yaml` when lockfile drift appears.
 
 == Common scripts
 
@@ -55,7 +63,7 @@ Without siblings, news still builds; changelog ingest logs `changelog skip (miss
 | Production static build to `.output/public`
 
 | `pnpm news:build`
-| Regenerate news JSON, changelog JSON, RSS, and Atom
+| Regenerate news + blog JSON, changelog JSON, and RSS/Atom for both channels
 
 | `pnpm sync-advisor`
 | Copy and compile stack-advisor SDL → `public/catalog/`
@@ -74,7 +82,8 @@ See xref:walkthrough-vscode-and-ci.adoc[VS Code & CI walkthrough] for rationale.
 
 == Troubleshooting
 
-* **Stale news or changelog** — run `pnpm news:build` after editing `content/news/` or after pulling sibling changelog files.
+* **Stale news, blog, or changelog** — run `pnpm news:build` after editing `content/news/` or `content/blog/`, or after pulling sibling changelog files.
+* **Blank `/news/<slug>` page** — confirm `src/routes/news/[slug].tsx` meta attributes use normal quotes (bad escapes break Vinxi route registration); rebuild with `pnpm news:build`.
 * **Advisor page empty** — run `pnpm sync-advisor` with `stack-advisor` checked out; verify `public/catalog/advisor.json` exists.
 * **Skills / bootstrap selector empty** — run `pnpm sync-bootstrap-profiles` with `agent-rules` checked out; verify `public/catalog/bootstrap-profiles.json` exists (gitignored, not committed).
 * **CI fails `skills/index.html`** — Vinxi does not emit a directory index for client-only routes; `scripts/spa-fallback.mjs` must copy the SPA shell into `.output/public/skills/`.

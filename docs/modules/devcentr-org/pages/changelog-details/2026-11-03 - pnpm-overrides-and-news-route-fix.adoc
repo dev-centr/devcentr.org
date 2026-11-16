@@ -1,0 +1,29 @@
+= 2026-11-03 — pnpm workspace overrides and news route fix
+:navtitle: 2026-11-03 pnpm overrides & routes
+
+== Summary
+
+Dependency override placement was adjusted for pnpm 11, and a Vinxi routing regression on news post pages was corrected.
+
+== pnpm overrides in `pnpm-workspace.yaml`
+
+pnpm 11 reads `overrides` from the workspace manifest, not only from `package.json`.
+The `dax-sh` → `npm:dax@^0.50.0` alias now lives under `overrides:` in `pnpm-workspace.yaml`.
+
+* **Local developers on pnpm 11** — overrides apply from the workspace file after `pnpm install`.
+* **CI** — `.github/workflows/ci.yml` still pins pnpm **9** via `pnpm/action-setup@v6`; behavior unchanged until CI bumps the pin.
+
+See xref:how-to/local-development.adoc#pnpm-overrides[Local development § pnpm overrides].
+
+== News post route regression
+
+Commit `cc77879` fixed blank `/news/<slug>` pages:
+
+* `src/routes/news/[slug].tsx` meta `keywords` used literal backslash-escaped quotes around the word `news`, which broke file-route registration in Vinxi.
+* Symptom: news index worked; every individual post route rendered empty.
+* Fix: normal quotes in the keywords string; regenerate catalogs with `pnpm news:build`.
+
+== Knowledge gaps addressed
+
+* Where to declare pnpm overrides when upgrading past pnpm 10.
+* Why a meta-tag string can prevent a route from prerendering at all.

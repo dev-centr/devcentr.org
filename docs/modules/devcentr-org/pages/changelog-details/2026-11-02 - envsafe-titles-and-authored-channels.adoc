@@ -1,0 +1,33 @@
+= 2026-11-02 — envsafe news, rules-folder essay, and title markup
+:navtitle: 2026-11-02 envsafe & titles
+
+== Summary
+
+November authoring work shipped outward **news** and inward **blog** posts, plus catalog builder support for inline markup inside AsciiDoc titles (for example monospace product names).
+
+== News — envsafe for agentic coding
+
+* Post: link:https://devcentr.org/news/2026-11-02-announcing-envsafe-for-agentic-coding[Announcing envsafe for Agentic coding]
+* Source: `content/news/2026-11-02-announcing-envsafe-for-agentic-coding.adoc`
+* Describes `envsafe` v0.2.x: scanning and redacting `.env` values from files agents may read (transcripts, logs, commits).
+* Install section updated for v0.2.2 packages in the same release train.
+
+== Blog — rules folder essay
+
+* Post: link:https://devcentr.org/blog/2026-11-02-the-agent-never-opened-the-rules-folder[The agent never opened the rules folder]
+* Source: `content/blog/2026-11-02-the-agent-never-opened-the-rules-folder.adoc`
+* Inward craft on agent harness layout and why skills/rules discovery must be wired into the editor path, not pasted once into chat.
+
+== Title markup (`titleHtml`)
+
+`scripts/build-news.mjs` loads authored posts with AsciiDoc `` `showtitle: false` `` and inspects the document title:
+
+* Plain titles → single `title` string (feeds, `<title>`, list cards).
+* Titles containing HTML tags (for example `` = Announcing `envsafe` for Agentic coding`` after AsciiDoc inline passthrough) → add optional `titleHtml` while `title` stays a tag-stripped plain string.
+
+Solid routes (`src/routes/news/*`, `src/routes/blog/*`, home teasers) render `titleHtml` with `innerHTML` on headings only when present; meta tags and RSS still use the plain `title`.
+
+== Knowledge gaps addressed
+
+* How monospace or other inline markup in post titles reaches the UI without breaking syndication fields.
+* Separate `/news` vs `/blog` content paths (see xref:explanation/news-and-changelog.adoc[News & changelog pipeline]).

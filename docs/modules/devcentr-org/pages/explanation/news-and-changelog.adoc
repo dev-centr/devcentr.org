@@ -2,9 +2,10 @@
 :navtitle: News & changelog
 :description: How authored news posts and mirrored Antora changelogs are built for devcentr.org.
 
-devcentr.org separates **narrative news** from **shipping notes**:
+devcentr.org separates **three editorial surfaces**:
 
-* **News** (`/news`) — outward-facing essays and announcements authored in this repo.
+* **News** (`/news`) — outward-facing essays and announcements in `content/news/`.
+* **Blog** (`/blog`) — inward craft, investigations, and orientations in `content/blog/` (not an alias of News).
 * **Changelog** (`/changelog`) — day-to-day bullets mirrored from Antora changelogs in sibling repos.
 
 Do not put changelog bullets in news posts, and do not hand-edit the generated JSON catalogs.
@@ -36,10 +37,20 @@ Voice and checklist: see `content/news/README.adoc` in the repository (conversat
 
 `scripts/build-news.mjs` (also `predev` / `prebuild`) writes:
 
-* `src/lib/news-posts.generated.json` — post metadata and rendered HTML for Solid routes
-* `public/news/rss.xml` and `public/news/atom.xml` — syndication feeds
+* `src/lib/news-posts.generated.json` — news metadata and rendered HTML for Solid routes
+* `src/lib/blog-posts.generated.json` — blog metadata (same shape as news)
+* `public/news/rss.xml` and `public/news/atom.xml` — news syndication feeds
+* `public/blog/rss.xml` and `public/blog/atom.xml` — blog syndication feeds
 
-Routes: `src/routes/news/` (and `/blog` alias).
+Routes: `src/routes/news/` and `src/routes/blog/` (separate indexes and slug pages).
+
+=== Title inline markup
+
+When an authored title includes AsciiDoc inline markup (for example monospace `` `envsafe` ``), the catalog adds optional `titleHtml` (rendered heading) while `title` remains a plain string for `<title>`, RSS, and meta description. See xref:changelog-details/2026-11-02 - envsafe-titles-and-authored-channels.adoc[2026-11-02 envsafe & titles detail].
+
+== Blog (authored)
+
+AsciiDoc files in `content/blog/YYYY-MM-DD-slug.adoc` use the same front matter as news (`:description:`, `:revdate:`, `:keywords:`) but posts are tagged `blog` and listed under `/blog`. Authoring options match news (Pages CMS collection `blog` in `.pages.yml`, or Git PR + `pnpm news:build`).
 
 == Changelog (mirrored)
 
