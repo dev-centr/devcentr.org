@@ -5,7 +5,15 @@
   <link>https://devcentr.org/blog</link>
   <description>Craft, investigations, and orientations from Dev-Centr.</description>
   <language>en-us</language>
-  <lastBuildDate>Sun, 08 Nov 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Thu, 19 Nov 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Bend’s Parallel Bet—and What D Should Steal Instead</title>
+    <link>https://devcentr.org/blog/2026-11-19-bends-parallel-bet-and-what-d-should-steal-instead</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-11-19-bends-parallel-bet-and-what-d-should-steal-instead</guid>
+    <pubDate>Thu, 19 Nov 2026 12:00:00 GMT</pubDate>
+    <description>Bend bets on implicit massive parallelism through interaction nets. D already wins on systems breadth, C interop, and metaprogramming. The future-proof move is not to become Bend—it is to borrow the parts that matter.</description>
+    <category>blog</category>
+  </item>
   <item>
     <title>The Future of the Software Industry</title>
     <link>https://devcentr.org/blog/2026-11-08-the-future-of-the-software-industry</link>

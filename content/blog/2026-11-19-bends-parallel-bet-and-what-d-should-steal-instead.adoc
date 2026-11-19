@@ -1,0 +1,138 @@
+= Bend's Parallel Bet—and What D Should Steal Instead
+:author: Ryan Johnson
+:description: Bend bets on implicit massive parallelism through interaction nets. D already wins on systems breadth, C interop, and metaprogramming. The future-proof move is not to become Bend—it is to borrow the parts that matter.
+:revdate: 2026-11-19
+:keywords: blog, D programming language, Bend, parallelism, interaction nets, future-proof, systems programming, heterogeneous computing
+:page-audience: Systems and application developers
+:page-usage-context: Thinking-in-public essay on the DevCentr blog
+:page-orig-author: Ryan Johnson
+:page-last-author: Cursor Agent on behalf of Ryan Johnson
+:page-last-edited: 2026-11-19
+:page-status: Published
+
+Bend is getting attention for a reason that has almost nothing to do with its syntax.
+It promises that ordinary-looking functional code can fan out across thousands of cores—or onto GPUs—without you writing the parallel map yourself.
+If you have spent years in D, polishing packages and tooling in the supplemental ecosystem, that pitch can sound like the feature D never quite finished.
+I do not think the honest answer is to turn D into Bend.
+I think the honest answer is to steal Bend's *problem statement* while keeping D's ladder from scripting down to the metal.
+
+== Two different futures
+
+Picture two programmers at the same whiteboard.
+
+One is sketching a browser engine, a database, or a game loop that must call C libraries, respect `@nogc` hot paths, and ship a binary tomorrow.
+The other is sketching a tree of pure functions and asking whether the runtime can discover parallelism the way a spreadsheet recalculates dependent cells.
+
+That second picture is closer to Bend.
+Its core bet is an execution model—interaction nets—not a nicer way to write `for` loops.
+The compiler is trying to find enormous amounts of deterministic parallelism automatically.
+That is ambitious, and it is genuinely different from bolting `parallel foreach` onto an imperative language.
+
+D is trying to be something else.
+It already has mature LLVM backends, decades of practice with templates and mixins, compile-time execution, C ABI interop, and a language surface that can live at application altitude or kernel altitude in the same codebase.
+I would still rather build most production systems in D than in Bend today.
+
+That is not a dunk on Bend.
+It is a scope statement.
+Bend is staking a claim on *future hardware shape*: many cores, accelerators, and code that should ride all of them without the author becoming a GPU kernel novelist.
+D is staking a claim on *programmer range*: one language that can pretend to be a script, a service, or an OS component depending on which attributes you turn on.
+
+Those futures overlap, but they are not the same product.
+
+== What Bend is actually selling
+
+Strip the syntax away and Bend's pitch is an execution story:
+
+* Implicit massive parallelism—ordinary code, enormous fan-out
+* Functional-style semantics that parallelize cleanly
+* A runtime/compiler pairing aimed at thousands of cores and GPU-friendly work
+* Deterministic parallel execution when the model cooperates
+
+The promise is seductive: write code that looks familiar, let future hardware show up underneath.
+That is not the same problem D spent twenty years solving.
+D already ships native codegen, C interop, CTFE, templates, mixins, and a stable systems vocabulary.
+In many bench races you still pick D to build the browser glue, the database, or the engine—not Bend.
+
+== What D could add without becoming a different language
+
+Not every part of Bend's wish list requires interaction nets.
+A rough split:
+
+[cols="1,2"]
+|===
+| Realistic increment on D | Genuinely different core
+
+| Smarter proofs over `immutable`, `const`, `scope`, `ref` for parallel safety
+| Interaction-net execution: new memory model, optimizer, and debug story
+
+| Surface + library parallelism (`parallel foreach`, `arr.parallel.map!(f)`, vector patterns)
+| “Discover all parallelism automatically” as the default semantics of the whole language
+
+| Metadata-driven GPU paths (`@gpu` kernels) with serious compiler investment
+| Replacing D's imperative/OO ladder with Bend's functional runtime religion
+|===
+
+The bottom row is the part that feels like embedding Haskell inside C++—technically imaginable, politically brutal, and hostile to everyone who already ships `@nogc` services in production.
+
+The top row is where a supplemental ecosystem already matters: libraries, docs, CI templates, and packages that make the new surface *usable* the week it lands.
+
+== Where D's future-proofness actually hurts
+
+Ask “what keeps D from feeling inevitable in 2040?” and missing interaction nets is not the first honest answer.
+Bend's core weakness for D is not what Bend solves—it is what D still owes on its own ticket.
+
+* *Memory safety narrative* — Rust moved the interview question from “can you be careful?” to “can the compiler prove it?” D has `@safe`, attributes, and discipline—and still sounds like “mostly, if you stay in the subset.” A stronger optional ownership story would buy more credibility than any parallel sugar.
+* *Tooling latency* — Adoption follows rust-analyzer-shaped feedback loops: instant diagnostics, rename that works, jump-to-def that respects templates. Benchmark slides do not replace an IDE that feels alive.
+* *Package gravity* — Languages die when `dub add thing` fails often enough that newcomers apologize for the registry. Supplemental packages and docs are higher leverage than another advanced feature no application author can import yet.
+* *Heterogeneous compute* — This is the place Bend is genuinely provocative. Tomorrow's box is CPUs, GPUs, AI accelerators, and maybe reconfigurable blocks. D barely narrates a unified programming model there. Bend does—even if Bend cannot yet host your bootloader.
+
+== What Bend is still missing
+
+Bend's abstraction buys parallelism at the cost of predictability.
+Systems engineers want to know allocation patterns, cache behavior, layout, and what contended when performance goes sideways.
+When implicit parallelism is opaque, “why is this slow?” becomes a research project.
+
+Bend also lacks the interop depth D gets from `extern(C)` and forty years of C-shaped libraries.
+
+And the ideal long-term language probably needs *levels*, not one level:
+
+. Parallel functional code for the problems that map cleanly.
+. Ownership-safe systems code for the problems that leak if you are careless.
+. Manual performance control when the profiler points at a line.
+. Direct hardware access when you are past the last abstraction.
+
+D is oddly close to spanning all four rungs.
+Bend, today, mostly occupies the first.
+
+== A Dev-Centr framing
+
+From Dev-Centr's side, this is not a mandate to pick a winner.
+It is permission to watch Bend for workloads where automatic parallelism is the product—simulation kernels, exploratory numeric code, agent-side batch transforms—while D remains the default for owned tools, agents, installers, and anything that must shake hands with the OS.
+
+The attractive synthesis is not “D becomes Bend.”
+It is closer to: D's metaprogramming and C-family reach, Rust's clarity on ownership where we need it, and Bend-like automatic parallelism only where implicit concurrency is a feature rather than a surprise.
+
+A “D 3.0” thought experiment for link:https://github.com/dlang-supplemental[dlang-supplemental] readers—and upstream contributors willing to listen—might borrow Bend's *intent* without its runtime:
+
+. Optional but real ownership and lifetime analysis.
+. Region or effect discipline that composes with templates instead of fighting them.
+. First-class async aligned with how services and GUIs actually wait.
+. A unified CPU/GPU execution story documented without hand-waving.
+. Safe-by-default modes marketing can repeat without footnotes.
+. Distributed-memory primitives when the problem is not embarrassingly parallel.
+
+That is a blend of D's metaprogramming, Rust's safety gravity, and Bend's automatic parallelism—each where it actually excels—not one model pretending to replace the others.
+
+Nothing here is Dev-Centr or D Language Foundation policy.
+It is a thought piece after years of ecosystem work and the question of how hard it would be for D *itself* to match Bend's headline features.
+Treat it as orientation and provocation, not a roadmap.
+
+ifndef::page-context-active[]
+[.page-context.page-context-footer]
+****
+Audience role:: {page-audience}
+Original author:: {page-orig-author}
+Latest contributor:: {page-last-author}
+Last updated:: {page-last-edited}
+****
+endif::[]

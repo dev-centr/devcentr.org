@@ -4,8 +4,16 @@
   <link href="https://devcentr.org/blog" rel="alternate"/>
   <link href="https://devcentr.org/blog/atom.xml" rel="self"/>
   <id>https://devcentr.org/blog</id>
-  <updated>2026-11-08T12:00:00Z</updated>
+  <updated>2026-11-19T12:00:00Z</updated>
   <subtitle>Craft, investigations, and orientations from Dev-Centr.</subtitle>
+  <entry>
+    <title>Bend’s Parallel Bet—and What D Should Steal Instead</title>
+    <link href="https://devcentr.org/blog/2026-11-19-bends-parallel-bet-and-what-d-should-steal-instead" rel="alternate"/>
+    <id>https://devcentr.org/blog/2026-11-19-bends-parallel-bet-and-what-d-should-steal-instead</id>
+    <updated>2026-11-19T12:00:00Z</updated>
+    <summary>Bend bets on implicit massive parallelism through interaction nets. D already wins on systems breadth, C interop, and metaprogramming. The future-proof move is not to become Bend—it is to borrow the parts that matter.</summary>
+    <category term="blog"/>
+  </entry>
   <entry>
     <title>The Future of the Software Industry</title>
     <link href="https://devcentr.org/blog/2026-11-08-the-future-of-the-software-industry" rel="alternate"/>

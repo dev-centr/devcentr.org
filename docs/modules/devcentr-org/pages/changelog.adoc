@@ -2,6 +2,10 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-11-19 - Bend versus D essay
+
+* Add the blog essay link:https://devcentr.org/blog/2026-11-19-bends-parallel-bet-and-what-d-should-steal-instead[Bend's Parallel Bet—and What D Should Steal Instead]: interaction nets, heterogeneous compute, and what D should borrow without becoming Bend.
+
 == 2026-11-16 - Ibex on the apps catalog
 
 * Products lists **Ibex**: installer projects that update PATH in place, from the easy-installer repo. The card links to link:https://docs.devcentr.org/tools/ibex/[the Ibex docs].
