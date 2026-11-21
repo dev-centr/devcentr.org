@@ -15,7 +15,8 @@
 
 ## Typography
 
-- **Display / body / buttons:** Space Grotesk
+- **Display / body:** Space Grotesk
+- **Buttons:** Source Code Pro, 13px, capitals, 1pt tracking
 - **Meta / nav:** Source Code Pro, tracked
 - **Letter case:** source strings stay in sentence case. Primary, outline, and secondary buttons, plus nav and other tracked labels, use the `caps` class (`--text-case`, currently `uppercase`). The footer is the exception: sentence case, with tracking tightened to `0.04em`.
 
