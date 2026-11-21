@@ -1,0 +1,16 @@
+= 2026-11-21
+
+:hide-page:
+:navtree-parent: changelog.adoc
+:page-audience: maintainers
+:page-usage-context: Changelog detail
+:page-orig-author: Cursor grok-4.7 on behalf of Ryan Johnson
+:page-last-author: name=Ryan Johnson; harness=Cursor; model=grok-4.7
+
+== Button labels at 13px
+
+Primary and secondary button labels are 13px. On this site they had been 14px (`text-sm`). The old product page used 12px for the same controls.
+
+Those buttons also take 1pt of tracking, the space between letters.
+
+Contact:: DevCentr.org — support@devcentr.org

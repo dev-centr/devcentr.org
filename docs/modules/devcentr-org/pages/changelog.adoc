@@ -2,6 +2,11 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-11-21 - Button labels at 13px
+
+* Primary and secondary button labels are 13px, with 1pt of tracking. They had been 14px on this site, and the old product buttons were 12px.
+* Detail: xref:changelog-details/2026-11-21 - button-labels-at-13px.adoc[Button labels at 13px].
+
 == 2026-11-21 - Button capitals and a sentence-case footer
 
 * Primary, outline, and secondary buttons use the capitals style. The words stay in sentence case.
