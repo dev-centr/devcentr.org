@@ -74,6 +74,17 @@ export default function Home() {
         </div>
       </section>
 
+      <section class="border-y border-border/60 bg-foreground/[0.03] dark:bg-foreground/[0.04]">
+        <div class="mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-24">
+          <p class="eyebrow">Why we exist</p>
+          <blockquote class="mt-6 max-w-3xl font-display text-2xl font-medium leading-snug tracking-tight text-foreground md:text-3xl md:leading-snug">
+            DevCentr is the place for developers—a cultural resource and a{" "}
+            <span class="text-primary">development path</span>, with a suite that orchestrates the work around the
+            code.
+          </blockquote>
+        </div>
+      </section>
+
       <section class="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
         <p class="eyebrow">Go further</p>
         <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl">System</h2>
@@ -114,17 +125,6 @@ export default function Home() {
             Entrypoint Dispatch
           </a>
         </p>
-      </section>
-
-      <section class="border-y border-border/60 bg-foreground/[0.03] dark:bg-foreground/[0.04]">
-        <div class="mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-24">
-          <p class="eyebrow">Why we exist</p>
-          <blockquote class="mt-6 max-w-3xl font-display text-2xl font-medium leading-snug tracking-tight text-foreground md:text-3xl md:leading-snug">
-            DevCentr is the place for developers—a cultural resource and a{" "}
-            <span class="text-primary">development path</span>, with a suite that orchestrates the work around the
-            code.
-          </blockquote>
-        </div>
       </section>
 
       <SiteFooter />

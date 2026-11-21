@@ -2,6 +2,11 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-11-21 - Why we exist, then the system map
+
+* The quote sits under the hero. The solar system follows it.
+* Detail: xref:changelog-details/2026-11-21 - why-we-exist-then-the-system-map.adoc[Why we exist, then the system map].
+
 == 2026-11-21 - Button face restored, case still a style
 
 * Primary and secondary buttons are Source Code Pro at 12px again, with the tracking they had before the type experiments.

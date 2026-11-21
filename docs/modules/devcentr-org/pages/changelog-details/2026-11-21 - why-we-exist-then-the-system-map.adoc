@@ -1,0 +1,14 @@
+= 2026-11-21
+
+:hide-page:
+:navtree-parent: changelog.adoc
+:page-audience: maintainers
+:page-usage-context: Changelog detail
+:page-orig-author: Cursor grok-4.7 on behalf of Ryan Johnson
+:page-last-author: name=Ryan Johnson; harness=Cursor; model=grok-4.7
+
+== Why we exist, then the system map
+
+The quote follows the hero. The solar system follows the quote. The toolchain section comes after the map.
+
+Contact:: DevCentr.org — support@devcentr.org
