@@ -2,6 +2,16 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-11-21 - System map under the hero
+
+* The solar system sits directly under the hero, ahead of the toolchain section.
+* Detail: xref:changelog-details/2026-11-21 - system-map-under-the-hero.adoc[System map under the hero].
+
+== 2026-11-21 - Buttons in Source Code Pro
+
+* Primary and secondary buttons use Source Code Pro. They had been Space Grotesk, which is the body face. The old product buttons were IBM Plex Mono.
+* Detail: xref:changelog-details/2026-11-21 - buttons-in-source-code-pro.adoc[Buttons in Source Code Pro].
+
 == 2026-11-21 - Button labels at 13px
 
 * Primary and secondary button labels are 13px, with 1pt of tracking. They had been 14px on this site, and the old product buttons were 12px.

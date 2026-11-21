@@ -75,6 +75,12 @@ export default function Home() {
       </section>
 
       <section class="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
+        <p class="eyebrow">Go further</p>
+        <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl">System</h2>
+        <SiteMap />
+      </section>
+
+      <section class="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
         <div class="max-w-2xl">
           <p class="eyebrow">Toolchain architecture</p>
           <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
@@ -119,12 +125,6 @@ export default function Home() {
             code.
           </blockquote>
         </div>
-      </section>
-
-      <section class="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
-        <p class="eyebrow">Go further</p>
-        <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl">System</h2>
-        <SiteMap />
       </section>
 
       <SiteFooter />
