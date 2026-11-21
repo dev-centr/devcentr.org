@@ -37,9 +37,9 @@ export function ExtensionsStore() {
     <div>
       <h1 class="font-display text-4xl font-semibold tracking-tight">Extensions store</h1>
       <p class="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-        Browse extensions for DevCentr. Rules templates are one kind. Search by name or tag, then install.
-        Install saves a link in this browser. The template text stays in its repository. The desktop app is
-        where the list of templates on this computer lives.
+        Browse extensions and rules templates for Orchestrator. Search by name or tag, then save a
+        template link here; source files stay in their upstream repositories and appear in the Rules
+        panel inside Orchestrator.
       </p>
 
       <form class="mt-8 flex flex-col gap-3 sm:flex-row" onSubmit={(event) => event.preventDefault()}>
@@ -73,7 +73,7 @@ export function ExtensionsStore() {
 
       <Show
         when={shown().length > 0}
-        fallback={<p class="mt-8 text-sm">No extensions match that search. Try a different word, or set the kind to All kinds.</p>}
+        fallback={<p class="mt-8 text-sm">No extensions match that search. Try another keyword or switch the filter to All kinds.</p>}
       >
         <ul class="mt-6 divide-y divide-border/70 border-y border-border/70">
           <For each={shown()}>
@@ -102,7 +102,7 @@ export function ExtensionsStore() {
         </ul>
       </Show>
       <p class="mt-6 text-sm text-muted-foreground">
-        The rules editor is the Rules page in the DevCentr desktop app. This store does not edit rules.
+        To edit or apply installed templates, open the Rules panel in Orchestrator.
       </p>
     </div>
   );

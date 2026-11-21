@@ -6,7 +6,7 @@ export default function ServicesCatalog() {
     <CatalogPage
       title="Services"
       eyebrow="Services"
-      intro="Hosted experiences. PackageHub is the public browse face; pkgpublish is the publisher console. They stay separate on purpose."
+      intro="Hosted web services across the ecosystem, including PackageHub for browsing packages and pkgpublish for managing releases."
       items={services}
       trail={[
         { label: "Assets", href: "/assets" },

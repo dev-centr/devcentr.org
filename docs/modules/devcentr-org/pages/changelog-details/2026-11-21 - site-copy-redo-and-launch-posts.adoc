@@ -1,0 +1,28 @@
+= 2026-11-21
+
+:hide-page:
+:navtree-parent: changelog.adoc
+:page-audience: maintainers
+:page-usage-context: Changelog detail
+:page-orig-author: Cursor Gemini 4 Neon on behalf of Ryan Johnson
+:page-last-author: name=Ryan Johnson; harness=Cursor; model=gemini-4-neon
+
+== Site copy redo and launch posts
+
+Following the move of `devcentr.app` into `/orchestrator` and the naming of the desktop suite as **Orchestrator**, public copy across `devcentr.org` was rewritten for clarity and consistent naming.
+
+=== Site copy updates
+
+* Rewrote the homepage, Orchestrator product sheet, and toolchain diagram captions to replace internal notes and dense RFC phrasing with direct, visitor-facing prose.
+* Updated catalog gates and pages (`/assets`, `/apps`, `/apps/products`, `/apps/services`, `/assets/standards`, and `CatalogPage`) to remove defensive negations, standardize spelling (`Open catalog →`), and use `Overview →` for multi-repo project pages.
+* Rewrote summaries and project overviews across `src/lib/apps-catalog.ts` (`products`, `services`, `standards`, and the five `ideas` pages) from shorthand repository notes into clean public descriptions.
+* Updated `/stack-advisor`, `/skills`, `AgentSkills`, `BootstrapProfiles`, `/extensions`, `ExtensionsStore`, `/demos`, `/demos/rules-templates`, `/themed-svg-studio`, `/resting-lanczos`, `/help`, `/status`, and `/changelog` to reference Orchestrator consistently, simplify repeated disclaimers, and remove verbose or robotic phrasing.
+* Updated `/status` so the `News` row reads "Announcements and ecosystem updates" and added a `Blog` probe row for `https://devcentr.org/blog/`.
+
+=== Blog and news posts
+
+* Published the blog essay `content/blog/2026-11-21-when-your-website-talks-like-an-agent.adoc` ("When your website talks like an agent") examining agent-voice failure modes caught during the copy rewrite.
+* Published the news announcement `content/news/2026-11-21-orchestrator-moves-to-devcentr-org.adoc` ("Orchestrator moves to devcentr.org") announcing the Orchestrator name, `/orchestrator` consolidation, and site copy refresh.
+* Regenerated `src/lib/news-posts.generated.json`, `src/lib/blog-posts.generated.json`, and the RSS/Atom feeds under `public/news/` and `public/blog/`.
+
+Contact:: DevCentr.org — support@devcentr.org

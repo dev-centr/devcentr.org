@@ -9,7 +9,7 @@ const jsonLd = {
   "@type": "CollectionPage",
   name: "DevCentr extensions store",
   url: "https://devcentr.org/extensions",
-  description: "Browse and install DevCentr extensions. Rules templates are one kind. Install records a pointer.",
+  description: "Browse and install DevCentr extensions and rules templates for Orchestrator.",
   isPartOf: { "@type": "WebSite", name: "DevCentr", url: "https://devcentr.org" },
   mainEntity: {
     "@type": "ItemList",
@@ -33,7 +33,7 @@ export default function ExtensionsPage() {
       <Title>Extensions store · DevCentr</Title>
       <Meta
         name="description"
-        content="Browse the DevCentr extensions store. Rules templates are a section of the catalog. Install saves a link to the source file."
+        content="Browse and install DevCentr extensions and rules templates for Orchestrator."
       />
       <script type="application/ld+json">{JSON.stringify(jsonLd)}</script>
       <main class="mx-auto w-full max-w-6xl flex-1 px-6 pb-16 pt-6 md:px-10">

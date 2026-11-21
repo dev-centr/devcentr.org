@@ -13,7 +13,7 @@ export default function ChangelogIndex() {
       <Title>Changelog · DevCentr</Title>
       <Meta
         name="description"
-        content="DevCentr changelog — shipping notes mirrored from Antora docs changelogs for DevCentr, General Knowledge, and the docs portal."
+        content="Release and documentation updates mirrored from DevCentr Antora changelogs."
       />
       <Meta name="keywords" content="DevCentr, changelog, release notes, docs, shipping" />
       <main class="mx-auto max-w-6xl px-6 pb-24 pt-6 md:px-10 md:pt-10">
@@ -22,9 +22,14 @@ export default function ChangelogIndex() {
           Changelog
         </h1>
         <p class="mt-4 max-w-2xl text-muted-foreground">
-          Day-to-day product and docs changes, sourced from the Antora changelogs. For narrative updates, see{" "}
+          Day-to-day product, site, and documentation changes gathered from our Antora changelogs.
+          For announcements and longer pieces, read{" "}
           <a class="text-primary underline-offset-4 hover:underline" href="/news">
             News
+          </a>{" "}
+          or the{" "}
+          <a class="text-primary underline-offset-4 hover:underline" href="/blog">
+            Blog
           </a>
           .
         </p>

@@ -22,12 +22,12 @@ export default function Home() {
           </p>
 
           <p class="rise rise-delay-2 mt-4 max-w-lg text-base leading-relaxed text-muted-foreground md:text-[1.05rem]">
-            The home for the writing, the catalogs, and the support around the work. The suite that runs the
-            environments is{" "}
+            Tools, open standards, and practical guidance for developers who want to own their whole setup from
+            day one to production. Home of{" "}
             <a class="text-primary underline-offset-4 hover:underline" href="/orchestrator">
               Orchestrator
             </a>
-            .
+            , our Development Orchestration Suite.
           </p>
 
           <div class="rise rise-delay-3 mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
@@ -78,29 +78,36 @@ export default function Home() {
         <div class="mx-auto max-w-6xl px-6 py-16 md:px-10 md:py-24">
           <p class="eyebrow">Why we exist</p>
           <blockquote class="mt-6 max-w-3xl font-display text-2xl font-medium leading-snug tracking-tight text-foreground md:text-3xl md:leading-snug">
-            DevCentr is the place for developers—a cultural resource and a{" "}
-            <span class="text-primary">development path</span>, with a suite that orchestrates the work around the
-            code.
+            Good software shouldn’t require spending half your week nursing broken environments. DevCentr is a
+            home for developers: a cultural resource, a <span class="text-primary">development path</span>, and
+            a suite that orchestrates the work around the code.
           </blockquote>
         </div>
       </section>
 
       <section class="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
-        <p class="eyebrow">Go further</p>
-        <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl">System</h2>
+        <p class="eyebrow">Explore</p>
+        <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight md:text-4xl">
+          Everything in orbit
+        </h2>
+        <p class="mt-3 max-w-xl text-muted-foreground">
+          Orchestrator sits at the center, surrounded by the docs, catalogs, agent skills, writing, and
+          decision tools. Click or tap any planet, or the center star, to jump straight there.
+        </p>
         <SiteMap />
       </section>
 
       <section class="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
         <div class="max-w-2xl">
-          <p class="eyebrow">Toolchain architecture</p>
+          <p class="eyebrow">How toolchains should work</p>
           <h2 class="mt-3 font-display text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-            Official entrypoint owns the lifecycle
+            Stop juggling version managers
           </h2>
           <p class="mt-4 text-muted-foreground">
-            Language and SDK ecosystems should resolve the project pin, install if needed, and re-exec under
-            the correct version for this process tree — without rewriting the machine default or sending
-            newcomers to tribal version managers after an ABI crash.
+            Every language shouldn’t force you to install a separate third-party version manager just to switch
+            between projects. When you run a language’s official command inside a repo, it should see the version
+            that project expects, fetch it if needed, and run it right there without touching the rest of your
+            machine.
           </p>
         </div>
         <div class="mt-12">
@@ -110,7 +117,7 @@ export default function Home() {
           <SiblingOwnershipDiagram />
         </div>
         <p class="mt-8 text-sm text-muted-foreground">
-          Deep dive:{" "}
+          Read the architecture:{" "}
           <a
             class="text-primary underline decoration-primary/35 underline-offset-4 hover:decoration-primary"
             href="https://docs.devcentr.org/general-knowledge/explanation/infrastructure/toolchain-management.html"

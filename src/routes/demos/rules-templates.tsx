@@ -9,7 +9,7 @@ export default function RulesTemplatesDemo() {
       <Title>Rules templates · DevCentr</Title>
       <Meta
         name="description"
-        content="A picture of the DevCentr desktop rules panel. The list on the right is templates on this computer. This page does not edit rules."
+        content="Static preview of the Rules panel in Orchestrator, showing local rules templates and the extensions store link."
       />
       <main class="mx-auto w-full max-w-6xl flex-1 px-6 pb-16 pt-6 md:px-10">
         <PageTrail
@@ -22,20 +22,20 @@ export default function RulesTemplatesDemo() {
         <GithubMark href="https://github.com/dev-centr/devcentr.org" label="devcentr.org on GitHub" />
         <h1 class="mt-4 font-display text-4xl font-semibold tracking-tight">Rules templates</h1>
         <p class="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-          The rules editor is a page in the DevCentr desktop app. The picture below is that panel. The list on
-          the right is Templates on this computer. Install more templates opens the extensions store in a
-          browser. This page is only the picture. It does not edit rules.
+          In Orchestrator, the Rules panel manages the agent rules and templates installed on your
+          machine, with a direct link to install more from the extensions store. Below is a static
+          preview of that panel.
         </p>
         <figure class="mt-8">
           <img
             src="/demos/rules-templates-hero.png"
-            alt="A picture of the DevCentr desktop rules panel. Templates on this computer is on the right, with Install more templates. This page does not edit rules."
+            alt="Screenshot of the Rules panel in Orchestrator, showing local templates in the sidebar and an Install more templates button."
             width={1122}
             height={585}
             class="pointer-events-none w-full rounded-md border border-border/60"
           />
           <figcaption class="mt-3 text-sm text-muted-foreground">
-            The desktop Rules page. You cannot edit rules from this picture.
+            The Rules panel inside Orchestrator.
           </figcaption>
         </figure>
         <p class="mt-8 text-sm">

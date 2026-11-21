@@ -6,7 +6,7 @@ export default function ProductsCatalog() {
     <CatalogPage
       title="Products"
       eyebrow="Products"
-      intro="Installable and shippable tools. Each entry links to its product site or idea page when several repos share one story."
+      intro="Desktop applications, CLIs, and developer tools you can install locally. Multi-repository projects link to an overview page."
       items={products}
       trail={[
         { label: "Assets", href: "/assets" },

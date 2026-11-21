@@ -79,8 +79,8 @@ export function getPrerenderRoutes() {
 export const HTML_FALLBACK = {
   title: "DevCentr — Developer ecosystem and support",
   description:
-    "Tools, resources, and support so developers can go from 0 to pro: learn and manage workflows with the Development Orchestration Suite.",
+    "Tools, open standards, and practical guidance for developers who want to own their whole setup from day one to production. Home of Orchestrator.",
   heading: "DevCentr",
   purpose:
-    "Developer ecosystem and support. More than a tool. A path to mastery. The suite that runs the environments is Orchestrator.",
+    "Developer ecosystem and support. More than a tool. A path to mastery. Home of Orchestrator, our Development Orchestration Suite.",
 };

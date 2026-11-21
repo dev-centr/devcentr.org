@@ -176,7 +176,7 @@ export default function ThemedSvgStudioPage() {
       <Title>Themed SVG Studio concept · DevCentr</Title>
       <Meta
         name="description"
-        content="Interactive concept demo for binding SVG presentation properties to semantic light and dark theme tokens, validating them, and choosing a portable export."
+        content="Interactive concept demo for binding SVG fills and strokes to semantic light, dark, and host-controlled theme tokens."
       />
       <Meta
         name="keywords"
@@ -209,10 +209,9 @@ export default function ThemedSvgStudioPage() {
             Themed SVG Studio
           </h1>
           <p class="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
-            A web concept for preparing existing SVG artwork to work across light, dark, and host-controlled
-            surfaces. Name semantic colors, bind existing presentation properties, review diagnostics, then
-            export the right artifact. This demo does not edit paths or geometry; the desktop editor belongs in
-            the product repository.
+            An interactive concept for adapting existing SVG artwork to light, dark, and host-controlled
+            themes. Define semantic color tokens, bind fills and strokes without altering vector geometry,
+            review diagnostics, and inspect the resulting export mode.
           </p>
         </div>
 
@@ -225,7 +224,7 @@ export default function ThemedSvgStudioPage() {
               </h2>
             </div>
             <p class="max-w-md text-sm text-muted-foreground">
-              Switch export behavior below. The site appearance drives Host and Adaptive previews.
+              Switch preview modes below. Host and Adaptive modes follow the site’s light or dark theme.
             </p>
           </div>
           <div class="mt-6 overflow-hidden rounded-lg border border-border/70 bg-background">
@@ -401,7 +400,7 @@ export default function ThemedSvgStudioPage() {
                 </div>
               </dl>
               <p class="mt-6 text-xs leading-relaxed text-muted-foreground">
-                Concept only. Export and desktop editing are not implemented on this site.
+                Concept preview only. File export and desktop editing live in the product repository.
               </p>
             </section>
           </aside>
@@ -410,8 +409,8 @@ export default function ThemedSvgStudioPage() {
         <section class="mt-16 border-t border-border/70 pt-10">
           <h2 class="font-display text-2xl font-semibold tracking-tight">Continue with the product</h2>
           <p class="mt-3 max-w-2xl text-sm leading-relaxed text-muted-foreground">
-            Follow implementation progress, desktop-editor decisions, and the approved product mark in the
-            canonical repository.
+            Follow development progress, desktop editor design notes, and the product mark in the
+            repository.
           </p>
           <a
             href={REPO}

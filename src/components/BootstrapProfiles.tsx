@@ -93,10 +93,10 @@ const BootstrapProfiles: Component = () => {
       <div class="advisor-split skill-stage-frame">
         <div class="advisor-flow tpl-flow" role="listbox" aria-label="Bootstrap">
           <div class="advisor-step advisor-step-focused tpl-list">
-            <h3>Skills</h3>
+            <h3>Profiles</h3>
             <p class="advisor-hint">
-              Select a profile to inspect the harness inventory record. Copy the agent prompt when
-              you want bootstrap steps dropped into a coding agent.
+              Select a profile to review its stack defaults and copy a bootstrap prompt for your
+              coding agent.
             </p>
             <input
               type="search"

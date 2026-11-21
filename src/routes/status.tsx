@@ -19,37 +19,43 @@ const SERVICES: Omit<ProbeResult, "state" | "statusText" | "ms">[] = [
     id: "site",
     name: "devcentr.org",
     url: "https://devcentr.org/",
-    detail: "Org landing · GitHub Pages",
+    detail: "Main site on GitHub Pages",
   },
   {
     id: "news",
     name: "News",
     url: "https://devcentr.org/news/",
-    detail: "Chronicle / engineering blog",
+    detail: "Announcements and ecosystem updates",
+  },
+  {
+    id: "blog",
+    name: "Blog",
+    url: "https://devcentr.org/blog/",
+    detail: "Essays and craft notes",
   },
   {
     id: "changelog",
     name: "Changelog",
     url: "https://devcentr.org/changelog/",
-    detail: "Product & docs shipping notes",
+    detail: "Product and documentation updates",
   },
   {
     id: "skills",
     name: "Agent skills",
     url: "https://devcentr.org/skills/",
-    detail: "Cursor skills · bootstrap profiles",
+    detail: "Agent skills and bootstrap profiles",
   },
   {
     id: "advisor",
     name: "Stack Advisor",
     url: "https://devcentr.org/stack-advisor/",
-    detail: "Host · target · language · toolchain stack",
+    detail: "Interactive stack and toolchain selector",
   },
   {
     id: "rss",
     name: "News RSS",
     url: "https://devcentr.org/news/rss.xml",
-    detail: "Feed endpoint",
+    detail: "RSS feed endpoint",
   },
   {
     id: "docs",
@@ -61,7 +67,7 @@ const SERVICES: Omit<ProbeResult, "state" | "statusText" | "ms">[] = [
     id: "app",
     name: "Orchestrator",
     url: "https://devcentr.org/orchestrator",
-    detail: "Flagship suite",
+    detail: "Development Orchestration Suite",
   },
   {
     id: "github",
@@ -190,7 +196,7 @@ export default function StatusPage() {
       <Title>Status · DevCentr</Title>
       <Meta
         name="description"
-        content="Live status of DevCentr public services — landing site, docs, app, news feeds, and GitHub."
+        content="Live status checks for DevCentr public sites, documentation, feeds, and repositories."
       />
       <Meta name="keywords" content="DevCentr, status, uptime, health, blog, news" />
       <main class="mx-auto max-w-6xl px-6 pb-10 pt-6 md:px-10 md:pt-10">
@@ -199,8 +205,8 @@ export default function StatusPage() {
             Status
           </h1>
           <p class="mt-4 max-w-2xl text-muted-foreground">
-            Client-side probes of public Dev-Centr endpoints. Same-origin checks report HTTP status; third-party hosts
-            may only show as reachable when CORS blocks reading the response.
+            Live browser checks against public DevCentr endpoints. Same-origin pages report HTTP
+            status codes, while cross-origin hosts report reachability.
           </p>
 
           <a

@@ -6,7 +6,7 @@ export function SiblingOwnershipDiagram(props: { class?: string }) {
       class={props.class}
       src="/media/diagrams/sibling-ownership.svg"
       alt="DevCentr owns toolchain lifecycle policy while OpenShellOrg owns entrypoint resolution, installation, and re-execution."
-      caption="Same pathology, two altitudes — cross-link, do not fork competing essays."
+      caption="Two halves of the same architecture: DevCentr defines toolchain lifecycle policy, and OpenShellOrg owns shell entrypoint dispatch."
     />
   );
 }

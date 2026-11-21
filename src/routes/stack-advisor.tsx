@@ -12,7 +12,7 @@ export default function StackAdvisorPage() {
       <Title>Stack Advisor · DevCentr</Title>
       <Meta
         name="description"
-        content="Pick a host, target, language, and toolchain stack. A sample path is preloaded; clear levels freely. Same SDL definitions as DevCentr desktop."
+        content="Choose a compatible host, target, language, and toolchain stack. Start from the sample path or filter freely using the same SDL definitions as Orchestrator."
       />
       <div class="mx-auto max-w-7xl px-6 pb-12 pt-2 md:px-10">
         <header class="mb-10 md:mb-12">
@@ -21,10 +21,9 @@ export default function StackAdvisorPage() {
             Stack Advisor
           </h1>
           <p class="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
-            Reach a stack decision—host, target, language, and toolchain.
-            A sample path is preloaded as one linked filter strip; remove levels
-            with × or insert with +. Off-path levels stay unconstrained. Grounded
-            in the same SDL definitions as DevCentr desktop.
+            Choose a compatible host, target, language, and toolchain stack. A sample path is loaded
+            to get you started: remove any step with × or add a new one with +. Unselected steps
+            stay open, backed by the same SDL definitions that power Orchestrator.
           </p>
           <div class="mt-6 flex flex-wrap gap-2">
             <Button
@@ -51,7 +50,7 @@ export default function StackAdvisorPage() {
               variant="ghost"
               class="rounded-md text-muted-foreground"
             >
-              Definitions + app repo
+              Definitions and source
             </Button>
           </div>
         </header>

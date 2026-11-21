@@ -4,14 +4,14 @@ const panes = [
   {
     id: "apps",
     label: "Apps",
-    blurb: "Products you install and services you open in a browser.",
+    blurb: "Installable tools and hosted web services built across DevCentr.",
     href: "/apps",
     tone: "from-primary/25 via-transparent to-transparent",
   },
   {
     id: "standards",
     label: "Standards",
-    blurb: "Specs and formats the ecosystem endorses and ships against.",
+    blurb: "Open specifications and formats supported across the ecosystem.",
     href: "/assets/standards",
     tone: "from-accent-foreground/20 via-transparent to-transparent",
   },
@@ -22,7 +22,7 @@ export default function AssetsGate() {
     <CatalogGate
       eyebrow="Catalog"
       title="Assets"
-      intro="Apps and standards live here. Skills stay in the Assets menu beside them."
+      intro="Browse DevCentr apps, hosted services, and open standards."
       panes={[...panes]}
     />
   );

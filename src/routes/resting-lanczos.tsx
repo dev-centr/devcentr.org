@@ -43,7 +43,7 @@ export default function RestingLanczosDemoPage() {
       <Title>resting-lanczos · DevCentr</Title>
       <Meta
         name="description"
-        content="Side-by-side demo: browser bilinear downscale of a huge master vs Lanczos display tiers with srcset and transform scale."
+        content="Side-by-side comparison of browser bilinear downscaling against offline Lanczos3 responsive image tiers with srcset."
       />
       <Meta
         name="keywords"
@@ -63,10 +63,10 @@ export default function RestingLanczosDemoPage() {
           resting-lanczos
         </h1>
         <p class="mt-4 max-w-2xl text-muted-foreground">
-          Same chart, two pipelines. Left: the browser downscales a 2400w master into a small card (bilinear /
-          GPU filter). Right: offline Lanczos3 tiers via <code class="text-primary">srcset</code> /
-          <code class="text-primary">sizes</code>, with hover via <code class="text-primary">transform: scale()</code>
-          — no mipmaps.
+          The same chart rendered two ways. On the left, the browser shrinks a 2400px master down to
+          card size on the fly. On the right, pre-scaled Lanczos3 tiers are served via{" "}
+          <code class="text-primary">srcset</code> and <code class="text-primary">sizes</code>,
+          while hover zoom uses a lightweight <code class="text-primary">transform: scale()</code>.
         </p>
 
         <div class="mt-6 flex flex-wrap gap-2">
@@ -102,8 +102,8 @@ export default function RestingLanczosDemoPage() {
                 Browser downscale
               </h2>
               <p class="mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">
-                One 2400×1800 master forced into a ~24rem card. Layout size shrinks the bitmap every paint —
-                soft text and rings.
+                A single 2400×1800 master scaled down into a 24rem card at paint time, softening
+                thin strokes and small labels.
               </p>
             </div>
             <div
@@ -137,8 +137,8 @@ export default function RestingLanczosDemoPage() {
                 Lanczos tiers + srcset
               </h2>
               <p class="mt-2 max-w-sm text-sm leading-relaxed text-muted-foreground">
-                Prebaked 400w / 800w Lanczos3 candidates. Browser picks the resting bitmap; hover only scales
-                with CSS transform.
+                Pre-scaled 400w and 800w Lanczos3 images selected via srcset. The browser displays
+                the matching bitmap at rest and zooms with CSS transform on hover.
               </p>
             </div>
             <div
@@ -181,16 +181,16 @@ export default function RestingLanczosDemoPage() {
         <section class="mt-16 max-w-2xl border-t border-border/70 pt-10">
           <h2 class="font-display text-2xl font-semibold tracking-tight">What to look for</h2>
           <ul class="mt-4 list-disc space-y-2 pl-5 text-sm leading-relaxed text-muted-foreground">
-            <li>Mono labels and 1px grid lines stay sharper on the right at resting size.</li>
-            <li>Concentric rings and the checker strip alias less when the resting bitmap matches display size.</li>
-            <li>Hover the right card: layout size stays fixed — only a CSS transform runs (no live Lanczos).</li>
+            <li>Monospace labels and 1px grid lines stay noticeably crisper on the right at resting size.</li>
+            <li>Concentric rings and checkerboard bands show far less aliasing when the bitmap matches the rendered box.</li>
+            <li>Hovering the right card scales smoothly via CSS transform without re-rasterizing or shifting layout.</li>
           </ul>
           <p class="mt-6 text-sm leading-relaxed text-muted-foreground">
-            Strategy and CLIs live in{" "}
+            Full methodology and build CLIs live in{" "}
             <a href={REPO} class="text-primary underline-offset-4 hover:underline" target="_blank" rel="noopener noreferrer">
               dev-centr/resting-lanczos
             </a>
-            . WebGL mipmaps are experimental and not used here.
+            .
           </p>
         </section>
       </main>

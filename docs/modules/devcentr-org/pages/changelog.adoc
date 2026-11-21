@@ -2,6 +2,13 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-11-21 - Site copy redo and launch posts
+
+* Rewrote public copy across the homepage, Orchestrator product sheet, Assets and Apps catalogs, Stack Advisor, Agent skills, Extensions store, demos, Help, Status, and Changelog to remove internal notes, defensive phrasing, and repeated disclaimers.
+* Added a Blog probe row to `/status` and updated the News row detail.
+* Published the news announcement link:https://devcentr.org/news/2026-11-21-orchestrator-moves-to-devcentr-org[Orchestrator moves to devcentr.org] and the companion blog essay link:https://devcentr.org/blog/2026-11-21-when-your-website-talks-like-an-agent[When your website talks like an agent].
+* Detail: xref:changelog-details/2026-11-21 - site-copy-redo-and-launch-posts.adoc[Site copy redo and launch posts].
+
 == 2026-11-21 - Why we exist, then the system map
 
 * The quote sits under the hero. The solar system follows it.

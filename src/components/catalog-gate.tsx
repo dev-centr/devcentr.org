@@ -90,7 +90,7 @@ export function CatalogGate(props: {
                   >
                     <div class="apps-gate-reveal-inner">
                       <span class="mt-8 inline-flex font-mono text-[11px] caps tracking-[0.18em] text-primary">
-                        Open catalogue →
+                        Open catalog →
                       </span>
                     </div>
                   </div>

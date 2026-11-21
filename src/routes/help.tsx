@@ -32,7 +32,7 @@ export default function HelpPage() {
       <Title>Help · DevCentr</Title>
       <Meta
         name="description"
-        content="Find DevCentr help — documentation for self-serve answers, or contact support when you need a human."
+        content="Get help with DevCentr through documentation, community channels, or direct email support."
       />
       <Meta name="keywords" content="DevCentr, help, support, docs, documentation, contact" />
       <main class="mx-auto max-w-6xl px-6 pb-10 pt-6 md:px-10 md:pt-10">
@@ -41,8 +41,8 @@ export default function HelpPage() {
           How can we help?
         </h1>
         <p class="mt-4 max-w-2xl text-muted-foreground">
-          Start with self-serve docs when you can. Reach out for support when something needs a person — a dedicated
-          desk is on the way.
+          Start with the documentation for guides and reference answers, or email support when you
+          need a person.
         </p>
 
         <section class="mt-14" aria-labelledby="help-paths-heading">
@@ -61,8 +61,7 @@ export default function HelpPage() {
                     Documentation
                   </p>
                   <p class="mt-2 max-w-xl text-sm leading-relaxed text-muted-foreground">
-                    Guides, reference, and architecture at docs.devcentr.org — the fastest path for how-to and
-                    product knowledge.
+                    Guides, reference docs, and architecture notes at docs.devcentr.org.
                   </p>
                 </div>
                 <span class="shrink-0 font-mono text-[11px] caps tracking-[0.16em] text-muted-foreground group-hover:text-primary">
@@ -90,7 +89,7 @@ export default function HelpPage() {
                     >
                       support@devcentr.org
                     </a>{" "}
-                    for now. A dedicated support system (tickets and assisted help) is coming later.
+                    for direct help. A dedicated ticket desk is planned as the ecosystem grows.
                   </p>
                 </div>
                 <a

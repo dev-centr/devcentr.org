@@ -6,7 +6,7 @@ export default function StandardsCatalog() {
     <CatalogPage
       title="Standards"
       eyebrow="Standards"
-      intro="Formats and specifications DevCentr endorses — not products you install, not hosted dashboards."
+      intro="Open formats and specifications that DevCentr tools implement and support."
       items={standards}
       trail={[
         { label: "Assets", href: "/assets" },

@@ -8,27 +8,27 @@ const capabilities = [
   {
     n: "01",
     title: "Ecosystem Management",
-    body: "Treat shells, toolchains, and environments like real project assets—author them, version them, and share them instead of chasing config files.",
+    body: "Keep shells, runtimes, and toolchains with the project instead of buried in local dotfiles. Author, version, and share them like code.",
   },
   {
     n: "02",
     title: "Visual Blueprints",
-    body: "Interactive maps of your architecture and environments so you can see how the pieces connect.",
+    body: "Interactive maps of your architecture, dependencies, and environments so you can see how the system connects without digging through folders.",
   },
   {
     n: "03",
     title: "AI Synergy Hub",
-    body: "Share reliable project and environment context with your AI tools so suggestions match how your stack really runs.",
+    body: "Feed your coding agents the real state of your stack, rules, and environments so suggestions match how your project actually runs.",
   },
   {
     n: "04",
     title: "Reproducible Workspaces",
-    body: "Version your workspace setup so teammates get the same working environment—from local through the rest of the path.",
+    body: "Commit the workspace definition alongside the repo. New teammates and CI runners land in the same working setup from local dev onward.",
   },
   {
     n: "05",
     title: "DevOps",
-    body: "CI/CD, infra, and traditional ops where they sit on the path—one facet of the suite, not the whole product.",
+    body: "Pipelines, infrastructure, and deployment right where they meet the rest of the lifecycle, built in as one facet of the suite.",
   },
 ] as const;
 
@@ -38,7 +38,7 @@ export default function Orchestrator() {
       <Title>Orchestrator — DevCentr</Title>
       <Meta
         name="description"
-        content="DevCentr Orchestrator is the Development Orchestration Suite: environments, toolchains, projects, and the ops around the code. You conduct. It orchestrates."
+        content="DevCentr Orchestrator is the Development Orchestration Suite for Windows, macOS, and Linux. You conduct; Orchestrator runs the environments, toolchains, workspaces, AI context, and ops."
       />
 
       <section class="border-b border-border/60">
@@ -51,8 +51,8 @@ export default function Orchestrator() {
             Stop managing tools. Orchestrate ecosystems.
           </p>
           <p class="mt-4 max-w-lg text-base leading-relaxed text-muted-foreground md:text-[1.05rem]">
-            The suite for Windows, macOS, and Linux. You are the conductor. Orchestrator runs the environments,
-            toolchains, projects, and the ops around them.
+            One desktop suite for Windows, macOS, and Linux. You conduct, and Orchestrator handles the
+            environments, toolchains, workspaces, AI context, and ops around your code.
           </p>
           <div class="mt-10 flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:items-start">
             <DownloadCta
@@ -67,7 +67,7 @@ export default function Orchestrator() {
               href="https://docs.devcentr.org"
               class="inline-flex h-11 items-center justify-center rounded-md border border-border/80 bg-background/40 px-8 font-mono text-xs font-medium caps tracking-[0.16em] text-foreground backdrop-blur-sm transition-colors hover:bg-accent hover:text-accent-foreground"
             >
-              Explore the docs
+              Read the docs
             </a>
           </div>
         </div>
@@ -77,11 +77,11 @@ export default function Orchestrator() {
         <div class="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28">
           <p class="eyebrow">Capabilities</p>
           <h2 class="mt-3 max-w-2xl font-display text-3xl font-semibold tracking-tight md:text-4xl">
-            One suite. The whole lifecycle around the code.
+            One suite for everything around the code.
           </h2>
           <p class="mt-4 max-w-2xl text-muted-foreground">
-            DevOps is one facet of the suite—alongside environment orchestration, visual blueprints, and grounded AI
-            context.
+            DevOps belongs inside the workflow alongside environment management, visual architecture, and shared
+            AI context.
           </p>
           <ul class="mt-14 grid gap-10 md:grid-cols-2">
             {capabilities.map((c) => (

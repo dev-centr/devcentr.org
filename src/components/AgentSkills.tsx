@@ -22,9 +22,9 @@ import "../toolchain-advisor.css";
 
 
 const HARNESS_INSTALL_PROMPT = [
-  "Install DevCentr agent-rules from https://github.com/dev-centr/agent-rules as a cohesive unit in this harness.",
-  "Wire skill discovery so the skills inventory auto-loads and stays current (prefer harness.md / AGENT_RULES_PATH over pasting skill bodies into always-on rules).",
-  "Treat the corpus as one preinstalled set designed to work together, not a menu of one-off installs.",
+  "Install DevCentr agent-rules from https://github.com/dev-centr/agent-rules into this harness.",
+  "Wire skill discovery so the skills catalog loads automatically and stays current (prefer harness.md / AGENT_RULES_PATH over pasting skill bodies into always-on rules).",
+  "Install the full set so skills can cross-reference one another.",
 ].join("\n");
 
 
@@ -60,8 +60,7 @@ const SkillList: Component<{ entries: SkillEntry[] }> = (props) => {
         <div class="advisor-step advisor-step-focused tpl-list">
           <h3>Skills</h3>
           <p class="advisor-hint">
-            Select a skill to inspect the harness inventory record. Copy the agent prompt when you
-            want setup steps dropped into a coding agent.
+            Select a skill to read its overview and copy an agent prompt for setup or one-off use.
           </p>
           <ul class="advisor-options tpl-options">
             <For each={props.entries}>
@@ -187,15 +186,14 @@ export function AgentSkills() {
           How to use these skills
         </h2>
         <p class="skills-howto-lead">
-          Skills can be used one of two ways:
+          Use a single skill on demand, or install the whole catalog into your harness:
         </p>
         <div class="skills-howto-grid">
           <article class="skills-howto-card">
             <h3 class="skills-howto-card-title">One-off</h3>
             <p class="skills-howto-card-body">
-              Paste the agent prompt for a single skill into your coding agent for this task.
-              No install required. If that skill is not on disk yet, tell the agent to pull it
-              from{" "}
+              Copy a skill’s prompt into your coding agent for a single task with no setup
+              required. If the skill is not installed locally yet, the prompt points your agent to{" "}
               <a
                 href="https://github.com/dev-centr/agent-rules"
                 target="_blank"
@@ -207,9 +205,9 @@ export function AgentSkills() {
             </p>
           </article>
           <article class="skills-howto-card">
-            <h3 class="skills-howto-card-title">Cohesive unit</h3>
+            <h3 class="skills-howto-card-title">Full harness</h3>
             <p class="skills-howto-card-body">
-              Preinstall{" "}
+              Install{" "}
               <a
                 href="https://github.com/dev-centr/agent-rules"
                 target="_blank"
@@ -217,8 +215,8 @@ export function AgentSkills() {
               >
                 agent-rules
               </a>{" "}
-              into your harness so the whole inventory loads as one set and stays current.
-              The corpus is designed to work together. Setup:{" "}
+              into your harness so the entire catalog loads automatically and stays up to date as
+              skills evolve. Setup guide:{" "}
               <a
                 href="https://docs.devcentr.org/tools/agent-rules/"
                 target="_blank"
@@ -231,7 +229,7 @@ export function AgentSkills() {
           </article>
         </div>
         <CopyInstallSnippet
-          label="Agent prompt · preinstall to harness"
+          label="Agent prompt · install full harness"
           text={HARNESS_INSTALL_PROMPT}
         />
       </section>

@@ -4,14 +4,14 @@ const panes = [
   {
     id: "products",
     label: "Products",
-    blurb: "Installable tools you run on a machine - apps, CLIs, and generators.",
+    blurb: "Desktop apps, command-line tools, and generators you install and run locally.",
     href: "/apps/products",
     tone: "from-primary/25 via-transparent to-transparent",
   },
   {
     id: "services",
     label: "Services",
-    blurb: "Hosted surfaces - browse, publish, account-backed workflows.",
+    blurb: "Hosted web tools for browsing packages, publishing releases, and running cloud workflows.",
     href: "/apps/services",
     tone: "from-foreground/10 via-transparent to-transparent",
   },
@@ -22,7 +22,7 @@ export default function AppsGate() {
     <CatalogGate
       eyebrow="Apps"
       title="Apps"
-      intro="Pick products or services. Standards live under Assets, not here."
+      intro="Choose between locally installed products and hosted web services."
       panes={[...panes]}
     />
   );
