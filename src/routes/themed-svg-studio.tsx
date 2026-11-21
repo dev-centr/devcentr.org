@@ -92,11 +92,17 @@ function SampleDiagram(props: { palette: Palette }) {
         <rect x="280" y="302" width="160" height="76" rx="14" />
       </g>
       <g fill={props.palette.ink} font-family="ui-monospace, monospace">
-        <text x="88" y="112" font-size="13" opacity="0.7">SOURCE</text>
+        <text x="88" y="112" font-size="13" opacity="0.7" style={{ "text-transform": "var(--text-case)" }}>
+          Source
+        </text>
         <text x="88" y="143" font-size="21" font-weight="600">Manifest</text>
-        <text x="516" y="112" font-size="13" opacity="0.7">BINDINGS</text>
+        <text x="516" y="112" font-size="13" opacity="0.7" style={{ "text-transform": "var(--text-case)" }}>
+          Bindings
+        </text>
         <text x="516" y="143" font-size="21" font-weight="600">Semantic roles</text>
-        <text x="302" y="332" font-size="13" opacity="0.7">EXPORT</text>
+        <text x="302" y="332" font-size="13" opacity="0.7" style={{ "text-transform": "var(--text-case)" }}>
+          Export
+        </text>
         <text x="302" y="359" font-size="18" font-weight="600">Portable SVG</text>
       </g>
       <circle cx="360" cy="220" r="64" fill={props.palette.accent} />
@@ -190,7 +196,7 @@ export default function ThemedSvgStudioPage() {
           href={REPO}
           target="_blank"
           rel="noopener noreferrer"
-          class="mt-5 inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground transition-colors hover:text-primary"
+          class="mt-5 inline-flex items-center gap-2 font-mono text-[11px] caps tracking-[0.16em] text-muted-foreground transition-colors hover:text-primary"
           aria-label="Open the Themed SVG Studio repository on GitHub"
         >
           <span class="size-5"><GitHubIcon /></span>
@@ -213,7 +219,7 @@ export default function ThemedSvgStudioPage() {
         <section class="mt-12 rounded-xl border border-border/70 bg-card/70 p-4 shadow-sm sm:p-6" aria-labelledby="studio-preview-heading">
           <div class="flex flex-col gap-3 border-b border-border/70 pb-5 sm:flex-row sm:items-end sm:justify-between">
             <div>
-              <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-primary">Sample document</p>
+              <p class="font-mono text-[11px] caps tracking-[0.18em] text-primary">Sample document</p>
               <h2 id="studio-preview-heading" class="mt-2 font-display text-2xl font-semibold tracking-tight">
                 Preview semantic output
               </h2>
@@ -228,7 +234,7 @@ export default function ThemedSvgStudioPage() {
         </section>
 
         <section class="mt-8 rounded-xl border border-dashed border-border bg-background/45 p-4 sm:p-6" aria-labelledby="preview-mode-heading">
-          <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-muted-foreground">Demo controls</p>
+          <p class="font-mono text-[11px] caps tracking-[0.18em] text-muted-foreground">Demo controls</p>
           <div class="mt-2 flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div>
               <h2 id="preview-mode-heading" class="font-display text-xl font-semibold tracking-tight">
@@ -245,7 +251,7 @@ export default function ThemedSvgStudioPage() {
                     type="button"
                     role="radio"
                     aria-checked={mode() === item.id}
-                    class="min-h-11 border-l border-border px-4 font-mono text-[11px] uppercase tracking-[0.14em] first:border-l-0 focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                    class="min-h-11 border-l border-border px-4 font-mono text-[11px] caps tracking-[0.14em] first:border-l-0 focus-visible:z-10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
                     classList={{
                       "bg-primary text-primary-foreground": mode() === item.id,
                       "bg-card text-muted-foreground hover:text-foreground": mode() !== item.id,
@@ -264,7 +270,7 @@ export default function ThemedSvgStudioPage() {
           <div class="space-y-8">
             <section class="rounded-xl border border-border/70 bg-card/70" aria-labelledby="tokens-heading">
               <div class="border-b border-border/70 p-5 sm:p-6">
-                <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-primary">01 · Define</p>
+                <p class="font-mono text-[11px] caps tracking-[0.18em] text-primary">01 · Define</p>
                 <h2 id="tokens-heading" class="mt-2 font-display text-2xl font-semibold tracking-tight">
                   Semantic tokens
                 </h2>
@@ -275,7 +281,7 @@ export default function ThemedSvgStudioPage() {
               <div class="overflow-x-auto">
                 <table class="w-full min-w-[36rem] border-collapse text-left">
                   <thead>
-                    <tr class="border-b border-border/70 font-mono text-[10px] uppercase tracking-[0.16em] text-muted-foreground">
+                    <tr class="border-b border-border/70 font-mono text-[10px] caps tracking-[0.16em] text-muted-foreground">
                       <th class="px-5 py-3 font-medium sm:px-6">Token</th>
                       <th class="px-4 py-3 font-medium">Light</th>
                       <th class="px-4 py-3 font-medium">Dark</th>
@@ -319,7 +325,7 @@ export default function ThemedSvgStudioPage() {
             </section>
 
             <section class="rounded-xl border border-border/70 bg-card/70 p-5 sm:p-6" aria-labelledby="bindings-heading">
-              <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-primary">02 · Bind</p>
+              <p class="font-mono text-[11px] caps tracking-[0.18em] text-primary">02 · Bind</p>
               <h2 id="bindings-heading" class="mt-2 font-display text-2xl font-semibold tracking-tight">
                 Presentation bindings
               </h2>
@@ -344,7 +350,7 @@ export default function ThemedSvgStudioPage() {
 
           <aside class="space-y-8">
             <section class="rounded-xl border border-border/70 bg-card/70 p-5 sm:p-6" aria-labelledby="diagnostics-heading">
-              <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-primary">03 · Review</p>
+              <p class="font-mono text-[11px] caps tracking-[0.18em] text-primary">03 · Review</p>
               <h2 id="diagnostics-heading" class="mt-2 font-display text-2xl font-semibold tracking-tight">
                 Diagnostics
               </h2>
@@ -368,7 +374,7 @@ export default function ThemedSvgStudioPage() {
             </section>
 
             <section class="rounded-xl border border-primary/25 bg-primary/[0.06] p-5 sm:p-6" aria-labelledby="export-heading">
-              <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-primary">04 · Export</p>
+              <p class="font-mono text-[11px] caps tracking-[0.18em] text-primary">04 · Export</p>
               <h2 id="export-heading" class="mt-2 font-display text-2xl font-semibold tracking-tight">
                 Artifact summary
               </h2>

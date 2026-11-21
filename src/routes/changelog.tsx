@@ -30,7 +30,7 @@ export default function ChangelogIndex() {
         </p>
 
         <Show when={sources.length > 0}>
-          <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+          <ul class="mt-8 flex flex-wrap gap-x-6 gap-y-2 font-mono text-[11px] caps tracking-[0.14em] text-muted-foreground">
             <For each={sources}>
               {(s) => (
                 <li>
@@ -58,11 +58,11 @@ export default function ChangelogIndex() {
                   <div class="flex flex-col gap-2">
                     <time
                       datetime={entry.date}
-                      class="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground"
+                      class="font-mono text-[11px] caps tracking-[0.16em] text-muted-foreground"
                     >
                       {entry.date}
                     </time>
-                    <span class="font-mono text-[10px] uppercase tracking-[0.18em] text-primary/80">
+                    <span class="font-mono text-[10px] caps tracking-[0.18em] text-primary/80">
                       {entry.sourceLabel}
                     </span>
                   </div>
@@ -77,7 +77,7 @@ export default function ChangelogIndex() {
                     </Show>
                     <p class="mt-4">
                       <a
-                        class="font-mono text-[11px] uppercase tracking-[0.14em] text-primary underline-offset-4 hover:underline"
+                        class="font-mono text-[11px] caps tracking-[0.14em] text-primary underline-offset-4 hover:underline"
                         href={entry.docsUrl}
                       >
                         Full entry on docs →

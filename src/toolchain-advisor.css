@@ -395,7 +395,7 @@
   font-family: var(--font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.08em;
-  text-transform: uppercase;
+  text-transform: var(--text-case);
   cursor: pointer;
 }
 
@@ -469,7 +469,7 @@
   font-family: var(--font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.16em;
-  text-transform: uppercase;
+  text-transform: var(--text-case);
   color: hsl(var(--muted-foreground));
 }
 
@@ -574,7 +574,7 @@
   font-family: var(--font-mono);
   font-size: 0.65rem;
   letter-spacing: 0.14em;
-  text-transform: uppercase;
+  text-transform: var(--text-case);
   color: hsl(var(--muted-foreground));
 }
 .install-snippet-body {
@@ -679,7 +679,7 @@
   font-family: var(--font-mono);
   font-size: 0.68rem;
   letter-spacing: 0.12em;
-  text-transform: uppercase;
+  text-transform: var(--text-case);
   color: hsl(var(--primary));
 }
 .skills-howto-card-body {

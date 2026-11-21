@@ -97,7 +97,7 @@ export function DownloadCta(props: Props) {
   const missingAsset = () => ready() && selected() != null && !installerHref() && !portableHref();
 
   const btnClass =
-    "inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 font-mono text-xs font-medium uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-primary/90 disabled:pointer-events-none disabled:opacity-50";
+    "inline-flex h-11 items-center justify-center rounded-md bg-primary px-8 font-mono text-xs font-medium caps tracking-[0.16em] text-primary-foreground transition-colors hover:bg-primary/90 disabled:pointer-events-none disabled:opacity-50";
 
   return (
     <div id={props.anchor} class={`flex flex-col items-start gap-2 ${props.class ?? ""}`}>

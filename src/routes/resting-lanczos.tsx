@@ -97,7 +97,7 @@ export default function RestingLanczosDemoPage() {
         >
           <article class="rl-col min-w-0">
             <div class="rl-col-intro">
-              <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">01 · Naive</p>
+              <p class="font-mono text-[11px] caps tracking-[0.2em] text-muted-foreground">01 · Naive</p>
               <h2 class="mt-2 font-display text-xl font-semibold tracking-tight md:text-2xl">
                 Browser downscale
               </h2>
@@ -125,14 +125,14 @@ export default function RestingLanczosDemoPage() {
                 />
               </div>
             </div>
-            <p class="rl-col-cap font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+            <p class="rl-col-cap font-mono text-[11px] caps tracking-[0.14em] text-muted-foreground">
               src = master-2400.webp · no srcset
             </p>
           </article>
 
           <article class="rl-col min-w-0">
             <div class="rl-col-intro">
-              <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-primary">02 · Resting</p>
+              <p class="font-mono text-[11px] caps tracking-[0.2em] text-primary">02 · Resting</p>
               <h2 class="mt-2 font-display text-xl font-semibold tracking-tight md:text-2xl">
                 Lanczos tiers + srcset
               </h2>
@@ -172,7 +172,7 @@ export default function RestingLanczosDemoPage() {
                 />
               </div>
             </div>
-            <p class="rl-col-cap font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+            <p class="rl-col-cap font-mono text-[11px] caps tracking-[0.14em] text-muted-foreground">
               srcset 400w, 800w · hover = scale(1.03)
             </p>
           </article>
@@ -263,7 +263,7 @@ export default function RestingLanczosDemoPage() {
           font-size: 11px;
           font-weight: 500;
           letter-spacing: 0.16em;
-          text-transform: uppercase;
+          text-transform: var(--text-case);
         }
         .rl-tier.is-on {
           background: hsl(var(--primary));

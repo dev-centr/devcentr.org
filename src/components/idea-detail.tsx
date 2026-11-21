@@ -70,7 +70,7 @@ export function IdeaDetail(props: { slug: string }) {
                           {repo.name}
                         </h3>
                         <p class="mt-2 max-w-xl text-sm text-muted-foreground md:text-base">{repo.summary}</p>
-                        <p class="mt-3 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
+                        <p class="mt-3 font-mono text-[11px] caps tracking-[0.16em] text-muted-foreground">
                           GitHub →
                         </p>
                       </a>

@@ -56,7 +56,7 @@ export default function HelpPage() {
                 class="group flex flex-col gap-2 py-8 no-underline transition-colors sm:flex-row sm:items-baseline sm:justify-between sm:gap-10"
               >
                 <div class="min-w-0">
-                  <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-primary">Self-help</p>
+                  <p class="font-mono text-[11px] caps tracking-[0.2em] text-primary">Self-help</p>
                   <p class="mt-2 font-display text-2xl font-semibold tracking-tight text-foreground group-hover:text-primary md:text-3xl">
                     Documentation
                   </p>
@@ -65,7 +65,7 @@ export default function HelpPage() {
                     product knowledge.
                   </p>
                 </div>
-                <span class="shrink-0 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground group-hover:text-primary">
+                <span class="shrink-0 font-mono text-[11px] caps tracking-[0.16em] text-muted-foreground group-hover:text-primary">
                   Open docs →
                 </span>
               </a>
@@ -73,7 +73,7 @@ export default function HelpPage() {
             <li id="support">
               <div class="group flex flex-col gap-2 py-8 sm:flex-row sm:items-baseline sm:justify-between sm:gap-10">
                 <div class="min-w-0">
-                  <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">Support</p>
+                  <p class="font-mono text-[11px] caps tracking-[0.2em] text-muted-foreground">Support</p>
                   <p class="mt-2 font-display text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
                     <a
                       href="mailto:support@devcentr.org"
@@ -95,7 +95,7 @@ export default function HelpPage() {
                 </div>
                 <a
                   href="mailto:support@devcentr.org"
-                  class="shrink-0 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground no-underline transition-colors hover:text-primary"
+                  class="shrink-0 font-mono text-[11px] caps tracking-[0.16em] text-muted-foreground no-underline transition-colors hover:text-primary"
                 >
                   support@devcentr.org
                 </a>
@@ -123,7 +123,7 @@ export default function HelpPage() {
                     <span class="font-display text-lg font-semibold tracking-tight text-foreground group-hover:text-primary md:text-xl">
                       {item.label}
                     </span>
-                    <span class="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
+                    <span class="font-mono text-[11px] caps tracking-[0.16em] text-muted-foreground">
                       {item.detail}
                     </span>
                   </a>

@@ -56,7 +56,7 @@ export default function NewsIndex() {
                   </div>
                   <time
                     datetime={post.date}
-                    class="shrink-0 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground"
+                    class="shrink-0 font-mono text-[11px] caps tracking-[0.16em] text-muted-foreground"
                   >
                     {post.date}
                   </time>

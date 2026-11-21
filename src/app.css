@@ -126,6 +126,8 @@
     --ring: 173 72% 32%;
     --signal: 173 72% 36%;
     --plane: 210 40% 18%;
+    /* Capitals are presentation. Source strings stay in sentence case. */
+    --text-case: uppercase;
 
     /* Architecture diagrams (inline SVG) */
     --diagram-ink: hsl(210 40% 8%);
@@ -257,7 +259,12 @@
 
   .eyebrow {
     font-family: var(--font-mono);
-    @apply text-[11px] font-medium uppercase tracking-[0.22em] text-muted-foreground;
+    text-transform: var(--text-case);
+    @apply text-[11px] font-medium tracking-[0.22em] text-muted-foreground;
+  }
+
+  .caps {
+    text-transform: var(--text-case);
   }
 
   .rise {
@@ -464,7 +471,8 @@
 
   .news-prose :where(th),
   .blog-prose :where(th) {
-    @apply font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground;
+    text-transform: var(--text-case);
+    @apply font-mono text-[11px] tracking-[0.14em] text-muted-foreground;
   }
 
   .news-prose :where(td),
@@ -496,7 +504,8 @@
   }
 
   .diagram-caption {
-    @apply mt-3 text-center font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground;
+    text-transform: var(--text-case);
+    @apply mt-3 text-center font-mono text-[11px] tracking-[0.14em] text-muted-foreground;
   }
 
   .solsys {
@@ -611,7 +620,7 @@
     font-family: var(--font-display);
     font-weight: 600;
     letter-spacing: 0.08em;
-    text-transform: uppercase;
+    text-transform: var(--text-case);
     /* Sun core is always a light teal disc — keep ink dark in both themes. */
     color: hsl(174 35% 14%);
     text-shadow: 0 1px 0 hsl(170 40% 100% / 0.45);

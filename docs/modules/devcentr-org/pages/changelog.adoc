@@ -2,6 +2,11 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-11-21 - Letter case is a style
+
+* Labels stay in sentence case in the source. Capitals on nav, buttons that use the tracked treatment, and other meta text come from `--text-case`.
+* Detail: xref:changelog-details/2026-11-21 - letter-case-is-a-style.adoc[Letter case is a style].
+
 == 2026-11-21 - Orchestrator on the org site
 
 * The flagship suite lives at `/orchestrator`. The homepage links there with Download, and no longer repeats the suite's capability list.

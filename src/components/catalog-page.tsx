@@ -53,7 +53,7 @@ export function CatalogPage(props: {
                       <p class="mt-2 max-w-xl text-sm text-muted-foreground md:text-base">{item.summary}</p>
                     </div>
                   </div>
-                  <span class="shrink-0 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
+                  <span class="shrink-0 font-mono text-[11px] caps tracking-[0.16em] text-muted-foreground">
                     {item.ideaSlug ? "Idea page" : item.external ? "Open" : "View"} ->
                   </span>
                 </a>

@@ -16,7 +16,8 @@
 ## Typography
 
 - **Display / body / buttons:** Space Grotesk
-- **Meta / nav:** Source Code Pro (uppercase, tracked)
+- **Meta / nav:** Source Code Pro, tracked
+- **Letter case:** source strings stay in sentence case. Capitals on labels, nav, and tracked controls come from `--text-case` (currently `uppercase`) via the `caps` class. Changing that token changes the case without rewriting the words.
 
 ## Brand mark
 

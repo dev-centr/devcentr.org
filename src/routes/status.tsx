@@ -212,7 +212,7 @@ export default function StatusPage() {
             <span class="font-display text-lg font-semibold tracking-tight text-foreground md:text-xl">
               Uptime monitor
             </span>
-            <span class="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">
+            <span class="font-mono text-[11px] caps tracking-[0.16em] text-muted-foreground">
               Incidents &amp; history · status.devcentr.org →
             </span>
           </a>
@@ -230,7 +230,7 @@ export default function StatusPage() {
               {summary()}
             </p>
             <Show when={checkedAt()}>
-              <p class="font-mono text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
+              <p class="font-mono text-[10px] caps tracking-[0.18em] text-muted-foreground">
                 Last run {checkedAt()}
               </p>
             </Show>
@@ -252,7 +252,7 @@ export default function StatusPage() {
                     <p class="mt-1 text-sm text-muted-foreground">{row.detail}</p>
                   </div>
                   <div>
-                    <p class={`font-mono text-xs uppercase tracking-[0.16em] ${stateTone(row.state)}`}>
+                    <p class={`font-mono text-xs caps tracking-[0.16em] ${stateTone(row.state)}`}>
                       {stateLabel(row.state)}
                     </p>
                     <p class="mt-1 font-mono text-[11px] text-muted-foreground">{row.statusText}</p>

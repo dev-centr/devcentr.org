@@ -60,7 +60,7 @@ export function CatalogGate(props: {
                   aria-hidden="true"
                 />
                 <div class="relative z-10 p-8 md:p-10 lg:p-12">
-                  <p class="font-mono text-[11px] uppercase tracking-[0.2em] text-muted-foreground">
+                  <p class="font-mono text-[11px] caps tracking-[0.2em] text-muted-foreground">
                     0{index() + 1}
                   </p>
                   <h2 class="mt-3 font-display text-4xl font-semibold tracking-tight text-foreground md:text-5xl lg:text-6xl">
@@ -89,7 +89,7 @@ export function CatalogGate(props: {
                     aria-hidden={!ctaOpen()}
                   >
                     <div class="apps-gate-reveal-inner">
-                      <span class="mt-8 inline-flex font-mono text-[11px] uppercase tracking-[0.18em] text-primary">
+                      <span class="mt-8 inline-flex font-mono text-[11px] caps tracking-[0.18em] text-primary">
                         Open catalogue →
                       </span>
                     </div>

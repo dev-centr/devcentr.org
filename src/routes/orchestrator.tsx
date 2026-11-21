@@ -65,7 +65,7 @@ export default function Orchestrator() {
             />
             <a
               href="https://docs.devcentr.org"
-              class="inline-flex h-11 items-center justify-center rounded-md border border-border/80 bg-background/40 px-8 font-mono text-xs font-medium uppercase tracking-[0.16em] text-foreground backdrop-blur-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+              class="inline-flex h-11 items-center justify-center rounded-md border border-border/80 bg-background/40 px-8 font-mono text-xs font-medium caps tracking-[0.16em] text-foreground backdrop-blur-sm transition-colors hover:bg-accent hover:text-accent-foreground"
             >
               Explore the docs
             </a>
@@ -86,7 +86,7 @@ export default function Orchestrator() {
           <ul class="mt-14 grid gap-10 md:grid-cols-2">
             {capabilities.map((c) => (
               <li class="border-t border-border/70 pt-6">
-                <p class="font-mono text-[11px] uppercase tracking-[0.18em] text-primary">{c.n}</p>
+                <p class="font-mono text-[11px] caps tracking-[0.18em] text-primary">{c.n}</p>
                 <h3 class="mt-2 font-display text-xl font-semibold tracking-tight">{c.title}</h3>
                 <p class="mt-3 max-w-md text-sm leading-relaxed text-muted-foreground md:text-base">{c.body}</p>
               </li>

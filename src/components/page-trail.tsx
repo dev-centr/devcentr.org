@@ -10,7 +10,7 @@ export function PageTrail(props: { crumbs: TrailCrumb[] }) {
   return (
     <nav
       aria-label="Breadcrumb"
-      class="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground"
+      class="font-mono text-[11px] caps tracking-[0.16em] text-muted-foreground"
     >
       <ol class="flex flex-wrap items-center">
         <For each={props.crumbs}>

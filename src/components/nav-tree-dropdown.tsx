@@ -10,10 +10,10 @@ import {
 import { cn } from "~/lib/utils";
 
 const triggerClass =
-  "hidden h-auto gap-1 border-0 bg-transparent px-0 py-0 font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground shadow-none hover:bg-transparent hover:text-foreground sm:inline-flex";
+  "hidden h-auto gap-1 border-0 bg-transparent px-0 py-0 font-mono text-[11px] caps tracking-[0.16em] text-muted-foreground shadow-none hover:bg-transparent hover:text-foreground sm:inline-flex";
 
 const itemClass =
-  "cursor-pointer font-mono text-[11px] uppercase tracking-[0.14em] focus:bg-accent focus:text-accent-foreground";
+  "cursor-pointer font-mono text-[11px] caps tracking-[0.14em] focus:bg-accent focus:text-accent-foreground";
 
 const railClass = "bg-muted-foreground/25 dark:bg-muted-foreground/50";
 

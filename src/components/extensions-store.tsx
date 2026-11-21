@@ -44,7 +44,7 @@ export function ExtensionsStore() {
 
       <form class="mt-8 flex flex-col gap-3 sm:flex-row" onSubmit={(event) => event.preventDefault()}>
         <label class="flex min-w-0 flex-1 flex-col gap-1 text-sm">
-          <span class="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">Search</span>
+          <span class="font-mono text-[11px] caps tracking-[0.16em] text-muted-foreground">Search</span>
           <input
             type="search"
             value={query()}
@@ -54,7 +54,7 @@ export function ExtensionsStore() {
           />
         </label>
         <label class="flex flex-col gap-1 text-sm">
-          <span class="font-mono text-[11px] uppercase tracking-[0.16em] text-muted-foreground">Kind</span>
+          <span class="font-mono text-[11px] caps tracking-[0.16em] text-muted-foreground">Kind</span>
           <select
             class="rounded-md border border-border bg-background px-3 py-2"
             value={kind()}
@@ -82,7 +82,7 @@ export function ExtensionsStore() {
                 <div>
                   <h2 class="font-display text-xl font-semibold">{entry.name}</h2>
                   <p class="mt-2 max-w-xl text-sm text-muted-foreground">{entry.description}</p>
-                  <p class="mt-2 font-mono text-[11px] uppercase tracking-[0.14em] text-muted-foreground">
+                  <p class="mt-2 font-mono text-[11px] caps tracking-[0.14em] text-muted-foreground">
                     {kindLabel[entry.type] ?? entry.type} · {entry.version} · {entry.tags.join(", ")}
                   </p>
                   <a class="mt-2 inline-block text-sm text-primary underline-offset-4 hover:underline" href={entry.repository}>
