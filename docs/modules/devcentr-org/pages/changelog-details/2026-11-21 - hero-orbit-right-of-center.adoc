@@ -1,0 +1,15 @@
+= 2026-11-21
+
+:hide-page:
+:navtree-parent: changelog.adoc
+:page-audience: maintainers
+:page-usage-context: Changelog detail
+:page-orig-author: Cursor grok-4.7 on behalf of Ryan Johnson
+:page-last-author: name=Ryan Johnson; harness=Cursor; model=grok-4.7
+
+
+== Hero orbit sits right of center
+
+The homepage hero orbit was offset from the right edge of the section, so on a wide window it stayed glued to the screen. Its center now sits 300px to the right of the hero midline (`left: calc(50% + 300px)` and a half-width shift). Vertical placement is unchanged, and a narrow viewport still clips it with the hero's overflow.
+
+Contact:: DevCentr.org — support@devcentr.org

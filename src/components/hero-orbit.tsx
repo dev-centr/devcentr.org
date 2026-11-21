@@ -1,9 +1,9 @@
-/** Full-bleed orbital field for the hero plane. */
+/** Orbital field on the hero, centered 300px right of the section midline. */
 export function HeroOrbit(props: { class?: string }) {
   return (
     <div class={`pointer-events-none absolute inset-0 overflow-hidden ${props.class ?? ""}`} aria-hidden="true">
       <svg
-        class="absolute -right-[18%] top-[-12%] h-[120%] w-auto max-w-none text-primary opacity-[0.22] dark:opacity-[0.28] md:-right-[8%] md:top-[-8%]"
+        class="absolute top-[-12%] left-[calc(50%+300px)] h-[120%] w-auto max-w-none -translate-x-1/2 text-primary opacity-[0.22] dark:opacity-[0.28] md:top-[-8%]"
         viewBox="0 0 800 800"
         xmlns="http://www.w3.org/2000/svg"
       >

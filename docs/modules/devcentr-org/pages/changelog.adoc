@@ -5,6 +5,11 @@ Timeline of notable documentation and site changes in the devcentr.org repositor
 
 == 2026-11-21
 
+=== Hero orbit sits right of center
+
+* The rotating orbit in the homepage hero is placed on the section, with its center 300px to the right of the page midline, so a wide window or a zoom-out keeps it with the page.
+* Detail: xref:changelog-details/2026-11-21 - hero-orbit-right-of-center.adoc[Hero orbit sits right of center].
+
 === Homepage hero copy is centered
 
 * The title, summary, and buttons sit in the vertical middle of the fixed 640px hero from the medium breakpoint up. Narrow screens still size to the copy.
