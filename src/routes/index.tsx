@@ -56,7 +56,7 @@ export default function Home() {
             <Button
               as="a"
               size="lg"
-              class="rounded-md font-button text-xs uppercase tracking-[0.16em]"
+              class="rounded-md"
               href="https://devcentr.app"
             >
               Get App
@@ -65,7 +65,7 @@ export default function Home() {
               as="a"
               size="lg"
               variant="outline"
-              class="rounded-md border-border/80 bg-background/40 font-button text-xs uppercase tracking-[0.16em] backdrop-blur-sm"
+              class="rounded-md border-border/80 bg-background/40 backdrop-blur-sm"
               href="/stack-advisor"
             >
               Stack Advisor
@@ -74,7 +74,7 @@ export default function Home() {
               as="a"
               size="lg"
               variant="outline"
-              class="rounded-md border-border/80 bg-background/40 font-button text-xs uppercase tracking-[0.16em] backdrop-blur-sm"
+              class="rounded-md border-border/80 bg-background/40 backdrop-blur-sm"
               href="/skills"
             >
               Agent skills
@@ -83,7 +83,7 @@ export default function Home() {
               as="a"
               size="lg"
               variant="outline"
-              class="rounded-md border-border/80 bg-background/40 font-button text-xs uppercase tracking-[0.16em] backdrop-blur-sm"
+              class="rounded-md border-border/80 bg-background/40 backdrop-blur-sm"
               href="/extensions?type=rules-template"
             >
               Extensions store
@@ -92,7 +92,7 @@ export default function Home() {
               as="a"
               size="lg"
               variant="outline"
-              class="rounded-md border-border/80 bg-background/40 font-button text-xs uppercase tracking-[0.16em] backdrop-blur-sm"
+              class="rounded-md border-border/80 bg-background/40 backdrop-blur-sm"
               href="/skills?cat=bootstrap"
             >
               Bootstrap an org

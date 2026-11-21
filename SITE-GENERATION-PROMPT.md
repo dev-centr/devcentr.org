@@ -23,7 +23,7 @@ Vision and content for the official **DevCentr** organization landing page.
 - Cool steel neutrals + teal signal — **not** cream/serif/terracotta, **not** purple glass, **not** broadsheet rules
 - Brand-first hero: wordmark **DevCentr** is the hero signal; one headline; one supporting sentence; CTA group; full-bleed orbital visual
 - No cards in the hero; cards only for real interactions
-- Fonts: Montserrat (body and headings) + IBM Plex Mono (nav and meta) + JetBrains Mono (buttons)
+- Fonts: Montserrat (body, headings, and buttons) + IBM Plex Mono (nav and meta)
 - Motion: orbit / reverse orbit / hub pulse
 - Theme: light/dark with system sync; circular clip from exact center of the mode toggle (`theme-reveal`). State A = load / OS scheme change. A→B: easeOutSine expand; B→A: easeOutSine contract edge→button (forward keyframes, not animation-direction: reverse). No blend modes, masks, or dual overlays.
 - Brand marks: web `LogoMark` uses `currentColor`; print/designer canonical colors in `public/brand/logo.svg` / `logo-canonical.svg`

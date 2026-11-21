@@ -21,7 +21,7 @@ export const CopyInstallSnippet: Component<{ label?: string; text: string }> = (
         <span class="install-snippet-label">{props.label ?? "Agent prompt"}</span>
         <Button
           variant="outline"
-          class="rounded-md font-button text-xs uppercase tracking-[0.16em]"
+          class="rounded-md"
           onClick={() => void copy()}
         >
           {copied() ? "Copied" : "Copy"}

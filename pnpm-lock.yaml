@@ -23,9 +23,6 @@ importers:
       '@fontsource/ibm-plex-mono':
         specifier: ^5.3.0
         version: 5.3.0
-      '@fontsource/jetbrains-mono':
-        specifier: ^5.3.0
-        version: 5.3.0
       '@kobalte/core':
         specifier: ^0.13.11
         version: 0.13.11(solid-js@1.9.11)
@@ -537,9 +534,6 @@ packages:
 
   '@fontsource/ibm-plex-mono@5.3.0':
     resolution: {integrity: sha512-eTgnZjZEGk1QtD3ZstF+Vclo2HLAni8YMy34/DxllwZvyz1lR/1RF/xTiAquOBO7MvqBx8D2Ig2WCPMVfdZu7Q==}
-
-  '@fontsource/jetbrains-mono@5.3.0':
-    resolution: {integrity: sha512-fqDfB5I9f1p1TV486aUgB9t8zP84P0O1FtQR5Ol9vjwPy+S+EIGlVYm1cvj2W5shcZMTg2nZFdVMoH5wFu8a1A==}
 
   '@img/colour@1.1.0':
     resolution: {integrity: sha512-Td76q7j57o/tLVdgS746cYARfSyxk8iEfRxewL9h4OMzYhbW4TAcppl0mT4eyqXddh6L/jwoM75mo7ixa/pCeQ==}
@@ -3577,8 +3571,6 @@ snapshots:
   '@fontsource-variable/montserrat@5.3.0': {}
 
   '@fontsource/ibm-plex-mono@5.3.0': {}
-
-  '@fontsource/jetbrains-mono@5.3.0': {}
 
   '@img/colour@1.1.0': {}
 

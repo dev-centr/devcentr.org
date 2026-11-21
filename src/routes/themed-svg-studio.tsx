@@ -411,7 +411,7 @@ export default function ThemedSvgStudioPage() {
             href={REPO}
             target="_blank"
             rel="noopener noreferrer"
-            class="mt-5 inline-flex min-h-11 items-center gap-2 rounded-md bg-primary px-5 font-button text-xs uppercase tracking-[0.16em] text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+            class="mt-5 inline-flex min-h-11 items-center gap-2 rounded-md bg-primary px-5 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           >
             <span class="size-4"><GitHubIcon /></span>
             Open themed-svg-studio

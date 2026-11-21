@@ -2,6 +2,11 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-11-21 - Sentence-case buttons
+
+* Button labels use Montserrat in sentence case. The uppercase mono treatment is gone from buttons. Nav labels stay IBM Plex Mono.
+* Detail: xref:changelog-details/2026-11-21 - sentence-case-buttons.adoc[Sentence-case buttons].
+
 == 2026-11-21 - Hero alignment and JetBrains Mono buttons
 
 * The hero wordmark shifts left by a small fraction of its size so the capital D lines up with the lines under it.
