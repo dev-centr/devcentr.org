@@ -7,9 +7,9 @@ import { Button } from "~/components/ui/button";
 export default function Home() {
   return (
     <main>
-      <section class="relative isolate min-h-[calc(100dvh-5.5rem)] overflow-hidden">
+      <section class="relative isolate overflow-hidden md:min-h-[640px]">
         <HeroOrbit />
-        <div class="relative z-10 mx-auto flex max-w-6xl flex-col justify-center px-6 pb-20 pt-10 md:min-h-[calc(100dvh-5.5rem)] md:px-10 md:pb-28 md:pt-6">
+        <div class="relative z-10 mx-auto flex max-w-6xl flex-col justify-center px-6 pb-20 pt-10 md:px-10 md:pb-28 md:pt-6">
           <p class="eyebrow rise text-primary">Developer ecosystem and support</p>
 
           <h1 class="rise rise-delay-1 -ms-[0.04em] mt-5 max-w-3xl font-display text-[clamp(2.75rem,10vw,5.5rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-foreground">

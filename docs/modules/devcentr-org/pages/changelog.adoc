@@ -2,6 +2,11 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-11-21 - Homepage hero keeps a fixed height
+
+* The homepage hero no longer stretches to the viewport. From the `md` breakpoint up it stays at least 640px tall, so zooming out does not leave a sparse full-screen band.
+* Detail: xref:changelog-details/2026-11-21 - homepage-hero-fixed-height.adoc[Homepage hero keeps a fixed height].
+
 == 2026-11-21 - Single toolchain diagram on the homepage
 
 * The homepage toolchain section now shows only the core toolchain architecture diagram, leaving sibling org ownership to the Toolchain Management Pattern article, and frames the section around stopping version-manager juggling.
