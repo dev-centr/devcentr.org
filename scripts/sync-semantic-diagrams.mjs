@@ -7,7 +7,7 @@ const root = resolve(import.meta.dirname, "..");
 const output = join(root, "public", "media", "diagrams");
 const provenancePath = join(output, "canonical.provenance.json");
 const sourceRepository = "https://github.com/openshellorg/shell-architecture";
-const sourceCommit = "c3094ae7ff2878ad857949944db68efa7ac33806";
+const sourceCommit = "81ce4d46341be304830b1e80cf2c687b9fe47c52";
 const files = [
   "toolchain-architecture.svg",
   "toolchain-architecture.host.svg",
