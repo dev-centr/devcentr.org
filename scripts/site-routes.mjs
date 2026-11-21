@@ -17,7 +17,6 @@ const STATIC_ROUTES = [
   "/themed-svg-studio",
   "/skills",
   "/templates",
-  "/rules",
   "/extensions",
   "/demos",
   "/demos/rules-templates",

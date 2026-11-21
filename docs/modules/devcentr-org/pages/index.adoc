@@ -1,6 +1,6 @@
 = devcentr.org
 :description: Organization landing site for Dev-Centr — SolidStart marketing shell, news, changelog mirror, and public tools.
-:page-last-author: Cursor grok-4.7 on behalf of Ryan Johnson
+:page-last-author: name=Ryan Johnson; harness=Cursor; model=grok-4.7
 
 link:https://devcentr.org[devcentr.org] is the public organization landing page for link:https://github.com/dev-centr[Dev-Centr].
 It is a static SolidStart site deployed to GitHub Pages on every push to `main`.
@@ -17,7 +17,7 @@ https://devcentr.org
 * **News** (`/news`) and **Blog** (`/blog`) — News: narrative AsciiDoc from `content/news/`. Blog: essays from `content/blog/`.
 * **Changelog** (`/changelog`) — Mirror index of Antora changelogs from sibling repos (built at CI time).
 * **Community** — Help hub (`/help`), status probes (`/status`), and toolchain surfaces.
-* **Public tools** — Stack Advisor (`/stack-advisor`; `/toolchain-browser` and `/toolchain-advisor` redirect), agent skills (`/skills`), the rules editor (`/rules`) and extensions store (`/extensions`), resting-lanczos demo (`/resting-lanczos`), and apps catalogue (`/apps`).
+* **Public tools** — Stack Advisor (`/stack-advisor`; `/toolchain-browser` and `/toolchain-advisor` redirect), agent skills (`/skills`), the extensions store (`/extensions`, including the rules-template filter), a picture of the desktop rules panel (`/demos/rules-templates`), resting-lanczos demo (`/resting-lanczos`), and apps catalogue (`/apps`). The rules editor is the desktop app.
 
 == Documentation map
 

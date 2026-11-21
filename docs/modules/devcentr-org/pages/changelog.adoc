@@ -2,9 +2,15 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-11-21 - Rules editor stays in the desktop app
+
+* `/rules` is gone. The site no longer hosts a rules editor. The extensions store stays at `/extensions`, including the rules-template filter. Install in the browser still saves a link, not the template text.
+* `/demos/rules-templates` is a picture of the desktop Rules panel. It does not edit rules.
+* Detail: xref:changelog-details/2026-11-21 - rules-editor-desktop-only.adoc[Rules editor stays in the desktop app].
+
 == 2026-11-21 - Rules templates in the extensions store
 
-* The rules editor (`/rules`) lists template links on this computer. **Install more templates** opens the extensions store (`/extensions`). A rules template is one kind of extension. Install saves the link, not a copy of the file.
+* The rules editor (`/rules`) listed template links in the browser. **Install more templates** opened the extensions store (`/extensions`). A rules template is one kind of extension. Install saved the link, not a copy of the file. That editor was removed later the same day.
 * Detail: xref:changelog-details/2026-11-21 - rules-template-catalog.adoc[Rules template catalog].
 
 == 2026-11-19 - Bend versus D essay

@@ -38,8 +38,8 @@ export function ExtensionsStore() {
       <h1 class="font-display text-4xl font-semibold tracking-tight">Extensions store</h1>
       <p class="mt-4 max-w-2xl text-sm leading-relaxed text-muted-foreground md:text-base">
         Browse extensions for DevCentr. Rules templates are one kind. Search by name or tag, then install.
-        Install saves a link on this computer. The template text stays in its repository. You can still copy a
-        file by hand. This button path records the link instead.
+        Install saves a link in this browser. The template text stays in its repository. The desktop app is
+        where the list of templates on this computer lives.
       </p>
 
       <form class="mt-8 flex flex-col gap-3 sm:flex-row" onSubmit={(event) => event.preventDefault()}>
@@ -101,10 +101,8 @@ export function ExtensionsStore() {
           </For>
         </ul>
       </Show>
-      <p class="mt-6 text-sm">
-        <a class="text-primary underline-offset-4 hover:underline" href="/rules">
-          Back to the rules editor
-        </a>
+      <p class="mt-6 text-sm text-muted-foreground">
+        The rules editor is the Rules page in the DevCentr desktop app. This store does not edit rules.
       </p>
     </div>
   );

@@ -84,9 +84,9 @@ export default function Home() {
               size="lg"
               variant="outline"
               class="rounded-md border-border/80 bg-background/40 font-mono text-xs uppercase tracking-[0.16em] backdrop-blur-sm"
-              href="/rules"
+              href="/extensions?type=rules-template"
             >
-              Rules editor
+              Extensions store
             </Button>
             <Button
               as="a"

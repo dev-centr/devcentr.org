@@ -1,0 +1,18 @@
+= 2026-11-21
+
+:hide-page:
+:navtree-parent: changelog.adoc
+:page-audience: maintainers
+:page-usage-context: Changelog detail
+:page-orig-author: name=Ryan Johnson; harness=Cursor; model=grok-4.7
+:page-last-author: name=Ryan Johnson; harness=Cursor; model=grok-4.7
+
+== Rules editor stays in the desktop app
+
+The product rules editor is the Rules page in the DevCentr desktop app. This site no longer has `/rules`, and the home page, footer, and assets menu no longer present that path as an editor.
+
+`/extensions` stays. The rules-template filter stays. Install on the site still saves `install.pointer` in this browser. It does not save the template body. The desktop list labeled Templates on this computer reads `%USERPROFILE%\.dev-center\extensions\catalog.json`.
+
+`/demos/rules-templates` is a picture of the desktop panel. The page does not edit rules.
+
+Contact:: DevCentr.org — support@devcentr.org
