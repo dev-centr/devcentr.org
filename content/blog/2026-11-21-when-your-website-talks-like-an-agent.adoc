@@ -1,0 +1,162 @@
+= When your website talks like an agent
+:author: Ryan Johnson
+:description: Consolidating devcentr.app into devcentr.org exposed a quiet failure mode of building a site alongside coding agents: maintainer notes, defensive navigation copy, abrupt jargon drops, and robotic disclaimers leaking straight into public pages.
+:revdate: 2026-11-21
+:keywords: blog, writing, web copy, AI agents, editorial craft, devcentr, Orchestrator
+:page-audience: Developers and maintainers building public sites with coding agents
+:page-usage-context: Craft essay on the DevCentr blog
+:page-orig-author: Ryan Johnson
+:page-last-author: Cursor Gemini 4 Neon on behalf of Ryan Johnson
+:page-last-edited: 2026-11-21
+:page-status: Published
+
+When you build a website alongside coding agents for a few months, something subtle happens to the prose.
+Nothing breaks the build.
+Every route renders, every badge aligns, and every meta tag passes validation.
+Then you step back, open the homepage as if you had never seen the repository before, and realize the site is not talking to a visitor.
+It is talking to a diff.
+
+We hit that moment right after folding `devcentr.app` into link:/orchestrator[`devcentr.org/orchestrator`].
+Two properties had become one, and the flagship Development Orchestration Suite finally had a clear name: **Orchestrator**.
+With the navigation unified, we sat down to read `devcentr.org` top to bottom the way a stranger would.
+Page after page, we found the same four agent-voice habits sitting right in front of the public.
+
+== 1. Maintainer notes leaking into public UI
+
+Halfway down the homepage sits a diagram explaining how DevCentr and OpenShellOrg split responsibility for language toolchains.
+Before our edit, the public caption right underneath that illustration read:
+
+[quote]
+____
+Same pathology, two altitudes — cross-link, do not fork competing essays.
+____
+
+Stop and picture a developer landing on `devcentr.org` for the first time and reading that sentence under a homepage figure.
+What pathology?
+Which essays?
+Who is being told not to fork them?
+
+Nobody wrote that caption for a reader.
+That line is an editorial note from an architecture doc, probably pasted into a prompt or carried out of a review comment about keeping two org blogs from duplicating each other.
+A coding agent asked to wire up the diagram component needed a `caption` prop, grabbed the closest summary in context, and shipped an internal memo as public UI.
+
+Once you notice the leak, the fix takes ten seconds:
+
+[quote]
+____
+Two halves of the same architecture: DevCentr defines toolchain lifecycle policy, and OpenShellOrg owns shell entrypoint dispatch.
+____
+
+The diagram did not change.
+The audience did.
+
+== 2. Defensive navigation copy
+
+Open a catalog page on a site built through long agent sessions and listen to the tone.
+Ours sounded oddly annoyed at the reader.
+
+On `/apps`, the intro line said: *"Pick products or services. Standards live under Assets, not here."*
+On `/apps/services`, it insisted: *"They stay separate on purpose."*
+On `/assets/standards`, it warned: *"not products you install, not hosted dashboards."*
+On `/skills`, it explained that browsing the catalog was *"not a menu of one-offs"* and worked *"without a manual shopping trip."*
+
+No visitor walked onto `/apps` demanding to know why Standards were missing, or accusing PackageHub and `pkgpublish` of being split by accident.
+Those arguments happened *in the chat* weeks earlier, when a maintainer corrected an agent that kept bundling Standards under Apps or merging two separate services into one card.
+The agent absorbed the correction and carried the whole debate into the user-facing subtitle.
+
+This is one of the easiest agent-voice tells to spot once you know what to look for.
+When public copy argues against an objection nobody raised, it is almost always replaying a previous prompt.
+Good navigation tells visitors what *is* on the page and lets the menu do the rest.
+*"Choose between locally installed products and hosted web services"* does the job in ten words without scolding anyone.
+
+== 3. The altitude drop
+
+The top of `devcentr.org` opens wide: a calm orbital hero, a short line about owning your setup from day one to production, and a quote about not spending half your week nursing broken environments.
+Scroll down to the toolchain section, and the previous draft suddenly dropped thirty thousand feet without warning:
+
+[quote]
+____
+Language and SDK ecosystems should resolve the project pin, install if needed, and re-exec under the correct version for this process tree — without rewriting the machine default or sending newcomers to tribal version managers after an ABI crash.
+____
+
+Every word of that sentence is technically true.
+It also hits a first-time visitor like an excerpt from a design RFC pasted onto a billboard.
+*Resolve the project pin.*
+*Re-exec under the correct version for this process tree.*
+*Tribal version managers after an ABI crash.*
+
+Agents love compressing an entire specification into one high-density sentence because compression feels thorough.
+On a homepage, though, density without a ramp reads as hostility.
+You can keep the exact same technical claim and still meet the reader at street level:
+
+[quote]
+____
+Developers shouldn’t need a third-party version manager just to keep a machine from breaking. A language’s own entrypoint should read the project pin, fetch the right version if it’s missing, and hand off execution cleanly without touching your global default.
+____
+
+One plain opening sentence sets the problem every developer already recognizes.
+Then the architecture lands cleanly, and anyone who wants the process-tree details can click through to the docs.
+
+== 4. Robotic disclaimers and AI-ism cadence
+
+The funniest page we opened during the audit was `/demos/rules-templates`, a fifty-line route that shows a static screenshot of the Rules panel inside Orchestrator.
+Earlier that day, we had removed a browser-based rules editor so editing stayed in the desktop app, and asked an agent to make clear that the demo page was only a preview.
+
+The agent took that instruction literally.
+In the `<Meta>` description: *"This page does not edit rules."*
+In the intro paragraph: *"This page is only the picture. It does not edit rules."*
+In the image `alt` text: *"This page does not edit rules."*
+In the `<figcaption>`: *"You cannot edit rules from this picture."*
+
+Four warnings in half a screen, all because the agent treated a boundary rule from the chat as a legal disclaimer that had to be stamped on every DOM node.
+Say *"static preview"* once in the intro, describe what the screenshot actually shows in the `alt` text, and move on.
+
+The same pass turned up the smaller cadence habits that creep in whenever copy gets drafted inside implementation PRs:
+
+* Clipped commit-note fragments posing as catalog descriptions (*"SolidStart SSR on Netlify (Vercel alternate), JSON or Turso persistence. Localhost rejected"*).
+* Contrast crutches that announce profundity without adding meaning (*"not just X, it's Y"*).
+* Stacked em-dash clauses and buzzwords that no engineer actually says out loud.
+
+None of these are fatal on their own.
+Stacked across twenty routes, they make a real engineering project sound like an automated status dump.
+
+== Two halves, one voice
+
+Rewriting the copy forced us to finish a naming decision that had been half-spoken for months.
+`devcentr.org` and `devcentr.app` used to blur into each other, which left pages awkwardly referring to *"DevCentr desktop"* in one sentence and *"the DevCentr ecosystem"* in the next.
+
+Folding the app site into link:/orchestrator[`/orchestrator`] drew a clean line between the two:
+
+* **DevCentr** (`devcentr.org`) is the home base: the open standards, catalogs, agent skills, writing, decision tools, and support around the work.
+* **Orchestrator** (`/orchestrator`) is the instrument: the desktop suite for Windows, macOS, and Linux. You conduct; Orchestrator handles the environments, toolchains, workspaces, AI context, and ops.
+
+Once every route knew which half it belonged to, half the awkward hedging disappeared on its own.
+Stack Advisor points to Orchestrator's SDL definitions.
+The Extensions store points to the Rules panel in Orchestrator.
+The homepage no longer has to double as a product spec sheet, and `/orchestrator` no longer has to introduce the entire organization from scratch.
+
+== The stranger test
+
+If you build public sites with coding agents, plan on running a copy pass after the layout settles.
+Coding agents are great at shipping routes, keeping links intact, and honoring constraints from the prompt.
+They are terrible at forgetting the conversation you just had.
+
+Before you call a page done, open it in a fresh tab and ask four quick questions as someone who was never in the chat:
+
+. *Could any sentence on this page have been copied out of an internal note or PR comment?* If yes, rewrite it for a reader who has never seen your repo.
+. *Is any line arguing against a mistake nobody on this page has made?* Cut the negation and state what is actually here.
+. *Does a section jump straight from a broad headline into low-level mechanics?* Add one plain sentence to bridge the altitude.
+. *Did the same caveat get repeated across the intro, caption, and footer?* Keep the clearest one and delete the echoes.
+
+Software built with agents moves fast enough that the words around the software lag behind.
+Taking an hour to read your own pages like a newcomer is the cheapest way to make sure your site sounds like the people building it, not the transcripts that assembled it.
+
+ifndef::page-context-active[]
+[.page-context.page-context-footer]
+****
+Audience role:: {page-audience}
+Original author:: {page-orig-author}
+Latest contributor:: {page-last-author}
+Last updated:: {page-last-edited}
+****
+endif::[]

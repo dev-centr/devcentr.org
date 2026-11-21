@@ -4,8 +4,16 @@
   <link href="https://devcentr.org/blog" rel="alternate"/>
   <link href="https://devcentr.org/blog/atom.xml" rel="self"/>
   <id>https://devcentr.org/blog</id>
-  <updated>2026-11-19T12:00:00Z</updated>
+  <updated>2026-11-21T12:00:00Z</updated>
   <subtitle>Craft, investigations, and orientations from Dev-Centr.</subtitle>
+  <entry>
+    <title>When your website talks like an agent</title>
+    <link href="https://devcentr.org/blog/2026-11-21-when-your-website-talks-like-an-agent" rel="alternate"/>
+    <id>https://devcentr.org/blog/2026-11-21-when-your-website-talks-like-an-agent</id>
+    <updated>2026-11-21T12:00:00Z</updated>
+    <summary>Consolidating devcentr.app into devcentr.org exposed a quiet failure mode of building a site alongside coding agents: maintainer notes, defensive navigation copy, abrupt jargon drops, and robotic disclaimers leaking straight into public pages.</summary>
+    <category term="blog"/>
+  </entry>
   <entry>
     <title>Bend’s Parallel Bet—and What D Should Steal Instead</title>
     <link href="https://devcentr.org/blog/2026-11-19-bends-parallel-bet-and-what-d-should-steal-instead" rel="alternate"/>

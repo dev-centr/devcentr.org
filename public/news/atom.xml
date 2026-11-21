@@ -4,8 +4,16 @@
   <link href="https://devcentr.org/news" rel="alternate"/>
   <link href="https://devcentr.org/news/atom.xml" rel="self"/>
   <id>https://devcentr.org/news</id>
-  <updated>2026-11-02T12:00:00Z</updated>
+  <updated>2026-11-21T12:00:00Z</updated>
   <subtitle>Shipped work, partnerships, and openings from Dev-Centr.</subtitle>
+  <entry>
+    <title>Orchestrator moves to devcentr.org</title>
+    <link href="https://devcentr.org/news/2026-11-21-orchestrator-moves-to-devcentr-org" rel="alternate"/>
+    <id>https://devcentr.org/news/2026-11-21-orchestrator-moves-to-devcentr-org</id>
+    <updated>2026-11-21T12:00:00Z</updated>
+    <summary>The flagship Development Orchestration Suite is now named Orchestrator and lives at devcentr.org/orchestrator, with devcentr.app forwarding there and rewritten copy across devcentr.org.</summary>
+    <category term="news"/>
+  </entry>
   <entry>
     <title>Announcing envsafe for Agentic coding</title>
     <link href="https://devcentr.org/news/2026-11-02-announcing-envsafe-for-agentic-coding" rel="alternate"/>

@@ -5,7 +5,15 @@
   <link>https://devcentr.org/news</link>
   <description>Shipped work, partnerships, and openings from Dev-Centr.</description>
   <language>en-us</language>
-  <lastBuildDate>Mon, 02 Nov 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 21 Nov 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>Orchestrator moves to devcentr.org</title>
+    <link>https://devcentr.org/news/2026-11-21-orchestrator-moves-to-devcentr-org</link>
+    <guid isPermaLink="true">https://devcentr.org/news/2026-11-21-orchestrator-moves-to-devcentr-org</guid>
+    <pubDate>Sat, 21 Nov 2026 12:00:00 GMT</pubDate>
+    <description>The flagship Development Orchestration Suite is now named Orchestrator and lives at devcentr.org/orchestrator, with devcentr.app forwarding there and rewritten copy across devcentr.org.</description>
+    <category>news</category>
+  </item>
   <item>
     <title>Announcing envsafe for Agentic coding</title>
     <link>https://devcentr.org/news/2026-11-02-announcing-envsafe-for-agentic-coding</link>

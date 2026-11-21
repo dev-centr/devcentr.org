@@ -5,7 +5,15 @@
   <link>https://devcentr.org/blog</link>
   <description>Craft, investigations, and orientations from Dev-Centr.</description>
   <language>en-us</language>
-  <lastBuildDate>Thu, 19 Nov 2026 12:00:00 GMT</lastBuildDate>
+  <lastBuildDate>Sat, 21 Nov 2026 12:00:00 GMT</lastBuildDate>
+  <item>
+    <title>When your website talks like an agent</title>
+    <link>https://devcentr.org/blog/2026-11-21-when-your-website-talks-like-an-agent</link>
+    <guid isPermaLink="true">https://devcentr.org/blog/2026-11-21-when-your-website-talks-like-an-agent</guid>
+    <pubDate>Sat, 21 Nov 2026 12:00:00 GMT</pubDate>
+    <description>Consolidating devcentr.app into devcentr.org exposed a quiet failure mode of building a site alongside coding agents: maintainer notes, defensive navigation copy, abrupt jargon drops, and robotic disclaimers leaking straight into public pages.</description>
+    <category>blog</category>
+  </item>
   <item>
     <title>Bend’s Parallel Bet—and What D Should Steal Instead</title>
     <link>https://devcentr.org/blog/2026-11-19-bends-parallel-bet-and-what-d-should-steal-instead</link>

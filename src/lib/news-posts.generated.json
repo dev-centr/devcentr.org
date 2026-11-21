@@ -1,6 +1,23 @@
 {
   "posts": [
     {
+      "slug": "2026-11-21-orchestrator-moves-to-devcentr-org",
+      "title": "Orchestrator moves to devcentr.org",
+      "description": "The flagship Development Orchestration Suite is now named Orchestrator and lives at devcentr.org/orchestrator, with devcentr.app forwarding there and rewritten copy across devcentr.org.",
+      "date": "2026-11-21",
+      "tags": [
+        "news",
+        "Orchestrator",
+        "devcentr.org",
+        "devcentr.app",
+        "release",
+        "site update"
+      ],
+      "html": "<div id=\"preamble\">\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>The flagship Development Orchestration Suite is now named <strong>Orchestrator</strong> and lives at <a href=\"https://devcentr.org/orchestrator\">devcentr.org/orchestrator</a>.\n<code>devcentr.app</code> now forwards directly to <code>/orchestrator</code>, retiring the split between two separate sites and bringing downloads, documentation links, and the rest of the DevCentr ecosystem under one roof.</p>\n</div>\n<div class=\"paragraph\">\n<p>The rename settles a distinction that had been blurry when the desktop application and the organization shared the same word.\nUnder the new framing, the developer is the conductor and <strong>Orchestrator</strong> is the instrument.\nThe desktop suite for Windows, macOS, and Linux handles ecosystem management, visual architecture blueprints, shared AI context, reproducible workspaces, and DevOps as one integrated lifecycle around the code.</p>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"_one_home_two_clear_surfaces\">One home, two clear surfaces</h2>\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>Previously, visitors bouncing between <code>devcentr.org</code> and <code>devcentr.app</code> crossed into two different color palettes, type treatments, and overlapping summaries.\nMoving the product sheet onto <code>devcentr.org/orchestrator</code> unifies the experience under the DevCentr teal identity and Space Grotesk typography, while giving each surface a single job.</p>\n</div>\n<div class=\"paragraph\">\n<p>The root site at <a href=\"https://devcentr.org\">devcentr.org</a> serves as the home base for the wider ecosystem: the orbital system map, toolchain architecture overview, Assets and Apps catalogs, Stack Advisor, Agent skills, Extensions store, writing, and support.\nClicking <strong>Download</strong> on the homepage leads straight to <a href=\"/orchestrator\">/orchestrator</a>, which focuses strictly on the desktop suite&#8217;s installers, portable builds, and five core capabilities without repeating the organization&#8217;s overview.</p>\n</div>\n</div>\n</div>\n<div class=\"sect1\">\n<h2 id=\"_rewritten_copy_across_devcentr_org\">Rewritten copy across devcentr.org</h2>\n<div class=\"sectionbody\">\n<div class=\"paragraph\">\n<p>Alongside the consolidation, public copy across <code>devcentr.org</code> received a full editorial pass.\nEvery major route, including the homepage, <code>/orchestrator</code>, the Assets and Apps catalogs, Stack Advisor, Agent skills, the Extensions store, interactive demos, Help, Status, and Changelog, was rewritten for direct, plain-language clarity.\nCatalog entries and project overviews were updated from shorthand repository notes into readable summaries, stale references to \"DevCentr desktop\" were updated to Orchestrator, and <code>/status</code> added a live probe for <code>/blog/</code>.</p>\n</div>\n<div class=\"paragraph\">\n<p>The editorial audit also surfaced recurring patterns in how agent-assisted drafts leak internal notes, defensive phrasing, and repeated disclaimers into public pages.\nA companion essay on the blog, <a href=\"/blog/2026-11-21-when-your-website-talks-like-an-agent\">When your website talks like an agent</a>, walks through the concrete before-and-after examples from the rewrite.</p>\n</div>\n<div class=\"paragraph\">\n<p>Downloads, capability details, and documentation links for the suite are live now at <a href=\"/orchestrator\">devcentr.org/orchestrator</a>, with guides and architecture references continuing at <a href=\"https://docs.devcentr.org\">docs.devcentr.org</a>.</p>\n</div>\n</div>\n</div>",
+      "source": "authored",
+      "channel": "news"
+    },
+    {
       "slug": "2026-11-02-announcing-envsafe-for-agentic-coding",
       "title": "Announcing envsafe for Agentic coding",
       "titleHtml": "Announcing <code>envsafe</code> for Agentic coding",
