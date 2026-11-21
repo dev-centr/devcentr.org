@@ -16,7 +16,7 @@
 ## Typography
 
 - **Display / body / buttons:** Montserrat
-- **Meta / nav:** IBM Plex Mono (uppercase, tracked)
+- **Meta / nav:** Source Code Pro (uppercase, tracked)
 
 ## Brand mark
 

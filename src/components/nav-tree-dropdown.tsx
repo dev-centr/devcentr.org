@@ -21,6 +21,8 @@ const railClass = "bg-muted-foreground/25 dark:bg-muted-foreground/50";
 const BRANCH_WIDTH_PX = 16;
 /** Short vertical segment connecting the root row to the first branch. */
 const ROOT_STEM_PX = 8;
+/** Matches `py-1.5` on each tree row. The rail has to cross this padding or it breaks between rows. */
+const ROW_PAD = "0.375rem";
 
 export type NavTreeChildLink = {
   href: string;
@@ -37,8 +39,6 @@ function openLink(href: string, external?: boolean) {
 }
 
 function TreeBranchColumn(props: { isFirst: boolean; isLast: boolean; onlyChild: boolean }) {
-  const mid = `${BRANCH_WIDTH_PX / 2}px`;
-
   return (
     <div
       class="relative shrink-0 self-stretch"
@@ -46,48 +46,27 @@ function TreeBranchColumn(props: { isFirst: boolean; isLast: boolean; onlyChild:
       aria-hidden="true"
     >
       <span
-        class={cn("absolute top-1/2 h-px -translate-y-px", railClass)}
-        style={{ left: 0, width: `${BRANCH_WIDTH_PX}px` }}
+        class={cn("absolute top-1/2 h-px -translate-y-1/2", railClass)}
+        style={{ left: "50%", right: 0 }}
       />
-      <ShowTreeVertical isFirst={props.isFirst} isLast={props.isLast} onlyChild={props.onlyChild} mid={mid} />
+      <ShowTreeVertical isFirst={props.isFirst} isLast={props.isLast} onlyChild={props.onlyChild} />
     </div>
   );
 }
 
-function ShowTreeVertical(props: {
-  isFirst: boolean;
-  isLast: boolean;
-  onlyChild: boolean;
-  mid: string;
-}) {
-  if (props.onlyChild) {
-    return (
-      <>
-        <span
-          class={cn("absolute w-px", railClass)}
-          style={{ left: props.mid, top: `-${ROOT_STEM_PX}px`, height: `${ROOT_STEM_PX}px` }}
-        />
-      </>
-    );
-  }
+function ShowTreeVertical(props: { isFirst: boolean; isLast: boolean; onlyChild: boolean }) {
+  const reachesRoot = props.onlyChild || props.isFirst;
+  const stopsAtBranch = props.onlyChild || props.isLast;
 
   return (
-    <>
-      {props.isFirst ? (
-        <span
-          class={cn("absolute w-px", railClass)}
-          style={{ left: props.mid, top: `-${ROOT_STEM_PX}px`, height: `${ROOT_STEM_PX}px` }}
-        />
-      ) : null}
-      <span
-        class={cn("absolute w-px", railClass)}
-        style={{
-          left: props.mid,
-          top: props.isFirst ? "0" : "-1px",
-          bottom: props.isLast ? "50%" : "0",
-        }}
-      />
-    </>
+    <span
+      class={cn("absolute w-px -translate-x-1/2", railClass)}
+      style={{
+        left: "50%",
+        top: reachesRoot ? `-${ROOT_STEM_PX}px` : `calc(-1 * ${ROW_PAD} - 1px)`,
+        bottom: stopsAtBranch ? "50%" : `calc(-1 * ${ROW_PAD} - 1px)`,
+      }}
+    />
   );
 }
 

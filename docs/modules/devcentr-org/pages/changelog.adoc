@@ -2,6 +2,12 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-11-21 - Continuous menu tree and Source Code Pro
+
+* The Assets and Help trees draw one rail through each row's padding, so the vertical stroke stays continuous and meets the center of each branch.
+* Nav and menu labels use Source Code Pro. Capitals stay. Buttons stay Montserrat.
+* Detail: xref:changelog-details/2026-11-21 - menu-tree-and-source-code-pro.adoc[Continuous menu tree and Source Code Pro].
+
 == 2026-11-21 - Sentence-case buttons
 
 * Button labels use Montserrat in sentence case. The uppercase mono treatment is gone from buttons. Nav labels stay IBM Plex Mono.

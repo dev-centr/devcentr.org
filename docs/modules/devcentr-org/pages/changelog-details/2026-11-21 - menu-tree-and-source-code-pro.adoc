@@ -1,0 +1,16 @@
+= 2026-11-21
+
+:hide-page:
+:navtree-parent: changelog.adoc
+:page-audience: maintainers
+:page-usage-context: Changelog detail
+:page-orig-author: Cursor grok-4.7 on behalf of Ryan Johnson
+:page-last-author: name=Ryan Johnson; harness=Cursor; model=grok-4.7
+
+== Continuous menu tree and Source Code Pro
+
+Each nested row drew its own vertical stroke only as tall as the label. The row padding sat between those strokes, so the rail looked broken. The stroke now runs through that padding and stops at the last branch. Each horizontal tick starts on the center of the rail.
+
+Nav and menu labels use Source Code Pro instead of IBM Plex Mono. They stay uppercase. Buttons stay Montserrat in sentence case.
+
+Contact:: DevCentr.org — support@devcentr.org
