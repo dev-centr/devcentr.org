@@ -82,5 +82,5 @@ export const HTML_FALLBACK = {
     "Tools, open standards, and practical guidance for developers who want to own their whole setup from day one to production. Home of Orchestrator.",
   heading: "DevCentr",
   purpose:
-    "Developer ecosystem and support. Own your stack. Grow your craft. Home of Orchestrator, our Development Orchestration Suite.",
+    "Developer ecosystem and support. From first setup to full command. Home of Orchestrator, our Development Orchestration Suite.",
 };

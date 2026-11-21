@@ -17,7 +17,7 @@ export default function Home() {
           </h1>
 
           <p class="rise rise-delay-2 mt-6 max-w-xl font-display text-xl font-medium leading-snug tracking-tight text-foreground/90 md:text-2xl">
-            Own your stack. Grow your craft.
+            From first setup to full command.
           </p>
 
           <p class="rise rise-delay-2 mt-4 max-w-lg text-base leading-relaxed text-muted-foreground md:text-[1.05rem]">
