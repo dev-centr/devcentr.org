@@ -2,6 +2,12 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-11-21 - Button capitals and a sentence-case footer
+
+* Primary, outline, and secondary buttons use the capitals style. The words stay in sentence case.
+* The footer drops that treatment: sentence case, and tracking tightened from `0.22em` to `0.04em`.
+* Detail: xref:changelog-details/2026-11-21 - button-capitals-and-sentence-case-footer.adoc[Button capitals and a sentence-case footer].
+
 == 2026-11-21 - Letter case is a style
 
 * Labels stay in sentence case in the source. Capitals on nav, buttons that use the tracked treatment, and other meta text come from `--text-case`.

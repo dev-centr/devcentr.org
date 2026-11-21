@@ -17,7 +17,7 @@
 
 - **Display / body / buttons:** Space Grotesk
 - **Meta / nav:** Source Code Pro, tracked
-- **Letter case:** source strings stay in sentence case. Capitals on labels, nav, and tracked controls come from `--text-case` (currently `uppercase`) via the `caps` class. Changing that token changes the case without rewriting the words.
+- **Letter case:** source strings stay in sentence case. Primary, outline, and secondary buttons, plus nav and other tracked labels, use the `caps` class (`--text-case`, currently `uppercase`). The footer is the exception: sentence case, with tracking tightened to `0.04em`.
 
 ## Brand mark
 

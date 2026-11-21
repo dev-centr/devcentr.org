@@ -12,7 +12,7 @@ export function SiteFooter() {
           <LogoMark class="size-7 text-primary" />
           <span class="font-display text-sm font-semibold tracking-tight">DevCentr</span>
         </div>
-        <div class="flex flex-wrap gap-x-10 gap-y-6 font-mono text-[10px] caps tracking-[0.22em]">
+        <div class="flex flex-wrap gap-x-10 gap-y-6 font-mono text-[11px] tracking-[0.04em]">
           <nav class="flex flex-col gap-2" aria-label="Product">
             <span class="text-muted-foreground/70">Product</span>
             <a href="/assets" class={footLink}>
