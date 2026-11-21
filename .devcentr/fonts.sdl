@@ -1,0 +1,6 @@
+fonts {
+  preference oss
+  role ui_sans face "montserrat" tier oss install web
+  role display face "montserrat" tier oss install web
+  role ui_mono face "ibm-plex-mono" tier oss install web
+}

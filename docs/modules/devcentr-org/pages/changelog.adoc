@@ -2,6 +2,11 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-11-21 - Montserrat for body and headings
+
+* Body copy and headings use Montserrat. IBM Plex Mono stays on nav labels and buttons. The faces are bundled with the site.
+* Detail: xref:changelog-details/2026-11-21 - montserrat-body-and-headings.adoc[Montserrat for body and headings].
+
 == 2026-11-21 - Rules editor stays in the desktop app
 
 * `/rules` is gone. The site no longer hosts a rules editor. The extensions store stays at `/extensions`, including the rules-template filter. Install in the browser still saves a link, not the template text.

@@ -1,0 +1,16 @@
+= 2026-11-21
+
+:hide-page:
+:navtree-parent: changelog.adoc
+:page-audience: maintainers
+:page-usage-context: Changelog detail
+:page-orig-author: Cursor grok-4.7 on behalf of Ryan Johnson
+:page-last-author: name=Ryan Johnson; harness=Cursor; model=grok-4.7
+
+== Montserrat for body and headings
+
+Paragraphs and headings both used Space Grotesk. The site now sets the sans and the display face to Montserrat. Nav labels, menu items, and button labels stay IBM Plex Mono.
+
+The fonts ship from the site build. The page preloads the Latin Montserrat file and the Latin Plex Mono weights the chrome uses.
+
+Contact:: DevCentr.org — support@devcentr.org

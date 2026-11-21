@@ -15,7 +15,7 @@
 
 ## Typography
 
-- **Display / body:** Space Grotesk
+- **Display / body:** Montserrat
 - **Meta / CTAs:** IBM Plex Mono (uppercase, tracked)
 
 ## Brand mark

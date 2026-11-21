@@ -1,4 +1,6 @@
-@import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import "@fontsource-variable/montserrat/wght.css";
+@import "@fontsource/ibm-plex-mono/latin-400.css";
+@import "@fontsource/ibm-plex-mono/latin-500.css";
 @import "tailwindcss";
 
 @custom-variant dark (
@@ -63,8 +65,8 @@
 }
 
 @theme {
-  --font-sans: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Montserrat Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Montserrat Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
 
   --radius-lg: 0.375rem;
@@ -136,7 +138,7 @@
     --diagram-accent-soft: hsl(173 40% 90%);
     --diagram-ok: hsl(168 55% 32%);
     --diagram-ok-soft: hsl(168 35% 90%);
-    --diagram-font: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+    --diagram-font: "Montserrat Variable", ui-sans-serif, system-ui, sans-serif;
 
     /* Canonical diagram roles consumed by @dev-centr/themed-svg host output. */
     --themed-svg-diagram-color-canvas: hsl(var(--background));
