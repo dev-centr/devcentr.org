@@ -47,6 +47,10 @@ endif::[]
 
 The official organization landing page for link:https://github.com/dev-centr[Dev-Centr].
 
+=== Rules editor
+
+The rules editor at link:https://devcentr.org/rules[/rules] lists rules templates already on this computer. **Install more templates** opens the extensions store at link:https://devcentr.org/extensions[/extensions]. A rules template is one kind of extension. Installing saves a link to the file in its repository, the same idea as `DOCS_TEMPLATE`. The field names match the Antora Supplemental extensions catalog. The desktop app opens that store from its own rules editor.
+
 === Domain
 
 * **URL:** link:https://devcentr.org[devcentr.org]

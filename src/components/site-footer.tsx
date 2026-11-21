@@ -33,6 +33,12 @@ export function SiteFooter() {
             <a href="/skills" class={footLink}>
               Skills
             </a>
+            <a href="/rules" class={footLink}>
+              Rules
+            </a>
+            <a href="/extensions" class={footLink}>
+              Extensions
+            </a>
             <a href="/stack-advisor" class={footLink}>
               Stack Advisor
             </a>

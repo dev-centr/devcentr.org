@@ -3,7 +3,7 @@
   "type": "module",
   "scripts": {
     "dev": "vinxi dev",
-    "prebuild": "node scripts/sync-playtime-diagrams.mjs && node scripts/sync-semantic-diagrams.mjs && node scripts/sync-advisor-catalog.mjs && node scripts/sync-bootstrap-profiles.mjs && node scripts/build-news.mjs",
+    "prebuild": "node scripts/sync-playtime-diagrams.mjs && node scripts/sync-semantic-diagrams.mjs && node scripts/sync-advisor-catalog.mjs && node scripts/sync-bootstrap-profiles.mjs && node scripts/sync-extensions-catalog.mjs && node scripts/build-news.mjs",
     "build": "vinxi build",
     "postbuild": "node scripts/spa-fallback.mjs",
     "start": "vinxi start",
@@ -17,7 +17,8 @@
     "semantic:diagrams:check": "node scripts/sync-semantic-diagrams.mjs",
     "blog:build": "node scripts/build-news.mjs",
     "brand:raster": "node scripts/rasterize-logo.mjs",
-    "predev": "node scripts/build-news.mjs && node scripts/sync-advisor-catalog.mjs && node scripts/sync-bootstrap-profiles.mjs"
+    "predev": "node scripts/build-news.mjs && node scripts/sync-advisor-catalog.mjs && node scripts/sync-bootstrap-profiles.mjs && node scripts/sync-extensions-catalog.mjs",
+    "test:extensions": "node scripts/test-extensions-catalog.mjs"
   },
   "dependencies": {
     "@chenglou/pretext": "^0.0.4",

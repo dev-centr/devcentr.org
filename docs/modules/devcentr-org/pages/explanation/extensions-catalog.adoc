@@ -1,0 +1,29 @@
+= Extensions catalog
+:description: The public extensions store and the rules editor. Rules templates use the DevCentr extensions catalog fields.
+:page-audience: Developers
+:page-usage-context: How the site store relates to the desktop rules editor
+:page-orig-author: Cursor grok-4.7 on behalf of Ryan Johnson
+:page-last-author: Cursor grok-4.7 on behalf of Ryan Johnson
+
+ifndef::page-context-active[]
+[.page-context.page-context-lead]
+****
+Audience role:: {page-audience}
+Original author:: {page-orig-author}
+Latest contributor:: {page-last-author}
+****
+endif::[]
+
+The extensions store at `/extensions` is one catalog with a kind filter. Rules templates are the kind shipped now. Other kinds can be added as more entries with a different `type`. The filter lists the kinds that are actually in the catalog, plus All kinds.
+
+The rules editor at `/rules` is the place that list belongs. The right-hand panel is the templates on this computer. **Install more templates** opens the store. **Install template** on a store row saves `install.pointer` in this browser. It does not save the template text.
+
+The field names are documented with the desktop app: `dev-centr/devcentr`, `docs/modules/specifications/pages/extensions-catalog.adoc`. They are the Antora Supplemental extensions catalog names (`id`, `name`, `description`, `repository`, `version`, `tags`, `type`, `install`).
+
+The default entry is `docs-default`, the file `templates/docs-default.md` in `dev-centr/agent-rules`. The pointer is the same URL orgs record as `DOCS_TEMPLATE`.
+
+The viewer shows the Markdown source and links the file. It does not render AsciiDoc.
+
+A short demo of the same editor is at `/demos/rules-templates`.
+
+Contact:: DevCentr.org — support@devcentr.org

@@ -2,6 +2,11 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-11-21 - Rules templates in the extensions store
+
+* The rules editor (`/rules`) lists template links on this computer. **Install more templates** opens the extensions store (`/extensions`). A rules template is one kind of extension. Install saves the link, not a copy of the file.
+* Detail: xref:changelog-details/2026-11-21 - rules-template-catalog.adoc[Rules template catalog].
+
 == 2026-11-19 - Bend versus D essay
 
 * Add the blog essay link:https://devcentr.org/blog/2026-11-19-bends-parallel-bet-and-what-d-should-steal-instead[Bend's Parallel Bet—and What D Should Steal Instead]: interaction nets, heterogeneous compute, and what D should borrow without becoming Bend.
