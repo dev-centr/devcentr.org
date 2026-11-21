@@ -504,8 +504,7 @@
   }
 
   .diagram-caption {
-    text-transform: var(--text-case);
-    @apply mt-3 text-center font-mono text-[11px] tracking-[0.14em] text-muted-foreground;
+    @apply mt-3 text-center font-sans text-sm leading-relaxed text-muted-foreground;
   }
 
   .solsys {
