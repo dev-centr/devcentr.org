@@ -1,0 +1,14 @@
+= 2026-11-21
+
+:hide-page:
+:navtree-parent: changelog.adoc
+:page-audience: maintainers
+:page-usage-context: Changelog detail
+:page-orig-author: Cursor grok-4.7 on behalf of Ryan Johnson
+:page-last-author: name=Ryan Johnson; harness=Cursor; model=grok-4.7
+
+== Homepage hero copy is centered
+
+The fixed-height hero left the title and buttons toward the top, because the column was only as tall as the copy and the bottom padding was larger than the top. From the medium breakpoint up, that column now fills the 640px hero and centers the copy with equal padding. Narrow screens still size to the copy.
+
+Contact:: DevCentr.org — support@devcentr.org
