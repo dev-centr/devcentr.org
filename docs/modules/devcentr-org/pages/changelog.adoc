@@ -2,6 +2,11 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-11-21 - Button type restored
+
+* Primary and secondary buttons are Space Grotesk again, at 14px, in sentence case, with no extra tracking.
+* Detail: xref:changelog-details/2026-11-21 - button-type-restored.adoc[Button type restored].
+
 == 2026-11-21 - System map under the hero
 
 * The solar system sits directly under the hero, ahead of the toolchain section.
