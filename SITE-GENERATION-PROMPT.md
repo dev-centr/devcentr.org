@@ -30,7 +30,7 @@ Vision and content for the official **DevCentr** organization landing page.
 
 ## Messaging funnel
 
-1. **org hero (path + outcome):** eyebrow “Developer ecosystem and support”; H1 **DevCentr**; slogan “More than a tool. A path to mastery.”; body is the writing, catalogs, and support, and points at Orchestrator — **no DevOps or Dev OS in the hero**; primary CTA “Download” → `/orchestrator`
+1. **org hero (path + outcome):** eyebrow “Developer ecosystem and support”; H1 **DevCentr**; slogan “Own your stack. Grow your craft.”; body is the writing, catalogs, and support, and points at Orchestrator — **no DevOps or Dev OS in the hero**; primary CTA “Download” → `/orchestrator`
 2. **org body:** Four practical ideas including DevOps; light Dev OS association in section lead if useful
 3. **Orchestrator page:** `/orchestrator` — eyebrow “Development Orchestration Suite”, title Orchestrator, “Stop managing tools. Orchestrate ecosystems.” Capabilities stay in the two-column list. The person conducts; the suite orchestrates.
 4. **Quiet claims:** Footer / details only when needed—not competing with the path/outcome hero
