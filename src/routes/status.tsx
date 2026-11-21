@@ -220,7 +220,7 @@ export default function StatusPage() {
           <div class="mt-8 flex flex-wrap items-center gap-4">
             <button
               type="button"
-              class="rounded-md border border-border/70 bg-background/50 px-4 py-2 font-mono text-xs uppercase tracking-[0.16em] text-foreground transition-colors hover:border-primary/40 hover:text-primary disabled:opacity-50"
+              class="rounded-md border border-border/70 bg-background/50 px-4 py-2 font-button text-xs uppercase tracking-[0.16em] text-foreground transition-colors hover:border-primary/40 hover:text-primary disabled:opacity-50"
               disabled={running()}
               onClick={() => void runChecks()}
             >

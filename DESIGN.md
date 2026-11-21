@@ -16,7 +16,8 @@
 ## Typography
 
 - **Display / body:** Montserrat
-- **Meta / CTAs:** IBM Plex Mono (uppercase, tracked)
+- **Meta / nav:** IBM Plex Mono (uppercase, tracked)
+- **Buttons:** JetBrains Mono (uppercase, tracked)
 
 ## Brand mark
 

@@ -2,6 +2,12 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-11-21 - Hero alignment and JetBrains Mono buttons
+
+* The hero wordmark shifts left by a small fraction of its size so the capital D lines up with the lines under it.
+* Button labels use JetBrains Mono. Nav and other small uppercase labels stay IBM Plex Mono.
+* Detail: xref:changelog-details/2026-11-21 - hero-alignment-jetbrains-buttons.adoc[Hero alignment and JetBrains Mono buttons].
+
 == 2026-11-21 - Montserrat for body and headings
 
 * Body copy and headings use Montserrat. IBM Plex Mono stays on nav labels and buttons. The faces are bundled with the site.

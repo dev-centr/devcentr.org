@@ -38,7 +38,7 @@ export default function Home() {
       <section class="relative isolate min-h-[calc(100dvh-5.5rem)] overflow-hidden">
         <HeroOrbit />
         <div class="relative z-10 mx-auto flex max-w-6xl flex-col justify-center px-6 pb-20 pt-10 md:min-h-[calc(100dvh-5.5rem)] md:px-10 md:pb-28 md:pt-6">
-          <h1 class="rise max-w-3xl font-display text-[clamp(3rem,12vw,6.5rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-foreground">
+          <h1 class="rise -ms-[0.08em] max-w-3xl font-display text-[clamp(3rem,12vw,6.5rem)] font-semibold leading-[0.92] tracking-[-0.04em] text-foreground">
             DevCentr
           </h1>
 
@@ -56,7 +56,7 @@ export default function Home() {
             <Button
               as="a"
               size="lg"
-              class="rounded-md font-mono text-xs uppercase tracking-[0.16em]"
+              class="rounded-md font-button text-xs uppercase tracking-[0.16em]"
               href="https://devcentr.app"
             >
               Get App
@@ -65,7 +65,7 @@ export default function Home() {
               as="a"
               size="lg"
               variant="outline"
-              class="rounded-md border-border/80 bg-background/40 font-mono text-xs uppercase tracking-[0.16em] backdrop-blur-sm"
+              class="rounded-md border-border/80 bg-background/40 font-button text-xs uppercase tracking-[0.16em] backdrop-blur-sm"
               href="/stack-advisor"
             >
               Stack Advisor
@@ -74,7 +74,7 @@ export default function Home() {
               as="a"
               size="lg"
               variant="outline"
-              class="rounded-md border-border/80 bg-background/40 font-mono text-xs uppercase tracking-[0.16em] backdrop-blur-sm"
+              class="rounded-md border-border/80 bg-background/40 font-button text-xs uppercase tracking-[0.16em] backdrop-blur-sm"
               href="/skills"
             >
               Agent skills
@@ -83,7 +83,7 @@ export default function Home() {
               as="a"
               size="lg"
               variant="outline"
-              class="rounded-md border-border/80 bg-background/40 font-mono text-xs uppercase tracking-[0.16em] backdrop-blur-sm"
+              class="rounded-md border-border/80 bg-background/40 font-button text-xs uppercase tracking-[0.16em] backdrop-blur-sm"
               href="/extensions?type=rules-template"
             >
               Extensions store
@@ -92,7 +92,7 @@ export default function Home() {
               as="a"
               size="lg"
               variant="outline"
-              class="rounded-md border-border/80 bg-background/40 font-mono text-xs uppercase tracking-[0.16em] backdrop-blur-sm"
+              class="rounded-md border-border/80 bg-background/40 font-button text-xs uppercase tracking-[0.16em] backdrop-blur-sm"
               href="/skills?cat=bootstrap"
             >
               Bootstrap an org

@@ -75,7 +75,7 @@ export default function RestingLanczosDemoPage() {
             href={REPO}
             target="_blank"
             rel="noopener noreferrer"
-            class="rounded-md font-mono text-xs uppercase tracking-[0.16em]"
+            class="rounded-md font-button text-xs uppercase tracking-[0.16em]"
           >
             GitHub repo
           </Button>
@@ -85,7 +85,7 @@ export default function RestingLanczosDemoPage() {
             target="_blank"
             rel="noopener noreferrer"
             variant="ghost"
-            class="rounded-md font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground"
+            class="rounded-md font-button text-xs uppercase tracking-[0.16em] text-muted-foreground"
           >
             Docs note
           </Button>

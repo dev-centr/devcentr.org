@@ -1,6 +1,8 @@
 @import "@fontsource-variable/montserrat/wght.css";
 @import "@fontsource/ibm-plex-mono/latin-400.css";
 @import "@fontsource/ibm-plex-mono/latin-500.css";
+@import "@fontsource/jetbrains-mono/latin-400.css";
+@import "@fontsource/jetbrains-mono/latin-500.css";
 @import "tailwindcss";
 
 @custom-variant dark (
@@ -68,6 +70,7 @@
   --font-sans: "Montserrat Variable", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Montserrat Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+  --font-button: "JetBrains Mono", ui-monospace, monospace;
 
   --radius-lg: 0.375rem;
   --radius-md: 0.25rem;

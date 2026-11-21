@@ -1,0 +1,16 @@
+= 2026-11-21
+
+:hide-page:
+:navtree-parent: changelog.adoc
+:page-audience: maintainers
+:page-usage-context: Changelog detail
+:page-orig-author: Cursor grok-4.7 on behalf of Ryan Johnson
+:page-last-author: name=Ryan Johnson; harness=Cursor; model=grok-4.7
+
+== Hero alignment and JetBrains Mono buttons
+
+Montserrat leaves space to the left of the capital D. At headline size that gap reads as an indent. The hero title uses a start margin of `-0.08em` so the ink of the D meets the paragraph edge.
+
+Button labels now use JetBrains Mono at the same uppercase tracking. The nav and the other small labels stay IBM Plex Mono.
+
+Contact:: DevCentr.org — support@devcentr.org

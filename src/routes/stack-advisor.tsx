@@ -32,7 +32,7 @@ export default function StackAdvisorPage() {
               href={STANDALONE_URL}
               target="_blank"
               rel="noopener noreferrer"
-              class="rounded-md font-mono text-xs uppercase tracking-[0.16em]"
+              class="rounded-md font-button text-xs uppercase tracking-[0.16em]"
             >
               Open standalone app
             </Button>
@@ -40,7 +40,7 @@ export default function StackAdvisorPage() {
               as={A}
               href="/"
               variant="outline"
-              class="rounded-md border-border/70 font-mono text-xs uppercase tracking-[0.16em]"
+              class="rounded-md border-border/70 font-button text-xs uppercase tracking-[0.16em]"
             >
               Home
             </Button>
@@ -49,7 +49,7 @@ export default function StackAdvisorPage() {
               href="https://github.com/dev-centr/stack-advisor"
               target="_blank"
               variant="ghost"
-              class="rounded-md font-mono text-xs uppercase tracking-[0.16em] text-muted-foreground"
+              class="rounded-md font-button text-xs uppercase tracking-[0.16em] text-muted-foreground"
             >
               Definitions + app repo
             </Button>
