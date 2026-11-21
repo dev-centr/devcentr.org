@@ -15,9 +15,10 @@
 
 ## Typography
 
-- **Display / body / buttons:** Space Grotesk
+- **Display / body:** Space Grotesk
+- **Buttons:** Source Code Pro, 12px, tracking `0.16em`. Capitals come from the `caps` class. The words stay in sentence case.
 - **Meta / nav:** Source Code Pro, tracked
-- **Letter case:** source strings stay in sentence case. Nav and other tracked labels use the `caps` class (`--text-case`, currently `uppercase`). Primary, outline, and secondary buttons stay in sentence case at the body size. The footer is sentence case, with tracking at `0.04em`. The Orchestrator download control keeps the mono capitals from the old product page.
+- **Letter case:** source strings stay in sentence case. `--text-case` (currently `uppercase`) is what the `caps` class applies. The footer does not use that class, so it stays in normal case.
 
 ## Brand mark
 

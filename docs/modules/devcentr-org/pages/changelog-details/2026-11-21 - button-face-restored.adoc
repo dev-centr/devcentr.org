@@ -1,0 +1,16 @@
+= 2026-11-21
+
+:hide-page:
+:navtree-parent: changelog.adoc
+:page-audience: maintainers
+:page-usage-context: Changelog detail
+:page-orig-author: Cursor grok-4.7 on behalf of Ryan Johnson
+:page-last-author: name=Ryan Johnson; harness=Cursor; model=grok-4.7
+
+== Button face restored, case still a style
+
+Primary and secondary buttons are Source Code Pro at 12px, with `0.16em` tracking. That is the face and size from before the later type experiments. The mono face is Source Code Pro now, which replaced IBM Plex Mono.
+
+The labels are still stored in sentence case. The `caps` class reads `--text-case`, so the capitals can be turned off without rewriting the words. The footer does not use that class.
+
+Contact:: DevCentr.org — support@devcentr.org

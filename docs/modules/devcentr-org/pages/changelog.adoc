@@ -2,6 +2,12 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-11-21 - Button face restored, case still a style
+
+* Primary and secondary buttons are Source Code Pro at 12px again, with the tracking they had before the type experiments.
+* The words stay in sentence case. Capitals still come from `--text-case`.
+* Detail: xref:changelog-details/2026-11-21 - button-face-restored.adoc[Button face restored, case still a style].
+
 == 2026-11-21 - Button type restored
 
 * Primary and secondary buttons are Space Grotesk again, at 14px, in sentence case, with no extra tracking.
