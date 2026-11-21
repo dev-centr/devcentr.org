@@ -1,0 +1,17 @@
+= 2026-11-21
+
+:hide-page:
+:navtree-parent: changelog.adoc
+:page-audience: maintainers
+:page-usage-context: Changelog detail
+:page-orig-author: Cursor Gemini 4 Neon on behalf of Ryan Johnson
+:page-last-author: name=Ryan Johnson; harness=Cursor; model=gemini-4-neon
+
+== Single toolchain diagram on the homepage
+
+The homepage toolchain section frames the problem around stopping version-manager juggling and renders only `ToolchainArchitectureDiagram`.
+
+* Removed `SiblingOwnershipDiagram` from `src/routes/index.tsx` so the homepage keeps a single architecture visual; sibling org ownership stays in the Toolchain Management Pattern article in General Knowledge (and remains linked below the diagram).
+* Kept `src/components/sibling-ownership-diagram.tsx` and the canonical SVG assets under `public/media/diagrams/` intact for the OpenShellOrg partnership news post and diagram provenance checks.
+
+Contact:: DevCentr.org — support@devcentr.org

@@ -1,5 +1,4 @@
 import { HeroOrbit } from "~/components/hero-orbit";
-import { SiblingOwnershipDiagram } from "~/components/sibling-ownership-diagram";
 import { SiteFooter } from "~/components/site-footer";
 import { SiteMap } from "~/components/site-map";
 import { ToolchainArchitectureDiagram } from "~/components/toolchain-architecture-diagram";
@@ -112,9 +111,6 @@ export default function Home() {
         </div>
         <div class="mt-12">
           <ToolchainArchitectureDiagram />
-        </div>
-        <div class="mt-10">
-          <SiblingOwnershipDiagram />
         </div>
         <p class="mt-8 text-sm text-muted-foreground">
           Read the architecture:{" "}

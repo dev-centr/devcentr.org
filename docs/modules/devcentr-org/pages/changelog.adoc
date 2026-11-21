@@ -2,6 +2,11 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-11-21 - Single toolchain diagram on the homepage
+
+* The homepage toolchain section now shows only the core toolchain architecture diagram, leaving sibling org ownership to the Toolchain Management Pattern article, and frames the section around stopping version-manager juggling.
+* Detail: xref:changelog-details/2026-11-21 - homepage-toolchain-diagram.adoc[Single toolchain diagram on the homepage].
+
 == 2026-11-21 - Site copy redo and launch posts
 
 * Rewrote public copy across the homepage, Orchestrator product sheet, Assets and Apps catalogs, Stack Advisor, Agent skills, Extensions store, demos, Help, Status, and Changelog to remove internal notes, defensive phrasing, and repeated disclaimers.
