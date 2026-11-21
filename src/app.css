@@ -1,4 +1,4 @@
-@import "@fontsource-variable/montserrat/wght.css";
+@import "@fontsource-variable/space-grotesk/wght.css";
 @import "@fontsource/source-code-pro/latin-400.css";
 @import "@fontsource/source-code-pro/latin-500.css";
 @import "tailwindcss";
@@ -65,8 +65,8 @@
 }
 
 @theme {
-  --font-sans: "Montserrat Variable", ui-sans-serif, system-ui, sans-serif;
-  --font-display: "Montserrat Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Space Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
   --font-mono: "Source Code Pro", ui-monospace, monospace;
 
   --radius-lg: 0.375rem;
@@ -138,7 +138,7 @@
     --diagram-accent-soft: hsl(173 40% 90%);
     --diagram-ok: hsl(168 55% 32%);
     --diagram-ok-soft: hsl(168 35% 90%);
-    --diagram-font: "Montserrat Variable", ui-sans-serif, system-ui, sans-serif;
+    --diagram-font: "Space Grotesk Variable", ui-sans-serif, system-ui, sans-serif;
 
     /* Canonical diagram roles consumed by @dev-centr/themed-svg host output. */
     --themed-svg-diagram-color-canvas: hsl(var(--background));

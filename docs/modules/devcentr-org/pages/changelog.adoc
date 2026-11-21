@@ -2,6 +2,13 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-11-21 - Orchestrator on the org site
+
+* The flagship suite lives at `/orchestrator`. The homepage links there with Download, and no longer repeats the suite's capability list.
+* Headlines and body copy use Space Grotesk again. Nav labels stay Source Code Pro. Colors stay the org teal.
+* The Blog planet in the system map has an icon.
+* Detail: xref:changelog-details/2026-11-21 - orchestrator-on-the-org-site.adoc[Orchestrator on the org site].
+
 == 2026-11-21 - Continuous menu tree and Source Code Pro
 
 * The Assets and Help trees draw one rail through each row's padding, so the vertical stroke stays continuous and meets the center of each branch.

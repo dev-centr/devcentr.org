@@ -8,13 +8,13 @@ Vision and content for the official **DevCentr** organization landing page.
 - **Hosting:** GitHub Pages (static SolidStart build; custom domain)
 - **Organization:** DevCentr / Dev-Centr
 - **Identity:** Cultural resource for developers—with a flagship Development Orchestration Suite (not “just a tool”)
-- **Product:** DevCentr at https://devcentr.app — DOS
+- **Product:** Orchestrator at https://devcentr.org/orchestrator — DOS
 - **Mission:** A development path—become a better developer, from 0 to pro
 - **Lab identity:** Lives elsewhere (separate surface), Google-Labs style—not this site’s public title or hero
 
 ## Naming stance
 
-- **Umbrella (product):** Development Orchestration Suite (DOS) on `devcentr.app`
+- **Umbrella (product):** Development Orchestration Suite (DOS), named Orchestrator, at `/orchestrator`
 - **DevOps:** One **facet** of the flagship suite—list it in body pillars; allude in literature; do not brand the org hero as “DevOps GUI”
 - **“Dev OS”:** Optional light mention in body copy for mental association only—never the hero headline
 
@@ -23,16 +23,16 @@ Vision and content for the official **DevCentr** organization landing page.
 - Cool steel neutrals + teal signal — **not** cream/serif/terracotta, **not** purple glass, **not** broadsheet rules
 - Brand-first hero: wordmark **DevCentr** is the hero signal; one headline; one supporting sentence; CTA group; full-bleed orbital visual
 - No cards in the hero; cards only for real interactions
-- Fonts: Montserrat (body, headings, and buttons) + Source Code Pro (nav and meta)
+- Fonts: Space Grotesk (body, headings, and buttons) + Source Code Pro (nav and meta). Org teal, not the old app rose.
 - Motion: orbit / reverse orbit / hub pulse
 - Theme: light/dark with system sync; circular clip from exact center of the mode toggle (`theme-reveal`). State A = load / OS scheme change. A→B: easeOutSine expand; B→A: easeOutSine contract edge→button (forward keyframes, not animation-direction: reverse). No blend modes, masks, or dual overlays.
 - Brand marks: web `LogoMark` uses `currentColor`; print/designer canonical colors in `public/brand/logo.svg` / `logo-canonical.svg`
 
 ## Messaging funnel
 
-1. **org hero (path + outcome):** H1 **DevCentr**; tagline “Developer Ecosystem and Support.”; under-copy opens with “More than just a tool—a path to mastery.” then tools/resources/support + 0→pro + flagship DOS — **no DevOps or Dev OS in the hero**; primary CTA “Get App”
+1. **org hero (path + outcome):** eyebrow “Developer ecosystem and support”; H1 **DevCentr**; slogan “More than a tool. A path to mastery.”; body is the writing, catalogs, and support, and points at Orchestrator — **no DevOps or Dev OS in the hero**; primary CTA “Download” → `/orchestrator`
 2. **org body:** Four practical ideas including DevOps; light Dev OS association in section lead if useful
-3. **app hero (category + mechanism):** Owned by https://devcentr.app — “Stop managing tools. Orchestrate ecosystems.” (DevOps / Dev OS only below the fold)
+3. **Orchestrator page:** `/orchestrator` — eyebrow “Development Orchestration Suite”, title Orchestrator, “Stop managing tools. Orchestrate ecosystems.” Capabilities stay in the two-column list. The person conducts; the suite orchestrates.
 4. **Quiet claims:** Footer / details only when needed—not competing with the path/outcome hero
 
 ## Content pillars
@@ -44,7 +44,7 @@ Vision and content for the official **DevCentr** organization landing page.
 
 ## Links
 
-- https://devcentr.app — flagship product
+- https://devcentr.org/orchestrator — flagship product
 - https://docs.devcentr.org — docs
 - /stack-advisor — stack decision (legacy `/toolchain-browser` and `/toolchain-advisor` redirect)
 - https://github.com/dev-centr — org

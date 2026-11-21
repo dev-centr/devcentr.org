@@ -58,6 +58,13 @@ function Icon(props: { id: string }): JSX.Element {
           <path d="M9.5 13h5M9.5 16h5" />
         </svg>
       );
+    case "blog":
+      return (
+        <svg {...common}>
+          <path d="M14.8 5.2c2.1 2.2 2.4 5.8.3 8.6L8.4 18.6l.3-3.1 6.1-10.3z" />
+          <path d="M8.6 15.5c1.1.3 2.3.2 3.3-.5" />
+        </svg>
+      );
     case "news":
       return (
         <svg {...common}>
@@ -227,14 +234,14 @@ export function SiteMap() {
 
       <a
         class="solsys-star"
-        href="https://devcentr.app"
-        aria-label="DevCentr app"
+        href="/orchestrator"
+        aria-label="DevCentr Orchestrator"
       >
         <span class="solsys-star-halo" aria-hidden="true" />
         <span class="solsys-star-core" />
         <span class="solsys-star-label">
           <span class="solsys-star-name">DevCentr</span>
-          <span class="solsys-star-role">App</span>
+          <span class="solsys-star-role">Orchestrator</span>
         </span>
       </a>
 

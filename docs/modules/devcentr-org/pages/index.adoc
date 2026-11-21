@@ -13,7 +13,7 @@ https://devcentr.org
 
 == What lives here
 
-* **Marketing home** — Developer ecosystem positioning, apps catalogue, and links to the flagship DOS at link:https://devcentr.app[devcentr.app].
+* **Marketing home** — Developer ecosystem positioning, apps catalogue, and the flagship suite at link:https://devcentr.org/orchestrator[Orchestrator].
 * **News** (`/news`) and **Blog** (`/blog`) — News: narrative AsciiDoc from `content/news/`. Blog: essays from `content/blog/`.
 * **Changelog** (`/changelog`) — Mirror index of Antora changelogs from sibling repos (built at CI time).
 * **Community** — Help hub (`/help`), status probes (`/status`), and toolchain surfaces.

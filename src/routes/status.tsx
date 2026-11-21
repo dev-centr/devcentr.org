@@ -59,9 +59,9 @@ const SERVICES: Omit<ProbeResult, "state" | "statusText" | "ms">[] = [
   },
   {
     id: "app",
-    name: "devcentr.app",
-    url: "https://devcentr.app/",
-    detail: "Flagship app homepage",
+    name: "Orchestrator",
+    url: "https://devcentr.org/orchestrator",
+    detail: "Flagship suite",
   },
   {
     id: "github",

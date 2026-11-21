@@ -29,6 +29,7 @@ const STATIC_ROUTES = [
   "/health",
   "/assets",
   "/assets/standards",
+  "/orchestrator",
   "/apps",
   "/apps/products",
   "/apps/services",
@@ -76,10 +77,10 @@ export function getPrerenderRoutes() {
 }
 
 export const HTML_FALLBACK = {
-  title: "DevCentr - Developer Ecosystem and Support",
+  title: "DevCentr — Developer ecosystem and support",
   description:
     "Tools, resources, and support so developers can go from 0 to pro: learn and manage workflows with the Development Orchestration Suite.",
   heading: "DevCentr",
   purpose:
-    "Developer Ecosystem and Support. Tools, resources, and support so developers can go from 0 to pro with the Development Orchestration Suite.",
+    "Developer ecosystem and support. More than a tool. A path to mastery. The suite that runs the environments is Orchestrator.",
 };

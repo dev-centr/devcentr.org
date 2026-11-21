@@ -2,7 +2,7 @@
 
 ## Direction
 
-**Place for developers / development path.** Cool steel neutrals, teal signal color, geometric type. Reads as home base for craft—not a newspaper, not cream-and-serif, not purple glass. Product category (DOS) lives on `devcentr.app`; lab identity lives elsewhere.
+**Place for developers / development path.** Cool steel neutrals, teal signal color, geometric type. Reads as home base for craft—not a newspaper, not cream-and-serif, not purple glass. The flagship suite is Orchestrator at `/orchestrator`. Lab identity lives elsewhere.
 
 ## Color
 
@@ -15,7 +15,7 @@
 
 ## Typography
 
-- **Display / body / buttons:** Montserrat
+- **Display / body / buttons:** Space Grotesk
 - **Meta / nav:** Source Code Pro (uppercase, tracked)
 
 ## Brand mark

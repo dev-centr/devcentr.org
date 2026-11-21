@@ -48,10 +48,9 @@ export const products: CatalogItem[] = [
   },
   {
     id: "devcentr",
-    name: "DevCentr",
-    summary: "Flagship Development Orchestration Suite (DOS).",
-    href: "https://devcentr.app",
-    external: true,
+    name: "Orchestrator",
+    summary: "Flagship Development Orchestration Suite. You conduct. It orchestrates.",
+    href: "/orchestrator",
     logo: "/brand/logo-on-dark.svg",
   },
   {

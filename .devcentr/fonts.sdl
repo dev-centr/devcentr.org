@@ -1,6 +1,6 @@
 fonts {
   preference oss
-  role ui_sans face "montserrat" tier oss install web
-  role display face "montserrat" tier oss install web
+  role ui_sans face "space-grotesk" tier oss install web
+  role display face "space-grotesk" tier oss install web
   role ui_mono face "source-code-pro" tier oss install web
 }
