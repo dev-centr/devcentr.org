@@ -1,0 +1,16 @@
+= 2026-11-21
+
+:hide-page:
+:navtree-parent: changelog.adoc
+:page-audience: maintainers
+:page-usage-context: Changelog detail
+:page-orig-author: name=Ryan Johnson; harness=Cursor; model=grok-4.7
+:page-last-author: name=Ryan Johnson; harness=Cursor; model=grok-4.7
+
+== Download actions rebalanced
+
+The homepage hero listed Download as the filled primary button, ahead of Stack Advisor, Agent skills, the extensions store, and Bootstrap an org. Download now uses the existing `secondary` button variant (`caps`, mono, 12px) so none of those actions reads as the main one. The label is unchanged.
+
+On `/orchestrator`, Download stays the primary control. Read the docs stays the secondary link beside it. They share one wrapping row with normal button spacing (`gap-3`). The platform line and platform menu sit under that pair, so the wider menu no longer pushes Read the docs away from Download.
+
+Contact:: DevCentr.org — support@devcentr.org

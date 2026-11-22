@@ -1,4 +1,4 @@
-import { For, Show, createSignal, onMount } from "solid-js";
+import { For, Show, createSignal, onMount, type JSX } from "solid-js";
 
 import {
   DISTROS,
@@ -30,6 +30,8 @@ type Props = {
   portables?: Partial<Record<DistroId, string>>;
   owner?: string;
   repo?: string;
+  /** Sits on the same row as the primary control. Platform controls stay below that row. */
+  trailing?: JSX.Element;
 };
 
 export function DownloadCta(props: Props) {
@@ -101,20 +103,23 @@ export function DownloadCta(props: Props) {
 
   return (
     <div id={props.anchor} class={`flex flex-col items-start gap-2 ${props.class ?? ""}`}>
-      <Show
-        when={installerHref()}
-        fallback={
-          <button type="button" class={btnClass} disabled>
-            {props.label}
-          </button>
-        }
-      >
-        {(url) => (
-          <a class={btnClass} href={url()} rel="noopener noreferrer">
-            {props.label}
-          </a>
-        )}
-      </Show>
+      <div class="flex flex-wrap items-center gap-3">
+        <Show
+          when={installerHref()}
+          fallback={
+            <button type="button" class={btnClass} disabled>
+              {props.label}
+            </button>
+          }
+        >
+          {(url) => (
+            <a class={btnClass} href={url()} rel="noopener noreferrer">
+              {props.label}
+            </a>
+          )}
+        </Show>
+        {props.trailing}
+      </div>
 
       <p class="text-[11px] leading-snug text-muted-foreground">{detectedLine()}</p>
 

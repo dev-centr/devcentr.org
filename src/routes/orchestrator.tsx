@@ -54,7 +54,7 @@ export default function Orchestrator() {
             One desktop suite for Windows, macOS, and Linux. You conduct, and Orchestrator handles the
             environments, toolchains, workspaces, AI context, and ops around your code.
           </p>
-          <div class="mt-10 flex flex-col gap-6 sm:flex-row sm:flex-wrap sm:items-start">
+          <div class="mt-10">
             <DownloadCta
               label="Download"
               owner="dev-centr"
@@ -62,13 +62,15 @@ export default function Orchestrator() {
               downloads={DEVCENTR_DOWNLOADS}
               portables={DEVCENTR_PORTABLE}
               anchor="download"
+              trailing={
+                <a
+                  href="https://docs.devcentr.org"
+                  class="inline-flex h-11 items-center justify-center rounded-md border border-border/80 bg-background/40 px-8 font-mono text-xs font-medium caps tracking-[0.16em] text-foreground backdrop-blur-sm transition-colors hover:bg-accent hover:text-accent-foreground"
+                >
+                  Read the docs
+                </a>
+              }
             />
-            <a
-              href="https://docs.devcentr.org"
-              class="inline-flex h-11 items-center justify-center rounded-md border border-border/80 bg-background/40 px-8 font-mono text-xs font-medium caps tracking-[0.16em] text-foreground backdrop-blur-sm transition-colors hover:bg-accent hover:text-accent-foreground"
-            >
-              Read the docs
-            </a>
           </div>
         </div>
       </section>

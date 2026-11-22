@@ -5,6 +5,12 @@ Timeline of notable documentation and site changes in the devcentr.org repositor
 
 == 2026-11-21
 
+=== Download actions rebalanced
+
+* The homepage Download button uses the secondary style, so it sits with the other hero actions instead of reading as the main one.
+* On Orchestrator, Download stays the primary button and sits next to Read the docs. The platform picker stays under that pair and no longer opens a gap between them.
+* Detail: xref:changelog-details/2026-11-21 - download-actions-rebalanced.adoc[Download actions rebalanced].
+
 === Hero orbit sits right of center
 
 * The rotating orbit in the homepage hero is placed on the section, with its center 300px to the right of the page midline, so a wide window or a zoom-out keeps it with the page.

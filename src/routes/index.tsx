@@ -30,7 +30,7 @@ export default function Home() {
           </p>
 
           <div class="rise rise-delay-3 mt-10 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
-            <Button as="a" size="lg" class="rounded-md" href="/orchestrator">
+            <Button as="a" size="lg" variant="secondary" class="rounded-md" href="/orchestrator">
               Download
             </Button>
             <Button
