@@ -1,0 +1,10 @@
+= 2026-11-21
+:navtitle: 2026-11-21 Hero wordmark alignment
+
+== Hero wordmark ink alignment
+
+Space Grotesk Variable leaves visible space to the left of the capital D at display sizes. The homepage H1 applies `-ms-[0.04em]` so the ink edge of the D aligns with the paragraphs and buttons below.
+
+== Source
+
+* `src/routes/index.tsx` — H1 classes on the DevCentr title.
