@@ -14,15 +14,24 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 
 == Public routes
 
+The canonical prerender and sitemap list lives in `scripts/site-routes.mjs` (`getPrerenderRoutes()` merges static paths with generated news, blog, and idea slugs).
+`/health` is included for probes but omitted from the public sitemap.
+
 [cols="1,2",options="header"]
 |===
 | Path | Purpose
 
 | `/`
-| Landing — hero, ecosystem copy, toolchain diagram, apps teaser
+| Landing — fixed-height hero (`md:min-h-[640px]`), `HeroOrbit` anchored 300px right of center, quote block, solar system map (`SiteMap`), single toolchain architecture diagram
 
-| `/news`, `/blog`
-| News index and posts (`/blog` is an SEO alias)
+| `/orchestrator`
+| Orchestrator product sheet — download control, capabilities, platform picker (`src/routes/orchestrator/`)
+
+| `/news`, `/news/:slug`
+| Outward news index and posts (`content/news/`)
+
+| `/blog`, `/blog/:slug`
+| Inward blog index and essays (`content/blog/`) — separate channel from News, with its own feeds under `public/blog/`
 
 | `/changelog`
 | Changelog mirror from Antora sibling repos
@@ -45,9 +54,28 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 | `/skills`
 | Agent skills catalog (bootstrap-org SDL plus shipped skill inventory). `/templates` redirects here.
 
+| `/extensions`
+| Extensions store with kind filter (rules templates today). Browser install saves `install.pointer` only.
+
+| `/demos`, `/demos/rules-templates`
+| Demo index and a static picture of the desktop Rules panel (not an editor)
+
+| `/assets`, `/assets/standards`
+| Assets hub and standards listing
+
+| `/themed-svg-studio`
+| Themed SVG studio surface
+
 | `/resting-lanczos`
 | Image resampling comparison demo. Access trail is Apps / Products / resting-lanczos; “Tooling · Image pipeline” is a topic tag, not a crumb.
 |===
+
+There is no `/rules` route on this site. Rules editing is the Orchestrator desktop app; see xref:explanation/extensions-catalog.adoc[Extensions catalog].
+
+== Typography and layout tokens
+
+Visual direction, color tokens, and type roles are summarized in `DESIGN.md` at the repository root (Space Grotesk for display and body, Source Code Pro for chrome and buttons, `--text-case` for tracked capitals).
+Letter case in source strings stays sentence case; the footer and diagram captions do not use the `caps` treatment.
 
 Catalogue and nested article pages (`PageTrail`) show the access path as `Section / Child / Current`. Topic tags stay *below* that trail, in the eyebrow style. Outbound links (repo, docs) sit after the intro, not in the trail.
 

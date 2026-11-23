@@ -40,6 +40,9 @@ https://devcentr.org
 | Agent skills catalog (`/skills`; `/templates` redirects)
 | xref:explanation/bootstrap-templates.adoc[Agent skills]
 
+| Extensions store, rules-template filter, desktop vs browser install
+| xref:explanation/extensions-catalog.adoc[Extensions catalog]
+
 | `pnpm dev`, sibling repos, troubleshooting
 | xref:how-to/local-development.adoc[Local development]
 

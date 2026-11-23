@@ -1,0 +1,13 @@
+= 2026-11-23
+:navtitle: 2026-11-23 Channel and route sync
+
+== Antora docs match Orchestrator routes and channels
+
+After the November orchestration and copy refresh, several Antora pages still described `/blog` as a News alias and omitted first-class routes such as `/orchestrator` and `/extensions`.
+
+== Changed
+
+* `explanation/site-architecture.adoc` — expanded the public route table to match `scripts/site-routes.mjs`, documented the homepage hero (`HeroOrbit`, fixed height), pointed typography at `DESIGN.md`, and noted that `/rules` is not on this site.
+* `explanation/news-and-changelog.adoc` — added a Blog authoring section, corrected the DevCentr changelog ingest path to `modules/devcentr/pages/changelog.adoc`, and clarified feed regeneration for both channels.
+* `index.adoc` — documentation map links to the Extensions catalog explanation.
+* `changelog-details/2026-08-16 - home-solar-system.adoc` — dwarf link text now points at `/orchestrator` instead of `devcentr.app`.

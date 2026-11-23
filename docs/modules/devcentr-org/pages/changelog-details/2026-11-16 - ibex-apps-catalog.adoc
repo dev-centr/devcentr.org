@@ -1,0 +1,11 @@
+= 2026-11-16
+:navtitle: 2026-11-16 Ibex on the apps catalog
+
+== Ibex on the apps catalog
+
+The Products catalogue gained a card for **Ibex** — installer projects that update PATH in place, shipped from the easy-installer repository.
+
+== Changed
+
+* `src/lib/apps-catalog.ts` — Products entry with docs URL `https://docs.devcentr.org/tools/ibex/`.
+* `src/routes/apps/products.tsx` — renders the catalog card like other product tools.

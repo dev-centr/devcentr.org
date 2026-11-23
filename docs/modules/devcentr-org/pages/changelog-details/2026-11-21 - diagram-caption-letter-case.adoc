@@ -1,0 +1,10 @@
+= 2026-11-21
+:navtitle: 2026-11-21 Diagram caption letter case
+
+== Diagram captions in normal case
+
+Architecture diagrams on the homepage and article pages use `--diagram-font` (Space Grotesk Variable). Caption text is authored in sentence case and is not forced through `--text-case`, so labels read as prose rather than tracked nav chrome.
+
+== Source
+
+* `src/app.css` — `--diagram-font` and caption selectors without the `caps` class.

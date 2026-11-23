@@ -3,6 +3,29 @@
 
 Timeline of notable documentation and site changes in the devcentr.org repository.
 
+== 2026-11-23
+
+=== Antora docs match Orchestrator routes and channels
+
+* xref:explanation/site-architecture.adoc[Site architecture] lists `/orchestrator`, extensions, demos, assets, and documents hero layout; News and Blog are separate channels.
+* xref:explanation/news-and-changelog.adoc[News & changelog pipeline] documents the Blog channel and the DevCentr changelog path under `modules/devcentr/pages/`.
+* Detail: xref:changelog-details/2026-11-23 - antora-channel-and-route-sync.adoc[Antora docs match Orchestrator routes and channels].
+
+=== Homepage tagline
+
+* Hero supporting line: *From first setup to full command.*
+* Detail: xref:changelog-details/2026-11-21 - homepage-tagline.adoc[Homepage tagline].
+
+=== Hero wordmark alignment
+
+* The `DevCentr` H1 uses a small negative start margin so the capital D lines up with the body copy under Space Grotesk Variable.
+* Detail: xref:changelog-details/2026-11-21 - hero-wordmark-ink-alignment.adoc[Hero wordmark ink alignment].
+
+=== Diagram captions in normal case
+
+* Inline SVG diagram captions use Space Grotesk without the tracked capitals treatment.
+* Detail: xref:changelog-details/2026-11-21 - diagram-caption-letter-case.adoc[Diagram captions in normal case].
+
 == 2026-11-21
 
 === Download actions rebalanced
@@ -127,6 +150,7 @@ Timeline of notable documentation and site changes in the devcentr.org repositor
 == 2026-11-16 - Ibex on the apps catalog
 
 * Products lists **Ibex**: installer projects that update PATH in place, from the easy-installer repo. The card links to link:https://docs.devcentr.org/tools/ibex/[the Ibex docs].
+* Detail: xref:changelog-details/2026-11-16 - ibex-apps-catalog.adoc[Ibex on the apps catalog].
 
 == 2026-11-08 - The future of the software industry
 

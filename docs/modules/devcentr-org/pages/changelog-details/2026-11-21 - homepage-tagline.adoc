@@ -1,0 +1,10 @@
+= 2026-11-21
+:navtitle: 2026-11-21 Homepage tagline
+
+== Homepage tagline
+
+The hero supporting line under the DevCentr wordmark is *From first setup to full command.* It replaces an earlier iteration (*Own your stack. Grow your craft.*) after the Orchestrator copy pass.
+
+== Source
+
+* `src/routes/index.tsx` — `font-display` paragraph under the H1.
