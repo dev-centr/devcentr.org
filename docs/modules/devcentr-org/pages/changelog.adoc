@@ -9,6 +9,8 @@ Timeline of notable documentation and site changes in the devcentr.org repositor
 
 * xref:explanation/site-architecture.adoc[Site architecture] lists `/orchestrator`, extensions, demos, assets, and documents hero layout; News and Blog are separate channels.
 * xref:explanation/news-and-changelog.adoc[News & changelog pipeline] documents the Blog channel and the DevCentr changelog path under `modules/devcentr/pages/`.
+* xref:how-to/local-development.adoc[Local development] lists blog output in `pnpm news:build` and troubleshooting.
+* `scripts/site-routes.mjs` includes `/resting-lanczos` in the prerender/sitemap list.
 * Detail: xref:changelog-details/2026-11-23 - antora-channel-and-route-sync.adoc[Antora docs match Orchestrator routes and channels].
 
 === Homepage tagline

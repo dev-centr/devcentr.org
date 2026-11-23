@@ -36,6 +36,7 @@ const STATIC_ROUTES = [
   "/apps/standards",
   "/ideas/equivalence-engine",
   "/ideas/uniconfig",
+  "/resting-lanczos",
 ];
 
 function collectSlugs(generatedRel, contentRel) {

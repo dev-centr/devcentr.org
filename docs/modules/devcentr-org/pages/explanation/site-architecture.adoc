@@ -9,7 +9,7 @@ devcentr.org is a **static** SolidStart (Vinxi) application.
 
 * **SolidStart + Vinxi** — file-based routes under `src/routes/`
 * **Tailwind CSS v4** — `src/app.css`, Kobalte primitives for accessible UI
-* **AsciiDoc** — news posts (`content/news/`) compiled with `@asciidoctor/core` at build time
+* **AsciiDoc** — news and blog posts (`content/news/`, `content/blog/`) compiled with `@asciidoctor/core` at build time
 * **GitHub Actions** — `.github/workflows/ci.yml` builds and deploys on push to `main`
 
 == Public routes
