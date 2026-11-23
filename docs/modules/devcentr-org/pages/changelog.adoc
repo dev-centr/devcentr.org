@@ -177,7 +177,7 @@ Timeline of notable documentation and site changes in the devcentr.org repositor
 == 2026-09-10 — Public crawlability
 
 * Publish `/robots.txt` and generate `/sitemap.xml` from the shared prerender route list in postbuild (`spa-fallback`).
-* Sitemap omits `/health`, `/status`, and `/blog` aliases of `/news`.
+* Sitemap omits only ops probes (`/health`, `/status`) from `write-crawlability.mjs`; News and Blog routes are indexed separately.
 
 == 2026-09-09 — Themed SVG Studio site concept
 

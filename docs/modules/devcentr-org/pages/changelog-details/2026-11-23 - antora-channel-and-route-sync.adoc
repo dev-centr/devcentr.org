@@ -11,3 +11,4 @@ After the November orchestration and copy refresh, several Antora pages still de
 * `explanation/news-and-changelog.adoc` — added a Blog authoring section, corrected the DevCentr changelog ingest path to `modules/devcentr/pages/changelog.adoc`, and clarified feed regeneration for both channels.
 * `index.adoc` — documentation map links to the Extensions catalog explanation.
 * `changelog-details/2026-08-16 - home-solar-system.adoc` — dwarf link text now points at `/orchestrator` instead of `devcentr.app`.
+* `changelog.adoc` (2026-09-10 crawlability note) — sitemap wording updated so Blog is not described as a News alias.
